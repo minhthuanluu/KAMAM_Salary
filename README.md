@@ -12,6 +12,7 @@
 #               Recovery: Khôi phục mật khẩu
 #               Signin: Đăng nhập
 #           EmpHome: các màn hình của cấp Nhân viên
+#               Dashboard: màn hình Home
 #               PlanFollow: theo dõi thực hiện kế hoạch
 #                   Dashboard: màn hình chính Theo dõi thực hiện kế hoạch
 #                   ExecutePlan: Thực hiện kế hoạch
@@ -59,4 +60,3 @@
 #           Fonts.js: hàm responsive font & size các đối tượng trong View
 #           Dimension.js: screen width / screen height / statusbar height
 #           Colors.js: tất cả các mã màu cơ bản sử dụng trong prj
-#       
