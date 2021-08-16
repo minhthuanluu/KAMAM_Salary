@@ -1,12 +1,15 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView,Text } from 'react-native';
 
-const index=(props)=> {
+const TotalPostpaid=(props)=> {
     return (
         <SafeAreaView>
+            <Text>
+            Tổng thuê bao trả sau
+            </Text>
             
         </SafeAreaView>
     );
 }
 
-export default index;
+export default TotalPostpaid;

@@ -1,12 +1,15 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView,Text } from 'react-native';
 
-const index=(props)=> {
+const SubscriberQuality=(props)=> {
     return (
         <SafeAreaView>
+            <Text>
+            Chất lượng thuê bao
+            </Text>
             
         </SafeAreaView>
     );
 }
 
-export default index;
+export default SubscriberQuality;

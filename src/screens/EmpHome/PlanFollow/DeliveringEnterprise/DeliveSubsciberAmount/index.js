@@ -1,12 +1,15 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView,Text } from 'react-native';
 
-const index=(props)=> {
+const DeliveSubsciberAmount=(props)=> {
     return (
         <SafeAreaView>
+            <Text>
+            Số lượng TB trả sau thuộc tập DN đang giao
+            </Text>
             
         </SafeAreaView>
     );
 }
 
-export default index;
+export default DeliveSubsciberAmount;

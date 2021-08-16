@@ -1,12 +1,15 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView,Text } from 'react-native';
 
-const index=(props)=> {
+const AVGIncomeDashboard=(props)=> {
     return (
         <SafeAreaView>
+            <Text>
+            màn hình chính Bình quân thu nhập
+            </Text>
             
         </SafeAreaView>
     );
 }
 
-export default index;
+export default AVGIncomeDashboard;

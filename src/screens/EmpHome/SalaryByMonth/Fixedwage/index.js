@@ -1,12 +1,15 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView,Text } from 'react-native';
 
-const index=(props)=> {
+const Fixedwage=(props)=> {
     return (
         <SafeAreaView>
+            <Text>
+            Lương cố định
+            </Text>
             
         </SafeAreaView>
     );
 }
 
-export default index;
+export default Fixedwage;

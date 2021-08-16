@@ -1,12 +1,14 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView,Text } from 'react-native';
 
-const index=(props)=> {
+const UpdateProfile=(props)=> {
     return (
         <SafeAreaView>
-            
+            <Text>
+            UpdateProfile
+            </Text>
         </SafeAreaView>
     );
 }
 
-export default index;
+export default UpdateProfile;

@@ -1,12 +1,15 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView,Text } from 'react-native';
 
-const index=(props)=> {
+const KPIMonthReport = (props) => {
     return (
         <SafeAreaView>
-            
+            <Text>
+            Báo cáo KPI tháng
+            </Text>
+           
         </SafeAreaView>
     );
 }
 
-export default index;
+export default KPIMonthReport;

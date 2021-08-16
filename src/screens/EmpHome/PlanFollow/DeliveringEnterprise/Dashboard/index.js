@@ -1,12 +1,15 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView,Text } from 'react-native';
 
-const index=(props)=> {
+const DeliveringEnterpriseDashboard=(props)=> {
     return (
         <SafeAreaView>
+            <Text>
+            màn hình chính danh sách DN đang giao
+            </Text>
             
         </SafeAreaView>
     );
 }
 
-export default index;
+export default DeliveringEnterpriseDashboard;

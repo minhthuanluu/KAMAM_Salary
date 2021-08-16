@@ -1,12 +1,15 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView,Text } from 'react-native';
 
-const index=(props)=> {
+const ExecutePlanDashboard = (props) => {
     return (
         <SafeAreaView>
+            <Text>
+            màn hình chính Thực hiện kế hoạch
+            </Text>
             
         </SafeAreaView>
     );
 }
 
-export default index;
+export default ExecutePlanDashboard;

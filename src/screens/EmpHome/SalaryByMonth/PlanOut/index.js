@@ -1,12 +1,15 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView,Text } from 'react-native';
 
-const index=(props)=> {
+const PlanOut=(props)=> {
     return (
         <SafeAreaView>
+            <Text>
+            Vượt kế hoạch
+            </Text>
             
         </SafeAreaView>
     );
 }
 
-export default index;
+export default PlanOut;

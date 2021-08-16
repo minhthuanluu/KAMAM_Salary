@@ -1,12 +1,15 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView,Text } from 'react-native';
 
-const index=(props)=> {
+const GrowthEnterprise=(props)=> {
     return (
         <SafeAreaView>
+            <Text>
+            Doanh nghiệp phát triển mới
+            </Text>
             
         </SafeAreaView>
     );
 }
 
-export default index;
+export default GrowthEnterprise;

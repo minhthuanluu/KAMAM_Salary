@@ -1,12 +1,15 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView,Text } from 'react-native';
 
-const index=(props)=> {
+const Sanctions=(props)=> {
     return (
         <SafeAreaView>
+            <Text>
+            Chế tài vi phạm
+            </Text>
             
         </SafeAreaView>
     );
 }
 
-export default index;
+export default Sanctions;

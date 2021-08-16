@@ -1,12 +1,15 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, Text } from 'react-native';
 
-const index=(props)=> {
+const SubFluct = (props) => {
     return (
         <SafeAreaView>
-            
+            <Text>
+                Biến động thuê bao
+            </Text>
+
         </SafeAreaView>
     );
 }
 
-export default index;
+export default SubFluct;

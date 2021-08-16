@@ -1,12 +1,15 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView,Text } from 'react-native';
 
-const index=(props)=> {
+const PlanOutOutcome=(props)=> {
     return (
         <SafeAreaView>
+            <Text>
+            Tổng chi thưởng vượt kế hoạch
+            </Text>
             
         </SafeAreaView>
     );
 }
 
-export default index;
+export default PlanOutOutcome;
