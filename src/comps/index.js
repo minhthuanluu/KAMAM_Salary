@@ -8,6 +8,7 @@ import DateView from "./dateview"
 import DatePicker from "./datepicker"
 import TextAmount from "./textAmount";
 import ListItem from "./listItem";
+import GenaralItem from "./genaralitem";
 
 export {
     Button,
@@ -19,5 +20,6 @@ export {
     DateView,
     DatePicker,
     TextAmount,
-    ListItem
+    ListItem,
+    GenaralItem
 }

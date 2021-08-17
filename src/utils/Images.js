@@ -56,4 +56,9 @@ export const images = {
     deliveenterpriseamount: require("../assets/deliveenterpriseamount.png"),
     delivesubsciberamount: require("../assets/delivesubsciberamount.png"),
     KAMPT: require("../assets/KAMPT.png"),
+
+    AM_KAM: require("../assets/AM_KAM.png"),
+    branch: require("../assets/branch.png"),
+    company: require("../assets/company.png"),
+    store: require("../assets/store.png"),
 }

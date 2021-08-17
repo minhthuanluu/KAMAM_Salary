@@ -1,16 +1,9 @@
 import { StyleSheet } from "react-native";
-import { fontScale } from "../../../../utils/Fonts";
-import { colors } from "../../../../utils/Colors";
+import { colors } from "../../utils/Colors";
+import { width } from "../../utils/Dimenssion";
+import { fontScale } from "../../utils/Fonts";
 
 export const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: colors.primary
-    },
-    body: {
-        flex:1,
-        backgroundColor:colors.white
-    },
     bg: {
         backgroundColor: colors.white,
         borderRadius: fontScale(15),
@@ -24,6 +17,11 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        marginHorizontal:20
+        marginTop:fontScale(30),
+        marginLeft:fontScale(20),
+        marginRight:fontScale(20),
+        marginBottom:fontScale(20)
+
+        
       },
 })
