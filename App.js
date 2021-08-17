@@ -108,6 +108,14 @@ const EMPStack = () => {
       <Stack.Screen name="EmpDashboardScreen" component={EmpDashboardScreen} />
 
       <Stack.Screen name="PlanFollowDashboard" component={PlanFollowDashboardScreen} />
+      <Stack.Screen name="TotalPostpaid" component={TotalPostpaidScreen} />
+      <Stack.Screen name="QualitySub" component={QualitySubScreen} />
+      <Stack.Screen name="IncurredRevenue" component={IncurredRevenueScreen} />
+      <Stack.Screen name="GrowthEnterprise" component={GrowthEnterpriseScreen} />
+      <Stack.Screen name="TelecommunicationRevenue" component={TelecommunicationRevenueScreen} />
+      <Stack.Screen name="RetailRevenue" component={RetailRevenueScreen} />
+      <Stack.Screen name="Change4Gsim" component={Change4GsimScreen} />
+
       <Stack.Screen name="ExecutePlanDashboard" component={ExecutePlanDashboardScreen} />
       <Stack.Screen name="DeliveringEnterprise" component={DeliveringEnterpriseDashboardScreen} />
       <Stack.Screen name="ProductivitySub" component={ProductivitySubScreen} />

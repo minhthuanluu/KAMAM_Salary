@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView,Text } from 'react-native';
+import { Header } from '../../../../../comps';
 
 const RetailRevenue=(props)=> {
     return (
         <SafeAreaView>
-            <Text>
-            Doanh thu bán lẻ
-            </Text>
+            <Header title="Doanh thu bán lẻ" />
             
         </SafeAreaView>
     );

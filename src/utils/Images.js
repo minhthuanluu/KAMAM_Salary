@@ -45,4 +45,12 @@ export const images = {
     totalKPI: require("../assets/totalKPI.png"),
     totalOTarget: require("../assets/totalOTarget.png"),
 
+    change4Gsim: require("../assets/change4Gsim.png"),
+    growthenterprise: require("../assets/growthenterprise.png"),
+    incurredrevenue: require("../assets/incurredrevenue.png"),
+    qualitysub: require("../assets/qualitysub.png"),
+    retailrevenue: require("../assets/retailrevenue.png"),
+    telecommunicationrevenue: require("../assets/telecommunicationrevenue.png"),
+    totalpostpaid: require("../assets/totalpostpaid.png"),
+
 }

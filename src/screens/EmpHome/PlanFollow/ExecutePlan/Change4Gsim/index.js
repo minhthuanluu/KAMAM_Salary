@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView,Text } from 'react-native';
+import { Header } from '../../../../../comps';
 
 const Change4Gsim = (props) => {
     return (
         <SafeAreaView>
-            <Text>
-            thay sim 4G
-            </Text>
+            <Header title="Thay sim 4G" />
             
         </SafeAreaView>
     );
