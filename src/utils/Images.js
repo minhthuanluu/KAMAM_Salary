@@ -40,4 +40,9 @@ export const images = {
     incomefluct: require("../assets/incomefluct.png"),
     subfluct: require("../assets/subfluct.png"),
 
+    growthTotal: require("../assets/growthTotal.png"),
+    newSubTotal: require("../assets/newSubTotal.png"),
+    totalKPI: require("../assets/totalKPI.png"),
+    totalOTarget: require("../assets/totalOTarget.png"),
+
 }
