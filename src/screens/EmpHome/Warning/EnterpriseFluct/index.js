@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView,Text } from 'react-native';
+import { Header } from '../../../../comps';
 
 const EnterpriseFluct=(props)=> {
     return (
         <SafeAreaView>
-            <Text>
-            Biến động DN trong tập DS giao
-            </Text>
+            <Header title="Biến động DN trong tập DS giao" />
             
         </SafeAreaView>
     );

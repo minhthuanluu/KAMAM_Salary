@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView,Text } from 'react-native';
+import { Header } from '../../../../comps';
 
 const IncomeFluct=(props)=> {
     return (
         <SafeAreaView>
-            <Text>
-            Biến động doanh thu
-            </Text>
+            <Header title="Biến động doanh thu" />
              
         </SafeAreaView>
     );

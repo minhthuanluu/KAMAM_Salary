@@ -36,4 +36,8 @@ export const images = {
     totalDebtNinety: require("../assets/ic_totalDebtNinety.png"),
     totalRevenue: require("../assets/ic_totalRevenue.png"),
 
+    enterprisefluct: require("../assets/enterprisefluct.png"),
+    incomefluct: require("../assets/incomefluct.png"),
+    subfluct: require("../assets/subfluct.png"),
+
 }

@@ -16,8 +16,7 @@ const SubscriberQuality = (props) => {
     const navigation = useNavigation();
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar
-                translucent backgroundColor={colors.primary} />
+            <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Chất lượng thuê bao" />
             <View style={styles.dateContainer}>
                 <DatePicker month={beginMonth} width={width / 2 - fontScale(40)} style={{ marginLeft: fontScale(30) }} onChangeDate={(date) => setMonth(date)} />

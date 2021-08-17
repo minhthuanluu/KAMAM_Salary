@@ -127,7 +127,12 @@ const EMPStack = () => {
 
 
       <Stack.Screen name="SubscriberQuality" component={SubscriberQualityScreen} />
+
       <Stack.Screen name="WarningDashboard" component={WarningDashboardScreen} />
+      <Stack.Screen name="SubFluct" component={SubFluctScreen} />
+      <Stack.Screen name="IncomeFluct" component={IncomeFluctScreen} />
+      <Stack.Screen name="EnterpriseFluct" component={EnterpriseFluctScreen} />
+      
       <Stack.Screen name="KPIMonthReport" component={KPIMonthReportScreen} />
     </Stack.Navigator>
   )
