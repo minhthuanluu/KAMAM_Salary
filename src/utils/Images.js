@@ -21,4 +21,9 @@ export const images = {
     productivitysub: require("../assets/productivitysub.png"),
     deliveringenterprise: require("../assets/deliveringenterprise.png"),
     executeplan: require("../assets/executeplan.png"),
+    fixedwage: require("../assets/fixedwage.png"),
+    others: require("../assets/others.png"),
+    planout: require("../assets/planout.png"),
+    product: require("../assets/product.png"),
+    sanctions: require("../assets/sanctions.png"),
 }

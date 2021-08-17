@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView,Text } from 'react-native';
+import { Header } from '../../../../comps';
 
 const PlanOut=(props)=> {
     return (
         <SafeAreaView>
-            <Text>
-            Vượt kế hoạch
-            </Text>
+             <Header title="Chi thương vượt KH Tháng" />
             
         </SafeAreaView>
     );

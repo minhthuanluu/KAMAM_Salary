@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView,Text } from 'react-native';
+import { Header } from '../../../../comps';
 
 const Sanctions=(props)=> {
     return (
         <SafeAreaView>
-            <Text>
-            Chế tài vi phạm
-            </Text>
+             <Header title="Chế tài vi phạm" />
             
         </SafeAreaView>
     );

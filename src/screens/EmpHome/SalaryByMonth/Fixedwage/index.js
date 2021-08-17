@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView,Text } from 'react-native';
+import { Header } from '../../../../comps';
 
 const Fixedwage=(props)=> {
     return (
         <SafeAreaView>
-            <Text>
-            Lương cố định
-            </Text>
+             <Header title="Lương cố định" />
             
         </SafeAreaView>
     );
