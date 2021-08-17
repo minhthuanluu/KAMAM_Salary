@@ -53,4 +53,7 @@ export const images = {
     telecommunicationrevenue: require("../assets/telecommunicationrevenue.png"),
     totalpostpaid: require("../assets/totalpostpaid.png"),
 
+    deliveenterpriseamount: require("../assets/deliveenterpriseamount.png"),
+    delivesubsciberamount: require("../assets/delivesubsciberamount.png"),
+    KAMPT: require("../assets/KAMPT.png"),
 }
