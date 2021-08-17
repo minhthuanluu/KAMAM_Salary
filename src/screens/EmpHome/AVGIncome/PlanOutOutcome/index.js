@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView,Text } from 'react-native';
+import { Header } from '../../../../comps';
 
 const PlanOutOutcome=(props)=> {
     return (
         <SafeAreaView>
-            <Text>
-            Tổng chi thưởng vượt kế hoạch
-            </Text>
+            <Header title="Tổng chi thưởng vượt KH tháng" />
             
         </SafeAreaView>
     );

@@ -112,7 +112,6 @@ const EMPStack = () => {
       <Stack.Screen name="DeliveringEnterprise" component={DeliveringEnterpriseDashboardScreen} />
       <Stack.Screen name="ProductivitySub" component={ProductivitySubScreen} />
       
-
       <Stack.Screen name="SalaryByMonthDashboard" component={SalaryByMonthDashboardScreen} />
       <Stack.Screen name="Fixedwage" component={FixedwageScreen} />
       <Stack.Screen name="Product" component={ProductScreen} />
@@ -120,8 +119,13 @@ const EMPStack = () => {
       <Stack.Screen name="Sanctions" component={SanctionsScreen} />
       <Stack.Screen name="Others" component={OthersScreen} />
 
-      
       <Stack.Screen name="AVGIncomeDashboard" component={AVGIncomeDashboardScreen} />
+      <Stack.Screen name="TotalFixedwage" component={TotalFixedwageScreen} />
+      <Stack.Screen name="TotalProductwage" component={TotalProductwageScreen} />
+      <Stack.Screen name="PlanOutOutcome" component={PlanOutOutcomeScreen} />
+      <Stack.Screen name="OtherOutcome" component={OtherOutcomeScreen} />
+
+
       <Stack.Screen name="SubscriberQuality" component={SubscriberQualityScreen} />
       <Stack.Screen name="WarningDashboard" component={WarningDashboardScreen} />
       <Stack.Screen name="KPIMonthReport" component={KPIMonthReportScreen} />

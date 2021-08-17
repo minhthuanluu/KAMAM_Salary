@@ -5,7 +5,8 @@ import Header from "./header"
 import MenuItem from "./menuItem"
 import Body from "./body"
 import DateView from "./dateview"
-import DatePicker from "./datepicker";
+import DatePicker from "./datepicker"
+import TextAmount from "./textAmount";
 export {
     Button,
     Input,
@@ -14,5 +15,6 @@ export {
     MenuItem,
     Body,
     DateView,
-    DatePicker
+    DatePicker,
+    TextAmount
 }
