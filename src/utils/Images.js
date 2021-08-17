@@ -26,4 +26,14 @@ export const images = {
     planout: require("../assets/planout.png"),
     product: require("../assets/product.png"),
     sanctions: require("../assets/sanctions.png"),
+
+    contractdebt: require("../assets/ic_contractdebt.png"),
+    debtPercent: require("../assets/ic_debtPercent.png"),
+    denyTwoC: require("../assets/ic_denyTwoC.png"),
+    newSubPrePaid: require("../assets/ic_newSubPrePaid.png"),
+    preToPostPaid: require("../assets/ic_preToPostPaid.png"),
+    revokeAmount: require("../assets/ic_revokeAmount.png"),
+    totalDebtNinety: require("../assets/ic_totalDebtNinety.png"),
+    totalRevenue: require("../assets/ic_totalRevenue.png"),
+
 }
