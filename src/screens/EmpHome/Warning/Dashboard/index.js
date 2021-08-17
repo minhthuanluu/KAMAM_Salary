@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView, Text } from 'react-native';
+import { Header } from '../../../../comps';
 
 const WarningDashboard = (props) => {
     return (
         <SafeAreaView>
-            <Text>
-                màn hình chính cảnh báo
-            </Text>
+            <Header title="Cảnh báo" />
         </SafeAreaView>
     );
 }

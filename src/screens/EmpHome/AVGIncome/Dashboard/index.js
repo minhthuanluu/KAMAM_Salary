@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView,Text } from 'react-native';
+import { Header } from '../../../../comps';
 
 const AVGIncomeDashboard=(props)=> {
     return (
         <SafeAreaView>
-            <Text>
-            màn hình chính Bình quân thu nhập
-            </Text>
+            <Header title="Bình quân thu nhập" />
             
         </SafeAreaView>
     );

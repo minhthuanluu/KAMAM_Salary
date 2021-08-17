@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView,Text } from 'react-native';
+import { Header } from '../../../comps';
 
 const SubscriberQuality=(props)=> {
     return (
         <SafeAreaView>
-            <Text>
-            Chất lượng thuê bao
-            </Text>
+            <Header title="Chất lượng thuê bao" />
             
         </SafeAreaView>
     );

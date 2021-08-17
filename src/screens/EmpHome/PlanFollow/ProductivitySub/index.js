@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView,Text } from 'react-native';
+import { Header } from '../../../../comps';
 
 const ProductivitySub=(props)=> {
     return (
         <SafeAreaView>
-            <Text>
-            Năng suất bình quân
-            </Text>
+            <Header title="Năng suất bình quân" />
             
         </SafeAreaView>
     );

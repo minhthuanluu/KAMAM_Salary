@@ -38,7 +38,8 @@ const SignIn = (props) => {
             //             setMessage(res.message)
             //         }
             // });
-            alert("Test")
+            // alert("Test")
+            navigation.navigate("EMPHome")
         }
     }
 

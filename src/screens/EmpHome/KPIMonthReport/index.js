@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView,Text } from 'react-native';
+import { Header } from '../../../comps';
 
 const KPIMonthReport = (props) => {
     return (
         <SafeAreaView>
-            <Text>
-            Báo cáo KPI tháng
-            </Text>
+           <Header title="Báo cáo KPI tháng" />
            
         </SafeAreaView>
     );

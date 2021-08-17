@@ -26,12 +26,8 @@ const Tab = createBottomTabNavigator();
 
 const EMPBottomTab = () => {
   return (
-    <Tab.Navigator tabBarOptions={
-      {
-        activeTintColor: colors.primary,
-        inactiveTintColor: '#A2A1A1'
-      }
-    }
+    <Tab.Navigator
+     screenOptions={{ headerShown: false }}
       initialRouteName="Home"
     >
       <Tab.Screen
@@ -108,9 +104,14 @@ const EMPBottomTab = () => {
 
 const EMPStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false, gestureEnabled: true }} >
-      <Stack.Screen name="Home" component={EmpDashboardScreen} />
+    <Stack.Navigator initialRouteName="EmpDashboardScreen" screenOptions={{ headerShown: false, gestureEnabled: true }} >
+      <Stack.Screen name="EmpDashboardScreen" component={EmpDashboardScreen} />
+
       <Stack.Screen name="PlanFollowDashboard" component={PlanFollowDashboardScreen} />
+      <Stack.Screen name="ExecutePlanDashboard" component={ExecutePlanDashboardScreen} />
+      <Stack.Screen name="DeliveringEnterprise" component={DeliveringEnterpriseDashboardScreen} />
+      <Stack.Screen name="ProductivitySub" component={ProductivitySubScreen} />
+
       <Stack.Screen name="SalaryByMonthDashboard" component={SalaryByMonthDashboardScreen} />
       <Stack.Screen name="AVGIncomeDashboard" component={AVGIncomeDashboardScreen} />
       <Stack.Screen name="SubscriberQuality" component={SubscriberQualityScreen} />
@@ -192,8 +193,8 @@ const EMPStack = () => {
 
 const ProfileStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Profile" screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Profile" component={ProfileDashboardScreen} />
+    <Stack.Navigator initialRouteName="ProfileDashboardScreen" screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="ProfileDashboardScreen" component={ProfileDashboardScreen} />
       <Stack.Screen name="UpdateProfile" component={UpdateProfileScreen} />
       <Stack.Screen name="UpdatePassword" component={UpdatePasswordScreen} />
     </Stack.Navigator>
@@ -214,10 +215,10 @@ export default function App() {
   LogBox.ignoredYellowBox = ["Warning: Each", "Warning: Failed"]
 
   return (
-    <NavigationContainer>
+    <NavigationContainer >
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Splash" component={AuthStack} />
-        <Stack.Screen name="EMPHome" component={EMPBottomTab} />
+        <Stack.Screen name="AuthStack" component={AuthStack} />
+        <Stack.Screen name="EMPHome" component={EMPBottomTab} options={{ headerShown: false }}/>
         {/* <Stack.Screen name="AdminHome" component={AdminBottomTab} /> */}
       </Stack.Navigator>
     </NavigationContainer>

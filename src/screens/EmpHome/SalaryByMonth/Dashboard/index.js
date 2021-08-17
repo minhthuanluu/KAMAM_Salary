@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView,Text } from 'react-native';
+import { Header } from '../../../../comps';
 
 const SalaryByMonthDashboard=(props)=> {
     return (
         <SafeAreaView>
-            <Text>
-            màn hình chính Lương theo tháng
-            </Text>
+            <Header title="Lương theo tháng" />
             
         </SafeAreaView>
     );

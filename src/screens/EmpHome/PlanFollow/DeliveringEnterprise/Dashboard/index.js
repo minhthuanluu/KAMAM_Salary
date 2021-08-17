@@ -1,12 +1,11 @@
 import React from 'react';
 import { SafeAreaView,Text } from 'react-native';
+import { Header } from '../../../../../comps';
 
 const DeliveringEnterpriseDashboard=(props)=> {
     return (
         <SafeAreaView>
-            <Text>
-            màn hình chính danh sách DN đang giao
-            </Text>
+            <Header title="Danh sách DN đang giao" />
             
         </SafeAreaView>
     );

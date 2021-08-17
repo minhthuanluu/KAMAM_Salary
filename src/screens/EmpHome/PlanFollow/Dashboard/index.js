@@ -1,13 +1,30 @@
+import moment from 'moment';
 import React from 'react';
-import { SafeAreaView,Text } from 'react-native';
+import { useState } from 'react';
+import { SafeAreaView, StatusBar, Text, View } from 'react-native';
+import { Body, DatePicker, DateView, Header, MenuItem } from '../../../../comps';
+import { colors } from '../../../../utils/Colors';
+import { width } from '../../../../utils/Dimenssion';
+import { fontScale } from '../../../../utils/Fonts';
+import { images } from '../../../../utils/Images';
+import { text } from '../../../../utils/Text';
+import { styles } from './style';
+import { useNavigation } from '@react-navigation/core';
 
 const PlanFollowDashboard = (props) => {
+    const navigation = useNavigation();
+    const [month, setMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"));
     return (
-        <SafeAreaView>
-            <Text>
-            màn hình chính Theo dõi thực hiện kế hoạch
-            </Text>
-            
+        <SafeAreaView style={styles.container}>
+            <StatusBar translucent backgroundColor={colors.primary} />
+            <Header title="Theo dõi thực hiện KH" />
+            <DatePicker month={month} width={width - fontScale(120)} style={{ alignSelf: "center" }} onChangeDate={(date) => setMonth(date) } />
+            <Body style={{ marginTop: fontScale(27) }} showInfo={false} />
+            <View style={styles.body}>
+                <MenuItem style={{ marginTop: fontScale(30) }} title="Thực hiện kế hoạch" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.planfollow} width={width - fontScale(60)} onPress={() => navigation.navigate("ExecutePlanDashboard")} />
+                <MenuItem style={{ marginTop: fontScale(50) }} title="Danh sách DN đang giao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.salarybymonth} width={width - fontScale(60)} onPress={() => navigation.navigate("DeliveringEnterprise")} />
+                <MenuItem style={{ marginTop: fontScale(50) }} title="Năng suất bình quân" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.AVGIncome} width={width - fontScale(60)} onPress={() => navigation.navigate("ProductivitySub")} />
+            </View>
         </SafeAreaView>
     );
 }

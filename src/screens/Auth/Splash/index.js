@@ -31,7 +31,10 @@ const Splash = () => {
                 <Image source={images.splashshape} style={styles.shape} />
             </View>
             <View style={{ flex: 2 }}>
-                <Text style={styles.appName}>{text.appName}</Text>
+                <Text style={styles.appName}>
+                    {/* {text.appName} */}
+                    KAMAM Salary
+                    </Text>
                 <ActivityIndicator size="small" color={colors.white} style={styles.loadingIcon} />
             </View>
         </SafeAreaView>
