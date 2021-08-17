@@ -18,4 +18,7 @@ export const images = {
     salarybymonth: require("../assets/salarybymonth.png"),
     subscriberquality: require("../assets/subscriberquality.png"),
     warning: require("../assets/warning.png"),
+    productivitysub: require("../assets/productivitysub.png"),
+    deliveringenterprise: require("../assets/deliveringenterprise.png"),
+    executeplan: require("../assets/executeplan.png"),
 }

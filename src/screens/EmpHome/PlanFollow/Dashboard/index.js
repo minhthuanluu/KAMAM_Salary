@@ -21,9 +21,9 @@ const PlanFollowDashboard = (props) => {
             <DatePicker month={month} width={width - fontScale(120)} style={{ alignSelf: "center" }} onChangeDate={(date) => setMonth(date) } />
             <Body style={{ marginTop: fontScale(27) }} showInfo={false} />
             <View style={styles.body}>
-                <MenuItem style={{ marginTop: fontScale(30) }} title="Thực hiện kế hoạch" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.planfollow} width={width - fontScale(60)} onPress={() => navigation.navigate("ExecutePlanDashboard")} />
-                <MenuItem style={{ marginTop: fontScale(50) }} title="Danh sách DN đang giao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.salarybymonth} width={width - fontScale(60)} onPress={() => navigation.navigate("DeliveringEnterprise")} />
-                <MenuItem style={{ marginTop: fontScale(50) }} title="Năng suất bình quân" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.AVGIncome} width={width - fontScale(60)} onPress={() => navigation.navigate("ProductivitySub")} />
+                <MenuItem style={{ marginTop: fontScale(30) }} title="Thực hiện kế hoạch" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.executeplan} width={width - fontScale(60)} onPress={() => navigation.navigate("ExecutePlanDashboard")} />
+                <MenuItem style={{ marginTop: fontScale(50) }} title="Danh sách DN đang giao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.deliveringenterprise} width={width - fontScale(60)} onPress={() => navigation.navigate("DeliveringEnterprise")} />
+                <MenuItem style={{ marginTop: fontScale(50) }} title="Năng suất bình quân" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.productivitysub} width={width - fontScale(60)} onPress={() => navigation.navigate("ProductivitySub")} />
             </View>
         </SafeAreaView>
     );
