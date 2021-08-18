@@ -2,7 +2,7 @@ import moment from 'moment';
 import React from 'react';
 import { useState } from 'react';
 import { SafeAreaView, Text, View, StatusBar } from 'react-native';
-import { Body, DatePicker, Header, MenuItem, TextAmount } from '../../../../comps';
+import { Body, DatePicker, Header, MenuItem, MenuItemShow, TextAmount } from '../../../../comps';
 import { colors } from '../../../../utils/Colors';
 import { width } from '../../../../utils/Dimenssion';
 import { fontScale } from '../../../../utils/Fonts';
@@ -25,10 +25,10 @@ const AVGIncomeDashboard = (props) => {
             <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
             <View style={styles.body}>
                 <TextAmount text="Tổng Thu:" number=" 15,600,000" />
-                <MenuItem value="8,000,000" style={{ marginTop: fontScale(40) }} title="Tổng lương cố định" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.fixedwage} width={width - fontScale(60)} onPress={() => navigation.navigate("TotalFixedwage")} />
+                <MenuItemShow value="8,000,000" style={{ marginTop: fontScale(40) }} title="Tổng lương cố định" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.fixedwage} width={width - fontScale(60)}  />
                 <MenuItem value="6,300,000" style={{ marginTop: fontScale(50) }} title="Tổng lương sản phẩm" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.product} width={width - fontScale(60)} onPress={() => navigation.navigate("TotalProductwage")} />
-                <MenuItem value="1,000,000" style={{ marginTop: fontScale(50) }} title="Tổng chi thưởng vượt KH tháng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.planout} width={width - fontScale(60)} onPress={() => navigation.navigate("PlanOutOutcome")} />
-                <MenuItem value="300,000" style={{ marginTop: fontScale(50) }} title="Tổng chi khác" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.others} width={width - fontScale(60)} onPress={() => navigation.navigate("OtherOutcome")} />
+                <MenuItemShow value="1,000,000" style={{ marginTop: fontScale(50) }} title="Tổng chi thưởng vượt KH tháng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.planout} width={width - fontScale(60)}  />
+                <MenuItemShow value="300,000" style={{ marginTop: fontScale(50) }} title="Tổng chi khác" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.others} width={width - fontScale(60)}  />
             </View>
 
         </SafeAreaView>
