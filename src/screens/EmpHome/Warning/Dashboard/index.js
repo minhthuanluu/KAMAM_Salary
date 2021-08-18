@@ -2,7 +2,7 @@ import moment from 'moment';
 import React from 'react';
 import { useState } from 'react';
 import { SafeAreaView, StatusBar, Text, View } from 'react-native';
-import { Body, DatePicker, Header, MenuItem } from '../../../../comps';
+import { Body, DatePicker, Header, MenuItem, MenuItemShow } from '../../../../comps';
 import { useNavigation } from '@react-navigation/core';
 import { fontScale } from '../../../../utils/Fonts';
 import { width } from '../../../../utils/Dimenssion';
@@ -24,7 +24,7 @@ const WarningDashboard = (props) => {
             <View style={styles.body}>
                 <MenuItem value=" "  style={{ marginTop: fontScale(30) }} title="Biến động thuê bao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.subfluct} width={width - fontScale(60)} onPress={() => navigation.navigate("SubFluct")} />
                 <MenuItem value=" " style={{ marginTop: fontScale(50) }} title="Biến động doanh thu" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.incomefluct} width={width - fontScale(60)} onPress={() => navigation.navigate("IncomeFluct")} />
-                <MenuItem value="Giảm 1 DN" style={{ marginTop: fontScale(50) }} title="Biến động DN trong tập DS giao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.enterprisefluct} width={width - fontScale(60)} onPress={() => navigation.navigate("EnterpriseFluct")} />
+                <MenuItemShow value="Giảm 1 DN" style={{ marginTop: fontScale(50) }} title="Biến động DN trong tập DS giao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.enterprisefluct} width={width - fontScale(60)} />
             </View>
         </SafeAreaView>
     );

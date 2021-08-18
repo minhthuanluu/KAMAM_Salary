@@ -11,6 +11,7 @@ import ListItem from "./listItem";
 import GenaralItem from "./genaralitem";
 import MenuItemShow from "./menuItemshow";
 import GETable from "./geTable";
+import SFTable from "./sfTable";
 
 export {
     Button,
@@ -25,5 +26,6 @@ export {
     ListItem,
     GenaralItem,
     MenuItemShow,
-    GETable
+    GETable,
+    SFTable
 }
