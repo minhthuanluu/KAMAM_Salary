@@ -73,4 +73,12 @@ export const images = {
     dataIncentive: require("../assets/dataIncentive.png"),
     machineSelling: require("../assets/machineSelling.png"),
     maintain: require("../assets/maintain.png"),
+
+    profileHeader: require('../../assets/profileheader.png'),
+    pencil:require("../../assets/pencil.png"),
+    close:require('../../assets/close.png'),
+
+    logoutbg: require('../../assets/logoutbg.png'),
+    cancle:require('../assets/cancle.png'),
+    check:require('../assets/check.png'),
 }

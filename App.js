@@ -27,7 +27,7 @@ const Tab = createBottomTabNavigator();
 const EMPBottomTab = () => {
   return (
     <Tab.Navigator
-     screenOptions={{ headerShown: false }}
+      screenOptions={{ headerShown: false }}
       initialRouteName="Home"
     >
       <Tab.Screen
@@ -125,7 +125,7 @@ const EMPStack = () => {
 
 
       <Stack.Screen name="ProductivitySub" component={ProductivitySubScreen} />
-      
+
       <Stack.Screen name="SalaryByMonthDashboard" component={SalaryByMonthDashboardScreen} />
       <Stack.Screen name="Fixedwage" component={FixedwageScreen} />
       <Stack.Screen name="Product" component={ProductScreen} />
@@ -146,8 +146,9 @@ const EMPStack = () => {
       <Stack.Screen name="SubFluct" component={SubFluctScreen} />
       <Stack.Screen name="IncomeFluct" component={IncomeFluctScreen} />
       <Stack.Screen name="EnterpriseFluct" component={EnterpriseFluctScreen} />
-      
+
       <Stack.Screen name="KPIMonthReport" component={KPIMonthReportScreen} />
+
     </Stack.Navigator>
   )
 }
@@ -228,6 +229,7 @@ const ProfileStack = () => {
       <Stack.Screen name="ProfileDashboardScreen" component={ProfileDashboardScreen} />
       <Stack.Screen name="UpdateProfile" component={UpdateProfileScreen} />
       <Stack.Screen name="UpdatePassword" component={UpdatePasswordScreen} />
+
     </Stack.Navigator>
   )
 }
@@ -237,6 +239,7 @@ const AuthStack = () => {
     <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Splash" component={Splash} />
       <Stack.Screen name="SignIn" component={SignInScreen} />
+      <Stack.Screen name="Recovery" component={RecoveryScreen} />
     </Stack.Navigator>
   )
 }
@@ -249,7 +252,7 @@ export default function App() {
     <NavigationContainer >
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="AuthStack" component={AuthStack} />
-        <Stack.Screen name="EMPHome" component={EMPBottomTab} options={{ headerShown: false }}/>
+        <Stack.Screen name="EMPHome" component={EMPBottomTab} options={{ headerShown: false }} />
         {/* <Stack.Screen name="AdminHome" component={AdminBottomTab} /> */}
       </Stack.Navigator>
     </NavigationContainer>

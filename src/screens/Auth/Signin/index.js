@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, StatusBar, Text, View, Image, ActivityIndicator, BackHandler } from 'react-native';
+import { SafeAreaView, StatusBar, Text, View, Image, ActivityIndicator, BackHandler, TouchableOpacity } from 'react-native';
 import { Input, Button, AuthTitle } from '../../../comps';
 import { colors } from '../../../utils/Colors';
 import { width } from '../../../utils/Dimenssion';
@@ -75,6 +75,11 @@ const SignIn = (props) => {
                     onChangeText={(value) => [setUsername(value), setMessage('')]} />
                 <Input underline pwd title={text.password} width={width - fontScale(70)} style={styles.ipPwd}
                     onChangeText={(value) => [setPassword(value), setMessage('')]} />
+                <TouchableOpacity style={{ marginTop: fontScale(20), marginRight: fontScale(30) }}
+                    onPress={() => navigation.navigate("Recovery")}
+                >
+                    <Text style={{ textAlign: "right", color: "#EAEEEE" }}>Quên mật khẩu ?</Text>
+                </TouchableOpacity>
                 <Button width={fontScale(150)} label={"Đăng nhập"} center style={styles.loginButton} onPress={() => signIn(userName, password)} />
                 <Text style={{ color: colors.white, textAlign: "center", marginTop: fontScale(15) }}>{message}</Text>
                 {loading == true ?
