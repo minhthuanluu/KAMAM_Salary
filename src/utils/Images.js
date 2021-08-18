@@ -66,4 +66,7 @@ export const images = {
 
     icon_delivesubsciberamount1: require("../assets/icon_delivesubsciberamount1.png"),
     icon_delivesubsciberamount2: require("../assets/icon_delivesubsciberamount2.png"),
+
+    ic_KAMPT1: require("../assets/ic_KAMPT1.png"),
+    ic_KAMPT2: require("../assets/ic_KAMPT2.png"),
 }
