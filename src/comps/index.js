@@ -9,6 +9,8 @@ import DatePicker from "./datepicker"
 import TextAmount from "./textAmount";
 import ListItem from "./listItem";
 import GenaralItem from "./genaralitem";
+import MenuItemShow from "./menuItemshow";
+import GETable from "./geTable";
 
 export {
     Button,
@@ -21,5 +23,7 @@ export {
     DatePicker,
     TextAmount,
     ListItem,
-    GenaralItem
+    GenaralItem,
+    MenuItemShow,
+    GETable
 }
