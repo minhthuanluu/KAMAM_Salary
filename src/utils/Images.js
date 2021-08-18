@@ -61,4 +61,6 @@ export const images = {
     branch: require("../assets/branch.png"),
     company: require("../assets/company.png"),
     store: require("../assets/store.png"),
+
+    deliveenterpriseamount_ic: require("../assets/deliveenterpriseamount_ic.png"),
 }
