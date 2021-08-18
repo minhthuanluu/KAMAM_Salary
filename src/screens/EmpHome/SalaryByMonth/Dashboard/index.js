@@ -2,7 +2,7 @@ import moment from 'moment';
 import React from 'react';
 import { useState } from 'react';
 import { SafeAreaView, StatusBar, Text, View } from 'react-native';
-import { Body, DatePicker, Header, MenuItem, TextAmount } from '../../../../comps';
+import { Body, DatePicker, Header, MenuItem, MenuItemShow, TextAmount } from '../../../../comps';
 import { colors } from '../../../../utils/Colors';
 import { width } from '../../../../utils/Dimenssion';
 import { fontScale } from '../../../../utils/Fonts';
@@ -23,11 +23,11 @@ const SalaryByMonthDashboard = (props) => {
             <Body style={{ marginTop: fontScale(27) }} showInfo={false} />
             <View style={styles.body}>
                 <TextAmount text="Tổng Lương:" number=" 15,600,000" />
-                <MenuItem value="8,000,000" style={{ marginTop: fontScale(30) }} title="Lương cố định" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.fixedwage} width={width - fontScale(60)} onPress={() => navigation.navigate("Fixedwage")} />
+                <MenuItemShow value="8,000,000" style={{ marginTop: fontScale(30) }} title="Lương cố định" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.fixedwage} width={width - fontScale(60)}  />
                 <MenuItem value="6,300,000" style={{ marginTop: fontScale(30) }} title="Lương sản phẩm" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.product} width={width - fontScale(60)} onPress={() => navigation.navigate("Product")} />
-                <MenuItem value="1,000,000" style={{ marginTop: fontScale(30) }} title="Chi thưởng vượt KH tháng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.planout} width={width - fontScale(60)} onPress={() => navigation.navigate("PlanOut")} />
-                <MenuItem value="-500,000" style={{ marginTop: fontScale(30) }} title="Chế tài vi phạm" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.sanctions} width={width - fontScale(60)} onPress={() => navigation.navigate("Sanctions")} />
-                <MenuItem value="300,000" style={{ marginTop: fontScale(30) }} title="Chi khác" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.others} width={width - fontScale(60)} onPress={() => navigation.navigate("Others")} />
+                <MenuItemShow value="1,000,000" style={{ marginTop: fontScale(30) }} title="Chi thưởng vượt KH tháng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.planout} width={width - fontScale(60)}  />
+                <MenuItemShow value="-500,000" style={{ marginTop: fontScale(30) }} title="Chế tài vi phạm" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.sanctions} width={width - fontScale(60)}  />
+                <MenuItemShow value="300,000" style={{ marginTop: fontScale(30) }} title="Chi khác" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.others} width={width - fontScale(60)}  />
             </View>
         </SafeAreaView>
     );

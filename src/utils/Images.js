@@ -69,4 +69,8 @@ export const images = {
 
     ic_KAMPT1: require("../assets/ic_KAMPT1.png"),
     ic_KAMPT2: require("../assets/ic_KAMPT2.png"),
+
+    dataIncentive: require("../assets/dataIncentive.png"),
+    machineSelling: require("../assets/machineSelling.png"),
+    maintain: require("../assets/maintain.png"),
 }
