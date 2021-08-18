@@ -63,4 +63,7 @@ export const images = {
     store: require("../assets/store.png"),
 
     deliveenterpriseamount_ic: require("../assets/deliveenterpriseamount_ic.png"),
+
+    icon_delivesubsciberamount1: require("../assets/icon_delivesubsciberamount1.png"),
+    icon_delivesubsciberamount2: require("../assets/icon_delivesubsciberamount2.png"),
 }
