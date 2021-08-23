@@ -55,32 +55,7 @@ const GrowthEnterprise = (props) => {
             await getDatePikerValue()
         })
     })
-    const dataTest = [
-        {
-            taxCode: "123123",
-            enterpriseName: "test1",
-            subNumber: "123213",
-            package: "asds"
-        },
-        {
-            taxCode: "454545",
-            enterpriseName: "test2",
-            subNumber: "3455",
-            package: "vcbc"
-        },
-        {
-            taxCode: "787878",
-            enterpriseName: "test3",
-            subNumber: "331166",
-            package: "sfdfd"
-        },
-        {
-            taxCode: "787878",
-            enterpriseName: "test4",
-            subNumber: "331166",
-            package: "sfdfd"
-        },
-    ]
+
     return (
         <SafeAreaView style={styles.container}>
             <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />

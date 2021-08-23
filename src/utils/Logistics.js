@@ -11,6 +11,13 @@ export const getMonth = async () => {
   return month
 }
 
+export const changeTime = (month) => { //month có định dạnh "mm/yyyy"
+  var result = "yyyy-mm-01";
+  result = result.replace("mm", month.substr(0, 2))
+  result = result.replace("yyyy", month.substr(3, 4))
+  return result;
+}
+
 export const thoundsandSep = (x) => {
   if (x != null || x != undefined) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -227,7 +234,7 @@ export const checkLogin = async (navigation) => {
   //     console.log('token not null')
   //     if (item.userId.userGroupId.code == "MBF_GDV") {
   //       setTimeout(() => {
-          // navigation.navigate("EMPHome")
+  // navigation.navigate("EMPHome")
   //       }, 3000);
   //     }
   //     else if (item.userId.userGroupId.code == "ADMIN" || item.userId.userGroupId.code == "VMS_CTY" || item.userId.userGroupId.code == "MBF_CHINHANH" || item.userId.userGroupId.code == "MBF_CUAHANG") {
@@ -238,7 +245,7 @@ export const checkLogin = async (navigation) => {
   //     }
   //   } else {
   //     console.log('token null')
-      navigation.navigate("SignIn")
+  navigation.navigate("SignIn")
   //   }
   // });
 }
@@ -277,8 +284,8 @@ export const checkSearchHistory = async (key = "", screenName = "", data = {}) =
   })
 }
 
-export const checkn2 = (str='') => {
-  if (str == null || str == undefined || str.length==0 || !str) {
+export const checkn2 = (str = '') => {
+  if (str == null || str == undefined || str.length == 0 || !str) {
     return ""
   } else {
     let element;
