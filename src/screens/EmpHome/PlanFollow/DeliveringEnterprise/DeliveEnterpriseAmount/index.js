@@ -27,10 +27,16 @@ const DeliveEnterpriseAmount = (props) => {
         if (monthStore != undefined) {
             setMonth(monthStore)
             getData(monthStore)
-            setCurrentMonth(monthStore.slice(0, 2))
-            setLastMonth(monthStore.slice(0, 2) - 1)
+            var d = new Date(changeTime(monthStore))
+            setCurrentMonth(d.getMonth() + 1)
+            d.setMonth(d.getMonth() - 1);
+            setLastMonth(d.getMonth() + 1)
         } else {
             getData(month)
+            var d = new Date(changeTime(month))
+            setCurrentMonth(d.getMonth() + 1)
+            d.setMonth(d.getMonth() - 1);
+            setLastMonth(d.getMonth() + 1)
         }
     }
 
