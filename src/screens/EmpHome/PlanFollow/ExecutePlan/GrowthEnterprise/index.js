@@ -35,7 +35,7 @@ const GrowthEnterprise = (props) => {
         setLoading(true)
         let res = await getGrowthEnterprise(month)
         if (res.status == "success") {
-            showToast("success", "Thành công", "Lấy dữ liệu thành công")
+            // showToast("success", "Thành công", "Lấy dữ liệu thành công")
             setData(res.data.data)
             setLoading(false)
         } else {
