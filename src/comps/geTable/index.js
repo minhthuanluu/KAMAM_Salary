@@ -10,7 +10,7 @@ const GETable = (props) => { //table of screen GrowthEnterprise
                 <Text style={{ flex: 1 / 4, textAlign: "center", color: "#515655", fontSize: fontScale(16) }}>{props.taxCode}</Text>
                 <Text style={{ flex: 1 / 4, textAlign: "center", color: "#515655", fontSize: fontScale(16) }}>{props.enterpriseName}</Text>
                 <Text style={{ flex: 1 / 4, textAlign: "center", color: "#515655", fontSize: fontScale(16) }}>{props.subNumber}</Text>
-                <Text style={{ flex: 1 / 4, textAlign: "center", color: "#515655", fontSize: fontScale(16) }}>{props.package}</Text>
+                <Text style={{ flex: 1 / 4, textAlign: "center", color: "#515655", fontSize: fontScale(16) }}>{props._package}</Text>
             </View>
         )
     }
@@ -27,7 +27,7 @@ const GETable = (props) => { //table of screen GrowthEnterprise
                 keyExtractor={(item, key) => key.toString()}
                 renderItem={({ item, index }) => {
                     return (
-                        <TableItem index={index} taxCode={item.taxCode} enterpriseName={item.enterpriseName} subNumber={item.subNumber} package={item.package}/>
+                        <TableItem index={index} taxCode={item.taxCode} enterpriseName={item.enterpriseName} subNumber={item.subNumber} _package={item._package}/>
                     )
 
                 }}
