@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native';
 import { Body, DatePicker, Header, MenuItem } from '../../../../../comps';
@@ -9,16 +9,34 @@ import { width } from '../../../../../utils/Dimenssion';
 import { colors } from '../../../../../utils/Colors';
 import { styles } from './style';
 import { images } from '../../../../../utils/Images';
+import { getMonth } from '../../../../../utils/Logistics';
+import { _storeData } from '../../../../../utils/Storage';
 
 const DeliveringEnterpriseDashboard = (props) => {
     const navigation = useNavigation();
     const [month, setMonth] = useState(moment(new Date()).subtract(1, 'months').format("MM/YYYY"));
+    const getDatePikerValue = async () => {
+        let month = await getMonth()
+        if (month != undefined) {
+            setMonth(month)
+        }
+    }
+    const onChangeDatePicker = (date) => {
+        setMonth(date)
+        _storeData("month", date)
+    }
+    useEffect(() => {
+        navigation.addListener('focus', () => {
+            getDatePikerValue()
+        })
+
+    })
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Danh sách DN đang giao" />
             <View style={{ alignSelf: "center" }}>
-                <DatePicker month={month} width={width - fontScale(120)} onChangeDate={(date) => setMonth(date)} />
+                <DatePicker month={month} width={width - fontScale(120)} onChangeDate={(date) => onChangeDatePicker(date)} />
             </View>
             <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
             <View style={styles.body}>

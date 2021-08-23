@@ -6,6 +6,11 @@ import Toast from "react-native-toast-message";
 import { BackHandler } from "react-native";
 import NetInfo from "@react-native-community/netinfo";
 
+export const getMonth = async () => {
+  let month = await _retrieveData("month")
+  return month
+}
+
 export const thoundsandSep = (x) => {
   if (x != null || x != undefined) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');

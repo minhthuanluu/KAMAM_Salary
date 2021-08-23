@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, StatusBar, Text, View, Image, ActivityIndicator, BackHandler, TouchableOpacity } from 'react-native';
-import { Input, Button, AuthTitle } from '../../../comps';
+import { Input, Button, AuthTitle, Loading } from '../../../comps';
 import { colors } from '../../../utils/Colors';
 import { width } from '../../../utils/Dimenssion';
 import { fontScale } from '../../../utils/Fonts';
@@ -11,6 +11,9 @@ import { _retrieveData, _storeData } from '../../../utils/Storage';
 import { text } from '../../../utils/Text';
 import { images } from '../../../utils/Images';
 import { checkLogin } from '../../../utils/Logistics';
+import { login } from '../../../api/emp';
+import { showToast } from '../../../utils/toast';
+import Toast from 'react-native-toast-message';
 
 const SignIn = (props) => {
     const [userName, setUsername] = useState('')
@@ -27,19 +30,25 @@ const SignIn = (props) => {
             setMessage(text.typePassword)
         } else {
             setMessage("")
-            // setLoading(true);
-            // await login(userName, password, navigation).then(async (res) => {
-            //     if (res.status == "success") {
-            //         setLoading(false);
-            //         checkLogin(navigation);
+            setLoading(true);
+            await login(userName, password, navigation).then(async (res) => {
+                if (res.status == "success") {
 
-            //     } else if (res.status == "failed") {
-            //             setLoading(false)
-            //             setMessage(res.message)
-            //         }
-            // });
-            // alert("Test")
-            navigation.navigate("EMPHome")
+                    showToast("success", "Thành công", "Đăng nhập thành công")
+                    // checkLogin(navigation);
+                    setTimeout(() => {
+                        navigation.navigate("EMPHome")
+                        setLoading(false);
+                        setUsername("")
+                        setPassword("")
+                    }, 500);
+
+                } else if (res.status == "failed") {
+                    setLoading(false)
+                    setMessage(res.message)
+                    setPassword("")
+                }
+            });
         }
     }
 
@@ -62,6 +71,7 @@ const SignIn = (props) => {
 
     return (
         <SafeAreaView style={styles.container}>
+            <Toast ref={(ref) => Toast.setRef(ref)} />
             <StatusBar backgroundColor={colors.primary} translucent />
             <View style={styles.bottomShape}>
                 <Image source={images.loginbg} resizeMode="stretch" style={styles.trigleShape} />
@@ -71,9 +81,9 @@ const SignIn = (props) => {
             </View>
             <View style={styles.topShape}>
                 <AuthTitle title={text.login} style={styles.authTitle} />
-                <Input underline title={text.username} width={width - fontScale(70)} style={styles.ipUsn}
+                <Input value={userName} underline title={text.username} width={width - fontScale(70)} style={styles.ipUsn}
                     onChangeText={(value) => [setUsername(value), setMessage('')]} />
-                <Input underline pwd title={text.password} width={width - fontScale(70)} style={styles.ipPwd}
+                <Input value={password} underline pwd title={text.password} width={width - fontScale(70)} style={styles.ipPwd}
                     onChangeText={(value) => [setPassword(value), setMessage('')]} />
                 <TouchableOpacity style={{ marginTop: fontScale(20), marginRight: fontScale(30) }}
                     onPress={() => navigation.navigate("Recovery")}
@@ -82,9 +92,8 @@ const SignIn = (props) => {
                 </TouchableOpacity>
                 <Button width={fontScale(150)} label={"Đăng nhập"} center style={styles.loginButton} onPress={() => signIn(userName, password)} />
                 <Text style={{ color: colors.white, textAlign: "center", marginTop: fontScale(15) }}>{message}</Text>
-                {loading == true ?
-                    <ActivityIndicator size="small" color={colors.white} /> : null}
             </View>
+            <Loading loading={loading} />
         </SafeAreaView>
     );
 }

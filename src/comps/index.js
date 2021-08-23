@@ -12,6 +12,7 @@ import GenaralItem from "./genaralitem";
 import MenuItemShow from "./menuItemshow";
 import GETable from "./geTable";
 import SFTable from "./sfTable";
+import Loading from "./loading";
 
 export {
     Button,
@@ -27,5 +28,6 @@ export {
     GenaralItem,
     MenuItemShow,
     GETable,
-    SFTable
+    SFTable,
+    Loading
 }

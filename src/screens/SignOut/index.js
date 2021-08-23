@@ -1,5 +1,5 @@
-import React,{ useEffect } from 'react';
-import { View, Text, ImageBackground} from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, ImageBackground } from 'react-native';
 // import { signoutUser } from '../../api';
 import { fontScale } from '../../utils/Fonts';
 import { images } from '../../utils/Images';
@@ -15,8 +15,10 @@ const SignOut = () => {
     const logoutUser = async () => {
         // await signoutUser(navigation).then(async () => {
         //     await _removeData("userInfo");
-        // });
-        alert("logoutUser func")
+        // });s
+        // alert("logoutUser func")
+        await _removeData("loginInfo");
+        navigation.navigate("SignIn")
     }
 
     return (

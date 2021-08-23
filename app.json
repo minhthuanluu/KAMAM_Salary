@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "KAMAM_Salary",
+    "name": "Lương KHDN",
     "slug": "KAMAM_Salary",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,13 +17,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.dvkt.mf2.KAMAMSalary"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.dvkt.mf2.KAMAM_Salary"
     },
     "web": {
       "favicon": "./assets/favicon.png"

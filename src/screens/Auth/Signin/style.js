@@ -18,5 +18,16 @@ export const styles = StyleSheet.create({
         justifyContent: "flex-end", marginHorizontal: fontScale(35), width: width / 3, paddingVertical: fontScale(2)
     },
     trigleShape: { width: width + fontScale(20), left: -fontScale(10), top: height * 2 / 3 + fontScale(27) },
-    loginButton: { marginTop: fontScale(50) }
+    loginButton: { marginTop: fontScale(50) },
+    loading: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: "white",
+        opacity: 0.3
+    }
 })

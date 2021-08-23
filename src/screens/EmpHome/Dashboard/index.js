@@ -51,7 +51,7 @@ const EmpDashboard = (route) => {
         <SafeAreaView style={styles.container}>
             <StatusBar translucent={true} backgroundColor={colors.primary} />
             {
-                <Header showBack={false} profile avatar={user.avatar != "" ? { uri: imgUrl + user.avatar } : images.avatar} fullName={user.displayName} maGDV="Test - 01" />
+                <Header showBack={false} profile avatar={user.avatar != "" ? { uri: imgUrl + user.avatar } : images.avatar} fullName="admin" maGDV="KAM/AM - 1.000" />
             }
             <Body style={{ marginTop: fontScale(27) }} showInfo={false} />
             <View style={styles.body}>
