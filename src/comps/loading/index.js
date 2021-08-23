@@ -9,7 +9,7 @@ const Loading = (props) => {
         <View style={props.loading == true ? styles.loading : ''}>
             {
                 props.loading == true ?
-                    <ActivityIndicator size="large" color={colors.white} />
+                    <ActivityIndicator size="large" color={colors.grey} />
                     : null
             }
         </View>

@@ -2,7 +2,7 @@ import moment from 'moment';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native';
-import { Body, DatePicker, Header, MenuItem, MenuItemShow, TextAmount } from '../../../../../comps';
+import { Body, DatePicker, Header, Loading, MenuItem, MenuItemShow, TextAmount } from '../../../../../comps';
 import { useNavigation } from '@react-navigation/core';
 import { fontScale } from '../../../../../utils/Fonts';
 import { width } from '../../../../../utils/Dimenssion';
@@ -19,6 +19,7 @@ const ExecutePlanDashboard = (props) => {
     const navigation = useNavigation();
     const [month, setMonth] = useState(moment(new Date()).subtract(1, 'months').format("MM/YYYY"));
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const getDatePikerValue = async () => {
         let monthStore = await getMonth()
@@ -31,12 +32,15 @@ const ExecutePlanDashboard = (props) => {
     }
 
     const getData = async (month) => {
+        setLoading(true)
         let res = await getExcutePlanDashboard(month)
         if (res.status == "success") {
             showToast("success", "Thành công", "Lấy dữ liệu thành công")
             setData(res.data.data)
+            setLoading(false)
         } else {
             showToast("error", "Lỗi hệ thống", res.message)
+            setLoading(false)
         }
     }
 
@@ -73,6 +77,7 @@ const ExecutePlanDashboard = (props) => {
                     <MenuItemShow value={data.change4GSim} style={{ marginTop: fontScale(30), marginBottom: fontScale(20) }} title="Thay sim 4G" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.change4Gsim} width={width - fontScale(60)} />
                 </ScrollView>
             </View>
+            <Loading loading={loading}/>
         </SafeAreaView>
     );
 }
