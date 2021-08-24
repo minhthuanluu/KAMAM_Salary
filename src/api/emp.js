@@ -318,3 +318,39 @@ export const getProductSalary = async (month) => {
         });
     return data;
 };
+
+export const getAvgIncomeDashboard = async (fmonth, tmonth) => {
+    // console.log(fmonth + tmonth)
+    let data = baseData
+    await axios({
+        method: "POST",
+        url: `${baseUrl}mobile/avg-revenue/getAvgIncomeDashboard?fromMonth=${fmonth}&toMonth=${tmonth}`,
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: getToken(),
+        },
+    })
+        .then(async (res) => {
+            if (res.status == 200) {
+                if (Object.values(res.data).length > 0) {
+                    data = {
+                        data: res.data,
+                        isLoading: false,
+                        status: "success",
+                        error: null
+                    };
+                }
+            }
+        })
+        .catch(async (error) => {
+            console.log(error)
+            data = {
+                message: error.response.data.message,
+                isLoading: false,
+                status: "failed",
+                error: error.response.data
+            };
+        });
+    return data;
+};
