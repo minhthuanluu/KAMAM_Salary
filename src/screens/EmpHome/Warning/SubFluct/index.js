@@ -2,7 +2,7 @@ import moment from 'moment';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { SafeAreaView, StatusBar, Text, View } from 'react-native';
-import { Body, DatePicker, Header, MenuItem, MenuItemShow, SFTable } from '../../../../comps';
+import { Body, DatePicker, Header, Loading, MenuItem, MenuItemShow, SFTable } from '../../../../comps';
 import { useNavigation } from '@react-navigation/core';
 import { fontScale } from '../../../../utils/Fonts';
 import { width } from '../../../../utils/Dimenssion';
@@ -13,6 +13,7 @@ import { getMonth } from '../../../../utils/Logistics';
 import { showToast } from '../../../../utils/toast';
 import { _storeData } from '../../../../utils/Storage';
 import { getEvolveSubsciber } from '../../../../api/emp';
+import Toast from 'react-native-toast-message';
 
 const SubFluct = (props) => {
     const navigation = useNavigation();
@@ -57,6 +58,7 @@ const SubFluct = (props) => {
 
     return (
         <SafeAreaView style={styles.container}>
+            <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Biến động thuê bao" />
             <View style={{ alignSelf: "center" }}>
@@ -65,8 +67,9 @@ const SubFluct = (props) => {
             <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
 
             <View style={styles.body}>
-            <SFTable data={data}/>
+                <SFTable data={data} />
             </View>
+            <Loading loading={loading} />
         </SafeAreaView>
     );
 }
