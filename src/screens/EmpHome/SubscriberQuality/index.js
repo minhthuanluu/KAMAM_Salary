@@ -59,7 +59,7 @@ const SubscriberQuality = (props) => {
                     <ListItem icon={images.newSubPrePaid} title="Tổng TBTS PTM" price={data.newSubPrePaid} />
                     <View style={{ marginLeft: 20 }}>
                         <ListItem icon={images.revokeAmount} title="TBTS cắt hủy" price={data.revokeAmount} />
-                        <ListItem icon={images.preToPostPaid} title="Fone -> card" price={data.foneToCard} />
+                        <ListItem icon={images.preToPostPaid} title="Fone -> card" price={data.foneCard} />
                         <ListItem icon={images.denyTwoC} title="TBTS chặn 2c" price={data.denyTwoC} />
                     </View>
                     <ListItem icon={images.contractdebt} title="Nợ hợp đồng" price={data.contractDebt} />

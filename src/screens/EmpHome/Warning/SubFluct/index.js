@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { SafeAreaView, StatusBar, Text, View } from 'react-native';
 import { Body, DatePicker, Header, MenuItem, MenuItemShow, SFTable } from '../../../../comps';
@@ -9,44 +9,63 @@ import { width } from '../../../../utils/Dimenssion';
 import { colors } from '../../../../utils/Colors';
 import { styles } from './style';
 import { images } from '../../../../utils/Images';
+import { getMonth } from '../../../../utils/Logistics';
+import { showToast } from '../../../../utils/toast';
+import { _storeData } from '../../../../utils/Storage';
+import { getEvolveSubsciber } from '../../../../api/emp';
 
 const SubFluct = (props) => {
     const navigation = useNavigation();
     const [month, setMonth] = useState(moment(new Date()).subtract(1, 'months').format("MM/YYYY"));
-    const dataTest = [
-        {
-            subNumber: "123",
-            date: "01/02",
-            type: "cắt hủy"
-        },
-        {
-            subNumber: "456",
-            date: "03/04",
-            type: "hạ gói"
-        },
-        {
-            subNumber: "789",
-            date: "05/06",
-            type: "hạ gói"
-        },
-        {
-            subNumber: "321",
-            date: "07/08",
-            type: "cắt hủy"
-        },
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const getDatePikerValue = async () => {
+        let monthStore = await getMonth()
+        if (monthStore != undefined) {
+            setMonth(monthStore)
+            getData(monthStore)
+        } else {
+            getData(month)
+        }
+    }
 
-    ]
+    const getData = async (month) => {
+        setLoading(true)
+        let res = await getEvolveSubsciber(month)
+        if (res.status == "success") {
+            // showToast("success", "Thành công", "Lấy dữ liệu thành công")
+            setData(res.data.data)
+            console.log(res.data.data)
+            setLoading(false)
+        } else {
+            showToast("error", "Lỗi hệ thống", res.message)
+            setLoading(false)
+        }
+    }
+
+    const onChangeDatePicker = (date) => {
+        setData([])
+        setMonth(date)
+        getData(date)
+        _storeData("month", date)
+    }
+    useEffect(() => {
+        navigation.addListener('focus', async () => {
+            await getDatePikerValue()
+        })
+    })
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Biến động thuê bao" />
             <View style={{ alignSelf: "center" }}>
-                <DatePicker month={month} width={width - fontScale(120)} onChangeDate={(date) => setMonth(date)} />
+                <DatePicker month={month} width={width - fontScale(120)} onChangeDate={(date) => onChangeDatePicker(date)} />
             </View>
             <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
 
             <View style={styles.body}>
-            <SFTable data={dataTest}/>
+            <SFTable data={data}/>
             </View>
         </SafeAreaView>
     );
