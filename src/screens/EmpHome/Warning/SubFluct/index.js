@@ -35,7 +35,7 @@ const SubFluct = (props) => {
         if (res.status == "success") {
             // showToast("success", "Thành công", "Lấy dữ liệu thành công")
             setData(res.data.data)
-            console.log(res.data.data)
+            // console.log(res.data.data)
             setLoading(false)
         } else {
             showToast("error", "Lỗi hệ thống", res.message)

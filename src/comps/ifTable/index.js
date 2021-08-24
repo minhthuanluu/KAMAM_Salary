@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, SafeAreaView } from "react-native";
 import { fontScale } from '../../utils/Fonts';
 import { styles } from './styles';
 
@@ -13,7 +13,7 @@ const IFTable = (props) => { //table of screen SubFluct
         )
     }
     return (
-        <View style={{marginBottom:fontScale(25)}}>
+        <SafeAreaView style={{marginBottom:fontScale(25)}}>
             <View style={{ backgroundColor: props.color, height: fontScale(40), alignItems: "center", justifyContent: "center" }}>
                 <Text style={{ fontWeight: "bold" }}>{props.title}</Text>
             </View>
@@ -32,7 +32,7 @@ const IFTable = (props) => { //table of screen SubFluct
                 }}
             />
 
-        </View>
+        </SafeAreaView>
     );
 }
 

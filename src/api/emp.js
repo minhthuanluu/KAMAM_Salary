@@ -495,3 +495,38 @@ export const getEvolveSubsciber = async (month) => {
         });
     return data;
 };
+
+export const getEvolveRevenue = async (month) => {
+    let data = baseData
+    await axios({
+        method: "POST",
+        url: `${baseUrl}mobile/warning/dashboard/getEvolveRevenue?month=${month}`,
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: getToken(),
+        },
+    })
+        .then(async (res) => {
+            if (res.status == 200) {
+                if (Object.values(res.data).length > 0) {
+                    data = {
+                        data: res.data,
+                        isLoading: false,
+                        status: "success",
+                        error: null
+                    };
+                }
+            }
+        })
+        .catch(async (error) => {
+            console.log(error)
+            data = {
+                message: error.response.data.message,
+                isLoading: false,
+                status: "failed",
+                error: error.response.data
+            };
+        });
+    return data;
+};
