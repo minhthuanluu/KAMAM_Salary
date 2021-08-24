@@ -1,31 +1,76 @@
 import moment from 'moment';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { SafeAreaView, StatusBar, Text, View } from 'react-native';
-import { Body, DatePicker, Header, MenuItem, MenuItemShow } from '../../../../comps';
+import { Body, DatePicker, Header, Loading, MenuItem, MenuItemShow } from '../../../../comps';
 import { useNavigation } from '@react-navigation/core';
 import { fontScale } from '../../../../utils/Fonts';
 import { width } from '../../../../utils/Dimenssion';
 import { colors } from '../../../../utils/Colors';
 import { styles } from './style';
 import { images } from '../../../../utils/Images';
+import { _storeData } from '../../../../utils/Storage';
+import { getMonth } from '../../../../utils/Logistics';
+import { showToast } from '../../../../utils/toast';
+import Toast from 'react-native-toast-message';
+import { getWarningDashboard } from '../../../../api/emp';
 
 const WarningDashboard = (props) => {
     const navigation = useNavigation();
     const [month, setMonth] = useState(moment(new Date()).subtract(1, 'months').format("MM/YYYY"));
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [icon, setIcon] = useState(images.none);
+    const getDatePikerValue = async () => {
+        let monthStore = await getMonth()
+        if (monthStore != undefined) {
+            setMonth(monthStore)
+            getData(monthStore)
+        } else {
+            getData(month)
+        }
+    }
+
+    const getData = async (month) => {
+        setLoading(true)
+        let res = await getWarningDashboard(month)
+        if (res.status == "success") {
+            // showToast("success", "Thành công", "Lấy dữ liệu thành công")
+            setData(res.data.data)
+            // console.log(res.data.data)
+            setLoading(false)
+        } else {
+            showToast("error", "Lỗi hệ thống", res.message)
+            setLoading(false)
+        }
+    }
+
+    const onChangeDatePicker = (date) => {
+        setData([])
+        setMonth(date)
+        getData(date)
+        _storeData("month", date)
+    }
+    useEffect(() => {
+        navigation.addListener('focus', async () => {
+            await getDatePikerValue()
+        })
+    })
     return (
         <SafeAreaView style={styles.container}>
+            <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Cảnh báo" />
             <View style={{ alignSelf: "center" }}>
-                <DatePicker month={month} width={width - fontScale(120)} onChangeDate={(date) => setMonth(date)} />
+                <DatePicker month={month} width={width - fontScale(120)} onChangeDate={(date) => onChangeDatePicker(date)} />
             </View>
             <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
             <View style={styles.body}>
-                <MenuItem value=" "  style={{ marginTop: fontScale(30) }} title="Biến động thuê bao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.subfluct} width={width - fontScale(60)} onPress={() => navigation.navigate("SubFluct")} />
+                <MenuItem value=" " style={{ marginTop: fontScale(30) }} title="Biến động thuê bao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.subfluct} width={width - fontScale(60)} onPress={() => navigation.navigate("SubFluct")} />
                 <MenuItem value=" " style={{ marginTop: fontScale(50) }} title="Biến động doanh thu" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.incomefluct} width={width - fontScale(60)} onPress={() => navigation.navigate("IncomeFluct")} />
-                <MenuItemShow value="Giảm 1 DN" style={{ marginTop: fontScale(50) }} title="Biến động DN trong tập DS giao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.enterprisefluct} width={width - fontScale(60)} />
+                <MenuItemShow value={"Giảm " + data.enterpriseEvolve + " DN"} style={{ marginTop: fontScale(50) }} title="Biến động DN trong tập DS giao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.enterprisefluct} width={width - fontScale(60)} />
             </View>
+            <Loading loading={loading} />
         </SafeAreaView>
     );
 }
