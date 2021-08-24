@@ -390,3 +390,38 @@ export const getTotalProductSalary = async (fmonth, tmonth) => {
         });
     return data;
 };
+export const getSubscriberQuality = async () => {
+    // console.log(fmonth + tmonth)
+    let data = baseData
+    await axios({
+        method: "POST",
+        url: `${baseUrl}mobile/quality-subs/getSubscriberQuality`,
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: getToken(),
+        },
+    })
+        .then(async (res) => {
+            if (res.status == 200) {
+                if (Object.values(res.data).length > 0) {
+                    data = {
+                        data: res.data,
+                        isLoading: false,
+                        status: "success",
+                        error: null
+                    };
+                }
+            }
+        })
+        .catch(async (error) => {
+            console.log(error)
+            data = {
+                message: error.response.data.message,
+                isLoading: false,
+                status: "failed",
+                error: error.response.data
+            };
+        });
+    return data;
+};
