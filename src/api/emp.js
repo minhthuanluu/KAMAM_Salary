@@ -48,7 +48,7 @@ export const getExcutePlanDashboard = async (month) => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: getToken(),
+            Authorization: await getToken(),
         },
     })
         .then(async (res) => {
@@ -83,7 +83,7 @@ export const getGrowthEnterprise = async (month) => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: getToken(),
+            Authorization: await getToken(),
         },
     })
         .then(async (res) => {
@@ -118,7 +118,7 @@ export const getDeliveryEnterprise = async (month) => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: getToken(),
+            Authorization: await getToken(),
         },
     })
         .then(async (res) => {
@@ -153,7 +153,7 @@ export const getDeliverySubAmount = async (month) => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: getToken(),
+            Authorization: await getToken(),
         },
     })
         .then(async (res) => {
@@ -188,7 +188,7 @@ export const getKamPTRevenue = async (month) => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: getToken(),
+            Authorization: await getToken(),
         },
     })
         .then(async (res) => {
@@ -223,7 +223,7 @@ export const getProductivitySub = async (month) => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: getToken(),
+            Authorization: await getToken(),
         },
     })
         .then(async (res) => {
@@ -258,7 +258,7 @@ export const getSalaryByMonthDashboard = async (month) => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: getToken(),
+            Authorization: await getToken(),
         },
     })
         .then(async (res) => {
@@ -292,7 +292,7 @@ export const getProductSalary = async (month) => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: getToken(),
+            Authorization: await getToken(),
         },
     })
         .then(async (res) => {
@@ -328,7 +328,7 @@ export const getAvgIncomeDashboard = async (fmonth, tmonth) => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: getToken(),
+            Authorization: await getToken(),
         },
     })
         .then(async (res) => {
@@ -364,7 +364,7 @@ export const getTotalProductSalary = async (fmonth, tmonth) => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: getToken(),
+            Authorization: await getToken(),
         },
     })
         .then(async (res) => {
@@ -399,7 +399,7 @@ export const getSubscriberQuality = async () => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: getToken(),
+            Authorization: await getToken(),
         },
     })
         .then(async (res) => {
@@ -434,7 +434,7 @@ export const getWarningDashboard = async (month) => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: getToken(),
+            Authorization: await getToken(),
         },
     })
         .then(async (res) => {
@@ -469,7 +469,7 @@ export const getEvolveSubsciber = async (month) => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: getToken(),
+            Authorization: await getToken(),
         },
     })
         .then(async (res) => {
@@ -504,7 +504,7 @@ export const getEvolveRevenue = async (month) => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: getToken(),
+            Authorization: await getToken(),
         },
     })
         .then(async (res) => {
@@ -539,7 +539,7 @@ export const getKPIMonthReport = async () => {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: getToken(),
+            Authorization: await getToken(),
         },
     })
         .then(async (res) => {

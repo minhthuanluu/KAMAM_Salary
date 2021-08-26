@@ -15,11 +15,11 @@ const ProfileDashboard = (props) => {
         <SafeAreaView style={styles.container}>
             <StatusBar barStyle="dark-content" translucent backgroundColor={colors.primary} />
             <View style={{ backgroundColor: colors.white, flex: 1 }}>
-                <Header title="Thông tin cá nhân" />
+                <Header showBack={false} title="Thông tin cá nhân" />
                 <Image source={images.profileHeader} resizeMode="stretch" style={styles.headerShape} />
                 <View style={styles.personInfo}>
                     <Text style={styles.staffCode}>Test name</Text>
-                    <Text style={styles.staffName}>KAM/AM - 001</Text>
+                    <Text style={styles.staffName}>KAM/AM - 1.000</Text>
                     <Image style={styles.avatar} source={images.avatar} />
                 </View>
                 <Text style={{ marginTop: fontScale(30), marginLeft: fontScale(30), fontWeight: "bold", fontSize: fontScale(18), color: "#707070" }}>THÔNG TIN CÁ NHÂN</Text>

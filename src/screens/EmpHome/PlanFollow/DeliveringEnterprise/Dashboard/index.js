@@ -14,7 +14,7 @@ import { _storeData } from '../../../../../utils/Storage';
 
 const DeliveringEnterpriseDashboard = (props) => {
     const navigation = useNavigation();
-    const [month, setMonth] = useState(moment(new Date()).subtract(1, 'months').format("MM/YYYY"));
+    const [month, setMonth] = useState(moment(new Date()).subtract(0, 'months').format("MM/YYYY"));
     const getDatePikerValue = async () => {
         let month = await getMonth()
         if (month != undefined) {

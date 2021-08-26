@@ -15,7 +15,7 @@ import { getSubscriberQuality } from '../../../api/emp';
 
 const SubscriberQuality = (props) => {
     const [beginMonth, setMonth] = useState('01' + '/' + moment(new Date()).format("YYYY"));
-    const [sMonth, setSMonth] = useState(moment(new Date()).subtract(1, 'months').format("MM/YYYY"));
+    const [sMonth, setSMonth] = useState(moment(new Date()).subtract(0, 'months').format("MM/YYYY"));
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const getData = async () => {

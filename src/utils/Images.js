@@ -81,4 +81,6 @@ export const images = {
     logoutbg: require('../../assets/logoutbg.png'),
     cancle:require('../assets/cancle.png'),
     check:require('../assets/check.png'),
+
+    arrowdown: require('../assets/dropdown.png'),
 }

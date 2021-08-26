@@ -10,6 +10,7 @@ import { width } from '../../../utils/Dimenssion';
 import { fontScale } from '../../../utils/Fonts';
 import { text } from '../../../utils/Text';
 import { styles } from './style';
+import { _removeData } from '../../../utils/Storage';
 
 const EmpDashboard = (route) => {
     const navigation = useNavigation();
@@ -19,6 +20,10 @@ const EmpDashboard = (route) => {
     const isFocus = useIsFocused();
 
     useEffect(() => {
+        navigation.addListener('focus', async () => {
+            _removeData("month")
+        })
+
         BackHandler.addEventListener('hardwareBackPress', () => {
             if (!navigation.isFocused()) {
                 return false;
@@ -51,7 +56,7 @@ const EmpDashboard = (route) => {
         <SafeAreaView style={styles.container}>
             <StatusBar translucent={true} backgroundColor={colors.primary} />
             {
-                <Header showBack={false} profile avatar={user.avatar != "" ? { uri: imgUrl + user.avatar } : images.avatar} fullName="admin" maGDV="KAM/AM - 1.000" />
+                <Header showBack={false} profile avatar={user.avatar != "" ? { uri: imgUrl + user.avatar } : images.avatar} fullName="testName" maGDV="KAM/AM - 1.000" />
             }
             <Body style={{ marginTop: fontScale(27) }} showInfo={false} />
             <View style={styles.body}>

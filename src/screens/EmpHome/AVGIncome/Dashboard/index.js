@@ -16,7 +16,7 @@ import Toast from 'react-native-toast-message';
 
 const AVGIncomeDashboard = (props) => {
     const [fromMonth, setFromMonth] = useState('01' + '/' + moment(new Date()).format("YYYY"));
-    const [toMonth, settoMonth] = useState(moment(new Date()).subtract(1, 'months').format("MM/YYYY"));
+    const [toMonth, settoMonth] = useState(moment(new Date()).subtract(0, 'months').format("MM/YYYY"));
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const getDatePikerValue = async () => {
