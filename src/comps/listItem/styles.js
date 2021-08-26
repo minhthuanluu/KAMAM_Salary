@@ -4,8 +4,8 @@ import { width } from "../../utils/Dimenssion";
 import { fontScale } from "../../utils/Fonts";
 
 export const styles = StyleSheet.create({
-    container: { flexDirection: "row", marginHorizontal: fontScale(15), marginVertical: fontScale(5) },
-    titleContain: { flexDirection: "row", flex: 1 },
+    container: { flexDirection: "row", marginHorizontal: fontScale(15) },
+    titleContain: { flexDirection: "row", flex: 1,height:fontScale(28) },
     mainTitle: { fontWeight: "bold", fontSize: fontScale(19), paddingVertical: fontScale(5), marginLeft: fontScale(5), color: '#2E2E31', textAlignVertical: "center", width: width / 2 },
     title: { fontWeight: "bold", paddingVertical: fontScale(10), marginLeft: fontScale(5), color: colors.grey, width: width / 2, fontWeight: "bold" },
     price: { textAlign: "right", fontSize: fontScale(15), paddingVertical: fontScale(10), color: "#00BECC", fontWeight: "bold" },

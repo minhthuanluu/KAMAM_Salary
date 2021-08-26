@@ -19,7 +19,7 @@ const ListItem = (props) => {
                             </View>
                     }
                 </> : <>
-                    <View style={styles.titleContain}>
+                    <View style={[styles.titleContain,props.style]}>
                         <Image source={icon} resizeMode="contain" style={[styles.icon, props.iconStyle]} />
                         <Text style={styles.title, { color: isFather == true ? "#3E3E3E" : isChild == true ? "#9E9898" : "#818080",
                         fontSize: isChild == true ? fontScale(16) : isChild == true ? fontScale(19) :fontScale(17) ,

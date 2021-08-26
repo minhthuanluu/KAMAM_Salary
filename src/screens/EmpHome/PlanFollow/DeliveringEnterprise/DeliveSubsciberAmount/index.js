@@ -79,9 +79,9 @@ const DeliveSubsciberAmount = (props) => {
             <View style={{ alignSelf: "center" }}>
                 <DatePicker month={month} width={width - fontScale(120)} onChangeDate={(date) => onChangeDatePicker(date)} />
             </View>
-            <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
-            <View style={styles.body}>
-                <ScrollView style={styles.bg}>
+            <Body style={{ marginTop: fontScale(30) }} showInfo={false} />
+            <ScrollView style={styles.body}>
+                <View style={styles.bg}>
                     <View style={{ marginTop: fontScale(20) }}>
                         <ListItem isFather={true} icon={images.icon_delivesubsciberamount1} title={"TBTS còn trên mạng tháng " + lastMonth + ": "} price={data.length != 0 ? data.lastMonthRemain + "TB" : "0TB"} />
                         <View style={{ marginLeft: fontScale(5) }}>
@@ -94,7 +94,7 @@ const DeliveSubsciberAmount = (props) => {
                             </View>
                         </View>
                     </View>
-                    <View style={{ marginVertical: fontScale(20) }}>
+                    <View style={{ marginVertical: fontScale(5) }}>
                         <ListItem isFather={true} icon={images.icon_delivesubsciberamount1} title={"TBTS còn trên mạng tháng " + currentMonth + ": "} price={data.length != 0 ? data.currMonthRemain + "TB" : "0TB"} />
                         <View style={{ marginLeft: fontScale(5) }}>
                             <ListItem icon={images.none} title="TB chất lượng: " price={data.length != 0 ? data.currMonthQualSub + "TB" : "0TB"} />
@@ -106,11 +106,9 @@ const DeliveSubsciberAmount = (props) => {
                             </View>
                         </View>
                     </View>
+                </View>
 
-
-                </ScrollView>
-
-            </View>
+            </ScrollView>
             <Loading loading={loading} />
         </SafeAreaView>
     );

@@ -27,6 +27,7 @@ export const styles = StyleSheet.create({
         // marginTop:fontScale(30),
         marginLeft:fontScale(20),
         marginRight:fontScale(20),
-        marginBottom:fontScale(20)
+        marginBottom:fontScale(20),
+        marginTop:fontScale(20)
       },
 })
