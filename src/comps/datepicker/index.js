@@ -34,7 +34,7 @@ const YearMonthPicker = (props) => {
                     </View>
                     :
                     <TouchableOpacity style={[{ width: props.width }, props.style, styles.selectContainer]} onPress={() => setShowDate(!showDate)}>
-                        <Text style={styles.monthLabel}>{month == null ? 'Tháng ' + props.month : month}</Text>
+                        <Text style={[styles.monthLabel, { marginLeft: fontScale(30) }]}>{month == null ? 'Tháng ' + props.month : month}</Text>
                         <Image source={images.arrowdown} resizeMode="cover" style={styles.arrowDown} />
                     </TouchableOpacity>
             }

@@ -45,24 +45,30 @@ const SubscriberQuality = (props) => {
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Chất lượng thuê bao" />
             <View style={styles.dateContainer}>
-                <DatePicker disable={true} month={beginMonth} width={width / 2 - fontScale(40)} style={{ marginLeft: fontScale(30) }} />
-                <DatePicker disable={true} month={sMonth} width={width / 2 - fontScale(40)} style={{ marginLeft: fontScale(20) }} />
+                <View style={{ flex: 1 / 2 }}>
+                    <DatePicker disable={true} month={beginMonth} width={width / 2 - fontScale(25)} style={{ alignSelf: "center" }} />
+                </View>
+                <View style={{ flex: 1 / 2 }}>
+                    <DatePicker disable={true} month={sMonth} width={width / 2 - fontScale(25)} style={{ alignSelf: "center" }} />
+                </View>
             </View>
-            <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
+            <Body style={{ marginTop: fontScale(69) }} showInfo={false} />
             <View style={styles.body}>
                 <View style={styles.bg}>
-                    <ListItem icon={images.debtPercent} title="Tỉ lệ nợ / doanh thu" price={data.debtPercent} />
-                    <View style={{ marginLeft: 20 }}>
-                        <ListItem icon={images.totalDebtNinety} title="Tổng nợ >= 90 ngày" price={data.totalDebtNinety} />
-                        <ListItem icon={images.totalRevenue} title="Tổng doanh thu" price={data.totalRevenue} />
+                    <View style={{marginVertical:15,marginHorizontal:5}}>
+                        <ListItem icon={images.debtPercent} title="Tỉ lệ nợ / doanh thu" price={data.debtPercent} />
+                        <View style={{ marginLeft: 20 }}>
+                            <ListItem icon={images.totalDebtNinety} title="Tổng nợ >= 90 ngày" price={data.totalDebtNinety} />
+                            <ListItem icon={images.totalRevenue} title="Tổng doanh thu" price={data.totalRevenue} />
+                        </View>
+                        <ListItem icon={images.newSubPrePaid} title="Tổng TBTS PTM" price={data.newSubPrePaid} />
+                        <View style={{ marginLeft: 20 }}>
+                            <ListItem icon={images.revokeAmount} title="TBTS cắt hủy" price={data.revokeAmount} />
+                            <ListItem icon={images.preToPostPaid} title="Fone -> card" price={data.foneCard} />
+                            <ListItem icon={images.denyTwoC} title="TBTS chặn 2c" price={data.denyTwoC} />
+                        </View>
+                        <ListItem icon={images.contractdebt} title="Nợ hợp đồng" price={data.contractDebt} />
                     </View>
-                    <ListItem icon={images.newSubPrePaid} title="Tổng TBTS PTM" price={data.newSubPrePaid} />
-                    <View style={{ marginLeft: 20 }}>
-                        <ListItem icon={images.revokeAmount} title="TBTS cắt hủy" price={data.revokeAmount} />
-                        <ListItem icon={images.preToPostPaid} title="Fone -> card" price={data.foneCard} />
-                        <ListItem icon={images.denyTwoC} title="TBTS chặn 2c" price={data.denyTwoC} />
-                    </View>
-                    <ListItem icon={images.contractdebt} title="Nợ hợp đồng" price={data.contractDebt} />
                 </View>
             </View>
             <Loading loading={loading} />
