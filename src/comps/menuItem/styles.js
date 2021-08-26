@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: fontScale(15),
     paddingTop: -fontScale(9),
-    minHeight: fontScale(30),
+    minHeight: fontScale(50),
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -19,7 +19,8 @@ export const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5
+    elevation: 5,
+    flexDirection:"row"
   },
   icon: {
     position: "absolute",
@@ -28,6 +29,7 @@ export const styles = StyleSheet.create({
     resizeMode: "contain",
     width: fontScale(50),
     height: fontScale(50),
+    flex:1/5
   },
   title: {
     minHeight: fontScale(54),
@@ -35,7 +37,9 @@ export const styles = StyleSheet.create({
     marginLeft: fontScale(15),
     fontWeight: "bold",
     paddingTop: fontScale(26),
-    lineHeight: fontScale(23)
+    lineHeight: fontScale(23),
+    flex:4/5,
+    marginBottom:fontScale(5)
   },
   value: {
     textAlign: "right",
