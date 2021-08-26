@@ -77,14 +77,14 @@ const DeliveEnterpriseAmount = (props) => {
             <View style={{ alignSelf: "center" }}>
                 <DatePicker month={month} width={width - fontScale(120)} onChangeDate={(date) => onChangeDatePicker(date)} />
             </View>
-            <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
+            <Body style={{ marginTop: fontScale(25) }} showInfo={false} />
             <View style={styles.body}>
                 <View style={styles.bg}>
-                    <Text></Text>
+                    <Text style={{height:fontScale(10)}}></Text>
                     <ListItem icon={images.deliveenterpriseamount_ic} title={"Số lượng DN hiện có tháng " + lastMonth + ": "} price={data.lastAmount} />
-                    <Text></Text>
+                    {/* <Text></Text> */}
                     <ListItem icon={images.deliveenterpriseamount_ic} title={"Số lượng DN tháng " + currentMonth + ": "} price={data.currentAmount} />
-                    <Text></Text>
+                    {/* <Text></Text> */}
                 </View>
 
             </View>
