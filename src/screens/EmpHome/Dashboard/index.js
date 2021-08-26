@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, Text, StatusBar, BackHandler, View } from 'react-native';
+import { SafeAreaView, Text, StatusBar, BackHandler, View, ScrollView } from 'react-native';
 import { colors } from '../../../utils/Colors';
 import { MenuItem, Header, Body } from '../../../comps';
 import { useNavigation } from '@react-navigation/core';
@@ -60,15 +60,15 @@ const EmpDashboard = (route) => {
             {
                 <Header showBack={false} profile avatar={user.avatar != "" ? { uri: imgUrl + user.avatar } : images.avatar} fullName="testName" maGDV="KAM/AM - 1.000" />
             }
-            <Body style={{ marginTop: fontScale(27) }} showInfo={false} />
-            <View style={styles.body}>
-                <MenuItem style={{ marginTop: fontScale(20) }} title="Theo dõi thực hiện KH" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.planfollow} width={width - fontScale(60)} onPress={() => navigation.navigate("PlanFollowDashboard")} />
+            <Body style={{ marginTop: fontScale(26) }} showInfo={false} />
+            <ScrollView style={styles.body}>
+                <MenuItem style={{ marginTop: fontScale(25) }} title="Theo dõi thực hiện KH" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.planfollow} width={width - fontScale(60)} onPress={() => navigation.navigate("PlanFollowDashboard")} />
                 <MenuItem style={{ marginTop: fontScale(40) }} title="Lương theo tháng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.salarybymonth} width={width - fontScale(60)} onPress={() => navigation.navigate("SalaryByMonthDashboard")} />
                 <MenuItem style={{ marginTop: fontScale(40) }} title="Tổng thu nhập" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.AVGIncome} width={width - fontScale(60)} onPress={() => navigation.navigate("AVGIncomeDashboard")} />
                 <MenuItem style={{ marginTop: fontScale(40) }} title="Chất lượng thuê bao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.subscriberquality} width={width - fontScale(60)} onPress={() => navigation.navigate("SubscriberQuality")} />
                 <MenuItem style={{ marginTop: fontScale(40) }} title="Cảnh báo" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.warning} width={width - fontScale(60)} onPress={() => navigation.navigate("WarningDashboard")} />
-                <MenuItem style={{ marginTop: fontScale(40) }} title="Báo cáo KPI tháng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.KPImonthreport} width={width - fontScale(60)} onPress={() => navigation.navigate("KPIMonthReport")} />
-            </View>
+                <MenuItem style={{ marginTop: fontScale(40),marginBottom:fontScale(20) }} title="Báo cáo KPI tháng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.KPImonthreport} width={width - fontScale(60)} onPress={() => navigation.navigate("KPIMonthReport")} />
+            </ScrollView>
 
         </SafeAreaView>
     );

@@ -25,5 +25,7 @@ export const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
     marginHorizontal: 15,
+    marginBottom:10,
+    marginTop:10
   },
 })

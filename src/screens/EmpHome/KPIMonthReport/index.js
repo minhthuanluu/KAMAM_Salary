@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native';
-import { Body, Header, ListItem, Loading } from '../../../comps';
+import { Body, DatePicker, Header, ListItem, Loading } from '../../../comps';
 import { useNavigation } from '@react-navigation/core';
 import { fontScale } from '../../../utils/Fonts';
 import { width } from '../../../utils/Dimenssion';
@@ -9,15 +9,18 @@ import { styles } from './style';
 import { images } from '../../../utils/Images';
 import { getKPIMonthReport } from '../../../api/emp';
 import Toast from 'react-native-toast-message';
+import moment from 'moment';
+import { _storeData } from '../../../utils/Storage';
 
 const KPIMonthReport = (props) => {
     const navigation = useNavigation();
     const [data, setData] = useState([]);
+    const [month, setMonth] = useState(moment(new Date()).subtract(1, 'months').format("MM/YYYY"));
     const [loading, setLoading] = useState(true);
 
-    const getData = async () => {
+    const getData = async (month) => {
         setLoading(true)
-        let res = await getKPIMonthReport()
+        let res = await getKPIMonthReport(month)
         if (res.status == "success") {
             // showToast("success", "Thành công", "Lấy dữ liệu thành công")
             setData(res.data.data)
@@ -28,9 +31,17 @@ const KPIMonthReport = (props) => {
             setLoading(false)
         }
     }
+
+    const onChangeDatePicker = (date) => {
+        setData([])
+        setMonth(date)
+        getData(date)
+        _storeData("month", date)
+    }
+
     useEffect(() => {
         navigation.addListener('focus', async () => {
-            await getData()
+            await getData(month)
         })
     })
     return (
@@ -38,11 +49,15 @@ const KPIMonthReport = (props) => {
             <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Báo cáo KPI tháng" />
-            <Text style={{ textAlign: "center", fontWeight: "bold", color: "white", fontSize: fontScale(18) }}>{data.notification}</Text>
-            <Body style={{ marginTop: fontScale(22) }} showInfo={false} />
 
-            <View style={styles.body}>
-                <ScrollView style={styles.bg}>
+            <View style={{ alignSelf: "center" }}>
+                <DatePicker month={month} width={width - fontScale(120)} onChangeDate={(date) => onChangeDatePicker(date)} />
+            </View>
+
+            <Body style={{ marginTop: fontScale(30) }} showInfo={false} />
+
+            <ScrollView style={styles.body}>
+                <View style={styles.bg}>
                     <ListItem isFather={true} icon={images.newSubTotal} title="Chỉ tiêu phát triển mới TB: " price={data.newSubTotal} />
                     <View style={{ marginLeft: 10 }}>
                         <ListItem isChild={true} icon={images.none} title="Kế hoạch giao" price={data.newSubTarget} />
@@ -72,8 +87,8 @@ const KPIMonthReport = (props) => {
                         <ListItem icon={images.none} title="BQ % HT chỉ tiêu điều hành:" price={data.avgTarget} />
                     </View>
                     <ListItem isFather={true} icon={images.totalKPI} title="Tổng KPI khoán sản phẩm:" price={data.totalKPI} />
-                </ScrollView>
-            </View>
+                </View>
+            </ScrollView>
             <Loading loading={loading} />
         </SafeAreaView>
     );

@@ -531,7 +531,8 @@ export const getEvolveRevenue = async (month) => {
     return data;
 };
 
-export const getKPIMonthReport = async () => {
+export const getKPIMonthReport = async (month) => {
+    console.log(month)
     let data = baseData
     await axios({
         method: "POST",
