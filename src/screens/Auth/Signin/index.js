@@ -33,7 +33,7 @@ const SignIn = (props) => {
             setLoading(true);
             await login(userName, password, navigation).then(async (res) => {
                 if (res.status == "success") {
-
+                    _storeData("isLogin", true)
                     showToast("success", "Thành công", "Đăng nhập thành công")
                     // checkLogin(navigation);
                     setTimeout(() => {

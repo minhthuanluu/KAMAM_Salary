@@ -17,7 +17,8 @@ const SignOut = () => {
         //     await _removeData("userInfo");
         // });s
         // alert("logoutUser func")
-        await _removeData("loginInfo");
+        await _removeData("accessToken");
+        await _removeData("isLogin");
         navigation.navigate("SignIn")
     }
 

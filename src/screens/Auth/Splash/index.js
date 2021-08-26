@@ -13,16 +13,23 @@ const Splash = () => {
     const isFocus = useIsFocused();
 
     useEffect(() => {
-        setTimeout(async() => {
-            if (isFocus) {
-                checkLogin(navigation)
-                // navigation.navigate("AdminHome")
-            } else {
+        setTimeout(async () => {
+            // if (isFocus) {
+            // checkLogin(navigation)
+            //     // navigation.navigate("AdminHome")
+            // } else {
 
+            // }
+            let isLogin = await _retrieveData("isLogin")
+            if (isLogin == true) {
+                navigation.navigate("EMPHome")
+            } else {
+                navigation.navigate("SignIn")
             }
+
         }, 3000);
         // console.log("navigation")
-    },[])
+    }, [])
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar backgroundColor={colors.primary} />
@@ -34,7 +41,7 @@ const Splash = () => {
                 <Text style={styles.appName}>
                     {/* {text.appName} */}
                     KAMAM Salary
-                    </Text>
+                </Text>
                 <ActivityIndicator size="small" color={colors.white} style={styles.loadingIcon} />
             </View>
         </SafeAreaView>
