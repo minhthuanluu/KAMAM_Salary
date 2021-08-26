@@ -9,24 +9,33 @@ import { fontScale } from '../../../../utils/Fonts';
 import { images } from '../../../../utils/Images';
 import { styles } from './style';
 import { useNavigation } from '@react-navigation/core';
-import { changeTime, getMonth } from '../../../../utils/Logistics';
+import { changeTime, getFMonth, getMonth, getTMonth } from '../../../../utils/Logistics';
 import { getAvgIncomeDashboard } from '../../../../api/emp';
 import { showToast } from '../../../../utils/toast';
 import Toast from 'react-native-toast-message';
+import { _storeData } from '../../../../utils/Storage';
 
 const AVGIncomeDashboard = (props) => {
     const [fromMonth, setFromMonth] = useState('01' + '/' + moment(new Date()).format("YYYY"));
-    const [toMonth, settoMonth] = useState(moment(new Date()).subtract(0, 'months').format("MM/YYYY"));
+    const [toMonth, setToMonth] = useState(moment(new Date()).subtract(0, 'months').format("MM/YYYY"));
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const getDatePikerValue = async () => {
-        // let monthStore = await getMonth()
-        // if (monthStore != undefined) {
-        //     setMonth(monthStore)
-        //     getData(monthStore)
-        // } else {
-        getData(fromMonth, toMonth)
-        // }
+        let fmonthStore = await getFMonth()
+        let tmonthStore = await getTMonth()
+        if (fmonthStore != undefined && tmonthStore == undefined) {
+            setFromMonth(fmonthStore)
+            getData(fmonthStore, toMonth)
+        } else if (tmonthStore != undefined && fmonthStore == undefined) {
+            setToMonth(tmonthStore)
+            getData(fromMonth, tmonthStore)
+        } else if (fmonthStore == undefined && tmonthStore == undefined) {
+            getData(fromMonth, toMonth)
+        } else {
+            setFromMonth(fmonthStore)
+            setToMonth(tmonthStore)
+            getData(fmonthStore, tmonthStore)
+        }
     }
 
     const getData = async (fromMonth, toMonth) => {
@@ -54,7 +63,7 @@ const AVGIncomeDashboard = (props) => {
         setFromMonth(date)
         getData(date, toMonth)
         // }
-        // _storeData("month", date)
+        _storeData("fmonth", date)
     }
     const onChangeToMonth = (date) => {
         // let fMonth = new Date(changeTime(fromMonth))
@@ -63,10 +72,10 @@ const AVGIncomeDashboard = (props) => {
         //     showToast("error", "Lỗi", "Tháng sau được chọn không thể nhỏ hơn tháng trước")
         // } else {
         setData([])
-        settoMonth(date)
+        setToMonth(date)
         getData(fromMonth, date)
         // }
-        // _storeData("month", date)
+        _storeData("tmonth", date)
     }
 
     useEffect(() => {

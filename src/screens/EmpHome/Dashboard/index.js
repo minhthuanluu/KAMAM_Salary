@@ -22,6 +22,8 @@ const EmpDashboard = (route) => {
     useEffect(() => {
         navigation.addListener('focus', async () => {
             _removeData("month")
+            _removeData("tmonth")
+            _removeData("fmonth")
         })
 
         BackHandler.addEventListener('hardwareBackPress', () => {

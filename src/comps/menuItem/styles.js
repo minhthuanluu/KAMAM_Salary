@@ -20,7 +20,8 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-    flexDirection:"row"
+    flexDirection:"row",
+    height:fontScale(80)
   },
   icon: {
     position: "absolute",
@@ -29,7 +30,6 @@ export const styles = StyleSheet.create({
     resizeMode: "contain",
     width: fontScale(50),
     height: fontScale(50),
-    flex:1/5
   },
   title: {
     minHeight: fontScale(54),
@@ -38,8 +38,8 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingTop: fontScale(26),
     lineHeight: fontScale(23),
-    flex:4/5,
-    marginBottom:fontScale(5)
+    // flex:3/5,
+    // marginBottom:fontScale(10)
   },
   value: {
     textAlign: "right",
@@ -47,7 +47,6 @@ export const styles = StyleSheet.create({
     fontSize: fontScale(18),
     fontWeight: "bold",
     color: "#00BECC",
-    top: -fontScale(12),
-    
+    top:fontScale(45)
   },
 });

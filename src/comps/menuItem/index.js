@@ -24,7 +24,7 @@ const MenuItem = (props) => {
                             <View style={{ flexDirection: "row" }}>
                                 <Text style={{ marginTop: fontScale(10), fontSize: fontScale(15), fontWeight: "bold" }}>{props.title}</Text>
                                 {
-                                    props.topNotif ? <Text style={{ fontSize: fontScale(13),position:"absolute",color: "orange", textAlign: "right", fontWeight: "bold",right:0, marginTop: fontScale(10), marginRight: fontScale(5) }}>{props.topNotif}</Text> : null
+                                    props.topNotif ? <Text style={{ fontSize: fontScale(13), position: "absolute", color: "orange", textAlign: "right", fontWeight: "bold", right: 0, marginTop: fontScale(10), marginRight: fontScale(5) }}>{props.topNotif}</Text> : null
                                 }
                             </View>
                             <View style={{ flex: 1, flexDirection: "row", top: fontScale(-5) }}>
@@ -43,11 +43,13 @@ const MenuItem = (props) => {
                     </TouchableOpacity> :
                     <TouchableOpacity style={styles.container} onPress={onPress}>
                         <View style={styles.bg}>
-                            <Text style={[styles.title, props.titleMenuStyle]}>{title}</Text>
-                            <Image source={icon} style={[styles.icon, props.iconStyle]} />
-                            {
-                                value ? <Text style={[styles.value, props.rightStyle]}>{value}</Text> : null
-                            }
+                            <Text style={[styles.title, props.titleMenuStyle,{flex:2/3}]}>{title}</Text>
+                            <View style={{flex:1/3}}>
+                                <Image source={icon} style={[styles.icon, props.iconStyle]} />
+                                {
+                                    value ? <Text style={[styles.value, props.rightStyle]}>{value}</Text> : null
+                                }
+                            </View>
                         </View>
                     </TouchableOpacity>
             }

@@ -12,20 +12,30 @@ import { images } from '../../../../utils/Images';
 import { showToast } from '../../../../utils/toast';
 import { getTotalProductSalary } from '../../../../api/emp';
 import Toast from 'react-native-toast-message';
+import { getFMonth, getTMonth } from '../../../../utils/Logistics';
+import { _storeData } from '../../../../utils/Storage';
 
-const TotalProductwage=(props)=> {
+const TotalProductwage = (props) => {
     const [fromMonth, setFromMonth] = useState('01' + '/' + moment(new Date()).format("YYYY"));
-    const [toMonth, settoMonth] = useState(moment(new Date()).subtract(0, 'months').format("MM/YYYY"));
+    const [toMonth, setToMonth] = useState(moment(new Date()).subtract(0, 'months').format("MM/YYYY"));
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const getDatePikerValue = async () => {
-        // let monthStore = await getMonth()
-        // if (monthStore != undefined) {
-        //     setMonth(monthStore)
-        //     getData(monthStore)
-        // } else {
-        getData(fromMonth, toMonth)
-        // }
+        let fmonthStore = await getFMonth()
+        let tmonthStore = await getTMonth()
+        if (fmonthStore != undefined && tmonthStore == undefined) {
+            setFromMonth(fmonthStore)
+            getData(fmonthStore, toMonth)
+        } else if (tmonthStore != undefined && fmonthStore == undefined) {
+            setToMonth(tmonthStore)
+            getData(fromMonth, tmonthStore)
+        } else if (fmonthStore == undefined && tmonthStore == undefined) {
+            getData(fromMonth, toMonth)
+        } else {
+            setFromMonth(fmonthStore)
+            setToMonth(tmonthStore)
+            getData(fmonthStore, tmonthStore)
+        }
     }
 
     const getData = async (fromMonth, toMonth) => {
@@ -53,8 +63,9 @@ const TotalProductwage=(props)=> {
         setFromMonth(date)
         getData(date, toMonth)
         // }
-        // _storeData("month", date)
+        _storeData("fmonth", date)
     }
+
     const onChangeToMonth = (date) => {
         // let fMonth = new Date(changeTime(fromMonth))
         // let tMonth = new Date(changeTime(date))
@@ -62,10 +73,10 @@ const TotalProductwage=(props)=> {
         //     showToast("error", "Lỗi", "Tháng sau được chọn không thể nhỏ hơn tháng trước")
         // } else {
         setData([])
-        settoMonth(date)
+        setToMonth(date)
         getData(fromMonth, date)
         // }
-        // _storeData("month", date)
+        _storeData("tmonth", date)
     }
 
     useEffect(() => {
@@ -89,8 +100,8 @@ const TotalProductwage=(props)=> {
             </View>
             <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
             <View style={styles.body}>
-            <TextAmount text="Tổng lương Sp: " number={data.totalProductSalary} />
-            <View style={styles.bg}>
+                <TextAmount text="Tổng lương Sp: " number={data.totalProductSalary} />
+                <View style={styles.bg}>
                     <View style={{ marginTop: fontScale(20) }}>
                         <ListItem isFather={true} icon={images.growthenterprise} title="CP phát triển mới: " price=" " />
                         <View style={{ marginLeft: fontScale(5) }}>

@@ -11,6 +11,16 @@ export const getMonth = async () => {
   return month
 }
 
+export const getFMonth = async () => {
+  let month = await _retrieveData("fmonth")
+  return month
+}
+
+export const getTMonth = async () => {
+  let month = await _retrieveData("tmonth")
+  return month
+}
+
 export const changeTime = (month) => { //month có định dạnh "mm/yyyy"
   var result = "yyyy-mm-01";
   result = result.replace("mm", month.substr(0, 2))
