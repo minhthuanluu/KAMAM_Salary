@@ -21,6 +21,7 @@ const WarningDashboard = (props) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [icon, setIcon] = useState(images.none);
+    const [enterpriseEvolve, setEnterpriseEvolve] = useState(data.enterpriseEvolve == undefined || data.enterpriseEvolve == null ? 0 : data.enterpriseEvolve);
     const getDatePikerValue = async () => {
         let monthStore = await getMonth()
         if (monthStore != undefined) {
@@ -37,6 +38,7 @@ const WarningDashboard = (props) => {
         if (res.status == "success") {
             // showToast("success", "Thành công", "Lấy dữ liệu thành công")
             setData(res.data.data)
+            setEnterpriseEvolve(res.data.data.enterpriseEvolve)
             // console.log(res.data.data)
             setLoading(false)
         } else {
@@ -68,7 +70,7 @@ const WarningDashboard = (props) => {
             <View style={styles.body}>
                 <MenuItem value=" " style={{ marginTop: fontScale(30) }} title="Biến động thuê bao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.subfluct} width={width - fontScale(60)} onPress={() => navigation.navigate("SubFluct")} />
                 <MenuItem value=" " style={{ marginTop: fontScale(50) }} title="Biến động doanh thu" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.incomefluct} width={width - fontScale(60)} onPress={() => navigation.navigate("IncomeFluct")} />
-                <MenuItemShow value={"Giảm " + data.enterpriseEvolve + " DN"} style={{ marginTop: fontScale(50) }} title="Biến động DN trong tập DS giao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.enterprisefluct} width={width - fontScale(60)} />
+                <MenuItemShow value={"Giảm " + enterpriseEvolve + " DN"} style={{ marginTop: fontScale(50) }} title="Biến động DN trong tập DS giao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.enterprisefluct} width={width - fontScale(60)} />
             </View>
             <Loading loading={loading} />
         </SafeAreaView>
