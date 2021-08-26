@@ -79,10 +79,14 @@ const AVGIncomeDashboard = (props) => {
         <SafeAreaView style={styles.container}>
             <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
-            <Header title="Bình quân thu nhập" />
+            <Header title="Tổng thu nhập" />
             <View style={styles.dateContainer}>
-                <DatePicker month={fromMonth} width={width / 2 - fontScale(40)} style={{ marginLeft: fontScale(30) }} onChangeDate={(date) => onChangeFromMonth(date)} />
-                <DatePicker month={toMonth} width={width / 2 - fontScale(40)} style={{ marginLeft: fontScale(20) }} onChangeDate={(date) => onChangeToMonth(date)} />
+                <View style={{ flex: 1 / 2 }}>
+                    <DatePicker month={fromMonth} width={width / 2 - fontScale(20)} style={{ alignSelf: "center" }} onChangeDate={(date) => onChangeFromMonth(date)} />
+                </View>
+                <View style={{ flex: 1 / 2 }}>
+                    <DatePicker month={toMonth} width={width / 2 - fontScale(20)} style={{ alignSelf: "center" }} onChangeDate={(date) => onChangeToMonth(date)} />
+                </View>
             </View>
             <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
             <View style={styles.body}>

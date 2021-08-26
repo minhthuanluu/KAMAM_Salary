@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { colors } from "../../../../utils/Colors";
+import { width } from "../../../../utils/Dimenssion";
 import { fontScale } from "../../../../utils/Fonts";
 
 export const styles = StyleSheet.create({
@@ -10,7 +11,11 @@ export const styles = StyleSheet.create({
     dateContainer: {
         flexDirection: "row",
         position: "absolute",
-        top: fontScale(95)
+        top: fontScale(95),
+        // backgroundColor:"red",
+        width:width,
+        height:20,
+
     },
     body: {
         flex:1,
