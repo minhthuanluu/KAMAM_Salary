@@ -63,7 +63,7 @@ const ExecutePlanDashboard = (props) => {
             <View style={{ alignSelf: "center" }}>
                 <DatePicker month={month} width={width - fontScale(120)} onChangeDate={(date) => onChangeDatePicker(date)} />
             </View>
-            <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
+            <Body style={{ marginTop: fontScale(30) }} showInfo={false} />
 
             <View style={styles.body}>
                 <TextAmount style={{ marginBottom: fontScale(10) }} text="KPI Tổng" number={data.sumKpi} />
