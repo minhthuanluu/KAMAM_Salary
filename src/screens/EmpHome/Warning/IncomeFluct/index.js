@@ -12,7 +12,7 @@ import { images } from '../../../../utils/Images';
 import IFTable from '../../../../comps/ifTable';
 import { _storeData } from '../../../../utils/Storage';
 import { showToast } from '../../../../utils/toast';
-import { getEvolveRevenue } from '../../../../api/emp';
+import { check403, getEvolveRevenue } from '../../../../api/emp';
 import { getMonth } from '../../../../utils/Logistics';
 import Toast from 'react-native-toast-message';
 
@@ -37,11 +37,21 @@ const IncomeFluct = (props) => {
         let res = await getEvolveRevenue(month)
         if (res.status == "success") {
             // showToast("success", "Thành công", "Lấy dữ liệu thành công")
-            setData(res.data.data)
-            // console.log(res.data.data)
-            setLoading(false)
+            if (res.data != undefined && res.data != null) {
+                if (res.data.data != null && res.data.data != undefined) {
+                    setData(res.data.data)
+                    setLoading(false)
+                } else {
+                    showToast("info", "Thông báo", "Không có dữ liệu")
+                    setLoading(false)
+                }
+            } else {
+                showToast("info", "Thông báo", "Không có dữ liệu")
+                setLoading(false)
+            }
         } else {
             showToast("error", "Lỗi hệ thống", res.message)
+            check403(res.error, navigation)
             setLoading(false)
         }
     }
@@ -59,7 +69,7 @@ const IncomeFluct = (props) => {
     })
     return (
         <SafeAreaView style={styles.container}>
-            <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
+            <Toast style={{ position: "absolute", zIndex: 100 }} />
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Biến động doanh thu" />
             <View style={{ alignSelf: "center" }}>

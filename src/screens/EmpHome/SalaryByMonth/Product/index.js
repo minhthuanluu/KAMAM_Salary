@@ -13,7 +13,7 @@ import { _storeData } from '../../../../utils/Storage';
 import { showToast } from '../../../../utils/toast';
 import { getMonth } from '../../../../utils/Logistics';
 import Toast from 'react-native-toast-message';
-import { getProductSalary } from '../../../../api/emp';
+import { check403, getProductSalary } from '../../../../api/emp';
 
 const Product = (props) => {
     const navigation = useNavigation();
@@ -36,11 +36,21 @@ const Product = (props) => {
         let res = await getProductSalary(month)
         if (res.status == "success") {
             // showToast("success", "Thành công", "Lấy dữ liệu thành công")
-            setData(res.data.data)
-            // console.log(res.data.data)
-            setLoading(false)
+            if (res.data != undefined && res.data != null) {
+                if (res.data.data != null && res.data.data != undefined) {
+                    setData(res.data.data)
+                    setLoading(false)
+                } else {
+                    showToast("info", "Thông báo", "Không có dữ liệu")
+                    setLoading(false)
+                }
+            } else {
+                showToast("info", "Thông báo", "Không có dữ liệu")
+                setLoading(false)
+            }
         } else {
             showToast("error", "Lỗi hệ thống", res.message)
+            check403(res.error, navigation)
             setLoading(false)
         }
     }
@@ -58,7 +68,7 @@ const Product = (props) => {
     })
     return (
         <SafeAreaView style={styles.container}>
-             <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
+           <Toast style={{ position: "absolute", zIndex: 100 }} />
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Lương sản phẩm" />
             <View style={{ alignSelf: "center" }}>

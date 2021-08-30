@@ -1,10 +1,21 @@
-import { _retrieveData, _storeData } from "../utils/Storage";
+import { _removeData, _retrieveData, _storeData } from "../utils/Storage";
 import { baseData, baseUrl } from "./utils";
 import axios from "axios";
+import { useNavigation } from '@react-navigation/core';
+
 
 const getToken = async () => {
     let token = await _retrieveData("accessToken")
     return token
+}
+export const check403 = async (error, navigation) => {
+    if (error.response.status == 403) {
+        // alert("test")
+        await _removeData("isLogin")
+        setTimeout(() => {
+            navigation.navigate("SignIn")
+        }, 1000);
+    }
 }
 export const login = async (userName, password) => {
     let data = baseData
@@ -35,7 +46,7 @@ export const login = async (userName, password) => {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
         });
     return data;
@@ -69,7 +80,7 @@ export const getExcutePlanDashboard = async (month) => {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
         });
     return data;
@@ -104,7 +115,7 @@ export const getGrowthEnterprise = async (month) => {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
         });
     return data;
@@ -139,7 +150,7 @@ export const getDeliveryEnterprise = async (month) => {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
         });
     return data;
@@ -174,7 +185,7 @@ export const getDeliverySubAmount = async (month) => {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
         });
     return data;
@@ -209,7 +220,7 @@ export const getKamPTRevenue = async (month) => {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
         });
     return data;
@@ -244,7 +255,7 @@ export const getProductivitySub = async (month) => {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
         });
     return data;
@@ -279,7 +290,7 @@ export const getSalaryByMonthDashboard = async (month) => {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
         });
     return data;
@@ -313,7 +324,7 @@ export const getProductSalary = async (month) => {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
         });
     return data;
@@ -349,7 +360,7 @@ export const getAvgIncomeDashboard = async (fmonth, tmonth) => {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
         });
     return data;
@@ -385,7 +396,7 @@ export const getTotalProductSalary = async (fmonth, tmonth) => {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
         });
     return data;
@@ -420,7 +431,7 @@ export const getSubscriberQuality = async () => {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
         });
     return data;
@@ -455,7 +466,7 @@ export const getWarningDashboard = async (month) => {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
         });
     return data;
@@ -490,7 +501,7 @@ export const getEvolveSubsciber = async (month) => {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
         });
     return data;
@@ -525,7 +536,7 @@ export const getEvolveRevenue = async (month) => {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
         });
     return data;
@@ -556,13 +567,14 @@ export const getKPIMonthReport = async (month) => {
             }
         })
         .catch(async (error) => {
-            console.log(error)
+            console.log(error.response.status)
             data = {
                 message: error.response.data.message,
                 isLoading: false,
                 status: "failed",
-                error: error.response.data
+                error: error
             };
+
         });
     return data;
 };

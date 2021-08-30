@@ -11,7 +11,7 @@ import { styles } from './style';
 import { images } from '../../../utils/Images';
 import { showToast } from '../../../utils/toast';
 import Toast from 'react-native-toast-message';
-import { getSubscriberQuality } from '../../../api/emp';
+import { check403, getSubscriberQuality } from '../../../api/emp';
 
 const SubscriberQuality = (props) => {
     const [beginMonth, setMonth] = useState('01' + '/' + moment(new Date()).format("YYYY"));
@@ -23,13 +23,23 @@ const SubscriberQuality = (props) => {
         let res = await getSubscriberQuality()
         if (res.status == "success") {
             // showToast("success", "Thành công", "Lấy dữ liệu thành công")
-            setData(res.data.data)
-            setMonth(res.data.data.beginMonth)
-            setSMonth(res.data.data.endMonth)
-            // console.log(res.data.data)
-            setLoading(false)
+            if (res.data != undefined && res.data != null) {
+                if (res.data.data != null && res.data.data != undefined) {
+                    setData(res.data.data)
+                    setMonth(res.data.data.beginMonth)
+                    setSMonth(res.data.data.endMonth)
+                    setLoading(false)
+                } else {
+                    showToast("info", "Thông báo", "Không có dữ liệu")
+                    setLoading(false)
+                }
+            } else {
+                showToast("info", "Thông báo", "Không có dữ liệu")
+                setLoading(false)
+            }
         } else {
             showToast("error", "Lỗi hệ thống", res.message)
+            check403(res.error, navigation)
             setLoading(false)
         }
     }
@@ -41,7 +51,7 @@ const SubscriberQuality = (props) => {
     const navigation = useNavigation();
     return (
         <SafeAreaView style={styles.container}>
-            <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
+            <Toast style={{ position: "absolute", zIndex: 100 }} />
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Chất lượng thuê bao" />
             <View style={styles.dateContainer}>
@@ -55,7 +65,7 @@ const SubscriberQuality = (props) => {
             <Body style={{ marginTop: fontScale(69) }} showInfo={false} />
             <View style={styles.body}>
                 <View style={styles.bg}>
-                    <View style={{marginVertical:15,marginHorizontal:5}}>
+                    <View style={{ marginVertical: 15, marginHorizontal: 5 }}>
                         <ListItem icon={images.debtPercent} title="Tỉ lệ nợ / doanh thu" price={data.debtPercent} />
                         <View style={{ marginLeft: 20 }}>
                             <ListItem icon={images.totalDebtNinety} title="Tổng nợ >= 90 ngày" price={data.totalDebtNinety} />

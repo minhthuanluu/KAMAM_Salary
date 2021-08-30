@@ -12,7 +12,7 @@ import { images } from '../../../../utils/Images';
 import { getMonth } from '../../../../utils/Logistics';
 import { showToast } from '../../../../utils/toast';
 import { _storeData } from '../../../../utils/Storage';
-import { getEvolveSubsciber } from '../../../../api/emp';
+import { check403, getEvolveSubsciber } from '../../../../api/emp';
 import Toast from 'react-native-toast-message';
 
 const SubFluct = (props) => {
@@ -35,11 +35,21 @@ const SubFluct = (props) => {
         let res = await getEvolveSubsciber(month)
         if (res.status == "success") {
             // showToast("success", "Thành công", "Lấy dữ liệu thành công")
-            setData(res.data.data)
-            // console.log(res.data.data)
-            setLoading(false)
+            if (res.data != undefined && res.data != null) {
+                if (res.data.data != null && res.data.data != undefined) {
+                    setData(res.data.data)
+                    setLoading(false)
+                } else {
+                    showToast("info", "Thông báo", "Không có dữ liệu")
+                    setLoading(false)
+                }
+            } else {
+                showToast("info", "Thông báo", "Không có dữ liệu")
+                setLoading(false)
+            }
         } else {
             showToast("error", "Lỗi hệ thống", res.message)
+            check403(res.error, navigation)
             setLoading(false)
         }
     }
@@ -58,7 +68,7 @@ const SubFluct = (props) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
+            <Toast style={{ position: "absolute", zIndex: 100 }} />
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Biến động thuê bao" />
             <View style={{ alignSelf: "center" }}>
