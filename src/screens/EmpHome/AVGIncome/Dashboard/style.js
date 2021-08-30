@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     dateContainer: {
         flexDirection: "row",
         position: "absolute",
-        top: fontScale(95),
+        top: fontScale(105),
         // backgroundColor:"red",
         width:width,
         height:20,

@@ -7,7 +7,7 @@ export const showToast = (type, title, message) => {
         position: 'top',
         text1: title,
         text2: message,
-        visibilityTime: 500,
+        visibilityTime: 900,
         autoHide: true,
         // onShow: () => { },
         // onHide: () => { },

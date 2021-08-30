@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
     flexDirection:"row",
-    height:fontScale(80)
+    height:fontScale(70)
   },
   icon: {
     position: "absolute",
@@ -47,6 +47,6 @@ export const styles = StyleSheet.create({
     fontSize: fontScale(18),
     fontWeight: "bold",
     color: "#00BECC",
-    top:fontScale(45)
+    top:fontScale(40)
   },
 });

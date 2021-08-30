@@ -53,29 +53,32 @@ const AVGIncomeDashboard = (props) => {
     }
 
     const onChangeFromMonth = (date) => {
-        // let fMonth = new Date(changeTime(date))
-        // let tMonth = new Date(changeTime(toMonth))
-        // if (tMonth.getMonth() < fMonth.getMonth()) {
-        //     setFromMonth(fromMonth)
-        //     showToast("error", "Lỗi", "Tháng trước được chọn không thể lớn hơn tháng sau")
-        // } else {
-        setData([])
-        setFromMonth(date)
-        getData(date, toMonth)
-        // }
-        _storeData("fmonth", date)
+        let fMonth = new Date(changeTime(date))
+        let tMonth = new Date(changeTime(toMonth))
+        if (tMonth.getMonth() < fMonth.getMonth()) {
+            setFromMonth(date)
+            showToast("error", "Lỗi", "Tháng trước được chọn không thể lớn hơn tháng sau")
+        } else {
+            setData([])
+            setFromMonth(date)
+            getData(date, toMonth)
+            _storeData("fmonth", date)
+        }
+
     }
     const onChangeToMonth = (date) => {
-        // let fMonth = new Date(changeTime(fromMonth))
-        // let tMonth = new Date(changeTime(date))
-        // if (tMonth.getMonth() < fMonth.getMonth()) {
-        //     showToast("error", "Lỗi", "Tháng sau được chọn không thể nhỏ hơn tháng trước")
-        // } else {
-        setData([])
-        setToMonth(date)
-        getData(fromMonth, date)
-        // }
-        _storeData("tmonth", date)
+        let fMonth = new Date(changeTime(fromMonth))
+        let tMonth = new Date(changeTime(date))
+        if (tMonth.getMonth() < fMonth.getMonth()) {
+            setToMonth(date)
+            showToast("error", "Lỗi", "Tháng sau được chọn không thể nhỏ hơn tháng trước")
+        } else {
+            setData([])
+            setToMonth(date)
+            getData(fromMonth, date)
+            _storeData("tmonth", date)
+        }
+
     }
 
     useEffect(() => {
@@ -97,7 +100,7 @@ const AVGIncomeDashboard = (props) => {
                     <DatePicker month={toMonth} width={width / 2 - fontScale(20)} style={{ alignSelf: "center" }} onChangeDate={(date) => onChangeToMonth(date)} />
                 </View>
             </View>
-            <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
+            <Body style={{ marginTop: fontScale(66) }} showInfo={false} />
             <View style={styles.body}>
                 <TextAmount text="Tổng Thu: " number={data.totalIncome} />
                 <MenuItemShow value={data.totalFixedSalary} style={{ marginTop: fontScale(40) }} title="Tổng lương cố định" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.fixedwage} width={width - fontScale(60)} />

@@ -66,15 +66,15 @@ const ExecutePlanDashboard = (props) => {
             <Body style={{ marginTop: fontScale(30) }} showInfo={false} />
 
             <View style={styles.body}>
-                <TextAmount style={{ marginBottom: fontScale(10) }} text="KPI Tổng" number={data.sumKpi} />
+                <TextAmount style={{ marginBottom: fontScale(10) }} text="KPI Tổng:" number={data.sumKpi} />
                 <ScrollView>
                     <MenuItemShow value={data.totalPostPaid} style={{ marginTop: fontScale(25) }} title="Tổng TBTS" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.totalpostpaid} width={width - fontScale(60)} />
-                    <MenuItemShow value={data.qualitySub} style={{ marginTop: fontScale(30) }} title="TB chất lượng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.qualitysub} width={width - fontScale(60)} />
-                    <MenuItemShow value={data.incurredRevenue} style={{ marginTop: fontScale(30) }} title="Doanh thu phát sinh" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.incurredrevenue} width={width - fontScale(60)} />
-                    <MenuItem value="" style={{ marginTop: fontScale(30) }} title="Doanh nghiệp phát triển mới" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.growthenterprise} width={width - fontScale(60)} onPress={() => navigation.navigate("GrowthEnterprise")} />
-                    <MenuItemShow value={data.telecomRevenue} style={{ marginTop: fontScale(30) }} title="Doanh thu viễn thông" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.telecommunicationrevenue} width={width - fontScale(60)} />
-                    <MenuItemShow value={data.retailRevenue} style={{ marginTop: fontScale(30) }} title="Doanh thu bán lẻ" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.retailrevenue} width={width - fontScale(60)} />
-                    <MenuItemShow value={data.change4GSim} style={{ marginTop: fontScale(30), marginBottom: fontScale(20) }} title="Thay sim 4G" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.change4Gsim} width={width - fontScale(60)} />
+                    <MenuItemShow value={data.qualitySub} style={{ marginTop: fontScale(35) }} title="TB chất lượng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.qualitysub} width={width - fontScale(60)} />
+                    <MenuItemShow value={data.incurredRevenue} style={{ marginTop: fontScale(35) }} title="Doanh thu phát sinh" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.incurredrevenue} width={width - fontScale(60)} />
+                    <MenuItem value="" style={{ marginTop: fontScale(35) }} title="Doanh nghiệp phát triển mới" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.growthenterprise} width={width - fontScale(60)} onPress={() => navigation.navigate("GrowthEnterprise")} />
+                    <MenuItemShow value={data.telecomRevenue} style={{ marginTop: fontScale(35) }} title="Doanh thu viễn thông" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.telecommunicationrevenue} width={width - fontScale(60)} />
+                    <MenuItemShow value={data.retailRevenue} style={{ marginTop: fontScale(35) }} title="Doanh thu bán lẻ" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.retailrevenue} width={width - fontScale(60)} />
+                    <MenuItemShow value={data.change4GSim} style={{ marginTop: fontScale(35), marginBottom: fontScale(20) }} title="Thay sim 4G" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.change4Gsim} width={width - fontScale(60)} />
                 </ScrollView>
             </View>
             <Loading loading={loading}/>
