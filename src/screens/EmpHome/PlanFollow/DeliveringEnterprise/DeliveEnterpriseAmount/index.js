@@ -82,7 +82,7 @@ const DeliveEnterpriseAmount = (props) => {
     })
     return (
         <SafeAreaView style={styles.container}>
-            <Toast style={{ position: "absolute", zIndex: 100 }} />
+           <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Số lượng DN đang giao" />
             <View style={{ alignSelf: "center" }}>
@@ -94,7 +94,7 @@ const DeliveEnterpriseAmount = (props) => {
                     <Text style={{ height: fontScale(10) }}></Text>
                     <ListItem icon={images.deliveenterpriseamount_ic} title={"Số lượng DN hiện có tháng " + lastMonth + ": "} price={data.lastAmount} />
                     {/* <Text></Text> */}
-                    <ListItem icon={images.deliveenterpriseamount_ic} title={"Số lượng DN tháng " + currentMonth + ": "} price={data.currentAmount} />
+                    <ListItem icon={images.deliveenterpriseamount_ic} title={"Số lượng DN hiện có tháng " + currentMonth + ": "} price={data.currentAmount} />
                     {/* <Text></Text> */}
                 </View>
 

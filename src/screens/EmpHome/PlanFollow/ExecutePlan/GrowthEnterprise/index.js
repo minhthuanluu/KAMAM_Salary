@@ -71,7 +71,7 @@ const GrowthEnterprise = (props) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Toast style={{ position: "absolute", zIndex: 100 }} />
+            <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Doanh nghiệp phát triển mới" />
             <View style={{ alignSelf: "center" }}>

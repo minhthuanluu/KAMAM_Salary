@@ -6,6 +6,7 @@ import { _retrieveData } from '../../utils/Storage';
 import { images } from '../../utils/Images';
 import { ActivityIndicator } from 'react-native';
 import { colors } from '../../utils/Colors';
+import Toast from 'react-native-toast-message';
 
 const Header = (props) => {
     const { title } = props;
@@ -32,7 +33,11 @@ const Header = (props) => {
                                 ?
                                 <View style={styles.backIcon} />
                                 :
-                                <TouchableOpacity style={styles.backIcon} onPress={() => [navigation.goBack(), props.onPushParams]}>
+                                <TouchableOpacity style={styles.backIcon} onPress={() => {
+                                    navigation.goBack()
+                                    // Toast.hide();
+                                }}
+                                >
                                     <Image source={images.back} style={styles.backIconImg} />
                                 </TouchableOpacity>
                         }

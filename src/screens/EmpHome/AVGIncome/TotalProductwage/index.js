@@ -97,7 +97,7 @@ const TotalProductwage = (props) => {
     const navigation = useNavigation();
     return (
         <SafeAreaView style={styles.container}>
-            <Toast style={{ position: "absolute", zIndex: 100 }} />
+            <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Tổng lương sản phẩm" />
             <View style={styles.dateContainer}>

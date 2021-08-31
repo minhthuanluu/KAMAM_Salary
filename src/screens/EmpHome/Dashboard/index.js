@@ -11,6 +11,7 @@ import { fontScale } from '../../../utils/Fonts';
 import { text } from '../../../utils/Text';
 import { styles } from './style';
 import { _removeData } from '../../../utils/Storage';
+import Toast from 'react-native-toast-message';
 
 const EmpDashboard = (route) => {
     const navigation = useNavigation();
@@ -56,6 +57,7 @@ const EmpDashboard = (route) => {
     }, [navigation]);
     return (
         <SafeAreaView style={styles.container}>
+            {/* <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} /> */}
             <StatusBar translucent={true} backgroundColor={colors.primary} />
             {
                 <Header showBack={false} profile avatar={user.avatar != "" ? { uri: imgUrl + user.avatar } : images.avatar} fullName="testName" maGDV="KAM/AM - 1.000" />

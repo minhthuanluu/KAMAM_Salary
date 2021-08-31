@@ -83,7 +83,7 @@ const KAMPT = (props) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Toast style={{ position: "absolute", zIndex: 100 }} />
+            <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="DT TB do KAM PT thuộc tập DN giao" />
             <View style={{ alignSelf: "center" }}>

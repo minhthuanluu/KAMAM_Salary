@@ -83,7 +83,7 @@ const DeliveSubsciberAmount = (props) => {
     })
     return (
         <SafeAreaView style={styles.container}>
-            <Toast style={{ position: "absolute", zIndex: 100 }} />
+            <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Số lượng TB trả sau thuộc tập DN đang giao" />
             <View style={{ alignSelf: "center" }}>
@@ -93,7 +93,7 @@ const DeliveSubsciberAmount = (props) => {
             <ScrollView style={styles.body}>
                 <View style={styles.bg}>
                     <View style={{ marginTop: fontScale(20) }}>
-                        <ListItem isFather={true} icon={images.icon_delivesubsciberamount1} title={"TBTS còn trên mạng tháng " + lastMonth + ": "} price={data.length != 0 ? data.lastMonthRemain + "TB" : "0TB"} />
+                        <ListItem isFather={true} icon={images.icon_delivesubsciberamount1} title={"TB còn trên mạng tháng " + lastMonth + ": "} price={data.length != 0 ? data.lastMonthRemain + "TB" : "0TB"} />
                         <View style={{ marginLeft: fontScale(5) }}>
                             <ListItem icon={images.none} title="TB chất lượng: " price={data.length != 0 ? data.lastMonthQualSub + "TB" : "0TB"} />
                             <ListItem icon={images.none} title="TB không chất lượng: " price={data.length != 0 ? data.lastMonthNonQualSub + "TB" : "0TB"} />
@@ -105,7 +105,7 @@ const DeliveSubsciberAmount = (props) => {
                         </View>
                     </View>
                     <View style={{ marginVertical: fontScale(5) }}>
-                        <ListItem isFather={true} icon={images.icon_delivesubsciberamount1} title={"TBTS còn trên mạng tháng " + currentMonth + ": "} price={data.length != 0 ? data.currMonthRemain + "TB" : "0TB"} />
+                        <ListItem isFather={true} icon={images.icon_delivesubsciberamount1} title={"TB còn trên mạng tháng " + currentMonth + ": "} price={data.length != 0 ? data.currMonthRemain + "TB" : "0TB"} />
                         <View style={{ marginLeft: fontScale(5) }}>
                             <ListItem icon={images.none} title="TB chất lượng: " price={data.length != 0 ? data.currMonthQualSub + "TB" : "0TB"} />
                             <ListItem icon={images.none} title="TB không chất lượng: " price={data.length != 0 ? data.currMonthNonQualSub + "TB" : "0TB"} />

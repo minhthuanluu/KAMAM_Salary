@@ -68,7 +68,7 @@ const SubFluct = (props) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Toast style={{ position: "absolute", zIndex: 100 }} />
+           <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Biến động thuê bao" />
             <View style={{ alignSelf: "center" }}>

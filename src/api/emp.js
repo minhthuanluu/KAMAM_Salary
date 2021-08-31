@@ -543,11 +543,10 @@ export const getEvolveRevenue = async (month) => {
 };
 
 export const getKPIMonthReport = async (month) => {
-    console.log(month)
     let data = baseData
     await axios({
         method: "POST",
-        url: `${baseUrl}mobile/report-kpi-month/getKPIMonthReport`,
+        url: `${baseUrl}mobile/report-kpi-month/getKPIMonthReport?month=${month}`,
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
@@ -567,7 +566,6 @@ export const getKPIMonthReport = async (month) => {
             }
         })
         .catch(async (error) => {
-            console.log(error.response.status)
             data = {
                 message: error.response.data.message,
                 isLoading: false,

@@ -69,7 +69,7 @@ const SalaryByMonthDashboard = (props) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Toast style={{ position: "absolute", zIndex: 100 }} />
+            <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Lương theo tháng" />
             <View style={{ alignSelf: "center" }}>
