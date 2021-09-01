@@ -36,12 +36,23 @@ const ProductivitySub = (props) => {
         let res = await getProductivitySub(month)
         if (res.status == "success") {
             // showToast("success", "Thành công", "Lấy dữ liệu thành công")
-            setData(res.data.data)
-            // console.log(res.data.data)
-            setLoading(false)
+            if (res.data != undefined && res.data != null) {
+                if (res.data.data != null && res.data.data != undefined) {
+                    setData(res.data.data)
+                    // console.log(res.data.data)
+                    setLoading(false)
+                } else {
+                    setLoading(false)
+                    showToast("info", "Thông báo", "Không có dữ liệu")
+                }
+            } else {
+                setLoading(false)
+                showToast("info", "Thông báo", "Không có dữ liệu")
+            }
         } else {
-            showToast("error", "Lỗi hệ thống", res.message)
             setLoading(false)
+            showToast("error", "Lỗi hệ thống", res.message)
+            check403(res.error, navigation)
         }
     }
 

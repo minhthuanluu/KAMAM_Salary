@@ -41,17 +41,17 @@ const ExecutePlanDashboard = (props) => {
                     setData(res.data.data)
                     setLoading(false)
                 } else {
-                    showToast("info", "Thông báo", "Không có dữ liệu")
                     setLoading(false)
+                    showToast("info", "Thông báo", "Không có dữ liệu")
                 }
             } else {
-                showToast("info", "Thông báo", "Không có dữ liệu")
                 setLoading(false)
+                showToast("info", "Thông báo", "Không có dữ liệu")
             }
         } else {
+            setLoading(false)
             showToast("error", "Lỗi hệ thống", res.message)
             check403(res.error, navigation)
-            setLoading(false)
         }
     }
 
@@ -62,13 +62,14 @@ const ExecutePlanDashboard = (props) => {
     }
     useEffect(() => {
         navigation.addListener('focus', async () => {
+
             await getDatePikerValue()
         })
     })
 
     return (
         <SafeAreaView style={styles.container}>
-           <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
+            <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
             <Header title="Thực hiện kế hoạch" />
             <View style={{ alignSelf: "center" }}>

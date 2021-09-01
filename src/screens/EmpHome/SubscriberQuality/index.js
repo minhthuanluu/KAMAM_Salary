@@ -30,17 +30,17 @@ const SubscriberQuality = (props) => {
                     setSMonth(res.data.data.endMonth)
                     setLoading(false)
                 } else {
-                    showToast("info", "Thông báo", "Không có dữ liệu")
                     setLoading(false)
+                    showToast("info", "Thông báo", "Không có dữ liệu")
                 }
             } else {
-                showToast("info", "Thông báo", "Không có dữ liệu")
                 setLoading(false)
+                showToast("info", "Thông báo", "Không có dữ liệu")
             }
         } else {
+            setLoading(false)
             showToast("error", "Lỗi hệ thống", res.message)
             check403(res.error, navigation)
-            setLoading(false)
         }
     }
     useEffect(() => {

@@ -51,17 +51,17 @@ const DeliveSubsciberAmount = (props) => {
                     setData(res.data.data)
                     setLoading(false)
                 } else {
-                    showToast("info", "Thông báo", "Không có dữ liệu")
                     setLoading(false)
+                    showToast("info", "Thông báo", "Không có dữ liệu")
                 }
             } else {
-                showToast("info", "Thông báo", "Không có dữ liệu")
                 setLoading(false)
+                showToast("info", "Thông báo", "Không có dữ liệu")
             }
         } else {
+            setLoading(false)
             showToast("error", "Lỗi hệ thống", res.message)
             check403(res.error, navigation)
-            setLoading(false)
         }
     }
 
@@ -85,7 +85,7 @@ const DeliveSubsciberAmount = (props) => {
         <SafeAreaView style={styles.container}>
             <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
-            <Header title="Số lượng TB trả sau thuộc tập DN đang giao" />
+            <Header title="Số lượng TB thuộc tập DN đang giao" />
             <View style={{ alignSelf: "center" }}>
                 <DatePicker month={month} width={width - fontScale(120)} onChangeDate={(date) => onChangeDatePicker(date)} />
             </View>

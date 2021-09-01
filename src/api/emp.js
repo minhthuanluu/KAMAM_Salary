@@ -87,10 +87,11 @@ export const getExcutePlanDashboard = async (month) => {
 };
 
 export const getGrowthEnterprise = async (month) => {
+    // console.log(`${baseUrl}mobile/follow-impl-plan/action-plan/getGrowthEnterprise?month=${month}`,)
     let data = baseData
     await axios({
         method: "POST",
-        url: `${baseUrl}mobile/follow-impl-plan/action-plan/getGrowthEnterprise?month=${month}`,
+        url: `${baseUrl}mobile/follow-impl-plan/action-plan/getGrowthEnterprise?month=09%2F2021`,
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",

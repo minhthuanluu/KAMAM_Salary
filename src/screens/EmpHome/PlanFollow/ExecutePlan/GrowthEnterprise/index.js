@@ -39,21 +39,20 @@ const GrowthEnterprise = (props) => {
             if (res.data != undefined && res.data != null) {
                 if (res.data.data != null && res.data.data != undefined) {
                     setData(res.data.data)
+                    // console.log(res.data.data)
                     setLoading(false)
                 } else {
-                    showToast("info", "Thông báo", "Không có dữ liệu")
                     setLoading(false)
+                    showToast("info", "Thông báo", "Không có dữ liệu")
                 }
             } else {
-                showToast("info", "Thông báo", "Không có dữ liệu")
                 setLoading(false)
+                showToast("info", "Thông báo", "Không có dữ liệu")
             }
-
-
         } else {
+            setLoading(false)
             showToast("error", "Lỗi hệ thống", res.message)
             check403(res.error, navigation)
-            setLoading(false)
         }
     }
 
