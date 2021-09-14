@@ -68,13 +68,13 @@ const ProductivitySub = (props) => {
         })
     })
     const checkIcon = (icon) => {
-        if (icon == "am") {
+        if (icon == "AM/KAM") {
             return images.AM_KAM
-        } else if (icon == "shop") {
+        } else if (icon == "CH") {
             return images.store
-        } else if (icon == "branch") {
+        } else if (icon == "CN") {
             return images.branch
-        } else if (icon == "company") {
+        } else if (icon == "CTY") {
             return images.company
         } else {
             return images.none
@@ -90,11 +90,6 @@ const ProductivitySub = (props) => {
             </View>
             <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
             <View style={styles.body}>
-                {/* <ScrollView> */}
-                {/* <GenaralItem shopName="Công ty 2" icon={images.company} standardSub="800/26" realSub="600/24" standardRevenue="800/26" realRevenue="600/24" />
-                    <GenaralItem shopName="Công ty 2" icon={images.branch} standardSub="800/26" realSub="600/24" standardRevenue="800/26" realRevenue="600/24" />
-                    <GenaralItem shopName="Công ty 2" icon={images.store} standardSub="800/26" realSub="600/24" standardRevenue="800/26" realRevenue="600/24" />
-                    <GenaralItem shopName="Công ty 2" icon={images.AM_KAM} standardSub="800/26" realSub="600/24" standardRevenue="800/26" realRevenue="600/24" /> */}
                 <FlatList
                     data={data}
                     keyExtractor={(item, key) => key.toString()}
@@ -105,7 +100,6 @@ const ProductivitySub = (props) => {
                                 standardSub={item.standardSub} realSub={item.realSub}
                                 standardRevenue={item.standardRevenue} realRevenue={item.realRevenue} />
                         )
-
                     }}
                 />
             </View>

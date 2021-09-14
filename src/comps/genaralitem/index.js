@@ -8,33 +8,23 @@ const GenaralItem = (props) => {
     return (
         <View style={styles.bg}>
             <View style={{ flexDirection: "row" }}>
-                <Text style={{ fontSize: fontScale(18), fontWeight: "bold", marginBottom: fontScale(10), marginTop: fontScale(10), marginLeft: fontScale(10) }}>{props.shopName}</Text>
-                <Image source={props.icon} style={{ width: fontScale(60), height: fontScale(60), position: "absolute", right: fontScale(40), top: -fontScale(23) }} resizeMode="contain" />
+                <Text style={{ flex: 4 / 5, fontSize: fontScale(18), fontWeight: "bold", marginBottom: fontScale(10), marginTop: fontScale(15), marginLeft: fontScale(15) }}>{props.shopName}</Text>
+                <Image source={props.icon} style={{ flex: 1 / 5, width: fontScale(60), height: fontScale(60), top: fontScale(-20) }} resizeMode="contain" />
             </View>
-
-            <Text style={{ fontSize: fontScale(17), fontWeight: "bold", marginBottom: fontScale(10), color: "#CBAD15", marginLeft: fontScale(20) }}>Thuê bao</Text>
             <View style={{ flexDirection: "row", marginBottom: fontScale(10) }}>
-                <View style={{ flexDirection: "row", flex: 2 / 4 }}>
-                    <Text style={{ color: "#9E9898", fontWeight: "bold", flex: 1 / 2, marginLeft: fontScale(30) }}>BQ chuẩn: </Text>
-                    <Text style={{ color: "#00BECC", fontWeight: "bold", flex: 1 / 2, textAlign: "center" }}>{props.standardSub}</Text>
-                </View>
-                <View style={{ flexDirection: "row", flex: 2 / 4, justifyContent: "flex-end" }}>
-                    <Text style={{ color: "#9E9898", fontWeight: "bold", flex: 1 / 2 }}>BQ thực tế: </Text>
-                    <Text style={{ color: "#00BECC", fontWeight: "bold", flex: 1 / 2, textAlign: "center" }}> {props.realSub}</Text>
-                </View>
+                <View style={{ flex: 1 / 3 }}></View>
+                <Text style={{ flex: 1 / 3, fontSize: fontScale(17), fontWeight: "bold", color: "#CBAD15", textAlign: "center" }}>Thuê bao</Text>
+                <Text style={{ flex: 1 / 3, fontSize: fontScale(17), fontWeight: "bold", color: "#CBAD15", textAlign: "center" }}>Doanh thu</Text>
             </View>
-
-            <Text style={{ fontSize: fontScale(17), fontWeight: "bold", marginBottom: fontScale(10), color: "#CBAD15", marginLeft: fontScale(20) }}>Doanh thu</Text>
             <View style={{ flexDirection: "row", marginBottom: fontScale(10) }}>
-                <View style={{ flexDirection: "row", flex: 1 / 2 }}>
-                    <Text style={{ color: "#9E9898", fontWeight: "bold", flex: 1 / 2, marginLeft: fontScale(30) }}>BQ chuẩn: </Text>
-                    <Text style={{ color: "#00BECC", fontWeight: "bold", flex: 1 / 2, textAlign: "center", marginRight: fontScale(10) }}> {props.standardRevenue}</Text>
-                </View>
-
-                <View style={{ flexDirection: "row", flex: 1 / 2, justifyContent: "flex-end" }}>
-                    <Text style={{ color: "#9E9898", fontWeight: "bold", flex: 1 / 2 }}>BQ thực tế: </Text>
-                    <Text style={{ color: "#00BECC", fontWeight: "bold", flex: 1 / 2, textAlign: "center", marginRight: fontScale(10) }}> {props.realRevenue}</Text>
-                </View>
+                <Text style={{ color: "#9E9898", fontWeight: "bold", flex: 1 / 3, textAlign: "center" }}>BQ chuẩn: </Text>
+                <Text style={{ flex: 1 / 3, fontSize: fontScale(17), fontWeight: "bold", color: "#00BECC", textAlign: "center" }}>{props.standardSub}</Text>
+                <Text style={{ flex: 1 / 3, fontSize: fontScale(17), fontWeight: "bold", color: "#00BECC", textAlign: "center" }}>{props.standardRevenue}</Text>
+            </View>
+            <View style={{ flexDirection: "row", marginBottom: fontScale(20) }}>
+                <Text style={{ color: "#9E9898", fontWeight: "bold", flex: 1 / 3, textAlign: "center" }}>BQ thực tế: </Text>
+                <Text style={{ flex: 1 / 3, fontSize: fontScale(17), fontWeight: "bold", color: "#00BECC", textAlign: "center" }}>{props.realSub}</Text>
+                <Text style={{ flex: 1 / 3, fontSize: fontScale(17), fontWeight: "bold", color: "#00BECC", textAlign: "center" }}>{props.realRevenue}</Text>
             </View>
         </View>
     );
