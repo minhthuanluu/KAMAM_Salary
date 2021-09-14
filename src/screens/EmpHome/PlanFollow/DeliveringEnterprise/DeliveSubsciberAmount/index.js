@@ -93,26 +93,26 @@ const DeliveSubsciberAmount = (props) => {
             <ScrollView style={styles.body}>
                 <View style={styles.bg}>
                     <View style={{ marginTop: fontScale(20) }}>
-                        <ListItem isFather={true} icon={images.icon_delivesubsciberamount1} title={"TB còn trên mạng tháng " + lastMonth + ": "} price={data.length != 0 ? data.lastMonthRemain + "TB" : "0TB"} />
+                        <ListItem isFather={true} icon={images.icon_delivesubsciberamount1} title={"TB còn trên mạng tháng " + lastMonth + ": "} price={data.length != 0 ? data.lastMonthRemain : "0"} />
                         <View style={{ marginLeft: fontScale(5) }}>
-                            <ListItem icon={images.none} title="TB chất lượng: " price={data.length != 0 ? data.lastMonthQualSub + "TB" : "0TB"} />
-                            <ListItem icon={images.none} title="TB không chất lượng: " price={data.length != 0 ? data.lastMonthNonQualSub + "TB" : "0TB"} />
+                            <ListItem icon={images.none} title="TB chất lượng: " price={data.length != 0 ? data.lastMonthQualSub : "0"} />
+                            <ListItem icon={images.none} title="TB không chất lượng: " price={data.length != 0 ? data.lastMonthNonQualSub : "0"} />
                             <View style={{ marginLeft: fontScale(20) }}>
-                                <ListItem isChild={true} icon={images.none} title="TBTS: " price={data.length != 0 ? data.lastMonthPostPaid + "TB" : "0TB"} />
-                                <ListItem isChild={true} icon={images.none} title="TBTT: " price={data.length != 0 ? data.lastMonthPrePaid + "TB" : "0TB"} />
-                                <ListItem isChild={true} icon={images.none} title="TB Data: " price={data.length != 0 ? data.lastMonthDataPaid + "TB" : "0TB"} />
+                                <ListItem isChild={true} icon={images.none} title="TBTS: " price={data.length != 0 ? data.lastMonthPostPaid : "0"} />
+                                <ListItem isChild={true} icon={images.none} title="TBTT: " price={data.length != 0 ? data.lastMonthPrePaid : "0"} />
+                                <ListItem isChild={true} icon={images.none} title="TB Data: " price={data.length != 0 ? data.lastMonthDataPaid : "0"} />
                             </View>
                         </View>
                     </View>
                     <View style={{ marginVertical: fontScale(5) }}>
-                        <ListItem isFather={true} icon={images.icon_delivesubsciberamount1} title={"TB còn trên mạng tháng " + currentMonth + ": "} price={data.length != 0 ? data.currMonthRemain + "TB" : "0TB"} />
+                        <ListItem isFather={true} icon={images.icon_delivesubsciberamount1} title={"TB còn trên mạng tháng " + currentMonth + ": "} price={data.length != 0 ? data.currMonthRemain : "0"} />
                         <View style={{ marginLeft: fontScale(5) }}>
-                            <ListItem icon={images.none} title="TB chất lượng: " price={data.length != 0 ? data.currMonthQualSub + "TB" : "0TB"} />
-                            <ListItem icon={images.none} title="TB không chất lượng: " price={data.length != 0 ? data.currMonthNonQualSub + "TB" : "0TB"} />
+                            <ListItem icon={images.none} title="TB chất lượng: " price={data.length != 0 ? data.currMonthQualSub : "0"} />
+                            <ListItem icon={images.none} title="TB không chất lượng: " price={data.length != 0 ? data.currMonthNonQualSub : "0"} />
                             <View style={{ marginLeft: fontScale(20) }}>
-                                <ListItem isChild={true} icon={images.none} title="TBTS: " price={data.length != 0 ? data.currMonthPostPaid + "TB" : "0TB"} />
-                                <ListItem isChild={true} icon={images.none} title="TBTT: " price={data.length != 0 ? data.currMonthPrePaid + "TB" : "0TB"} />
-                                <ListItem isChild={true} icon={images.none} title="TB Data: " price={data.length != 0 ? data.currMonthDataPaid + "TB" : "0TB"} />
+                                <ListItem isChild={true} icon={images.none} title="TBTS: " price={data.length != 0 ? data.currMonthPostPaid : "0"} />
+                                <ListItem isChild={true} icon={images.none} title="TBTT: " price={data.length != 0 ? data.currMonthPrePaid : "0"} />
+                                <ListItem isChild={true} icon={images.none} title="TB Data: " price={data.length != 0 ? data.currMonthDataPaid : "0"} />
                             </View>
                         </View>
                     </View>

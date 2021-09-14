@@ -80,7 +80,7 @@ const WarningDashboard = (props) => {
             <View style={styles.body}>
                 <MenuItem value=" " style={{ marginTop: fontScale(30) }} title="Biến động thuê bao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.subfluct} width={width - fontScale(60)} onPress={() => navigation.navigate("SubFluct")} />
                 <MenuItem value=" " style={{ marginTop: fontScale(50) }} title="Biến động doanh thu" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.incomefluct} width={width - fontScale(60)} onPress={() => navigation.navigate("IncomeFluct")} />
-                <MenuItemShow value={"Giảm " + enterpriseEvolve + " DN"} style={{ marginTop: fontScale(50) }} title="Biến động DN trong tập DS giao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.enterprisefluct} width={width - fontScale(60)} />
+                <MenuItemShow value={enterpriseEvolve} style={{ marginTop: fontScale(50) }} title="Biến động DN trong tập DS giao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.enterprisefluct} width={width - fontScale(60)} />
             </View>
             <Loading loading={loading} />
         </SafeAreaView>

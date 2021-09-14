@@ -15,8 +15,8 @@ const GenaralItem = (props) => {
             <Text style={{ fontSize: fontScale(17), fontWeight: "bold", marginBottom: fontScale(10), color: "#CBAD15", marginLeft: fontScale(20) }}>Thuê bao</Text>
             <View style={{ flexDirection: "row", marginBottom: fontScale(10) }}>
                 <View style={{ flexDirection: "row", flex: 2 / 4 }}>
-                    <Text style={{ color: "#9E9898", fontWeight: "bold", flex: 2 / 5, marginLeft: fontScale(30) }}>BQ chuẩn: </Text>
-                    <Text style={{ color: "#00BECC", fontWeight: "bold", flex: 3 / 5, textAlign: "center" }}>{props.standardSub}</Text>
+                    <Text style={{ color: "#9E9898", fontWeight: "bold", flex: 1 / 2, marginLeft: fontScale(30) }}>BQ chuẩn: </Text>
+                    <Text style={{ color: "#00BECC", fontWeight: "bold", flex: 1 / 2, textAlign: "center" }}>{props.standardSub}</Text>
                 </View>
                 <View style={{ flexDirection: "row", flex: 2 / 4, justifyContent: "flex-end" }}>
                     <Text style={{ color: "#9E9898", fontWeight: "bold", flex: 1 / 2 }}>BQ thực tế: </Text>
@@ -27,13 +27,13 @@ const GenaralItem = (props) => {
             <Text style={{ fontSize: fontScale(17), fontWeight: "bold", marginBottom: fontScale(10), color: "#CBAD15", marginLeft: fontScale(20) }}>Doanh thu</Text>
             <View style={{ flexDirection: "row", marginBottom: fontScale(10) }}>
                 <View style={{ flexDirection: "row", flex: 1 / 2 }}>
-                    <Text style={{ color: "#9E9898", fontWeight: "bold", flex: 2 / 5, marginLeft: fontScale(30) }}>BQ chuẩn: </Text>
-                    <Text style={{ color: "#00BECC", fontWeight: "bold", flex: 3 / 5, textAlign: "center" }}> {props.standardRevenue}</Text>
+                    <Text style={{ color: "#9E9898", fontWeight: "bold", flex: 1 / 2, marginLeft: fontScale(30) }}>BQ chuẩn: </Text>
+                    <Text style={{ color: "#00BECC", fontWeight: "bold", flex: 1 / 2, textAlign: "center", marginRight: fontScale(10) }}> {props.standardRevenue}</Text>
                 </View>
 
                 <View style={{ flexDirection: "row", flex: 1 / 2, justifyContent: "flex-end" }}>
                     <Text style={{ color: "#9E9898", fontWeight: "bold", flex: 1 / 2 }}>BQ thực tế: </Text>
-                    <Text style={{ color: "#00BECC", fontWeight: "bold", flex: 1 / 2, textAlign: "center" }}> {props.realRevenue}</Text>
+                    <Text style={{ color: "#00BECC", fontWeight: "bold", flex: 1 / 2, textAlign: "center", marginRight: fontScale(10) }}> {props.realRevenue}</Text>
                 </View>
             </View>
         </View>
