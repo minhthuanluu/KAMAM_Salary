@@ -19,8 +19,8 @@ const KPIMonthReport = (props) => {
     const [data, setData] = useState([]);
     const [month, setMonth] = useState(moment(new Date()).subtract(1, 'months').format("MM/YYYY"));
     const [loading, setLoading] = useState(true);
-    const [preMonth, setPreMonth] = useState(new Date(changeTime(month)).getMonth() + 1)
-    const [nextMonth, setNextMonth] = useState(new Date(changeTime(month)).getMonth() + 2)
+    const [curMonth, setCurMonth] = useState(new Date(changeTime(month)).getMonth() + 1)
+    const [befMonth, setBefMonth] = useState(new Date(changeTime(month)).getMonth())
 
 
     const getData = async (month) => {
@@ -51,11 +51,11 @@ const KPIMonthReport = (props) => {
         setData([])
         setMonth(date)
         getData(date)
-        setPreMonth(new Date(changeTime(date)).getMonth() + 1)
-        if (new Date(changeTime(date)).getMonth() + 2 == 13) {
-            setNextMonth(1)
+        setCurMonth(new Date(changeTime(date)).getMonth() + 1)
+        if (new Date(changeTime(date)).getMonth() == 0) {
+            setBefMonth(12)
         } else {
-            setNextMonth(new Date(changeTime(date)).getMonth() + 2)
+            setBefMonth(new Date(changeTime(date)).getMonth())
         }
 
         _storeData("month", date)
@@ -89,9 +89,9 @@ const KPIMonthReport = (props) => {
                     <ListItem isFather={true} icon={images.growthTotal} title="Chỉ tiêu tăng trưởng doanh thu:" price={data.growthTotal} />
                     <View style={{ marginLeft: 10 }}>
                         <ListItem isChild={true} icon={images.none} title="Kế hoạch giao" price={data.growthTarget} />
-                        <ListItem isChild={true} icon={images.none} title={"Doanh thu tháng " + preMonth} price={data.growthMonth} />
-                        <ListItem isChild={true} icon={images.none} title="Doanh thu thực hiện" price={data.growthIncome} />
-                        <ListItem isChild={true} icon={images.none} title={"Tỉ lệ doanh thu tháng " + preMonth + " & tháng " + nextMonth} price={data.growthMonthRatio} />
+                        <ListItem isChild={true} icon={images.none} title={"Doanh thu tháng " + befMonth} price={data.growthMonth} />
+                        <ListItem isChild={true} icon={images.none} title={"Doanh thu tháng " + curMonth} price={data.growthIncome} />
+                        <ListItem isChild={true} icon={images.none} title={"Tỉ lệ doanh thu tháng " + curMonth + " & tháng " + befMonth} price={data.growthMonthRatio} />
                         <ListItem isChild={true} icon={images.none} title="% hoàn thành kế hoạch" price={data.growthCompletePercent} />
                     </View>
                     <ListItem isFather={true} icon={images.totalOTarget} title="Chỉ tiêu điều hành_CTĐH:" price={data.totalOTarget} />
@@ -105,9 +105,9 @@ const KPIMonthReport = (props) => {
                         <ListItem icon={images.none} title="Chỉ tiêu tăng trưởng DTVT:" price={data.growthTeleTotal} />
                         <View style={{ marginLeft: 15 }}>
                             <ListItem isChild={true} icon={images.none} title="Kế hoạch giao" price={data.growthTeleTotalTarget} />
-                            <ListItem isChild={true} icon={images.none} title={"Doanh thu tháng " + preMonth} price={data.growthTeleMonth} />
-                            <ListItem isChild={true} icon={images.none} title="Doanh thu thực hiện" price={data.growthTeleTotalIncome} />
-                            <ListItem isChild={true} icon={images.none} title={"Tỉ lệ doanh thu tháng " + preMonth + " & tháng " + nextMonth} price={data.growthTeleMonthRatio} />
+                            <ListItem isChild={true} icon={images.none} title={"Doanh thu tháng " + befMonth} price={data.growthTeleMonth} />
+                            <ListItem isChild={true} icon={images.none} title={"Doanh thu tháng " + curMonth} price={data.growthTeleTotalIncome} />
+                            <ListItem isChild={true} icon={images.none} title={"Tỉ lệ doanh thu tháng " + curMonth + " & tháng " + befMonth} price={data.growthTeleMonthRatio} />
                             <ListItem isChild={true} icon={images.none} title="% hoàn thành kế hoạch" price={data.growthTeleTotalCompletePercent} />
                         </View>
                         <ListItem icon={images.none} title="BQ % HT chỉ tiêu điều hành:" price={data.avgTarget} />
