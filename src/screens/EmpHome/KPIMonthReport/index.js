@@ -91,7 +91,7 @@ const KPIMonthReport = (props) => {
                         <ListItem isChild={true} icon={images.none} title="Kế hoạch giao" price={data.growthTarget} />
                         <ListItem isChild={true} icon={images.none} title={"Doanh thu tháng " + befMonth} price={data.growthMonth} />
                         <ListItem isChild={true} icon={images.none} title={"Doanh thu tháng " + curMonth} price={data.growthIncome} />
-                        <ListItem isChild={true} icon={images.none} title={"Tỉ lệ doanh thu tháng " + curMonth + " & tháng " + befMonth} price={data.growthMonthRatio} />
+                        <ListItem isChild={true} icon={images.none} title={"Tỉ lệ doanh thu tháng " + curMonth + " & " + befMonth} price={data.growthMonthRatio} />
                         <ListItem isChild={true} icon={images.none} title="% hoàn thành kế hoạch" price={data.growthCompletePercent} />
                     </View>
                     <ListItem isFather={true} icon={images.totalOTarget} title="Chỉ tiêu điều hành_CTĐH:" price={data.totalOTarget} />
@@ -107,7 +107,7 @@ const KPIMonthReport = (props) => {
                             <ListItem isChild={true} icon={images.none} title="Kế hoạch giao" price={data.growthTeleTotalTarget} />
                             <ListItem isChild={true} icon={images.none} title={"Doanh thu tháng " + befMonth} price={data.growthTeleMonth} />
                             <ListItem isChild={true} icon={images.none} title={"Doanh thu tháng " + curMonth} price={data.growthTeleTotalIncome} />
-                            <ListItem isChild={true} icon={images.none} title={"Tỉ lệ doanh thu tháng " + curMonth + " & tháng " + befMonth} price={data.growthTeleMonthRatio} />
+                            <ListItem isChild={true} icon={images.none} title={"Tăng trưởng DT tháng " + curMonth + " & " + befMonth} price={data.growthTeleMonthRatio} />
                             <ListItem isChild={true} icon={images.none} title="% hoàn thành kế hoạch" price={data.growthTeleTotalCompletePercent} />
                         </View>
                         <ListItem icon={images.none} title="BQ % HT chỉ tiêu điều hành:" price={data.avgTarget} />

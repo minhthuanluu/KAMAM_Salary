@@ -53,7 +53,7 @@ const SubscriberQuality = (props) => {
         <SafeAreaView style={styles.container}>
             <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
-            <Header title="Chất lượng thuê bao" />
+            <Header title="Chất lượng tập TB phát triển" />
             <View style={styles.dateContainer}>
                 <View style={{ flex: 1 / 2 }}>
                     <DatePicker disable={true} month={beginMonth} width={width / 2 - fontScale(25)} style={{ alignSelf: "center" }} />
@@ -73,9 +73,12 @@ const SubscriberQuality = (props) => {
                         </View>
                         <ListItem icon={images.newSubPrePaid} title="Tổng TBTS PTM" price={data.newSubPrePaid} />
                         <View style={{ marginLeft: 20 }}>
-                            <ListItem icon={images.revokeAmount} title="TBTS cắt hủy" price={data.revokeAmount} />
-                            <ListItem icon={images.preToPostPaid} title="Fone -> card" price={data.foneCard} />
-                            <ListItem icon={images.denyTwoC} title="TBTS chặn 2c" price={data.denyTwoC} />
+                            {/* <ListItem icon={images.revokeAmount} title="TBTS cắt hủy" price={data.revokeAmount} /> */}
+                            <ListItem icon={images.denyTwoC} title="TB thoại cắt hủy sai quy định" price={data.subRegu} />
+                            <ListItem icon={images.preToPostPaid} title="TB thoại cắt hủy đúng quy định" price={data.subImpro} />
+                            <ListItem icon={images.denyTwoC} title="TB data cắt hủy sai quy định" price={data.subDataRegu} />
+                            <ListItem icon={images.preToPostPaid} title="TB data cắt hủy đúng quy định" price={data.subDataImpro} />
+                            
                         </View>
                         <ListItem icon={images.contractdebt} title="Nợ hợp đồng" price={data.contractDebt} />
                     </View>

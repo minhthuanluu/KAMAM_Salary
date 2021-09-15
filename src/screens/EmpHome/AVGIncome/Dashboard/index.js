@@ -16,7 +16,7 @@ import Toast from 'react-native-toast-message';
 import { _storeData } from '../../../../utils/Storage';
 
 const AVGIncomeDashboard = (props) => {
-    const [fromMonth, setFromMonth] = useState('01' + '/' + moment(new Date()).format("YYYY"));
+    const [fromMonth, setFromMonth] = useState(moment(new Date()).subtract(1, 'months').format("MM/YYYY"));
     const [toMonth, setToMonth] = useState(moment(new Date()).subtract(0, 'months').format("MM/YYYY"));
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -101,7 +101,7 @@ const AVGIncomeDashboard = (props) => {
         <SafeAreaView style={styles.container}>
             <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
-            <Header title="Tổng thu nhập" />
+            <Header title="Bình quân thu nhập" />
             <View style={styles.dateContainer}>
                 <View style={{ flex: 1 / 2 }}>
                     <DatePicker month={fromMonth} width={width / 2 - fontScale(20)} style={{ alignSelf: "center" }} onChangeDate={(date) => onChangeFromMonth(date)} />
@@ -109,14 +109,20 @@ const AVGIncomeDashboard = (props) => {
                 <View style={{ flex: 1 / 2 }}>
                     <DatePicker month={toMonth} width={width / 2 - fontScale(20)} style={{ alignSelf: "center" }} onChangeDate={(date) => onChangeToMonth(date)} />
                 </View>
+
             </View>
-            <Body style={{ marginTop: fontScale(66) }} showInfo={false} />
+            <View>
+                <Text style={{ textAlign: "center", top: fontScale(30), fontWeight: "bold", color: "#F8F8F8" }}>
+                    {"Số liệu từ tháng " + fromMonth + " đến tháng " + toMonth}
+                </Text>
+            </View>
+            <Body style={{ marginTop: fontScale(40) }} showInfo={false} />
             <View style={styles.body}>
-                <TextAmount text="Tổng Thu: " number={data.totalIncome} />
-                <MenuItemShow value={data.totalFixedSalary} style={{ marginTop: fontScale(40) }} title="Tổng lương cố định" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.fixedwage} width={width - fontScale(60)} />
-                <MenuItem value={data.totalProductSalary} style={{ marginTop: fontScale(50) }} title="Tổng lương sản phẩm" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.product} width={width - fontScale(60)} onPress={() => navigation.navigate("TotalProductwage")} />
-                <MenuItemShow value={data.totalOutcomeSalary} style={{ marginTop: fontScale(50) }} title="Tổng chi thưởng vượt KH tháng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.planout} width={width - fontScale(60)} />
-                <MenuItemShow value={data.totalOther} style={{ marginTop: fontScale(50) }} title="Tổng chi khác" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.others} width={width - fontScale(60)} />
+                <TextAmount text="Bình quân Thu: " number={data.totalIncome} />
+                <MenuItemShow value={data.totalFixedSalary} style={{ marginTop: fontScale(40) }} title="Bình quân lương cố định" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.fixedwage} width={width - fontScale(60)} />
+                <MenuItem value={data.totalProductSalary} style={{ marginTop: fontScale(50) }} title="Bình quân lương sản phẩm" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.product} width={width - fontScale(60)} onPress={() => navigation.navigate("TotalProductwage")} />
+                <MenuItemShow value={data.totalOutcomeSalary} style={{ marginTop: fontScale(50) }} title="Bình quân chi thưởng vượt KH tháng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.planout} width={width - fontScale(60)} />
+                <MenuItemShow value={data.totalOther} style={{ marginTop: fontScale(50) }} title="Bình quân chi khác" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.others} width={width - fontScale(60)} />
             </View>
             <Loading loading={loading} />
         </SafeAreaView>

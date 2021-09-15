@@ -16,7 +16,7 @@ import { getFMonth, getTMonth } from '../../../../utils/Logistics';
 import { _storeData } from '../../../../utils/Storage';
 
 const TotalProductwage = (props) => {
-    const [fromMonth, setFromMonth] = useState('01' + '/' + moment(new Date()).format("YYYY"));
+    const [fromMonth, setFromMonth] = useState(moment(new Date()).subtract(1, 'months').format("MM/YYYY"));
     const [toMonth, setToMonth] = useState(moment(new Date()).subtract(0, 'months').format("MM/YYYY"));
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -107,6 +107,11 @@ const TotalProductwage = (props) => {
                 <View style={{ flex: 1 / 2 }}>
                     <DatePicker month={toMonth} width={width / 2 - fontScale(20)} style={{ alignSelf: "center" }} onChangeDate={(date) => onChangeToMonth(date)} />
                 </View>
+            </View>
+            <View>
+                <Text style={{ textAlign: "center", top: fontScale(30), fontWeight: "bold", color: "#F8F8F8" }}>
+                    {"Số liệu từ tháng " + fromMonth + " đến tháng " + toMonth}
+                </Text>
             </View>
             <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
             <View style={styles.body}>

@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
       },
       dateContainer: {
         flexDirection: "row",
-        position: "absolute",
-        top: fontScale(95)
+        // position: "absolute",
+        // top: fontScale(95)
     },  
 })

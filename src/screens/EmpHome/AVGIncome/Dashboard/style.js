@@ -10,8 +10,8 @@ export const styles = StyleSheet.create({
     },
     dateContainer: {
         flexDirection: "row",
-        position: "absolute",
-        top: fontScale(105),
+        // position: "absolute",
+        // top: fontScale(105),
         // backgroundColor:"red",
         width:width,
         height:20,
@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
         marginTop: fontScale(5)
     },
     bodyScr: {
-        marginTop: fontScale(14)
+        // marginTop: fontScale(14)
     },
     sumKpiContainer: { flexDirection: "row", justifyContent: "center" },
     sumKpiTitle: { color: colors.black, fontSize: fontScale(18), fontWeight: "bold" },
