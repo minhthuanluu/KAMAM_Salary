@@ -110,7 +110,7 @@ const TotalProductwage = (props) => {
             </View>
             <View>
                 <Text style={{ textAlign: "center", top: fontScale(30), fontWeight: "bold", color: "#F8F8F8" }}>
-                    {"Số liệu từ tháng " + fromMonth + " đến tháng " + toMonth}
+                {data.notification}
                 </Text>
             </View>
             <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
