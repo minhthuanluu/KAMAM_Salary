@@ -19,7 +19,7 @@ const ListItem = (props) => {
                             </View>
                     }
                 </> : <>
-                    <View style={[styles.titleContain,props.style]}>
+                    <View style={[styles.titleContain,props.style,{flex:3/5}]}>
                         <Image source={icon} resizeMode="contain" style={[styles.icon, props.iconStyle]} />
                         <Text style={styles.title, { color: isFather == true ? "#3E3E3E" : isChild == true ? "#9E9898" : "#818080",
                         fontSize: isChild == true ? fontScale(16) : isChild == true ? fontScale(19) :fontScale(17) ,
@@ -27,7 +27,7 @@ const ListItem = (props) => {
                     </View>
                     {
                         jusTitle ? null :
-                            <Text style={styles.price}>{price}</Text>
+                            <Text style={[styles.price,{flex:2/5}]}>{price}</Text>
                     }
                 </>
             }

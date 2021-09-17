@@ -99,7 +99,7 @@ const TotalProductwage = (props) => {
         <SafeAreaView style={styles.container}>
             <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
             <StatusBar translucent backgroundColor={colors.primary} />
-            <Header title="Tổng lương sản phẩm" />
+            <Header title="Bình quân lương sản phẩm" />
             <View style={styles.dateContainer}>
                 <View style={{ flex: 1 / 2 }}>
                     <DatePicker month={fromMonth} width={width / 2 - fontScale(20)} style={{ alignSelf: "center" }} onChangeDate={(date) => onChangeFromMonth(date)} />
@@ -115,7 +115,7 @@ const TotalProductwage = (props) => {
             </View>
             <Body style={{ marginTop: fontScale(44) }} showInfo={false} />
             <View style={styles.body}>
-                <TextAmount text="Tổng lương Sp: " number={data.totalProductSalary} />
+                <TextAmount text="Bình quân lương Sp: " number={data.totalProductSalary} />
                 <View style={styles.bg}>
                     <View style={{ marginTop: fontScale(20) }}>
                         <ListItem isFather={true} icon={images.growthenterprise} title="CP phát triển mới: " price=" " />

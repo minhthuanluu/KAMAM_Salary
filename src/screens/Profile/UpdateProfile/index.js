@@ -66,7 +66,7 @@ const UpdateProfile = (props) => {
             let type = match ? `image/${match[1]}` : `image`;
 
             let fData = new FormData();
-            fData.append("avatar", {
+            fData.append("multipartFile", {
                 uri: localUri,
                 type: mime.getType(localUri),
                 name: filename,
