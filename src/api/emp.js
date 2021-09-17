@@ -9,7 +9,7 @@ const getToken = async () => {
     return token
 }
 export const check403 = async (error, navigation) => {
-    if (error.response.status == 403) {
+    if (error?.response?.status == 403) {
         // alert("test")
         await _removeData("isLogin")
         setTimeout(() => {
@@ -569,6 +569,118 @@ export const getKPIMonthReport = async (month) => {
         .catch(async (error) => {
             data = {
                 message: error.response.data.message,
+                isLoading: false,
+                status: "failed",
+                error: error
+            };
+
+        });
+    return data;
+};
+
+export const getUserInfo = async () => {
+    let data = baseData
+    await axios({
+        method: "POST",
+        url: `${baseUrl}user/getUserInfo`,
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: await getToken(),
+        },
+    })
+        .then(async (res) => {
+
+            if (res.status == 200) {
+                if (Object.values(res.data).length > 0) {
+                    data = {
+                        data: res.data,
+                        isLoading: false,
+                        status: "success",
+                        error: null
+                    };
+                }
+            }
+        })
+        .catch(async (error) => {
+            data = {
+                message: error.response.data.message,
+                isLoading: false,
+                status: "failed",
+                error: error
+            };
+
+        });
+    return data;
+};
+
+export const updateImage = async (formData) => {
+    // console.log(formData)
+    let data = baseData
+    await axios({
+        method: "POST",
+        url: `${baseUrl}user/updateImage`,
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: await getToken(),
+        },
+        data: formData
+    })
+        .then(async (res) => {
+
+            if (res.status == 200) {
+                if (Object.values(res.data).length > 0) {
+                    data = {
+                        data: res.data,
+                        isLoading: false,
+                        status: "success",
+                        error: null
+                    };
+                }
+            }
+        })
+        .catch(async (error) => {
+            // console.log(error)
+            data = {
+                message: error.response?.data.message,
+                isLoading: false,
+                status: "failed",
+                error: error
+            };
+
+        });
+    return data;
+};
+
+export const changePassword = async (oldPass, newPass) => {
+
+    let data = baseData
+    await axios({
+        method: "POST",
+        url: `${baseUrl}user/changePassword?newPass=${newPass}&oldPass=${oldPass}`,
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: await getToken(),
+        },
+    })
+        .then(async (res) => {
+            console.log(res.data)
+            if (res.status == 200) {
+                    data = {
+                        data: res.data,
+                        isLoading: false,
+                        status: "success",
+                        error: null
+                    };
+                }
+
+        })
+        .catch(async (error) => {
+            // console.log(error.response.data.message)
+            data = {
+                message: error.response?.data.message,
                 isLoading: false,
                 status: "failed",
                 error: error
