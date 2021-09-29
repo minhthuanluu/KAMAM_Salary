@@ -106,7 +106,7 @@ const EMPStack = () => {
   return (
     <Stack.Navigator initialRouteName="EmpDashboardScreen" screenOptions={{ headerShown: false, gestureEnabled: true }} >
       <Stack.Screen name="EmpDashboardScreen" component={EmpDashboardScreen} />
-
+      
       <Stack.Screen name="PlanFollowDashboard" component={PlanFollowDashboardScreen} />
       <Stack.Screen name="TotalPostpaid" component={TotalPostpaidScreen} />
       <Stack.Screen name="QualitySub" component={QualitySubScreen} />
