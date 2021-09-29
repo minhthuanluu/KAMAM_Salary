@@ -244,6 +244,12 @@ const AuthStack = () => {
   )
 }
 
+import Test from "./src/screens/Test"
+
+const TestScreen=()=>{
+  return <Test />
+}
+
 export default function App() {
   StatusBar.setBarStyle('light-content', true);
   LogBox.ignoredYellowBox = ["Warning: Each", "Warning: Failed"]
@@ -251,6 +257,7 @@ export default function App() {
   return (
     <NavigationContainer >
       <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Test" component={TestScreen}/>
         <Stack.Screen name="AuthStack" component={AuthStack} />
         <Stack.Screen name="EMPHome" component={EMPBottomTab} options={{ headerShown: false }} />
         {/* <Stack.Screen name="AdminHome" component={AdminBottomTab} /> */}
