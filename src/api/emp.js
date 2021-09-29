@@ -678,7 +678,6 @@ export const changePassword = async (oldPass, newPass) => {
 
         })
         .catch(async (error) => {
-            // console.log(error.response.data.message)
             data = {
                 message: error.response?.data.message,
                 isLoading: false,
