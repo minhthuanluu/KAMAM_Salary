@@ -28,7 +28,7 @@ const IFTable = (props) => { //table of screen SubFluct
                 keyExtractor={(item, key) => key.toString()}
                 renderItem={({ item, index }) => {
                     return (
-                        <TableItem index={index} date={item.date} money={item.money} />
+                        <TableItem index={index} date={item.date} money={item.money} subNumber={item.subNumber}/>
                     )
 
                 }}
