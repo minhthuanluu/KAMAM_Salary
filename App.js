@@ -15,7 +15,7 @@ import {
   ProfileDashboardScreen, UpdatePasswordScreen, UpdateProfileScreen, SignOutScreen, AdminDashboardScreen,
   KPICurrentMonthDashboardScreen, TopAMScreen, GroupKPIScreen, DeliveryListDashboardScreen, DeliveEnterpriseScreen,
   SubsByEnterpriseScreen, RevenueByEnterpriseScreen, ProductivitySubAdminScreen, SalaryByMonthAdminScreen,
-  SubscriberQualityAdminDashboardScreen, SumReportStaffScreen, SumReportUnitScreen
+  SubscriberQualityAdminDashboardScreen, SumReportStaffScreen, SumReportUnitScreen,AVGIncomeAdminScreen
 } from './src/screens';
 
 import { colors } from './src/utils/Colors';
@@ -158,18 +158,19 @@ const AdminStack = () => {
     <Stack.Navigator initialRouteName="AdminashboardScreen" screenOptions={{ headerShown: false, gestureEnabled: true }} >
 
       <Stack.Screen name="AdminDashboardScreen" component={AdminDashboardScreen} />
-      <Stack.Screen name="KPICurrentMonthDashboardScreen" component={KPICurrentMonthDashboardScreen} />
-      <Stack.Screen name="GroupKPIScreen" component={GroupKPIScreen} />
-      <Stack.Screen name="DeliveryListDashboardScreen" component={DeliveryListDashboardScreen} />
-      <Stack.Screen name="DeliveEnterpriseScreen" component={DeliveEnterpriseScreen} />
-      <Stack.Screen name="SubsByEnterpriseScreen" component={SubsByEnterpriseScreen} />
-      <Stack.Screen name="RevenueByEnterpriseScreen" component={RevenueByEnterpriseScreen} />
-      <Stack.Screen name="ProductivitySubAdminScreen" component={ProductivitySubAdminScreen} />
-      <Stack.Screen name="SalaryByMonthAdminScreen" component={SalaryByMonthAdminScreen} />
-      <Stack.Screen name="SubscriberQualityAdminDashboardScreen" component={SubscriberQualityAdminDashboardScreen} />
-      <Stack.Screen name="SumReportStaffScreen" component={SumReportStaffScreen} />
-      <Stack.Screen name="SumReportUnitScreen" component={SumReportUnitScreen} />
-      <Stack.Screen name="TopAMScreen" component={TopAMScreen} />
+      <Stack.Screen name="KPICurrentMonthDashboard" component={KPICurrentMonthDashboardScreen} />
+      <Stack.Screen name="GroupKPI" component={GroupKPIScreen} />
+      <Stack.Screen name="DeliveryListDashboard" component={DeliveryListDashboardScreen} />
+      <Stack.Screen name="DeliveEnterprise" component={DeliveEnterpriseScreen} />
+      <Stack.Screen name="SubsByEnterprise" component={SubsByEnterpriseScreen} />
+      <Stack.Screen name="RevenueByEnterprise" component={RevenueByEnterpriseScreen} />
+      <Stack.Screen name="ProductivitySubAdmin" component={ProductivitySubAdminScreen} />
+      <Stack.Screen name="SalaryByMonthAdmin" component={SalaryByMonthAdminScreen} />
+      <Stack.Screen name="SubscriberQualityAdminDashboard" component={SubscriberQualityAdminDashboardScreen} />
+      <Stack.Screen name="SumReportStaff" component={SumReportStaffScreen} />
+      <Stack.Screen name="SumReportUnit" component={SumReportUnitScreen} />
+      <Stack.Screen name="TopAM" component={TopAMScreen} />
+      <Stack.Screen name="AVGIncomeAdmin" component={AVGIncomeAdminScreen} />
 
 
     </Stack.Navigator>
