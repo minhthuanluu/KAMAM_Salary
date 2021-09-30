@@ -12,7 +12,7 @@ import {
   FixedwageScreen, ProductScreen, PlanOutScreen, SanctionsScreen, OthersScreen, AVGIncomeDashboardScreen,
   TotalFixedwageScreen, TotalProductwageScreen, PlanOutOutcomeScreen, OtherOutcomeScreen, SubscriberQualityScreen,
   WarningDashboardScreen, SubFluctScreen, IncomeFluctScreen, EnterpriseFluctScreen, KPIMonthReportScreen,
-  ProfileDashboardScreen, UpdatePasswordScreen, UpdateProfileScreen, SignOutScreen
+  ProfileDashboardScreen, UpdatePasswordScreen, UpdateProfileScreen, SignOutScreen, AdminMonthSalaryBranchScreen, AdminMonthSalaryShopScreen, AdminMonthSalaryEmpScreen, TestScreen
 } from './src/screens';
 import { colors } from './src/utils/Colors';
 import { images } from './src/utils/Images';
@@ -80,15 +80,15 @@ const EMPBottomTab = () => {
 //             return <Image style={{ width: fontScale(size), height: fontScale(size), tintColor: focused == false ? colors.grey : colors.primary }} resizeMode="cover" source={images.user} />
 //           }
 //         }} />
-//       <Tab.Screen
-//         name="Home"
-//         component={AdminStack}
-//         options={{
-//           tabBarLabel: 'Home',
-//           tabBarIcon: ({ color, size, focused }) => {
-//             return <Image style={{ width: fontScale(size), height: fontScale(size), tintColor: focused == false ? colors.grey : colors.primary }} resizeMode="cover" source={images.home} />
-//           }
-//         }} />
+      <Tab.Screen
+        name="Home"
+        component={AdminStack}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color, size, focused }) => {
+            return <Image style={{ width: fontScale(size), height: fontScale(size), tintColor: focused == false ? colors.grey : colors.primary }} resizeMode="cover" source={images.home} />
+          }
+        }} />
 //       <Tab.Screen
 //         name="SignOut"
 //         component={SignOutScreen}
@@ -148,80 +148,27 @@ const EMPStack = () => {
       <Stack.Screen name="EnterpriseFluct" component={EnterpriseFluctScreen} />
 
       <Stack.Screen name="KPIMonthReport" component={KPIMonthReportScreen} />
-
+      
+      <Stack.Screen name="AdminMonthSalaryBranch" component={AdminMonthSalaryBranchScreen} />
+      <Stack.Screen name="AdminMonthSalaryShop" component={AdminMonthSalaryShopScreen} />
+      <Stack.Screen name="AdminMonthSalaryEmp" component={AdminMonthSalaryEmpScreen} />
+      
     </Stack.Navigator>
   )
 }
 
-// const AdminStack = () => {
-//   return (
-//     <Stack.Navigator initialRouteName="AdminHome" screenOptions={{ headerShown: false }}>
-//       <Stack.Screen name="AdminHome" component={AdminHomeScreen} />
-//       <Stack.Screen name="AdminKPIDashboard" component={AdminKPIDashboardScreen} />
-//       <Stack.Screen name="AdminTopTellersKPI" component={AdminTopTellersKPIScreen} />
-//       <Stack.Screen name="AdminKPIGroupKPI" component={AdminKPIGroupKPIScreen} />
-//       <Stack.Screen name="AdminKPIMonth" component={AdminKPIMonthScreen} />
-//       <Stack.Screen name="AdminKPIMonthShop" component={AdminKPIMonthShopScreen} />
-//       <Stack.Screen name="AdminKPIMonthGDV" component={AdminKPIMonthGDVScreen} />
-//       <Stack.Screen name="AdminProductivitySub" component={AdminProductivitySubScreen} />
-//       <Stack.Screen name="AdminSalaryByMonthDashboard" component={AdminSalaryByMonthDashboardScreen} />
-//       <Stack.Screen name="AdminTopTellers" component={AdminTopTellersScreen} />
-//       <Stack.Screen name="AdminSalaryGroup" component={AdminSalaryGroupScreen} />
+const AdminStack = () => {
+  return (
+    <Stack.Navigator initialRouteName="Test" screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Test" component={TestScreen} />   
 
-//       <Stack.Screen name="AdminMonthSalary" component={AdminMonthSalaryScreen} />
-//       <Stack.Screen name="AdminMonthSalaryShop" component={AdminMonthSalaryShopScreen} />
-//       <Stack.Screen name="AdminMonthSalaryGDV" component={AdminMonthSalaryGDVScreen} />
+         <Stack.Screen name="AdminMonthSalaryBranch" component={AdminMonthSalaryBranchScreen} />
+         <Stack.Screen name="AdminMonthSalaryShop" component={AdminMonthSalaryShopScreen} />
+         <Stack.Screen name="AdminMonthSalaryEmp" component={AdminMonthSalaryEmpScreen} />
 
-//       <Stack.Screen name="AdminAvgIncomeDashboard" component={AdminAvgIncomeDashboardScreen} />
-//       <Stack.Screen name="AdminAvgIncomeTopSellers" component={AdminAvgIncomeTopSellersScreen} />
-//       <Stack.Screen name="AdminAvgIncomeSalaryGroup" component={AdminAvgIncomeSalaryGroupScreen} />
-//       <Stack.Screen name="AdminAvgIncome" component={AdminAvgIncomeScreen} />
-//       <Stack.Screen name="AdminAvgIncomeShop" component={AdminAvgIncomeShopScreen} />
-//       <Stack.Screen name="AdminAvgIncomeTellers" component={AdminAvgIncomeTellersScreen} />
-//       <Stack.Screen name="AdminExpenseManagement" component={AdminExpenseManagementScreen} />
-//       <Stack.Screen name="AdminDetailProductivitySub" component={AdminDetailProductivitySubScreen} />
-
-//       <Stack.Screen name="SubscriberQualityDashboard" component={AdminSubscriberQualityDashboardScreen} />
-//       <Stack.Screen name="BranchSubscriberQuality" component={AdminBranchSubscriberQualityScreen} />
-//       <Stack.Screen name="ShopSubscriberQuality" component={AdminShopSubscriberQualityScreen} />
-//       <Stack.Screen name="EmpSubscriberQuality" component={AdminEmpSubscriberQualityScreen} />
-//       {/* Chất lượng thuê bao > Cảnh báo vi phạm */}
-//       <Stack.Screen name="AdminViolateSubscriber" component={AdminViolateSubscriberScreen} />
-//       {/* Chất lượng thuê bao > Cảnh báo vi phạm > Chuyển Fast/MD1/MDT>=1TB*/}
-//       <Stack.Screen name="AdminViolateSubscriberFast" component={AdminViolateSubscriberFastScreen} />
-//       {/* Chất lượng thuê bao > Cảnh báo vi phạm > Chuyển FCard >= 3TB*/}
-//       <Stack.Screen name="AdminViolateSubscriberFCard" component={AdminViolateSubscriberFCardScreen} />
-//       {/* Chất lượng thuê bao > Cảnh báo vi phạm > GDV xuất hiện  >= 3 lần trong 6 tháng*/}
-//       <Stack.Screen name="AdminViolateSubscriberOverThree" component={AdminViolateSubscriberOverThreeScreen} />
-
-
-//       <Stack.Screen name="AdminSubscriberQualitySummaryBranch" component={AdminSubscriberQualitySumBranchScreen} />
-//       <Stack.Screen name="AdminSubscriberQualitySummaryShop" component={AdminSubscriberQualitySumShopScreen} />
-//       <Stack.Screen name="AdminSubscriberQualitySummaryEmp" component={AdminSubscriberQualitySumEmpScreen} />
-//       <Stack.Screen name="AdminViolateFastSubDetail" component={AdminViolateFastSubDetailScreen} />
-
-//       <Stack.Screen name="AdminTransInfoDashdoard" component={AdminTransInfoDashdoardScreen} />
-//       <Stack.Screen name="AdminStatisticalBranch" component={AdminStatisticalBranchScreen} />
-//       <Stack.Screen name="AdminStatisticalShop" component={AdminStatisticalShopScreen} />
-//       <Stack.Screen name="AdminStatisticalEmp" component={AdminStatisticalEmpScreen} />
-//       <Stack.Screen name="AdminViolateWarningDashboard" component={AdminViolateWarningDashboardScreen} />
-//       <Stack.Screen name="AdminEmpRegInfo" component={AdminEmpRegInfoScreen} />
-//       <Stack.Screen name="AdminEmpRegInfoDetail" component={AdminEmpRegInfoDetailScreen} />
-//       <Stack.Screen name="AdminDenyByWrongInfo" component={DenyByWrongInfoScreen} />
-//       <Stack.Screen name="AdminEmpThreeTime" component={AdminEmpThreeTimeScreen} />
-
-
-//       <Stack.Screen name="AdminUnitInfo" component={AdminUnitInfoScreen} />
-//       <Stack.Screen name="AdminDetailUnitInfo" component={AdminDetailUnitInfoScreen} />
-//       <Stack.Screen name="AdminImageDetailUnitInfo" component={AdminImageDetailUnitInfoScreen} />
-
-//       <Stack.Screen name="AdminBranchTransInfo" component={AdminBranchTransInfoScreen} />
-//       <Stack.Screen name="AdminShopTransInfo" component={AdminShopTransInfoScreen} />
-//       <Stack.Screen name="AdminEmpTransInfo" component={AdminEmpTransInfoScreen} />
-
-//     </Stack.Navigator>
-//   )
-// }
+    </Stack.Navigator>
+  )
+}
 
 const ProfileStack = () => {
   return (
@@ -252,6 +199,7 @@ export default function App() {
     <NavigationContainer >
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="AuthStack" component={AuthStack} />
+        <Stack.Screen name="AdminStack" component={AdminStack} />
         <Stack.Screen name="EMPHome" component={EMPBottomTab} options={{ headerShown: false }} />
         {/* <Stack.Screen name="AdminHome" component={AdminBottomTab} /> */}
       </Stack.Navigator>

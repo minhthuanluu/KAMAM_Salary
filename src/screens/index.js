@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Recovery from "./Auth/Recovery";
-import SignIn from "./Auth/SignIn";
+import SignIn from "./Auth/Signin";
 
 import EmpDashboard from "./EmpHome/Dashboard";
 
@@ -49,6 +49,14 @@ import UpdatePassword from "./Profile/UpdatePassword"
 import UpdateProfile from "./Profile/UpdateProfile"
 import SignOut from "./SignOut"
 
+
+
+
+// import Test from "./Test"
+import AdminMonthSalaryBranch from "./Test/Branch"
+import AdminMonthSalaryShop from "./Test/Shop"
+import AdminMonthSalaryEmp from "./Test/Emp"
+
 export const RecoveryScreen = () => { return <Recovery /> }
 export const SignInScreen = () => { return <SignIn /> }
 
@@ -89,5 +97,11 @@ export const KPIMonthReportScreen = () => { return <KPIMonthReport /> }
 export const ProfileDashboardScreen = (route) => { return <ProfileDashboard route={route} /> }
 export const UpdatePasswordScreen = () => { return <UpdatePassword /> }
 export const UpdateProfileScreen = () => { return <UpdateProfile /> }
+
+
+// export const TestScreen = () => { return <Test/>}
+export const AdminMonthSalaryBranchScreen = () => { return <AdminMonthSalaryBranch/>}
+export const AdminMonthSalaryShopScreen = () => { return <AdminMonthSalaryShop/>}
+export const AdminMonthSalaryEmpScreen = () => { return <AdminMonthSalaryEmp/>}
 
 export const SignOutScreen = () => { return <SignOut /> }

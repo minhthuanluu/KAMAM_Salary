@@ -13,6 +13,8 @@ import MenuItemShow from "./menuItemshow";
 import GETable from "./geTable";
 import SFTable from "./sfTable";
 import Loading from "./loading";
+import GeneralListItem from "./generallistitem";
+import DoubleMonthPicker from "./doublemonthpicker";
 
 export {
     Button,
@@ -29,5 +31,7 @@ export {
     MenuItemShow,
     GETable,
     SFTable,
-    Loading
+    Loading,
+    DoubleMonthPicker,
+    GeneralListItem
 }
