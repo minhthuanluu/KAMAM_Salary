@@ -91,7 +91,7 @@ export const getGrowthEnterprise = async (month) => {
     let data = baseData
     await axios({
         method: "POST",
-        url: `${baseUrl}mobile/follow-impl-plan/action-plan/getGrowthEnterprise?month=09%2F2021`,
+        url: `${baseUrl}mobile/follow-impl-plan/action-plan/getGrowthEnterprise?month=${month}`,
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",

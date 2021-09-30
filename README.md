@@ -51,6 +51,23 @@
 #                   EnterpriseFluct: Biến động DN trong tập DS giao
 #               KPIMonthReport: Báo cáo KPI tháng
 #           ManagerHome: các màn hình của cấp quản lý
+#               Dashboard: màn hình Home  
+#               KPICurrentMonth: KPI tháng hiện tại
+#                   Dashboard: màn hình Home KPICurrentMonth
+#                   TopAM: TopAM
+#                   GroupKPI: Nhóm KPI
+#                   DeliveryList: Tập danh sách giao
+#                       Dashboard: màn hình chính DeliveryList
+#                       DeliveEnterprise: Doanh nghiệp giao
+#                       SubsByEnterprise: Thuê bao theo doanh nghiệp
+#                       RevenueByEnterprise: Doanh thu theo doanh nghiệp
+#                   ProductivitySubAdmin: Năng suất bình quân
+#               SalaryByMonthAdmin: Lương theo tháng
+#               AVGIncomeAdmin: Bình quân thu nhập
+#               SubscriberQualityAdmin: Chất lượng thuê bao
+#                   Dashboard: màn hình Home SubscriberQuality
+#                   SumReportUnit: Báo cáo tổng hợp theo đơn vị
+#                   SumReportStaff: Báo cáo tổng hợp theo nhân viên
 #           index.js: khai báo các màn hình thành các functions để navigate và phân quyền trong app
 #       utils: general files
 #           Text.js: tất cả các từ hoặc câu cố định sử dụng trong các màn hình

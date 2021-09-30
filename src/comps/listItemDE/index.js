@@ -3,7 +3,7 @@ import { View, Image, Text } from 'react-native';
 import { fontScale } from '../../utils/Fonts';
 import { styles } from './styles';
 
-const ListItem = (props) => {
+const ListItemDE = (props) => {
     const { title, icon, price, jusTitle, isFather, isChild } = props;
     return (
         <View style={styles.container}>
@@ -19,7 +19,7 @@ const ListItem = (props) => {
                             </View>
                     }
                 </> : <>
-                    <View style={[styles.titleContain, props.style, { flex: 3 / 5 }]}>
+                    <View style={[styles.titleContain, props.style, { flex: 4 / 5 }]}>
                         <Image source={icon} resizeMode="contain" style={[styles.icon, props.iconStyle]} />
                         <Text style={styles.title, {
                             color: isFather == true ? "#3E3E3E" : isChild == true ? "#9E9898" : "#818080",
@@ -28,7 +28,7 @@ const ListItem = (props) => {
                     </View>
                     {
                         jusTitle ? null :
-                            <Text style={[styles.price, { flex: 2 / 5 }]}>{price}</Text>
+                            <Text style={[styles.price, { flex: 1 / 5 }]}>{price}</Text>
                     }
                 </>
             }
@@ -36,4 +36,4 @@ const ListItem = (props) => {
     );
 }
 
-export default ListItem;
+export default ListItemDE;
