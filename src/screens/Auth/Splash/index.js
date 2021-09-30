@@ -17,7 +17,7 @@ const Splash = () => {
         setTimeout(async () => {
             let isLogin = await _retrieveData("isLogin")
             if (isLogin == true) {
-                navigation.navigate("EMPHome")
+                navigation.navigate("AdminHome")
             } else {
                 navigation.navigate("SignIn")
             }

@@ -61,10 +61,10 @@
 #                       DeliveEnterprise: Doanh nghiệp giao
 #                       SubsByEnterprise: Thuê bao theo doanh nghiệp
 #                       RevenueByEnterprise: Doanh thu theo doanh nghiệp
-#                   ProductivitySub: Năng suất bình quân
-#               SalaryByMonth: Lương theo tháng
-#               AVGIncome: Bình quân thu nhập
-#               SubscriberQuality: Chất lượng thuê bao
+#                   ProductivitySubAdmin: Năng suất bình quân
+#               SalaryByMonthAdmin: Lương theo tháng
+#               AVGIncomeAdmin: Bình quân thu nhập
+#               SubscriberQualityAdmin: Chất lượng thuê bao
 #                   Dashboard: màn hình Home SubscriberQuality
 #                   SumReportUnit: Báo cáo tổng hợp theo đơn vị
 #                   SumReportStaff: Báo cáo tổng hợp theo nhân viên

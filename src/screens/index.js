@@ -49,6 +49,40 @@ import UpdatePassword from "./Profile/UpdatePassword"
 import UpdateProfile from "./Profile/UpdateProfile"
 import SignOut from "./SignOut"
 
+import AdminDashboard from "./ManagerHome/Dashboard";
+
+import KPICurrentMonthDashboard from "./ManagerHome/KPICurrentMonth/Dashboard";
+import TopAM from "./ManagerHome/KPICurrentMonth/TopAM";
+import GroupKPI from "./ManagerHome/KPICurrentMonth/GroupKPI";
+
+import DeliveryListDashboard from "./ManagerHome/KPICurrentMonth/DeliveryList/Dashboard";
+import DeliveEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/DeliveEnterprise";
+import SubsByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/SubsByEnterprise";
+import RevenueByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise";
+
+import ProductivitySubAdmin from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin";
+
+import SalaryByMonthAdmin from "./ManagerHome/SalaryByMonthAdmin";
+import AVGIncomeAdmin from "./ManagerHome/SalaryByMonthAdmin";
+import SubscriberQualityAdminDashboard from "./ManagerHome/SubscriberQualityAdmin/Dashboard";
+import SumReportStaff from "./ManagerHome/SubscriberQualityAdmin/SumReportStaff";
+import SumReportUnit from "./ManagerHome/SubscriberQualityAdmin/SumReportUnit";
+
+export const AdminDashboardScreen = () => { return <AdminDashboard /> }
+
+export const KPICurrentMonthDashboardScreen = () => { return <KPICurrentMonthDashboard /> }
+export const TopAMScreen = () => { return <TopAM /> }
+export const GroupKPIScreen = () => { return <GroupKPI /> }
+export const DeliveryListDashboardScreen = () => { return <DeliveryListDashboard /> }
+export const DeliveEnterpriseScreen = () => { return <DeliveEnterprise /> }
+export const SubsByEnterpriseScreen = () => { return <SubsByEnterprise /> }
+export const RevenueByEnterpriseScreen = () => { return <RevenueByEnterprise /> }
+export const ProductivitySubAdminScreen = () => { return <ProductivitySubAdmin /> }
+export const SalaryByMonthAdminScreen = () => { return <SalaryByMonthAdmin /> }
+export const SubscriberQualityAdminDashboardScreen = () => { return <SubscriberQualityAdminDashboard /> }
+export const SumReportStaffScreen = () => { return <SumReportStaff /> }
+export const SumReportUnitScreen = () => { return <SumReportUnit /> }
+
 export const RecoveryScreen = () => { return <Recovery /> }
 export const SignInScreen = () => { return <SignIn /> }
 
