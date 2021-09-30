@@ -110,7 +110,7 @@ const ReportByUnitItem = (props) => {
             <View style={{ flexDirection: "row", marginTop: fontScale(20) }}>
                 <ReportByUnitSubItem flex={1} title='SL TBTS' value={item.postpaid} />
                 <ReportByUnitSubItem flex={1.5} title='SL cắt huỷ' value={item.revoke} />
-                <ReportByUnitSubItem flex={3} title='TB chuyển Fone card' value={item.foneCard} />
+                <ReportByUnitSubItem flex={2.5} title='TB chuyển Fone card' value={item.foneCard} />
                 <ReportByUnitSubItem flex={1} title='Chặn 2c' value={item.deny2C} />
             </View>
         </View>
@@ -119,8 +119,8 @@ const ReportByUnitItem = (props) => {
 
 const ReportByUnitSubItem = ({ title, value, flex }) => {
     return <View style={{ flex: flex, justifyContent: "center", alignItems: "center" }}>
-        <Text style={{ color: "#9E9898", fontWeight: "bold", fontSize: fontScale(14) }}>{title}</Text>
-        <Text style={{ color: "#00BECC", fontWeight: "bold", fontSize: fontScale(14),marginTop:fontScale(11) }}>{value}</Text>
+        <Text style={{ color: "#9E9898", fontWeight: "bold", fontSize: fontScale(13) }}>{title}</Text>
+        <Text style={{ color: "#00BECC", fontWeight: "bold", fontSize: fontScale(13),marginTop:fontScale(11) }}>{value}</Text>
     </View>
 }
 

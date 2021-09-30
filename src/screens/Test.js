@@ -174,7 +174,7 @@ const ReportByBranch = () => {
                         return <View>
                             <ReportByUnitItem item={item} index={index} />
                             {
-                                index == data.data.length - 1 ? <ReportByUnitItemFinal style={{marginBottom:fontScale(30)}}item={data.general} index={index} /> : null
+                                index == data.data.length - 1 ? <ReportByUnitItemFinal style={{ marginBottom: fontScale(30) }} item={data.general} index={index} /> : null
                             }
                         </View>
                     }}
