@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Header,DateView, Body } from '../../../../comps';
-import { styles } from './stytes';
-import { colors } from '../../../../utils/Colors';
-import { text } from '../../../../utils/Text';
-import moment from 'moment';
-import { fontScale } from '../../../../utils/Fonts';
-import { width } from '../../../../utils/Dimenssion';
-import { images } from '../../../../utils/Images';
 import { useNavigation } from '@react-navigation/core';
+import moment from 'moment';
+import React, { useEffect, useState } from 'react';
+import { FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Header, DateView, Body, MenuItem } from '../../../../../comps';
+import { colors } from '../../../../../utils/Colors';
+import { width } from '../../../../../utils/Dimenssion';
+import { fontScale } from '../../../../../utils/Fonts';
+import { images } from '../../../../../utils/Images';
+import { text } from '../../../../../utils/Text';
 
-//Branch
-const SumReportUnit = (props) => {
+// Shop
+const ReportByUnitShop = () => {
     const [beginMonth, setBeginMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"))
     const [endMonth, setEndMonth] = useState(moment(new Date()).subtract(12, "months").format("MM/YYYY"))
     const navigation = useNavigation()
+
     const data = {
         "data": [{
-            "icon": 'BRANCH',
+            "icon": 'UNIT',
             "shopCode": '2HCM1',
             "shopName": 'Ho Cho Minh 1',
             "postpaid": 1,
@@ -26,7 +26,7 @@ const SumReportUnit = (props) => {
             "deny2C": 4
         },
         {
-            "icon": 'BRANCH',
+            "icon": 'UNIT',
             "shopCode": '2HCM1',
             "shopName": 'Ho Cho Minh 1',
             "postpaid": 1,
@@ -35,7 +35,7 @@ const SumReportUnit = (props) => {
             "deny2C": 4
         },
         {
-            "icon": 'BRANCH',
+            "icon": 'UNIT',
             "shopCode": '2HCM1',
             "shopName": 'Ho Cho Minh 1',
             "postpaid": 1,
@@ -46,7 +46,7 @@ const SumReportUnit = (props) => {
         "general": {
             "beginMonth": "09/2020",
             "endMonth": "08/2021",
-            "icon": "COMPANY",
+            "shopType": "BRANCH",
             "shopCode": "CTY2",
             "shopName": "Công ty 2",
             "postpaid": 1,
@@ -55,9 +55,13 @@ const SumReportUnit = (props) => {
             "deny2C": 4
         }
     }
+
+    useEffect(()=>{
+        console.log('Shop')
+    })
     return (
-        <SafeAreaView style={styles.container}>
-            <StatusBar translucent={true} backgroundColor={colors.primary} />
+        <SafeAreaView style={reportByUnitstyles.container}>
+            <StatusBar translucent backgroundColor={colors.primary} />
             <Header title={text.reportByUnit} />
             <View style={{ flexDirection: "row" }}>
                 <View style={{ flex: 1, marginLeft: -width / 5 }}>
@@ -67,7 +71,7 @@ const SumReportUnit = (props) => {
                     <DateView dateLabel={'Tháng ' + endMonth} width={width / 2 - fontScale(30)} />
                 </View>
             </View>
-            <Body style={reportstyles.bodyScr} />
+            <Body style={reportByUnitstyles.bodyScr} />
             <View style={{ flex: 1, backgroundColor: colors.white }}>
                 <FlatList
                     showsVerticalScrollIndicator={false}
@@ -75,16 +79,32 @@ const SumReportUnit = (props) => {
                     keyExtractor={(item, index) => index.toString()}
                     renderItem={({ item, index }) => {
                         return <View>
-                            <ReportByUnitItem item={item} index={index} onPress={()=>navigation.navigate("SumReportUnitShop")}/>
+                            <ReportByUnitItem item={item} index={index} onPress={()=>navigation.navigate("SumReportUnitByEmp")}/>
                             {
-                                index == data.data.length - 1 ? <ReportByUnitItemFinal style={{ marginBottom: fontScale(30) }} item={data.general} index={index} /> : null
+                                index == data.data.length - 1 ? <ReportByUnitItemFinal style={{marginBottom:fontScale(30)}}item={data.general} index={index} /> : null
                             }
                         </View>
                     }}
                 />
             </View>
         </SafeAreaView>
-    );
+    )
+}
+
+const ReportByUnitItemFinal = (props) => {
+    const { item, index } = props;
+    return <View style={[reportByUnitItem.container,props.style, { marginTop: index > 0 ? fontScale(60) : fontScale(30)}]}>
+        <Image style={reportByUnitItem.icon} source={item.shopType == "BRANCH" ? images.branch : images.shop} />
+        <View style={{...reportByUnitItem.subContainer,backgroundColor:"#EFFEFF" }}>
+            <Text style={{ ...reportByUnitItem.shopCode, color: "#D19E01" }}>{item.shopCode}</Text>
+            <View style={{ flexDirection: "row", marginTop: fontScale(20) }}>
+                <ReportByUnitSubItem flex={1} title='SL TBTS' value={item.postpaid} />
+                <ReportByUnitSubItem flex={1.5} title='SL cắt huỷ' value={item.revoke} />
+                <ReportByUnitSubItem flex={3} title='TB chuyển Fone card' value={item.foneCard} />
+                <ReportByUnitSubItem flex={1} title='Chặn 2c' value={item.deny2C} />
+            </View>
+        </View>
+    </View>
 }
 
 const ReportByUnitItem = (props) => {
@@ -94,30 +114,14 @@ const ReportByUnitItem = (props) => {
         <TouchableOpacity style={reportByUnitItem.subContainer} onPress={props.onPress}>
             <Text style={reportByUnitItem.shopCode}>{item.shopCode}</Text>
             <View style={{ flexDirection: "row", marginTop: fontScale(20) }}>
-                <ReportByUnitSubItem flex={1.3} title='SL TBTS' value={item.postpaid} />
-                <ReportByUnitSubItem flex={1.3} title='SL cắt huỷ' value={item.revoke} />
-                <ReportByUnitSubItem flex={2.9} title='TB chuyển Fone card' value={item.foneCard} />
-                <ReportByUnitSubItem flex={1} title='Chặn 2c' value={item.deny2C} />
-            </View>
-        </TouchableOpacity>
-    </View>
-} 
-const ReportByUnitItemFinal = (props) => {
-    const { item, index } = props;
-    return <View style={[reportByUnitItem.container,props.style, { marginTop: index > 0 ? fontScale(60) : fontScale(30)}]}>
-        <Image style={reportByUnitItem.icon} source={item.icon == "COMPANY" ? images.company : images.branch} />
-        <TouchableOpacity style={{...reportByUnitItem.subContainer,backgroundColor:"#EFFEFF" }}>
-            <Text style={{ ...reportByUnitItem.shopCode, color: "#D19E01" }}>{item.shopCode}</Text>
-            <View style={{ flexDirection: "row", marginTop: fontScale(20) }}>
-                <ReportByUnitSubItem flex={1.3} title='SL TBTS' value={item.postpaid} />
-                <ReportByUnitSubItem flex={1.3} title='SL cắt huỷ' value={item.revoke} />
-                <ReportByUnitSubItem flex={2.9} title='TB chuyển Fone card' value={item.foneCard} />
+                <ReportByUnitSubItem flex={1} title='SL TBTS' value={item.postpaid} />
+                <ReportByUnitSubItem flex={1.5} title='SL cắt huỷ' value={item.revoke} />
+                <ReportByUnitSubItem flex={3} title='TB chuyển Fone card' value={item.foneCard} />
                 <ReportByUnitSubItem flex={1} title='Chặn 2c' value={item.deny2C} />
             </View>
         </TouchableOpacity>
     </View>
 }
-
 
 const ReportByUnitSubItem = ({ title, value, flex }) => {
     return <View style={{ flex: flex, justifyContent: "center", alignItems: "center" }}>
@@ -159,18 +163,6 @@ const reportByUnitItem = StyleSheet.create({
         borderRadius: fontScale(20),
         width: width - fontScale(20)
     }
-});
-
-const reportstyles = StyleSheet.create({
-    container: {
-        backgroundColor: colors.primary,
-        flex: 1
-    },
-    dateView: {
-        flex: 1,
-        flexDirection: "row"
-    },
-    bodyScr: { marginTop: fontScale(10) }
 })
 
 const reportItemStyle = StyleSheet.create({
@@ -210,4 +202,4 @@ const reportByUnitstyles = StyleSheet.create({
 })
 
 
-export default SumReportUnit;
+export default ReportByUnitShop;

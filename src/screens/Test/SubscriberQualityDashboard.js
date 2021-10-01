@@ -9,8 +9,8 @@ import { images } from '../../utils/Images';
 import { text } from '../../utils/Text';
 
 function SubscriberQualityDashboard(props) {
-    const [beginMonth, setBeginMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"))
-    const [endMonth, setEndMonth] = useState(moment(new Date()).subtract(12, "months").format("MM/YYYY"))
+    const [beginMonth, setBeginMonth] = useState(moment(new Date()).subtract(12, "months").format("MM/YYYY"))
+    const [endMonth, setEndMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"))
     
     return (
         <SafeAreaView style={substyles.container}>

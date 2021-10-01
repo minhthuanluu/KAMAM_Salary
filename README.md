@@ -77,3 +77,9 @@
 #           Fonts.js: hàm responsive font & size các đối tượng trong View
 #           Dimension.js: screen width / screen height / statusbar height
 #           Colors.js: tất cả các mã màu cơ bản sử dụng trong prj
+
+
+#    ROLE_EMPLOYEE - nhân viên,
+#    ROLE_LEADER - khối KAM/AM,
+#    ROLE_BRANCH - chi nhánh,
+#    ROLE_COMPANY - công ty

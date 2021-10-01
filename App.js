@@ -15,7 +15,7 @@ import {
   ProfileDashboardScreen, UpdatePasswordScreen, UpdateProfileScreen, SignOutScreen, AdminDashboardScreen,
   KPICurrentMonthDashboardScreen, TopAMScreen, GroupKPIScreen, DeliveryListDashboardScreen, DeliveEnterpriseScreen,
   SubsByEnterpriseScreen, RevenueByEnterpriseScreen, ProductivitySubAdminScreen, SalaryByMonthAdminScreen,
-  SubscriberQualityAdminDashboardScreen, SumReportStaffScreen, SumReportUnitScreen,AVGIncomeAdminScreen
+  SubscriberQualityAdminDashboardScreen, SumReportStaffScreen, SumReportUnitScreen,AVGIncomeAdminScreen, SumReportUnitShopScreen, SumReportUnitByUnitScreen, SumReportUnitByEmpScreen
 } from './src/screens';
 
 import { colors } from './src/utils/Colors';
@@ -161,6 +161,11 @@ const AdminStack = () => {
       <Stack.Screen name="SubscriberQualityAdminDashboard" component={SubscriberQualityAdminDashboardScreen} />
       <Stack.Screen name="SumReportStaff" component={SumReportStaffScreen} />
       <Stack.Screen name="SumReportUnit" component={SumReportUnitScreen} />
+
+      <Stack.Screen name="SumReportUnitShop" component={SumReportUnitShopScreen} />
+      <Stack.Screen name="SumReportUnitByUnit" component={SumReportUnitByUnitScreen} />
+      <Stack.Screen name="SumReportUnitByEmp" component={SumReportUnitByEmpScreen} />
+      
       <Stack.Screen name="TopAM" component={TopAMScreen} />
       <Stack.Screen name="AVGIncomeAdmin" component={AVGIncomeAdminScreen} />
 
@@ -191,12 +196,6 @@ const AuthStack = () => {
   )
 }
 
-import Test from "./src/screens/Test"
-
-const TestScreen=()=>{
-  return <Test />
-}
-
 export default function App() {
   StatusBar.setBarStyle('light-content', true);
   LogBox.ignoredYellowBox = ["Warning: Each", "Warning: Failed"]
@@ -204,7 +203,6 @@ export default function App() {
   return (
     <NavigationContainer >
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Test" component={TestScreen}/>
         <Stack.Screen name="AuthStack" component={AuthStack} />
         <Stack.Screen name="EMPHome" component={EMPBottomTab} options={{ headerShown: false }} />
         <Stack.Screen name="AdminHome" component={AdminBottomTab} options={{ headerShown: false }} />
