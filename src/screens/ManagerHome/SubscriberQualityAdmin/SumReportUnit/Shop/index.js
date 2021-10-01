@@ -98,9 +98,9 @@ const ReportByUnitItemFinal = (props) => {
         <View style={{...reportByUnitItem.subContainer,backgroundColor:"#EFFEFF" }}>
             <Text style={{ ...reportByUnitItem.shopCode, color: "#D19E01" }}>{item.shopCode}</Text>
             <View style={{ flexDirection: "row", marginTop: fontScale(20) }}>
-                <ReportByUnitSubItem flex={1} title='SL TBTS' value={item.postpaid} />
-                <ReportByUnitSubItem flex={1.5} title='SL cắt huỷ' value={item.revoke} />
-                <ReportByUnitSubItem flex={3} title='TB chuyển Fone card' value={item.foneCard} />
+                <ReportByUnitSubItem flex={1.3} title='SL TBTS' value={item.postpaid} />
+                <ReportByUnitSubItem flex={1.3} title='SL cắt huỷ' value={item.revoke} />
+                <ReportByUnitSubItem flex={2.9} title='TB chuyển Fone card' value={item.foneCard} />
                 <ReportByUnitSubItem flex={1} title='Chặn 2c' value={item.deny2C} />
             </View>
         </View>
@@ -114,9 +114,9 @@ const ReportByUnitItem = (props) => {
         <TouchableOpacity style={reportByUnitItem.subContainer} onPress={props.onPress}>
             <Text style={reportByUnitItem.shopCode}>{item.shopCode}</Text>
             <View style={{ flexDirection: "row", marginTop: fontScale(20) }}>
-                <ReportByUnitSubItem flex={1} title='SL TBTS' value={item.postpaid} />
-                <ReportByUnitSubItem flex={1.5} title='SL cắt huỷ' value={item.revoke} />
-                <ReportByUnitSubItem flex={3} title='TB chuyển Fone card' value={item.foneCard} />
+                <ReportByUnitSubItem flex={1.3} title='SL TBTS' value={item.postpaid} />
+                <ReportByUnitSubItem flex={1.3} title='SL cắt huỷ' value={item.revoke} />
+                <ReportByUnitSubItem flex={2.9} title='TB chuyển Fone card' value={item.foneCard} />
                 <ReportByUnitSubItem flex={1} title='Chặn 2c' value={item.deny2C} />
             </View>
         </TouchableOpacity>

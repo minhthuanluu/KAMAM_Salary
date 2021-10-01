@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Header,DateView, Body } from '../../../../comps';
 import { styles } from './stytes';
 import { colors } from '../../../../utils/Colors';
@@ -9,12 +9,15 @@ import { fontScale } from '../../../../utils/Fonts';
 import { width } from '../../../../utils/Dimenssion';
 import { images } from '../../../../utils/Images';
 import { useNavigation } from '@react-navigation/core';
+import { getReportByUnit } from '../../../../api/manager';
 
 //Branch
 const SumReportUnit = (props) => {
     const [beginMonth, setBeginMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"))
     const [endMonth, setEndMonth] = useState(moment(new Date()).subtract(12, "months").format("MM/YYYY"))
-    const navigation = useNavigation()
+    const navigation = useNavigation();
+    const [loading,setLoading] = useState(false);
+
     const data = {
         "data": [{
             "icon": 'BRANCH',
@@ -55,6 +58,13 @@ const SumReportUnit = (props) => {
             "deny2C": 4
         }
     }
+
+    const getData =async(branchCode,shopCode)=>{
+        await getReportByUnit(branchCode,shopCode).then((data)=>{
+            
+        })
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar translucent={true} backgroundColor={colors.primary} />
@@ -69,6 +79,7 @@ const SumReportUnit = (props) => {
             </View>
             <Body style={reportstyles.bodyScr} />
             <View style={{ flex: 1, backgroundColor: colors.white }}>
+                {loading==true ? <ActivityIndicator size="small" color={colors.primary} /> : null}
                 <FlatList
                     showsVerticalScrollIndicator={false}
                     data={data.data}
