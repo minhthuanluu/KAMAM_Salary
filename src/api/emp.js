@@ -3,8 +3,7 @@ import { baseData, baseUrl } from "./utils";
 import axios from "axios";
 import { useNavigation } from '@react-navigation/core';
 
-
-const getToken = async () => {
+export const getToken = async () => {
     let token = await _retrieveData("accessToken")
     return token
 }

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView, Text,View } from "react-native";
-import { Body, DatePicker, GeneralListItem, Header } from "../../../comps";
+import { Body, DatePicker, GeneralListItem, Header, DoubleMonthPicker } from "../../../../comps";
 import { styles } from "./style";
-import { images } from "../../../utils/Images";
+import { images } from "../../../../utils/Images";
 import moment from "moment";
-import { getKPIByMonth, getMonthSalary } from "../../../api/manager";
-import { width } from "../../../utils/Dimenssion";
-import { fontScale } from "../../../utils/Fonts";
+import { getAvgIncome, getKPIByMonth, getMonthSalary } from "../../../../api/manager";
+import { width } from "../../../../utils/Dimenssion";
+import { fontScale } from "../../../../utils/Fonts";
 import { StatusBar } from "react-native";
-import { text } from "../../../utils/Text";
-import { colors } from "../../../utils/Colors";
+import { text } from "../../../../utils/Text";
+import { colors } from "../../../../utils/Colors";
 import { FlatList } from "react-native";
 import { ActivityIndicator } from "react-native";
 import { useBackButton, useFocusEffect, useNavigation, useRoute } from "@react-navigation/native";
@@ -22,14 +22,18 @@ const index = (props) => {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [generalData, setGeneralData] = useState({});
-  const [month, setMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"));
-  const navigation = useNavigation();
-  const route = useRoute();
+  
+  // const [month, setMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"));
+  
+  const [beginMonth, setBeginMonth] = useState(moment(new Date()).format("01/YYYY"));
+    const [endMonth, setEndMonth] = useState(moment(new Date()).subtract(1, 'months').format("MM/YYYY"));const navigation = useNavigation();
+    const [notification, setNotification] = useState("");
+    const route = useRoute();
 
-  const getData = async (month, branchcode, shopCode) => {
+  const getData = async (beginMonth,endMonth,branchCode,shopCode) => {
     setLoading(true);
     setMessage("");
-    await getMonthSalary(month, branchcode, shopCode).then((data) => {
+    await getAvgIncome(beginMonth,endMonth,branchCode,shopCode).then((data) => {
       if (data.status == "success") {
         setLoading(false);
        
@@ -39,6 +43,7 @@ const index = (props) => {
         } else {
           console.log(data)
           setData(data.data.data);
+          setNotification(data.data.notification);
           setGeneralData(data.data.general);
         }
       }
@@ -68,23 +73,35 @@ const index = (props) => {
   };
 
   useEffect(() => {
-    getData(month, "", "");
-  }, [month])
+    const { beginMonth, endMonth, branchCode } = route.params?.item;
+    getData(beginMonth, endMonth,branchCode,"");
+  }, [beginMonth, endMonth])
 
-  const _onChangeMonth = (value) => {
-    setMonth(value);
-    getData(value, "", "");
-  };
+  const errorNotif = (message) => {
+    Toast.show({
+        text1: "Lưu ý",
+        text2: message,
+        type: "error",
+        visibilityTime: 2000,
+        autoHide: true
+    })
+}
+
+const _onChangeMonth = async (value) => {
+  const { branchCode } = route.params?.item;
+  await getData(value.beginMonth, value.endMonth, branchCode,"");
+}
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar translucent backgroundColor={colors.primary} />
-      <Header title={text.salaryMonth} />
-      <DatePicker
-        month={month}
-        width={width - fontScale(120)}
-        style={{ alignSelf: "center" }}
-        onChangeDate={(date) => _onChangeMonth(date)}
-      />
+      <Header title={text.avgIncomeShop}/>
+      <View style={styles.dateContainer}>
+                <DoubleMonthPicker beginMonth={beginMonth} endMonth={endMonth}
+                    onChangeMonth={(value) => _onChangeMonth(value)}
+                    onError={(message) => errorNotif(message)}
+                />
+            </View>
+            <Text style={styles.notification}>{notification}</Text>
       <Body
         showInfo={false}
         style={{ marginTop: fontScale(15), zIndex: -10 }}
@@ -102,36 +119,40 @@ const index = (props) => {
               <View>
                 <GeneralListItem
                   style={{ marginTop: index==0 ? -fontScale(20):fontScale(30) }}
-                  monthSalary
+                  avgSalary
+                  totalEmp={ "( " + item.totalEmp + " NV" + " )"}
                     // backgroundColor={"#EFFEFF"}
                     textColor={"#2E2E31"}
                     key={index}
                     title={item.shopName}
-                    titleArray={[, "Lương CĐ", "CP Duy trì","CP Data KK", "CP thay sim", "Tổng CP"]}
-                    item={[item.totalSalary, item.incentiveSalary, item.totalEmp, item.totalSalary, item.incentiveSalary, item.totalEmp]}
-                    icon={images.branch}
+                    titleArray={[, "Tổng CPCĐ", "BQ CPCĐ","Tổng CPSP", "BQ CPSP", "Tổng CP","BQCP"]}
+                    item={[,item.totalPermanentSalary, item.avgPermanentSalary, item.totalProductSalary, item.avgProductSalary, item.totalSalary, item.avgSalary]}
+                    icon={images.store}
                 //     navigation.navigate("AdminMonthSalaryShop", {
                     // item: {
                     //   "branchCode": item.shopCode,
                     //   "month": month
                     // }
                 //   })
-                  onPress={() =>navigation.navigate('AdminMonthSalaryShop',{
+                  onPress={() =>navigation.navigate('AdminAVGIncomeEmp',{
                     item: {
-                      "branchCode": item.shopCode,
-                      "month": month
+                      "branchCode": route.params?.item.branchCode,
+                        "shopCode": item.shopCode,
+                        "beginMonth": beginMonth,
+                      "endMonth": endMonth
                     }
                   })} />
                 { index == data.length - 1 ?
                   <GeneralListItem
                     style={{ marginBottom: fontScale(110), marginTop: fontScale(38) }}
-                    monthSalary
+                    avgSalary
+                    totalEmp={ "( " + generalData.totalEmp + " NV" + " )"}
                     backgroundColor={"#EFFEFF"}
                     key={index}
                     title={generalData.shopName}
-                    titleArray={[, "Lương CĐ", "CP Duy trì","CP Data KK", "CP thay sim", "Tổng CP"]}
-                    item={generalData&&[generalData.monthOutcome, generalData.permanentSalary, generalData.incentiveSalary,generalData.vasAffiliate, generalData.supportOutcome, generalData.encouSalary, generalData.other]}
-                    icon={images.company} /> : null
+                    titleArray={[, "Tổng CPCĐ", "BQ CPCĐ","Tổng CPSP", "BQ CPSP", "Tổng CP","BQCP"]}
+                    item={generalData&&[,generalData.totalPermanentSalary, generalData.avgPermanentSalary, generalData.totalProductSalary,generalData.avgProductSalary, generalData.totalSalary, generalData.avgSalary]}
+                    icon={images.branch} /> : null
                 }
               </View>
             )}

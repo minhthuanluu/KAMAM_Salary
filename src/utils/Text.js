@@ -94,6 +94,8 @@ salaryMonth: "Lương tháng",
 groupSalaryAverage: "Nhóm lương BQ",
 salaryAverage: "Lương BQ",
 salAverage: "Lương bình quân",
+avgIncomeShop: "Lương bình quân - Shop",
+avgIncomeEmp: "Lương bình quân - Nhân viên",
 
 
   // Tổng lương dự kiến
