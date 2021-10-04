@@ -26,6 +26,7 @@ export const styles = StyleSheet.create({
     },
     dateViewFirst:{ flex: 1, marginLeft: -width / 5 },
     dateViewSecond:{ flex: 1, marginLeft: -width / 4 },
+    message:{textAlign:"center",color:colors.primary,marginTop:fontScale(5)},
     fieldItem:{ fontSize: fontScale(13), color: "#00BECC", textAlignVertical: "center", textAlign: "center", fontWeight: "bold", marginVertical: fontScale(10) }
 });
 
