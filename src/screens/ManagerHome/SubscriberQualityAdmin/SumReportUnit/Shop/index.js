@@ -27,12 +27,11 @@ const ReportByUnitShop = () => {
     const getData = async (branchCode, shopCode) => {
         setLoading(true)
         await getReportByUnit(branchCode, shopCode).then((res) => {
-            console.log(res.data)
             if (res.status == "success") {
                 setLoading(res.loading);
-                setData(res.data);
-                setBeginMonth('Tháng ' + res.data.general.beginMonth)
-                setEndMonth('Tháng ' + res.data.general.endMonth)
+                setData(res.data.data);
+                setBeginMonth('Tháng ' + res.data.data.general.beginMonth)
+                setEndMonth('Tháng ' + res.data.data.general.endMonth)
             }
 
             if (res.status == "failed") {
@@ -129,7 +128,7 @@ const ReportByUnitItemFinal = (props) => {
 
 const ReportByUnitItem = (props) => {
     const { item, index } = props;
-    return <View style={[reportByUnitItem.container, { marginTop: index > 0 ? fontScale(60) : fontScale(30) }]}>
+    return <View style={[reportByUnitItem.container, { marginTop: index > 0 ? fontScale(60) : fontScale(30) ,marginHorizontal: fontScale(10)}]}>
         <Image style={reportByUnitItem.icon} source={item.icon == "BRANCH" ? images.branch : item.icon == "COMPANY" ? images.company : item.icon == "UNIT" ? images.store : null} />
         <TouchableOpacity style={reportByUnitItem.subContainer} onPress={props.onPress}>
             <Text style={reportByUnitItem.shopCode}>{item.shopCode}</Text>
@@ -184,25 +183,6 @@ const reportByUnitItem = StyleSheet.create({
         width: width - fontScale(20)
     }
 })
-
-const reportItemStyle = StyleSheet.create({
-    container: {
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 10,
-        },
-        backgroundColor: "#fff",
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
-        padding: fontScale(10),
-        alignSelf: "center",
-        borderRadius: fontScale(20),
-        width: width - fontScale(20)
-
-    }
-});
 
 const reportByUnitstyles = StyleSheet.create({
     container: {

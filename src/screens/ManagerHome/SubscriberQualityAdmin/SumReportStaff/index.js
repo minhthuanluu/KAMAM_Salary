@@ -64,8 +64,8 @@ const SumReportStaff = (props) => {
         setMessage("")
         tempData.concat(tempData)
         const newData = tempData.filter((item) => {
-            const itemData = item.empCode;
-            return itemData.indexOf(text) > -1;
+            const itemData = item.empCode.toUpperCase();
+            return itemData.indexOf(text.toUpperCase()) > -1;
         });
         setTempData(newData);
         if (text.length > 0) {
@@ -102,18 +102,18 @@ const SumReportStaff = (props) => {
             <View style={{ flex: 1, backgroundColor: colors.white }}>
                 {loading == true ? <ActivityIndicator size="small" color={colors.primary} style={{ marginVertical: fontScale(20) }} /> : null}
                 <View style={styles.header}>
-                    <FieldItem item={header[0]} width={width * 1 / 4} />
-                    <FieldItem item={header[1]} width={width * 1 / 7} />
-                    <FieldItem item={header[2]} width={width * 1 / 5} />
-                    <FieldItem item={header[3]} width={width * 1 / 5} />
-                    <FieldItem item={header[4]} width={width * 1 / 5} />
+                    <FieldItem item={header[0]} width={width / 3.5} />
+                    <FieldItem item={header[1]} width={width / 8} />
+                    <FieldItem item={header[2]} width={width / 5.1} />
+                    <FieldItem item={header[3]} width={width / 5.5} />
+                    <FieldItem item={header[4]} width={width / 5} />
                 </View>
                 {message ? <Text style={styles.message}>{message}</Text> : null}
                 <FlatList
                     data={tempData}
                     showsVerticalScrollIndicator={false}
-                    keyExtractor={(item, index) => index.toString()}
-                    renderItem={({ item, index }) => { return <ReportEmpItem item={item} index={index} width={[width / 4, width / 6, width / 5.2, width / 4.7, width / 5]} /> }} />
+                    keyExtractor={(item, index) => item.empCode}
+                    renderItem={({ item, index }) => { return <ReportEmpItem item={item} index={index} width={[width / 3.5, width / 8, width / 5.1, width / 4.8, width / 5]} /> }} />
             </View>
             <Toast ref={(ref) => Toast.setRef(ref)} />
         </SafeAreaView>

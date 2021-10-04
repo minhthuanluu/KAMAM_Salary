@@ -28,9 +28,9 @@ const SumReportUnit = (props) => {
         await getReportByUnit(branchCode, shopCode).then((res) => {
             if (res.status == "success") {
                 setLoading(res.loading);
-                setData(res.data)
-                setBeginMonth('Tháng '+res.data.general.beginMonth)
-                setEndMonth('Tháng '+res.data.general.endMonth)
+                setData(res.data.data);
+                setBeginMonth('Tháng ' + res.data.data.general.beginMonth)
+                setEndMonth('Tháng ' + res.data.data.general.endMonth)
             }
 
             if (res.status == "failed") {
@@ -108,7 +108,7 @@ const ReportByUnitItemFinal = (props) => {
     return <View style={[reportByUnitItem.container, props.style]}>
         <Image style={reportByUnitItem.icon} source={images.company} />
         <View style={{ ...reportByUnitItem.subContainer, backgroundColor: "#EFFEFF" }}>
-            <Text style={{ ...reportByUnitItem.shopCode, color: "#D19E01" }}>{item.shopCode}</Text>
+            <Text style={{ ...reportByUnitItem.shopCode, color: "#D19E01" }}>{item.shopName}</Text>
             <View style={{ flexDirection: "row", marginTop: fontScale(20) }}>
                 <ReportByUnitSubItem flex={1.3} title='SL TBTS' value={item.postpaid} />
                 <ReportByUnitSubItem flex={1.3} title='SL cắt huỷ' value={item.revoke} />

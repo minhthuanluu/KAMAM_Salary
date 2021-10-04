@@ -25,13 +25,13 @@ const ReportByUnitEmp = () => {
 
     const getData = async (branchCode, shopCode) => {
         setLoading(true)
-        
+
         await getReportByUnit(branchCode, shopCode).then((res) => {
             if (res.status == "success") {
                 setLoading(res.loading);
-                setData(res.data);
-                setBeginMonth('Tháng ' + res.data.general.beginMonth)
-                setEndMonth('Tháng ' + res.data.general.endMonth)
+                setData(res.data.data);
+                setBeginMonth('Tháng ' + res.data.data.general.beginMonth)
+                setEndMonth('Tháng ' + res.data.data.general.endMonth)
             }
 
             if (res.status == "failed") {
@@ -99,7 +99,7 @@ const ReportByUnitItemFinal = (props) => {
     return <View style={[reportByUnitItem.container, props.style, { marginTop: index > 0 ? fontScale(60) : fontScale(30) }]}>
         <Image style={reportByUnitItem.icon} source={images.store} />
         <View style={{ ...reportByUnitItem.subContainer, backgroundColor: "#EFFEFF" }}>
-            <Text style={{ ...reportByUnitItem.shopCode, color: "#D19E01" }}>{item.shopName}</Text>
+            <Text style={{ ...reportByUnitItem.shopCode, color: "#D19E01", marginRight: fontScale(55) }}>{item.shopCode}</Text>
             <View style={{ flexDirection: "row", marginTop: fontScale(20) }}>
                 <ReportByUnitSubItem flex={1.2} title='SL TBTS' value={item.postpaid} />
                 <ReportByUnitSubItem flex={1.5} title='SL cắt huỷ' value={item.revoke} />
@@ -147,10 +147,8 @@ const reportByUnitItem = StyleSheet.create({
         zIndex: 10
     },
     shopCode: {
-        fontSize: fontScale(17),
-        fontWeight: "bold",
-        marginLeft: fontScale(10),
-        marginRight: fontScale(45)
+        fontSize: fontScale(16),
+        fontWeight: "bold"
     },
     subContainer: {
         shadowColor: "#000",
@@ -168,25 +166,6 @@ const reportByUnitItem = StyleSheet.create({
         width: width - fontScale(20)
     }
 })
-
-const reportItemStyle = StyleSheet.create({
-    container: {
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 10,
-        },
-        backgroundColor: "#fff",
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
-        padding: fontScale(10),
-        alignSelf: "center",
-        borderRadius: fontScale(20),
-        width: width - fontScale(20)
-
-    }
-});
 
 const reportByUnitstyles = StyleSheet.create({
     container: {
