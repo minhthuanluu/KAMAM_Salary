@@ -86,4 +86,5 @@ export const images = {
 
     topam: require('../assets/topam.png'),
     groupkpi: require('../assets/groupkpi.png'),
+    search: require('../assets/ic_searchlist.png'),
 }

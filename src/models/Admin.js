@@ -121,3 +121,18 @@ export const ReportByEmp = {
   "endMonth": "",
   "data": []
 }
+
+export const SumReportU = {
+  "data": [],
+  "general": {
+    "beginMonth": "",
+    "endMonth": "",
+    "icon": "",
+    "shopCode": "",
+    "shopName": "",
+    "postpaid": null,
+    "revoke": null,
+    "foneCard": null,
+    "deny2C": null
+  }
+}

@@ -216,4 +216,5 @@ productivitySub: "Năng suất bình quân",
 
   reportByUnit:"Báo cáo tổng hợp theo đơn vị",
   reportByEmp:"Báo cáo tổng hợp theo nhân viên",
+  findEmpCode:"Tìm kiếm mã nhân viên"
 };

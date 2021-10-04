@@ -1,6 +1,6 @@
 import moment from 'moment';
 import React, { useState } from 'react';
-import { SafeAreaView, Text, StatusBar, View } from 'react-native';
+import { SafeAreaView, StatusBar, View } from 'react-native';
 import { Body, DateView, Header, MenuItem } from '../../../../comps';
 import { styles } from './stytes';
 import { colors } from '../../../../utils/Colors';
@@ -17,22 +17,23 @@ const SubscriberQualityAdminDashboard = (props) => {
     const navigation = useNavigation();
 
     const checkRole = async () => {
-        await _retrieveData("role").then((item) => {
-            switch (item) {
+        await _retrieveData("loginInfo").then((item) => {
+            switch (item.roleType) {
                 case 'ROLE_COMPANY':
-                    navigation.navigate("SumReportUnit")
+                    navigation.navigate("SumReportUnit");
                     break;
                 case 'ROLE_BRANCH':
-                    navigation.navigate("SumReportUnitShop")
+                    navigation.navigate("SumReportUnitShop");
                     break;
                 case 'ROLE_LEADER':
-                    navigation.navigate("SumReportUnitByEmp")
+                    navigation.navigate("SumReportUnitByEmp");
                     break;
                 default:
                     break;
             }
         })
     }
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar translucent={true} backgroundColor={colors.primary} />

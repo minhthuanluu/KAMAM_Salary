@@ -14,6 +14,8 @@ import GETable from "./geTable";
 import SFTable from "./sfTable";
 import Loading from "./loading";
 import ListItemDE from "./listItemDE";
+import Search from "./search";
+
 export {
     Button,
     Input,
@@ -30,5 +32,6 @@ export {
     GETable,
     SFTable,
     Loading,
-    ListItemDE
+    ListItemDE,
+    Search
 }
