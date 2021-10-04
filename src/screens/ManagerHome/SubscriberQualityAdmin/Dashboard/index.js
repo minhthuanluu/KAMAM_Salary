@@ -12,8 +12,8 @@ import { useNavigation } from '@react-navigation/core';
 import { _retrieveData } from '../../../../utils/Storage';
 
 const SubscriberQualityAdminDashboard = (props) => {
-    const [beginMonth, setBeginMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"))
-    const [endMonth, setEndMonth] = useState(moment(new Date()).subtract(12, "months").format("MM/YYYY"))
+    const [beginMonth, setBeginMonth] = useState(moment(new Date()).subtract(12, "months").format("MM/YYYY"))
+    const [endMonth, setEndMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"))
     const navigation = useNavigation();
 
     const checkRole = async () => {
@@ -39,11 +39,11 @@ const SubscriberQualityAdminDashboard = (props) => {
             <StatusBar translucent={true} backgroundColor={colors.primary} />
             <Header title={text.subscriberQuality} />
             <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, marginLeft: -width / 6 }}>
-                    <DateView dateLabel={'Tháng ' + beginMonth} width={width / 2 - fontScale(50)} />
+                <View style={{ flex: 1, marginLeft: -width / 5 }}>
+                    <DateView dateLabel={'Tháng ' + beginMonth} width={width / 2 - fontScale(30)} />
                 </View>
                 <View style={{ flex: 1, marginLeft: -width / 4 }}>
-                    <DateView dateLabel={'Tháng ' + endMonth} width={width / 2 - fontScale(50)} />
+                    <DateView dateLabel={'Tháng ' + endMonth} width={width / 2 - fontScale(30)} />
                 </View>
             </View>
             <Body style={styles.bodyScr} />

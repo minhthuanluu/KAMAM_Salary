@@ -4,7 +4,7 @@ import { width } from '../../../../utils/Dimenssion';
 import { fontScale } from '../../../../utils/Fonts';
 import { images } from '../../../../utils/Images';
 
-const ReportByUnitItem = (props) => {
+export const ReportByUnitItem = (props) => {
     const { item, index } = props;
     return <View style={[reportByUnitItem.container, { marginTop: index > 0 ? fontScale(60) : fontScale(30) }]}>
         <Image style={reportByUnitItem.icon} source={item.icon == "BRANCH" ? images.branch : item.icon == "COMPANY" ? images.company :item.icon == "UNIT" ?images.store : null} />
@@ -19,7 +19,7 @@ const ReportByUnitItem = (props) => {
         </TouchableOpacity>
     </View>
 } 
-const ReportByUnitItemFinal = (props) => {
+export const ReportByUnitItemFinal = (props) => {
     const { item, index } = props;
     return <View style={[reportByUnitItem.container,props.style, { marginTop: index > 0 ? fontScale(60) : fontScale(30)}]}>
         <Image style={reportByUnitItem.icon} source={item.shopType == "COMPANY" ? images.company : images.branch} />

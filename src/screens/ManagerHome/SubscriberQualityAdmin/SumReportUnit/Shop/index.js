@@ -16,8 +16,8 @@ import { text } from '../../../../../utils/Text';
 
 // Shop
 const ReportByUnitShop = () => {
-    const [beginMonth, setBeginMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"))
-    const [endMonth, setEndMonth] = useState(moment(new Date()).subtract(12, "months").format("MM/YYYY"))
+    const [beginMonth, setBeginMonth] = useState('')
+    const [endMonth, setEndMonth] = useState('')
     const navigation = useNavigation()
     const isFocus = useIsFocused();
     const [loading, setLoading] = useState(false);
@@ -31,6 +31,8 @@ const ReportByUnitShop = () => {
             if (res.status == "success") {
                 setLoading(res.loading);
                 setData(res.data);
+                setBeginMonth('Tháng ' + res.data.general.beginMonth)
+                setEndMonth('Tháng ' + res.data.general.endMonth)
             }
 
             if (res.status == "failed") {
@@ -81,10 +83,10 @@ const ReportByUnitShop = () => {
             <Header title={text.reportByUnit} />
             <View style={{ flexDirection: "row" }}>
                 <View style={{ flex: 1, marginLeft: -width / 5 }}>
-                    <DateView dateLabel={'Tháng ' + beginMonth} width={width / 2 - fontScale(30)} />
+                    <DateView dateLabel={beginMonth} width={width / 2 - fontScale(30)} />
                 </View>
                 <View style={{ flex: 1, marginLeft: -width / 4 }}>
-                    <DateView dateLabel={'Tháng ' + endMonth} width={width / 2 - fontScale(30)} />
+                    <DateView dateLabel={endMonth} width={width / 2 - fontScale(30)} />
                 </View>
             </View>
             <Body style={reportByUnitstyles.bodyScr} />

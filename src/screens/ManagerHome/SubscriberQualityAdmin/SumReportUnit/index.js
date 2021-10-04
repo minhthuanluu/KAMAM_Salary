@@ -12,6 +12,7 @@ import { useIsFocused, useNavigation } from '@react-navigation/core';
 import { getReportByUnit } from '../../../../api/manager';
 import Toast from 'react-native-toast-message';
 import { SumReportU } from "../../../../models/Admin"
+import { ToastNotif } from '../../../../utils/Logistics';
 
 //Branch
 const SumReportUnit = (props) => {
@@ -23,13 +24,13 @@ const SumReportUnit = (props) => {
     const [data, setData] = useState(SumReportU)
 
     const getData = async (branchCode, shopCode) => {
-        setLoading(true)
+        setLoading(true);
         await getReportByUnit(branchCode, shopCode).then((res) => {
             if (res.status == "success") {
                 setLoading(res.loading);
                 setData(res.data)
-                setBeginMonth(res.data.general.beginMonth)
-                setEndMonth(res.data.general.endMonth)
+                setBeginMonth('Tháng '+res.data.general.beginMonth)
+                setEndMonth('Tháng '+res.data.general.endMonth)
             }
 
             if (res.status == "failed") {
@@ -58,11 +59,11 @@ const SumReportUnit = (props) => {
             <StatusBar translucent={true} backgroundColor={colors.primary} />
             <Header title={text.reportByUnit} />
             <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1, marginLeft: -width / 5 }}>
-                    <DateView dateLabel={'Tháng ' + beginMonth} width={width / 2 - fontScale(30)} />
+                <View style={styles.firstDateView}>
+                    <DateView dateLabel={beginMonth} width={width / 2 - fontScale(30)} />
                 </View>
-                <View style={{ flex: 1, marginLeft: -width / 4 }}>
-                    <DateView dateLabel={'Tháng ' + endMonth} width={width / 2 - fontScale(30)} />
+                <View style={styles.secondDateView}>
+                    <DateView dateLabel={endMonth} width={width / 2 - fontScale(30)} />
                 </View>
             </View>
             <Body style={reportstyles.bodyScr} />
