@@ -2,7 +2,7 @@ import moment from 'moment';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native';
-import { Body, DatePicker, GETable, Header, ListItem, Loading, MenuItem, MenuItemShow, TextAmount } from '../../../../../comps';
+import { Body, DatePicker, GETable, Header, ListItemDE, Loading, MenuItem, MenuItemShow, TextAmount } from '../../../../../comps';
 import { useNavigation } from '@react-navigation/core';
 import { fontScale } from '../../../../../utils/Fonts';
 import { width } from '../../../../../utils/Dimenssion';
@@ -92,9 +92,9 @@ const DeliveEnterpriseAmount = (props) => {
             <View style={styles.body}>
                 <View style={styles.bg}>
                     <Text style={{ height: fontScale(10) }}></Text>
-                    <ListItem icon={images.deliveenterpriseamount_ic} title={"Số lượng DN hiện có tháng " + lastMonth + ": "} price={data.lastAmount} />
+                    <ListItemDE icon={images.deliveenterpriseamount_ic} title={"Số lượng DN hiện có tháng " + lastMonth + ": "} price={data.lastAmount} />
                     {/* <Text></Text> */}
-                    <ListItem icon={images.deliveenterpriseamount_ic} title={"Số lượng DN hiện có tháng " + currentMonth + ": "} price={data.currentAmount} />
+                    <ListItemDE icon={images.deliveenterpriseamount_ic} title={"Số lượng DN hiện có tháng " + currentMonth + ": "} price={data.currentAmount} />
                     {/* <Text></Text> */}
                 </View>
 

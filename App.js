@@ -12,8 +12,12 @@ import {
   FixedwageScreen, ProductScreen, PlanOutScreen, SanctionsScreen, OthersScreen, AVGIncomeDashboardScreen,
   TotalFixedwageScreen, TotalProductwageScreen, PlanOutOutcomeScreen, OtherOutcomeScreen, SubscriberQualityScreen,
   WarningDashboardScreen, SubFluctScreen, IncomeFluctScreen, EnterpriseFluctScreen, KPIMonthReportScreen,
-  ProfileDashboardScreen, UpdatePasswordScreen, UpdateProfileScreen, SignOutScreen, AdminMonthSalaryBranchScreen, AdminMonthSalaryShopScreen, AdminMonthSalaryEmpScreen, TestScreen
+  ProfileDashboardScreen, UpdatePasswordScreen, UpdateProfileScreen, SignOutScreen, AdminMonthSalaryBranchScreen, AdminMonthSalaryShopScreen, AdminMonthSalaryEmpScreen, AdminDashboardScreen,
+  KPICurrentMonthDashboardScreen, TopAMScreen, GroupKPIScreen, DeliveryListDashboardScreen, DeliveEnterpriseScreen,
+  SubsByEnterpriseScreen, RevenueByEnterpriseScreen, ProductivitySubAdminScreen, SalaryByMonthAdminScreen,
+  SubscriberQualityAdminDashboardScreen, SumReportStaffScreen, SumReportUnitScreen,AVGIncomeAdminScreen, AdminAVGIncomeShopScreen, AdminAVGIncomeEmpScreen, TestScreen, MonthSalaryAdminScreen
 } from './src/screens';
+
 import { colors } from './src/utils/Colors';
 import { images } from './src/utils/Images';
 import { _retrieveData } from './src/utils/Storage';
@@ -61,25 +65,21 @@ const EMPBottomTab = () => {
   );
 }
 
-// const AdminBottomTab = () => {
-//   return (
-//     <Tab.Navigator tabBarOptions={
-//       {
-//         activeTintColor: colors.primary,
-//         inactiveTintColor: '#A2A1A1'
-//       }
-//     }
-//       initialRouteName="Home"
-//     >
-//       <Tab.Screen
-//         name="Profile"
-//         component={ProfileStack}
-//         options={{
-//           tabBarLabel: 'Profile',
-//           tabBarIcon: ({ color, size, focused }) => {
-//             return <Image style={{ width: fontScale(size), height: fontScale(size), tintColor: focused == false ? colors.grey : colors.primary }} resizeMode="cover" source={images.user} />
-//           }
-//         }} />
+const AdminBottomTab = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName="Home"
+    >
+      <Tab.Screen
+        name="Profile"
+        component={ProfileStack}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color, size, focused }) => {
+            return <Image style={{ width: fontScale(size), height: fontScale(size), tintColor: focused == false ? colors.grey : colors.primary }} resizeMode="cover" source={images.user} />
+          }
+        }} />
       <Tab.Screen
         name="Home"
         component={AdminStack}
@@ -89,18 +89,18 @@ const EMPBottomTab = () => {
             return <Image style={{ width: fontScale(size), height: fontScale(size), tintColor: focused == false ? colors.grey : colors.primary }} resizeMode="cover" source={images.home} />
           }
         }} />
-//       <Tab.Screen
-//         name="SignOut"
-//         component={SignOutScreen}
-//         options={{
-//           tabBarLabel: 'Logout',
-//           tabBarIcon: ({ color, size, focused }) => {
-//             return <Image style={{ width: fontScale(size), height: fontScale(size), tintColor: focused == false ? colors.grey : colors.primary }} resizeMode="cover" source={images.logout} />
-//           }
-//         }} />
-//     </Tab.Navigator>
-//   );
-// }
+      <Tab.Screen
+        name="SignOut"
+        component={SignOutScreen}
+        options={{
+          tabBarLabel: 'Logout',
+          tabBarIcon: ({ color, size, focused }) => {
+            return <Image style={{ width: fontScale(size), height: fontScale(size), tintColor: focused == false ? colors.grey : colors.primary }} resizeMode="cover" source={images.logout} />
+          }
+        }} />
+    </Tab.Navigator>
+  );
+}
 
 const EMPStack = () => {
   return (
@@ -149,9 +149,7 @@ const EMPStack = () => {
 
       <Stack.Screen name="KPIMonthReport" component={KPIMonthReportScreen} />
       
-      <Stack.Screen name="AdminMonthSalaryBranch" component={AdminMonthSalaryBranchScreen} />
-      <Stack.Screen name="AdminMonthSalaryShop" component={AdminMonthSalaryShopScreen} />
-      <Stack.Screen name="AdminMonthSalaryEmp" component={AdminMonthSalaryEmpScreen} />
+      
       
     </Stack.Navigator>
   )
@@ -159,15 +157,41 @@ const EMPStack = () => {
 
 const AdminStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Test" screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Test" component={TestScreen} />   
+    <Stack.Navigator initialRouteName="AdminashboardScreen" screenOptions={{ headerShown: false, gestureEnabled: true }} >
 
-         <Stack.Screen name="AdminMonthSalaryBranch" component={AdminMonthSalaryBranchScreen} />
-         <Stack.Screen name="AdminMonthSalaryShop" component={AdminMonthSalaryShopScreen} />
-         <Stack.Screen name="AdminMonthSalaryEmp" component={AdminMonthSalaryEmpScreen} />
+      <Stack.Screen name="AdminDashboardScreen" component={AdminDashboardScreen} />
+      <Stack.Screen name="KPICurrentMonthDashboard" component={KPICurrentMonthDashboardScreen} />
+      <Stack.Screen name="GroupKPI" component={GroupKPIScreen} />
+      <Stack.Screen name="DeliveryListDashboard" component={DeliveryListDashboardScreen} />
+      <Stack.Screen name="DeliveEnterprise" component={DeliveEnterpriseScreen} />
+      <Stack.Screen name="SubsByEnterprise" component={SubsByEnterpriseScreen} />
+      <Stack.Screen name="RevenueByEnterprise" component={RevenueByEnterpriseScreen} />
+      <Stack.Screen name="ProductivitySubAdmin" component={ProductivitySubAdminScreen} />
+      
+      {/* SalaryByMonthAdmin */}
+      <Stack.Screen name="SalaryByMonthAdmin" component={SalaryByMonthAdminScreen} />
+      <Stack.Screen name="AdminMonthSalaryBranch" component={AdminMonthSalaryBranchScreen} />
+      <Stack.Screen name="AdminMonthSalaryShop" component={AdminMonthSalaryShopScreen} />
+      <Stack.Screen name="AdminMonthSalaryEmp" component={AdminMonthSalaryEmpScreen} />
 
+      <Stack.Screen name="SubscriberQualityAdminDashboard" component={SubscriberQualityAdminDashboardScreen} />
+      <Stack.Screen name="SumReportStaff" component={SumReportStaffScreen} />
+      <Stack.Screen name="SumReportUnit" component={SumReportUnitScreen} />
+      <Stack.Screen name="TopAM" component={TopAMScreen} />
+
+{/* AVGIncomeAdmin */}
+      <Stack.Screen name="AVGIncomeAdmin" component={AVGIncomeAdminScreen} />
+      <Stack.Screen name="AdminAVGIncomeShop" component={AdminAVGIncomeShopScreen} />
+      <Stack.Screen name="AdminAVGIncomeEmp" component={AdminAVGIncomeEmpScreen} />
+
+{/* TestBranch */}
+      <Stack.Screen name="Test" component={TestScreen} />
+
+
+<Stack.Screen name="MonthSalaryAdmin" component={MonthSalaryAdminScreen}/>
     </Stack.Navigator>
   )
+
 }
 
 const ProfileStack = () => {
@@ -201,7 +225,7 @@ export default function App() {
         <Stack.Screen name="AuthStack" component={AuthStack} />
         <Stack.Screen name="AdminStack" component={AdminStack} />
         <Stack.Screen name="EMPHome" component={EMPBottomTab} options={{ headerShown: false }} />
-        {/* <Stack.Screen name="AdminHome" component={AdminBottomTab} /> */}
+        <Stack.Screen name="AdminHome" component={AdminBottomTab} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

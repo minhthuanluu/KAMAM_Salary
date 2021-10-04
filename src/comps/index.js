@@ -16,6 +16,7 @@ import Loading from "./loading";
 import GeneralListItem from "./generallistitem";
 import DoubleMonthPicker from "./doublemonthpicker";
 
+import ListItemDE from "./listItemDE";
 export {
     Button,
     Input,
@@ -33,5 +34,6 @@ export {
     SFTable,
     Loading,
     DoubleMonthPicker,
-    GeneralListItem
+    GeneralListItem,
+    ListItemDE
 }

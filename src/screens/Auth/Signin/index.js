@@ -34,10 +34,15 @@ const SignIn = (props) => {
             await login(userName, password, navigation).then(async (res) => {
                 if (res.status == "success") {
                     _storeData("isLogin", true)
+                    _storeData("role", res.data?.roleType)
                     showToast("success", "Thành công", "Đăng nhập thành công")
-                    // checkLogin(navigation);
+
                     setTimeout(() => {
-                        navigation.navigate("EMPHome")
+                        if (res.data?.roleType == "ROLE_EMPLOYEE") {
+                            navigation.navigate("EMPHome")
+                        } else {
+                            navigation.navigate("AdminHome")
+                        }
                         setLoading(false);
                         setUsername("")
                         setPassword("")

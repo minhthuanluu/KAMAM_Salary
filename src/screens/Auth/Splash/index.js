@@ -16,8 +16,13 @@ const Splash = () => {
     useEffect(() => {
         setTimeout(async () => {
             let isLogin = await _retrieveData("isLogin")
+            let role = await _retrieveData("role")
             if (isLogin == true) {
-                navigation.navigate("EMPHome")
+                if (role == "ROLE_EMPLOYEE") {
+                    navigation.navigate("EMPHome")
+                } else {
+                    navigation.navigate("AdminHome")
+                }
             } else {
                 navigation.navigate("SignIn")
             }
