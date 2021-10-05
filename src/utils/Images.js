@@ -83,4 +83,8 @@ export const images = {
     check:require('../assets/check.png'),
 
     arrowdown: require('../assets/dropdown.png'),
+
+    topam: require('../assets/topam.png'),
+    groupkpi: require('../assets/groupkpi.png'),
+    search: require('../assets/ic_searchlist.png'),
 }

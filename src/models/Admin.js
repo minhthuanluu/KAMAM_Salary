@@ -100,3 +100,39 @@ export const Violate = [{
   "overThreeTime": "",
   "fcard": ""
 }]
+
+export const ReportByUnit = {
+  "data": [],
+  "general": {
+    "beginMonth": "",
+    "endMonth": "",
+    "icon": "",
+    "shopCode": "",
+    "shopName": "",
+    "postpaid": null,
+    "revoke": null,
+    "foneCard": null,
+    "deny2C": null
+  }
+}
+
+export const ReportByEmp = {
+  "beginMonth": "",
+  "endMonth": "",
+  "data": []
+}
+
+export const SumReportU = {
+  "data": [],
+  "general": {
+    "beginMonth": "",
+    "endMonth": "",
+    "icon": "",
+    "shopCode": "",
+    "shopName": "",
+    "postpaid": null,
+    "revoke": null,
+    "foneCard": null,
+    "deny2C": null
+  }
+}

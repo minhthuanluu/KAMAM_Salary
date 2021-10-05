@@ -15,7 +15,7 @@ import {
   ProfileDashboardScreen, UpdatePasswordScreen, UpdateProfileScreen, SignOutScreen, AdminDashboardScreen,
   KPICurrentMonthDashboardScreen, TopAMScreen, GroupKPIScreen, DeliveryListDashboardScreen, DeliveEnterpriseScreen,
   SubsByEnterpriseScreen, RevenueByEnterpriseScreen, ProductivitySubAdminScreen, SalaryByMonthAdminScreen,
-  SubscriberQualityAdminDashboardScreen, SumReportStaffScreen, SumReportUnitScreen,AVGIncomeAdminScreen
+  SubscriberQualityAdminDashboardScreen, SumReportStaffScreen, SumReportUnitScreen,AVGIncomeAdminScreen, SumReportUnitShopScreen, SumReportUnitByUnitScreen, SumReportUnitByEmpScreen
 } from './src/screens';
 
 import { colors } from './src/utils/Colors';
@@ -122,31 +122,23 @@ const EMPStack = () => {
       <Stack.Screen name="DeliveEnterpriseAmount" component={DeliveEnterpriseAmountScreen} />
       <Stack.Screen name="DeliveSubsciberAmount" component={DeliveSubsciberAmountScreen} />
       <Stack.Screen name="KAMPT" component={KAMPTScreen} />
-
-
       <Stack.Screen name="ProductivitySub" component={ProductivitySubScreen} />
-
       <Stack.Screen name="SalaryByMonthDashboard" component={SalaryByMonthDashboardScreen} />
       <Stack.Screen name="Fixedwage" component={FixedwageScreen} />
       <Stack.Screen name="Product" component={ProductScreen} />
       <Stack.Screen name="PlanOut" component={PlanOutScreen} />
       <Stack.Screen name="Sanctions" component={SanctionsScreen} />
       <Stack.Screen name="Others" component={OthersScreen} />
-
       <Stack.Screen name="AVGIncomeDashboard" component={AVGIncomeDashboardScreen} />
       <Stack.Screen name="TotalFixedwage" component={TotalFixedwageScreen} />
       <Stack.Screen name="TotalProductwage" component={TotalProductwageScreen} />
       <Stack.Screen name="PlanOutOutcome" component={PlanOutOutcomeScreen} />
       <Stack.Screen name="OtherOutcome" component={OtherOutcomeScreen} />
-
-
       <Stack.Screen name="SubscriberQuality" component={SubscriberQualityScreen} />
-
       <Stack.Screen name="WarningDashboard" component={WarningDashboardScreen} />
       <Stack.Screen name="SubFluct" component={SubFluctScreen} />
       <Stack.Screen name="IncomeFluct" component={IncomeFluctScreen} />
       <Stack.Screen name="EnterpriseFluct" component={EnterpriseFluctScreen} />
-
       <Stack.Screen name="KPIMonthReport" component={KPIMonthReportScreen} />
 
     </Stack.Navigator>
@@ -169,6 +161,11 @@ const AdminStack = () => {
       <Stack.Screen name="SubscriberQualityAdminDashboard" component={SubscriberQualityAdminDashboardScreen} />
       <Stack.Screen name="SumReportStaff" component={SumReportStaffScreen} />
       <Stack.Screen name="SumReportUnit" component={SumReportUnitScreen} />
+
+      <Stack.Screen name="SumReportUnitShop" component={SumReportUnitShopScreen} />
+      <Stack.Screen name="SumReportUnitByUnit" component={SumReportUnitByUnitScreen} />
+      <Stack.Screen name="SumReportUnitByEmp" component={SumReportUnitByEmpScreen} />
+      
       <Stack.Screen name="TopAM" component={TopAMScreen} />
       <Stack.Screen name="AVGIncomeAdmin" component={AVGIncomeAdminScreen} />
 
