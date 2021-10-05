@@ -185,7 +185,7 @@ export const getSalaryByMonth = async (month,branchCode,shopCode) => {
 
   await axios({
     method: "POST",
-    url: `http://hochiminh.mobifone.vn/mobile_kamam/api/manager/salary/getSalaryByMonth`,
+    url: `${baseUrl}manager/salary/getSalaryByMonth`,
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -204,12 +204,12 @@ export const getSalaryByMonth = async (month,branchCode,shopCode) => {
             length: 0,
             error: null,
           };
-        } else if (Object.values(res.data.data).length > 0) {
+        } else {
           data = {
-            data: res.data,
+            data: res.data.data,
             isLoading: false,
             status: "success",
-            length: Object.values(res.data.data).length,
+            length: Object.values(res.data.data.data).length,
             error: null,
           };
         }
@@ -257,7 +257,7 @@ export const getAvgIncome = async (beginMonth,endMonth,branchCode,shopCode) => {
 
   await axios({
     method: "POST",
-    url: `http://hochiminh.mobifone.vn/mobile_kamam/api/manager/salary/getAvgIncome`,
+    url: `${baseUrl}manager/salary/getAvgIncome`,
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -276,12 +276,12 @@ export const getAvgIncome = async (beginMonth,endMonth,branchCode,shopCode) => {
             length: 0,
             error: null,
           };
-        } else if (Object.values(res.data.data).length > 0) {
+        } else {
           data = {
-            data: res.data,
+            data: res.data.data,
             isLoading: false,
             status: "success",
-            length: Object.values(res.data.data).length,
+            length: Object.values(res.data.data.data).length,
             error: null,
           };
         }

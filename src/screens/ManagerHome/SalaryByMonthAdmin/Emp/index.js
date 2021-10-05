@@ -41,7 +41,7 @@ const index = (props) => {
         setLoading(false);
         if (data.length == 0) {
           setData([]);
-          setMessage(data.message);
+          setMessage(text.dataIsNull);
         } else {
           setData(data.data.data);
           setGeneralData(data.data.general);
@@ -64,48 +64,11 @@ const index = (props) => {
     });
   };
 
-  // useEffect(() => {
-  //   const initial = async () => {
-  //     let loginInfo = await _retrieveData("loginInfo");
-     
-  //     // const { month, branchCode, shopCode } = route.params?.item;
-  //     // if (branchCode != undefined && shopCode != undefined) {
-  //     //   setMonth(month);
-  //     //   getData(month, branchCode, shopCode);
-  //     // }else{
-  //     //   console.log(loginInfo)
-  //     //   let branchCode = loginInfo.shopCode;
-  //     //   let shopCode = loginInfo.shopCode;
-  //     //   setMonth(month);
-  //     //   getData(month, branchCode, shopCode);
-  //     // }
-
-  //     let branchCode = loginInfo.parentCode;
-  //     let shopCode = loginInfo.shopCode; 
-
-  //     console.log(loginInfo)
-      
-  //     if(route.params?.item.branchCode != undefined && route.params?.item.shopCode!=undefined){
-  //      await getData(route.params?.item.month, route.params?.item.branchCode, route.params?.item.shopCode);
-  //     }else if(route.params?.item.shopCode!=undefined){
-  //      await getData(route.params?.item.month,route.params.item.shopCode,shopCode)
-  //     }else{
-  //       console.log(route)
-  //      await getData(month,route.params.item.branchCode,route.params.item.shopCode)
-  //     }
-  //   };
-  //   initial();
-  // }, [""]);
-
-
   useEffect(() => {
     const { month, branchCode, shopCode } = route.params?.item;
-    console.log()
     setMonth(month);
     getData(month, branchCode, shopCode);
   }, [navigation]);
-
-
 
   const _onChangeMonth = (value) => {
     setMonth(value);
@@ -144,13 +107,13 @@ const index = (props) => {
             showsVerticalScrollIndicator={false}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item, index }) => (
-              <View style={{ marginTop: index == 0 ? -fontScale(50) : 0 }}>
+              <View key={index} style={{ marginTop: index == 0 ? -fontScale(50) : 0 }}>
                 <GeneralListItem
+                  view
                   style={{
                     marginTop: index == 0 ? fontScale(15) : fontScale(30),
                   }}
                   monthSalary
-                  // backgroundColor={"#EFFEFF"}
                   textColor={"#2E2E31"}
                   key={index}
                   title={item.shopName}
@@ -162,13 +125,12 @@ const index = (props) => {
                     "CP thay sim",
                     "Tổng CP",
                   ]}
-                  item={[
+                  item={[,
                     item.permanentSalary,
                     item.maintainceSalary,
                     item.incentiveSalary,
                     item.simSalary,
-                    item.totalSalary,
-                    item.totalSalary,
+                    item.totalSalary
                   ]}
                   onPress={() =>
                     navigation.navigate("AdminMonthSalaryEmp", {
@@ -182,6 +144,7 @@ const index = (props) => {
                 />
                 {index == data.length - 1 ? (
                   <GeneralListItem
+                    view
                     style={{
                       marginBottom: fontScale(100),
                       marginTop: fontScale(38),
@@ -190,24 +153,8 @@ const index = (props) => {
                     key={index}
                     backgroundColor={"#EFFEFF"}
                     title={generalData.shopName}
-                    titleArray={[
-                      ,
-                      "Lương CĐ",
-                      "CP Duy trì",
-                      "CP Data KK",
-                      "CP thay sim",
-                      "Tổng CP",
-                    ]}
-                    item={
-                      generalData && [
-                        ,
-                        generalData.permanentSalary,
-                        generalData.maintainceSalary,
-                        generalData.incentiveSalary,
-                        generalData.simSalary,
-                        generalData.totalSalary,
-                      ]
-                    }
+                    titleArray={[, "Lương CĐ", "CP Duy trì", "CP Data KK", "CP thay sim", "Tổng CP"]}
+                    item={generalData && [, generalData.permanentSalary, generalData.maintainceSalary, generalData.incentiveSalary, generalData.simSalary, generalData.totalSalary]}
                     icon={images.store}
                   />
                 ) : null}
