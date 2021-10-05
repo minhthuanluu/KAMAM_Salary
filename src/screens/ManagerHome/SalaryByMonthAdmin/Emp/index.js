@@ -162,13 +162,13 @@ const index = (props) => {
                     "CP thay sim",
                     "Tổng CP",
                   ]}
-                  item={[
+                  item={[,
                     item.permanentSalary,
                     item.maintainceSalary,
                     item.incentiveSalary,
                     item.simSalary,
                     item.totalSalary,
-                    item.totalSalary,
+                    
                   ]}
                   onPress={() =>
                     navigation.navigate("AdminMonthSalaryEmp", {
@@ -190,24 +190,8 @@ const index = (props) => {
                     key={index}
                     backgroundColor={"#EFFEFF"}
                     title={generalData.shopName}
-                    titleArray={[
-                      ,
-                      "Lương CĐ",
-                      "CP Duy trì",
-                      "CP Data KK",
-                      "CP thay sim",
-                      "Tổng CP",
-                    ]}
-                    item={
-                      generalData && [
-                        ,
-                        generalData.permanentSalary,
-                        generalData.maintainceSalary,
-                        generalData.incentiveSalary,
-                        generalData.simSalary,
-                        generalData.totalSalary,
-                      ]
-                    }
+                    titleArray={[, "Lương CĐ", "CP Duy trì","CP Data KK", "CP thay sim", "Tổng CP"]}
+                    item={generalData&&[,generalData.permanentSalary, generalData.maintainceSalary, generalData.incentiveSalary,generalData.simSalary, generalData.totalSalary]}
                     icon={images.store}
                   />
                 ) : null}

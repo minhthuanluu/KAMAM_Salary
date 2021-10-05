@@ -113,12 +113,12 @@ export const getSalaryByMonth = async (month,branchCode,shopCode) => {
             length: 0,
             error: null,
           };
-        } else if (Object.values(res.data.data).length > 0) {
+        } else if (Object.values(res.data.data.data).length > 0) {
           data = {
-            data: res.data,
+            data: res.data.data,
             isLoading: false,
             status: "success",
-            length: Object.values(res.data.data).length,
+            length: Object.values(res.data.data.data).length,
             error: null,
           };
         }
@@ -185,12 +185,12 @@ export const getAvgIncome = async (beginMonth,endMonth,branchCode,shopCode) => {
             length: 0,
             error: null,
           };
-        } else if (Object.values(res.data.data).length > 0) {
+        } else if (Object.values(res.data.data.data).length > 0) {
           data = {
-            data: res.data,
+            data: res.data.data,
             isLoading: false,
             status: "success",
-            length: Object.values(res.data.data).length,
+            length: Object.values(res.data.data.data).length,
             error: null,
           };
         }
