@@ -75,8 +75,8 @@ const SumReportStaff = (props) => {
                 .replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y")
                 .replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ")
                 .indexOf(text.toUpperCase()) > -1) 
-                || 
-                item.empCode.toString().toUpperCase().indexOf(text.toUpperCase()) > -1
+                ||
+                item.shopCode.toString().toUpperCase().indexOf(text.toUpperCase()) > -1
         });
         setTempData(newData);
         if (text.length > 0) {
