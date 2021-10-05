@@ -153,7 +153,7 @@ const index = (props) => {
               <View>
                 <GeneralListItem
                   style={{
-                    marginTop: index == 0 ? -fontScale(36) : fontScale(50),
+                    marginTop: index == 0 ? -fontScale(16) : fontScale(50),
                   }}
                   avgSalary
                   totalEmp={"( " + item.totalEmp + " NV" + " )"}

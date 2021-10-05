@@ -120,7 +120,7 @@ const _onChangeMonth = async (value) => {
             renderItem={({ item, index }) => (
               <View>
                 <GeneralListItem
-                  style={{ marginTop: index==0 ? -fontScale(36):fontScale(50) }}
+                  style={{ marginTop: index==0 ? -fontScale(16):fontScale(50) }}
                   avgSalary
                   totalEmp={ "( " + item.totalEmp + " NV" + " )"}
                     // backgroundColor={"#EFFEFF"}
