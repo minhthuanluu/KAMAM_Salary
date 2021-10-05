@@ -25,6 +25,7 @@ import { ActivityIndicator } from "react-native";
 import {
   useBackButton,
   useFocusEffect,
+  useIsFocused,
   useNavigation,
   useRoute,
 } from "@react-navigation/native";
@@ -37,7 +38,6 @@ const index = (props) => {
   const [loading, setLoading] = useState(false);
   const [generalData, setGeneralData] = useState({});
   const route = useRoute();
-
   // const [month, setMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"));
 
   const [beginMonth, setBeginMonth] = useState(
@@ -96,7 +96,7 @@ const index = (props) => {
   useEffect(() => {
     const { beginMonth, endMonth, branchCode } = route.params?.item;
     getData(beginMonth, endMonth, branchCode, "");
-  }, [beginMonth, endMonth]);
+  }, [navigation]);
 
   const errorNotif = (message) => {
     Toast.show({

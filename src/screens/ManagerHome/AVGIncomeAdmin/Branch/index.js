@@ -12,7 +12,7 @@ import { text } from "../../../../utils/Text";
 import { colors } from "../../../../utils/Colors";
 import { FlatList } from "react-native";
 import { ActivityIndicator } from "react-native";
-import { useBackButton, useFocusEffect, useNavigation, useRoute } from "@react-navigation/native";
+import { useBackButton, useFocusEffect, useIsFocused, useNavigation, useRoute } from "@react-navigation/native";
 import Toast from "react-native-toast-message";
 import { useCallback } from "react";
 
@@ -75,7 +75,7 @@ const index = (props) => {
   useEffect(() => {
     // const { beginMonth, endMonth } = route.params?.item;
     getData(beginMonth, endMonth,"","");
-  }, [beginMonth, endMonth])
+  }, [navigation])
 
   const errorNotif = (message) => {
     Toast.show({

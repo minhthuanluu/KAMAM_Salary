@@ -69,7 +69,7 @@ const index = (props) => {
 
   useEffect(() => {
     getData(month, "", "");
-  }, [month])
+  }, [navigation])
 
   const _onChangeMonth = (value) => {
     setMonth(value);
