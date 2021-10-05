@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     notification: {
         color: colors.white,
         alignSelf: "center",
-        marginTop: fontScale(15),
-        fontSize: fontScale(16)
+        marginTop: fontScale(29),
+        fontSize: fontScale(14)
     }
 })

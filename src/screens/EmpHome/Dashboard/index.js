@@ -94,7 +94,7 @@ const EmpDashboard = (route) => {
                 
 
                 <MenuItem style={{ marginTop: fontScale(30) }} title="Lương theo tháng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.salarybymonth} width={width - fontScale(60)} onPress={() => navigation.navigate("AdminMonthSalaryBranch")} />
-                {/* <MenuItem style={{ marginTop: fontScale(30) }} title="Lương theo tháng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.salarybymonth} width={width - fontScale(60)} onPress={() => navigation.navigate("SalaryByMonthDashboard")} /> */}
+                <MenuItem style={{ marginTop: fontScale(30) }} title="Lương theo tháng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.salarybymonth} width={width - fontScale(60)} onPress={() => navigation.navigate("SalaryByMonthDashboard")} />
                 <MenuItem style={{ marginTop: fontScale(30) }} title="Bình quân thu nhập" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.AVGIncome} width={width - fontScale(60)} onPress={() => navigation.navigate("AVGIncomeDashboard")} />
                 <MenuItem style={{ marginTop: fontScale(30) }} title="Chất lượng tập TB phát triển" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.subscriberquality} width={width - fontScale(60)} onPress={() => navigation.navigate("SubscriberQuality")} />
                 <MenuItem style={{ marginTop: fontScale(30) }} title="Cảnh báo" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.warning} width={width - fontScale(60)} onPress={() => navigation.navigate("WarningDashboard")} />

@@ -12,10 +12,10 @@ import {
   FixedwageScreen, ProductScreen, PlanOutScreen, SanctionsScreen, OthersScreen, AVGIncomeDashboardScreen,
   TotalFixedwageScreen, TotalProductwageScreen, PlanOutOutcomeScreen, OtherOutcomeScreen, SubscriberQualityScreen,
   WarningDashboardScreen, SubFluctScreen, IncomeFluctScreen, EnterpriseFluctScreen, KPIMonthReportScreen,
-  ProfileDashboardScreen, UpdatePasswordScreen, UpdateProfileScreen, SignOutScreen, AdminMonthSalaryBranchScreen, AdminMonthSalaryShopScreen, AdminMonthSalaryEmpScreen, AdminDashboardScreen,
+  ProfileDashboardScreen, UpdatePasswordScreen, UpdateProfileScreen, SignOutScreen, AdminMonthSalaryShopScreen, AdminMonthSalaryEmpScreen, AdminDashboardScreen,
   KPICurrentMonthDashboardScreen, TopAMScreen, GroupKPIScreen, DeliveryListDashboardScreen, DeliveEnterpriseScreen,
   SubsByEnterpriseScreen, RevenueByEnterpriseScreen, ProductivitySubAdminScreen, SalaryByMonthAdminScreen,
-  SubscriberQualityAdminDashboardScreen, SumReportStaffScreen, SumReportUnitScreen,AVGIncomeAdminScreen, AdminAVGIncomeShopScreen, AdminAVGIncomeEmpScreen, TestScreen, MonthSalaryAdminScreen
+  SubscriberQualityAdminDashboardScreen, SumReportStaffScreen, SumReportUnitScreen,AVGIncomeAdminScreen, AdminAVGIncomeShopScreen, AdminAVGIncomeEmpScreen
 } from './src/screens';
 
 import { colors } from './src/utils/Colors';
@@ -170,25 +170,28 @@ const AdminStack = () => {
       
       {/* SalaryByMonthAdmin */}
       <Stack.Screen name="SalaryByMonthAdmin" component={SalaryByMonthAdminScreen} />
-      <Stack.Screen name="AdminMonthSalaryBranch" component={AdminMonthSalaryBranchScreen} />
       <Stack.Screen name="AdminMonthSalaryShop" component={AdminMonthSalaryShopScreen} />
       <Stack.Screen name="AdminMonthSalaryEmp" component={AdminMonthSalaryEmpScreen} />
+
+
+      {/* AVGIncomeAdmin */}
+      <Stack.Screen name="AVGIncomeAdmin" component={AVGIncomeAdminScreen} />
+      <Stack.Screen name="AdminAVGIncomeShop" component={AdminAVGIncomeShopScreen} />
+      <Stack.Screen name="AdminAVGIncomeEmp" component={AdminAVGIncomeEmpScreen} />
+
+
 
       <Stack.Screen name="SubscriberQualityAdminDashboard" component={SubscriberQualityAdminDashboardScreen} />
       <Stack.Screen name="SumReportStaff" component={SumReportStaffScreen} />
       <Stack.Screen name="SumReportUnit" component={SumReportUnitScreen} />
       <Stack.Screen name="TopAM" component={TopAMScreen} />
 
-{/* AVGIncomeAdmin */}
-      <Stack.Screen name="AVGIncomeAdmin" component={AVGIncomeAdminScreen} />
-      <Stack.Screen name="AdminAVGIncomeShop" component={AdminAVGIncomeShopScreen} />
-      <Stack.Screen name="AdminAVGIncomeEmp" component={AdminAVGIncomeEmpScreen} />
-
-{/* TestBranch */}
-      <Stack.Screen name="Test" component={TestScreen} />
 
 
-<Stack.Screen name="MonthSalaryAdmin" component={MonthSalaryAdminScreen}/>
+
+
+
+
     </Stack.Navigator>
   )
 

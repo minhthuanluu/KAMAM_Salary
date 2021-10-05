@@ -29,7 +29,7 @@ const AdminDashboard = (props) => {
   const [month, setMonth] = useState(
     moment(new Date()).subtract(1, "months").format("MM/YYYY")
   );
-  const [beginMonth, setBeginMonth] = useState(moment(new Date()).format("01/YYYY"));
+  const [beginMonth, setBeginMonth] = useState(moment(new Date()).subtract(3, 'months').format("MM/YYYY"));
     const [endMonth, setEndMonth] = useState(moment(new Date()).subtract(1, 'months').format("MM/YYYY"));
     // const navigation = useNavigation();
 
@@ -222,8 +222,8 @@ const AdminDashboard = (props) => {
           titleMenuStyle={{ paddingTop: fontScale(17) }}
           icon={images.subscriberquality}
           width={width - fontScale(60)}
-          onPress={() => navigation.navigate("MonthSalaryAdmin")}
-          // onPress={() => navigation.navigate("SubscriberQualityAdminDashboard")}
+          
+          onPress={() => navigation.navigate("SubscriberQualityAdminDashboard")}
         />
       </View>
       <Loading loading={loading} />

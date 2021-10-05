@@ -20,7 +20,7 @@ const GeneralListItem = (props) => {
                 </View> */}
               </View>
             </View>
-            <Image source={props.icon} style={{ width: fontScale(47), height: fontScale(47), position: "absolute", right: fontScale(20), top: -fontScale(23) }} resizeMode="contain" />
+            <Image source={props.icon} style={{ width: fontScale(41), height: fontScale(41), position: "absolute", right: fontScale(20), top: -fontScale(23) }} resizeMode="contain" />
             <View style={{ marginTop: fontScale(10) }} key={Math.random()}>
               <View style={{ flexDirection: "row", justifyContent: "space-between", marginVertical: fontScale(10), marginHorizontal: fontScale(5) }} key={12}>
                 <Item title={props.titleArray[1]} content={props.item[1]} key={0} style={{ flex: 1 }} />

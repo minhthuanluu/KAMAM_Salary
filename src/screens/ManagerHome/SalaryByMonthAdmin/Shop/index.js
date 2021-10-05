@@ -60,7 +60,7 @@ const index = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar translucent backgroundColor={colors.primary} />
-      <Header title={"Lương tháng - Shop"}/>
+      <Header title={text.salaryMonth}/>
       <DatePicker
         month={month}
         width={width - fontScale(120)}

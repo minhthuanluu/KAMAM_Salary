@@ -87,7 +87,7 @@ export const text = {
 costManagement: "Quản lý chi phí",
 topTellers: "Top GDV",
 groupSalary: "Nhóm lương",
-salaryMonth: "Lương tháng",
+salaryMonth: "Lương theo tháng",
 
 
 // Admin Bình quân thu nhập

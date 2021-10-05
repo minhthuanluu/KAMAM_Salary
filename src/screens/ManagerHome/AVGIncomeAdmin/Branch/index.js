@@ -25,7 +25,7 @@ const index = (props) => {
   
   // const [month, setMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"));
   
-  const [beginMonth, setBeginMonth] = useState(moment(new Date()).format("01/YYYY"));
+  const [beginMonth, setBeginMonth] = useState(moment(new Date()).subtract(3, 'months').format("MM/YYYY"));
     const [endMonth, setEndMonth] = useState(moment(new Date()).subtract(1, 'months').format("MM/YYYY"));const navigation = useNavigation();
     const [notification, setNotification] = useState("");
     const route = useRoute();
@@ -73,6 +73,7 @@ const index = (props) => {
   };
 
   useEffect(() => {
+    // const { beginMonth, endMonth } = route.params?.item;
     getData(beginMonth, endMonth,"","");
   }, [beginMonth, endMonth])
 
@@ -87,6 +88,9 @@ const index = (props) => {
 }
 
 const _onChangeMonth = async (value) => {
+  console.log(value)
+  setBeginMonth(value.beginMonth);
+  setEndMonth(value.endMonth);
   await getData(value.beginMonth, value.endMonth,"","");
 }
   return (
@@ -102,7 +106,7 @@ const _onChangeMonth = async (value) => {
             <Text style={styles.notification}>{notification}</Text>
       <Body
         showInfo={false}
-        style={{ marginTop: fontScale(15), zIndex: -10 }}
+        style={{ marginTop: fontScale(9), zIndex: -10 }}
       />
       <View style={{ flex: 1, backgroundColor: colors.white }}>
         {loading == true ? <ActivityIndicator size="small" color={colors.primary} style={{ marginTop: fontScale(20) }} /> : null}
@@ -116,7 +120,7 @@ const _onChangeMonth = async (value) => {
             renderItem={({ item, index }) => (
               <View>
                 <GeneralListItem
-                  style={{ marginTop: index==0 ? -fontScale(20):fontScale(30) }}
+                  style={{ marginTop: index==0 ? -fontScale(36):fontScale(50) }}
                   avgSalary
                   totalEmp={ "( " + item.totalEmp + " NV" + " )"}
                     // backgroundColor={"#EFFEFF"}
@@ -132,13 +136,15 @@ const _onChangeMonth = async (value) => {
                     //   "month": month
                     // }
                 //   })
-                  onPress={() =>navigation.navigate('AdminAVGIncomeShop',{
+                  onPress={
+                    () =>  navigation.navigate('AdminAVGIncomeShop',{
                     item: {
                       "branchCode": item.shopCode,
                       "beginMonth": beginMonth,
                       "endMonth": endMonth
                     }
-                  })} />
+                  })
+                  } />
                 { index == data.length - 1 ?
                   <GeneralListItem
                     style={{ marginBottom: fontScale(110), marginTop: fontScale(38) }}

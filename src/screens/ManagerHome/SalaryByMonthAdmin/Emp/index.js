@@ -64,38 +64,48 @@ const index = (props) => {
     });
   };
 
-  useEffect(() => {
-    const initial = async () => {
-      let loginInfo = await _retrieveData("loginInfo");
+  // useEffect(() => {
+  //   const initial = async () => {
+  //     let loginInfo = await _retrieveData("loginInfo");
      
-      // const { month, branchCode, shopCode } = route.params?.item;
-      // if (branchCode != undefined && shopCode != undefined) {
-      //   setMonth(month);
-      //   getData(month, branchCode, shopCode);
-      // }else{
-      //   console.log(loginInfo)
-      //   let branchCode = loginInfo.shopCode;
-      //   let shopCode = loginInfo.shopCode;
-      //   setMonth(month);
-      //   getData(month, branchCode, shopCode);
-      // }
+  //     // const { month, branchCode, shopCode } = route.params?.item;
+  //     // if (branchCode != undefined && shopCode != undefined) {
+  //     //   setMonth(month);
+  //     //   getData(month, branchCode, shopCode);
+  //     // }else{
+  //     //   console.log(loginInfo)
+  //     //   let branchCode = loginInfo.shopCode;
+  //     //   let shopCode = loginInfo.shopCode;
+  //     //   setMonth(month);
+  //     //   getData(month, branchCode, shopCode);
+  //     // }
 
-      let branchCode = loginInfo.parentCode;
-      let shopCode = loginInfo.shopCode; 
+  //     let branchCode = loginInfo.parentCode;
+  //     let shopCode = loginInfo.shopCode; 
 
-      console.log(loginInfo)
+  //     console.log(loginInfo)
       
-      if(route.params?.item.branchCode != undefined && route.params?.item.shopCode!=undefined){
-       await getData(route.params?.item.month, route.params?.item.branchCode, route.params?.item.shopCode);
-      }else if(route.params?.item.shopCode!=undefined){
-       await getData(route.params?.item.month,route.params.item.shopCode,shopCode)
-      }else{
-        console.log(route)
-       await getData(month,route.params.item.branchCode,route.params.item.shopCode)
-      }
-    };
-    initial();
-  }, [""]);
+  //     if(route.params?.item.branchCode != undefined && route.params?.item.shopCode!=undefined){
+  //      await getData(route.params?.item.month, route.params?.item.branchCode, route.params?.item.shopCode);
+  //     }else if(route.params?.item.shopCode!=undefined){
+  //      await getData(route.params?.item.month,route.params.item.shopCode,shopCode)
+  //     }else{
+  //       console.log(route)
+  //      await getData(month,route.params.item.branchCode,route.params.item.shopCode)
+  //     }
+  //   };
+  //   initial();
+  // }, [""]);
+
+
+  useEffect(() => {
+    const { month, branchCode, shopCode } = route.params?.item;
+    console.log()
+    setMonth(month);
+    getData(month, branchCode, shopCode);
+  }, [navigation]);
+
+
 
   const _onChangeMonth = (value) => {
     setMonth(value);
@@ -105,7 +115,7 @@ const index = (props) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar translucent backgroundColor={colors.primary} />
-      <Header title={"Lương tháng - Nhân viên"} />
+      <Header title={text.salaryMonth} />
       <DatePicker
         month={month}
         width={width - fontScale(120)}
