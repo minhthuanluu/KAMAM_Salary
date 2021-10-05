@@ -87,13 +87,15 @@ export const text = {
 costManagement: "Quản lý chi phí",
 topTellers: "Top GDV",
 groupSalary: "Nhóm lương",
-salaryMonth: "Lương tháng",
+salaryMonth: "Lương theo tháng",
 
 
 // Admin Bình quân thu nhập
 groupSalaryAverage: "Nhóm lương BQ",
 salaryAverage: "Lương BQ",
 salAverage: "Lương bình quân",
+avgIncomeShop: "Lương bình quân - Shop",
+avgIncomeEmp: "Lương bình quân - Nhân viên",
 
 
   // Tổng lương dự kiến

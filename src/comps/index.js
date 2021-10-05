@@ -13,6 +13,9 @@ import MenuItemShow from "./menuItemshow";
 import GETable from "./geTable";
 import SFTable from "./sfTable";
 import Loading from "./loading";
+import GeneralListItem from "./generallistitem";
+import DoubleMonthPicker from "./doublemonthpicker";
+
 import ListItemDE from "./listItemDE";
 import Search from "./search";
 
@@ -33,5 +36,7 @@ export {
     SFTable,
     Loading,
     ListItemDE,
-    Search
+    Search,
+    DoubleMonthPicker,
+    GeneralListItem
 }
