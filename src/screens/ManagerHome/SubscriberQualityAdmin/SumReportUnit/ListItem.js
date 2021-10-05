@@ -23,7 +23,7 @@ export const ReportByUnitItem = (props) => {
 export const ReportByUnitItemFinal = (props) => {
     const { item, index } = props;
     return <View style={[reportByUnitItem.container,props.style, { marginTop: index > 0 ? fontScale(60) : fontScale(30)}]}>
-        <Image style={reportByUnitItem.icon} source={item.shopType == "COMPANY" ? images.company : images.branch} />
+        <Image style={reportByUnitItem.icon} source={item.icon == "BRANCH" ? images.branch : item.icon == "COMPANY" ? images.company :item.icon == "UNIT" ?images.store : null} />
         <TouchableOpacity style={{...reportByUnitItem.subContainer,backgroundColor:"#EFFEFF" }} onPress={props.onPress}>
             <Text style={{ ...reportByUnitItem.shopCode, color: "#D19E01" }}>{item.shopCode}</Text>
             <View style={{ flexDirection: "row", marginTop: fontScale(20) }}>

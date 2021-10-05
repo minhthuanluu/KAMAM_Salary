@@ -63,7 +63,7 @@ const ReportByUnitEmp = () => {
     }
 
     useEffect(() => {
-        initial()
+        initial();
     }, [isFocus])
 
     return (
