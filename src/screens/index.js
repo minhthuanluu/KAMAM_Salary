@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Recovery from "./Auth/Recovery";
-import SignIn from "./Auth/SignIn";
+import SignIn from "./Auth/Signin";
 
 import EmpDashboard from "./EmpHome/Dashboard";
 
