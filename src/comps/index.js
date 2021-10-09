@@ -14,6 +14,8 @@ import GETable from "./geTable";
 import SFTable from "./sfTable";
 import Loading from "./loading";
 import ListItemDE from "./listItemDE";
+import TopAmItem from "./topamItem";
+// import SearchTopAm from "./searchTopAm";
 export {
     Button,
     Input,
@@ -30,5 +32,7 @@ export {
     GETable,
     SFTable,
     Loading,
-    ListItemDE
+    ListItemDE,
+    TopAmItem,
+    // SearchTopAm
 }
