@@ -24,7 +24,7 @@ const Button = (props) => {
                     { backgroundColor: color, flexDirection: "row" }
                 ]}>
                 <Image source={icon} resizeMode="cover" style={styles.icon} />
-                <Text style={styles.text}>{label}</Text>
+                <Text style={[styles.text,{}]}>{label}</Text>
             </TouchableOpacity>
             :
             <TouchableOpacity style={[styles.container, { width: width, alignSelf: center ? "center" : "auto" }, style]} onPress={onPress}>
