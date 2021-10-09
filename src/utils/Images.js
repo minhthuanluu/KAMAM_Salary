@@ -91,4 +91,5 @@ export const images = {
 
     closeline: require("../../assets/closeline.png"),
     sendline: require("../../assets/sendline.png"),
+    search: require('../assets/ic_searchlist.png'),
 }

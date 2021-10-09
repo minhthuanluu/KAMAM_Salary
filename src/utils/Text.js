@@ -87,13 +87,15 @@ export const text = {
 costManagement: "Quản lý chi phí",
 topTellers: "Top GDV",
 groupSalary: "Nhóm lương",
-salaryMonth: "Lương tháng",
+salaryMonth: "Lương theo tháng",
 
 
 // Admin Bình quân thu nhập
 groupSalaryAverage: "Nhóm lương BQ",
 salaryAverage: "Lương BQ",
 salAverage: "Lương bình quân",
+avgIncomeShop: "Lương bình quân - Shop",
+avgIncomeEmp: "Lương bình quân - Nhân viên",
 
 
   // Tổng lương dự kiến
@@ -212,5 +214,9 @@ productivitySub: "Năng suất bình quân",
   totalOutcome:"Tổng chi phí",
   search:"Tìm kiếm",
   violateWarning:"Cảnh báo vi phạm", 
-  statistical: "Thống kê"
+  statistical: "Thống kê",
+
+  reportByUnit:"Báo cáo tổng hợp theo đơn vị",
+  reportByEmp:"Báo cáo tổng hợp theo nhân viên",
+  findEmpCode:"Nhập tên nhân viên hoặc mã đơn vị"
 };

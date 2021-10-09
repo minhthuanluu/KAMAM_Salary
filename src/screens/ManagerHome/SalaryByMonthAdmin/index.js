@@ -8,7 +8,7 @@ const SalaryByMonthAdmin = (props) => {
         <SafeAreaView>
             <StatusBar translucent={true} backgroundColor={colors.primary} />
             <Header title="SalaryByMonthAdmin" />
-
+            
         </SafeAreaView>
     );
 }
