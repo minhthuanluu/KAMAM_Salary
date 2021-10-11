@@ -44,7 +44,7 @@ const GroupKPI = (props) => {
     const onChangeDatePicker = (date) => {
         setData([])
         setMonth(date)
-        getData('', date, '', 0)
+        getData(date)
         // _storeData("month", date)
     }
     useEffect(() => {

@@ -7,7 +7,7 @@ const DeliveEnterprise = (props) => {
     return (
         <SafeAreaView>
             <StatusBar translucent={true} backgroundColor={colors.primary} />
-            <Header title="DeliveEnterprise" />
+            <Header title="Doanh nghiệp giao" />
 
         </SafeAreaView>
     );
