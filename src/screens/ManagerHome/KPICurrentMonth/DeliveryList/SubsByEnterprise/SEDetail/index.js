@@ -88,7 +88,7 @@ const SubsByEnterpriseDetail = (props) => {
             <Body />
             <View style={styles.body}>
                 <View style={{ marginBottom: fontScale(20), flexDirection: "row", justifyContent: "center" }}>
-                    <Text style={{ fontSize: fontScale(18) }}>Chi tiết biến động doanh nghiệp </Text>
+                    <Text style={{ fontSize: fontScale(18) }}>Chi tiết biến động thuê bao </Text>
                     <Text style={{ fontSize: fontScale(18), color: "#AB8100" }}>{month}</Text>
                 </View>
                 <View style={{ flexDirection: "row" }}>
