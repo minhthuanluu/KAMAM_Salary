@@ -57,8 +57,14 @@ import GroupKPI from "./ManagerHome/KPICurrentMonth/GroupKPI";
 
 import DeliveryListDashboard from "./ManagerHome/KPICurrentMonth/DeliveryList/Dashboard";
 import DeliveEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/DeliveEnterprise";
+import DeliveEnterpriseDetail from "./ManagerHome/KPICurrentMonth/DeliveryList/DeliveEnterprise/DEDetail";
+
 import SubsByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/SubsByEnterprise";
+import SubsByEnterpriseDetail from "./ManagerHome/KPICurrentMonth/DeliveryList/SubsByEnterprise/SEDetail";
+
 import RevenueByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise";
+import RevenueByEnterpriseDetail from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise/REDetail";
+
 import ProductivitySubAdmin from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin";
 // import SalaryByMonthAdmin from "./ManagerHome/SalaryByMonthAdmin";
 // import AVGIncomeAdmin from "./ManagerHome/AVGIncomeAdmin";
@@ -92,8 +98,14 @@ export const TopAMScreen = () => { return <TopAM /> }
 export const GroupKPIScreen = () => { return <GroupKPI /> }
 export const DeliveryListDashboardScreen = () => { return <DeliveryListDashboard /> }
 export const DeliveEnterpriseScreen = () => { return <DeliveEnterprise /> }
+export const DeliveEnterpriseDetailScreen = () => { return <DeliveEnterpriseDetail /> }
+
 export const SubsByEnterpriseScreen = () => { return <SubsByEnterprise /> }
+export const SubsByEnterpriseDetailScreen = () => { return <SubsByEnterpriseDetail /> }
+
 export const RevenueByEnterpriseScreen = () => { return <RevenueByEnterprise /> }
+export const RevenueByEnterpriseDetailScreen = () => { return <RevenueByEnterpriseDetail /> }
+
 export const ProductivitySubAdminScreen = () => { return <ProductivitySubAdmin /> }
 
 export const SubscriberQualityAdminDashboardScreen = () => { return <SubscriberQualityAdminDashboard /> }

@@ -17,10 +17,10 @@ const SearchTopAm = (props) => {
     const [branchList, setBranchList] = useState([])
     const [leaderList, setLeaderList] = useState([])
     const radio_props = [
-        { label: 'Cao tới thấp', value: 0 },
-        { label: 'Thấp tới cao', value: 1 },
+        { label: 'Cao tới thấp', value: "desc" },
+        { label: 'Thấp tới cao', value: "asc" },
     ];
-    const [sort, setSort] = useState(0);
+    const [sort, setSort] = useState("desc");
     const getBranchList = async () => {
         const res = await getListBranch()
         setBranchList(res.data)
