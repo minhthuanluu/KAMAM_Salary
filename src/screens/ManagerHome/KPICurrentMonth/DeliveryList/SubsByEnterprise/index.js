@@ -7,7 +7,7 @@ const SubsByEnterprise = (props) => {
     return (
         <SafeAreaView>
             <StatusBar translucent={true} backgroundColor={colors.primary} />
-            <Header title="SubsByEnterprise" />
+            <Header title="Doanh thu theo doanh nghiệp" />
 
         </SafeAreaView>
     );
