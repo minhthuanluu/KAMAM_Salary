@@ -52,12 +52,12 @@ const TopAM = (props) => {
     const onChangeDatePicker = (date) => {
         setData([])
         setMonth(date)
-        getData('', date, '', 0)
+        getData('', date, '', "desc")
         // _storeData("month", date)
     }
     useEffect(() => {
         navigation.addListener('focus', async () => {
-            await getData('', month, '', 0)
+            await getData('', month, '', "desc")
         })
     })
     return (

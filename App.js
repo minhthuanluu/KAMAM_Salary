@@ -16,7 +16,7 @@ import {
   KPICurrentMonthDashboardScreen, TopAMScreen, GroupKPIScreen, DeliveryListDashboardScreen, DeliveEnterpriseScreen,
   SubsByEnterpriseScreen, RevenueByEnterpriseScreen, ProductivitySubAdminScreen, SalaryByMonthAdminScreen,
   SubscriberQualityAdminDashboardScreen, SumReportStaffScreen, SumReportUnitScreen,AVGIncomeAdminScreen, SumReportUnitShopScreen, SumReportUnitByUnitScreen, SumReportUnitByEmpScreen
-  , AdminAVGIncomeShopScreen, AdminAVGIncomeEmpScreen
+  , AdminAVGIncomeShopScreen, AdminAVGIncomeEmpScreen,DeliveEnterpriseDetailScreen,SubsByEnterpriseDetailScreen,RevenueByEnterpriseDetailScreen
 } from './src/screens';
 
 import { colors } from './src/utils/Colors';
@@ -157,8 +157,14 @@ const AdminStack = () => {
       <Stack.Screen name="GroupKPI" component={GroupKPIScreen} />
       <Stack.Screen name="DeliveryListDashboard" component={DeliveryListDashboardScreen} />
       <Stack.Screen name="DeliveEnterprise" component={DeliveEnterpriseScreen} />
+      <Stack.Screen name="DeliveEnterpriseDetail" component={DeliveEnterpriseDetailScreen} />
+
       <Stack.Screen name="SubsByEnterprise" component={SubsByEnterpriseScreen} />
+      <Stack.Screen name="SubsByEnterpriseDetail" component={SubsByEnterpriseDetailScreen} />
+
       <Stack.Screen name="RevenueByEnterprise" component={RevenueByEnterpriseScreen} />
+      <Stack.Screen name="RevenueByEnterpriseDetail" component={RevenueByEnterpriseDetailScreen} />
+
       <Stack.Screen name="ProductivitySubAdmin" component={ProductivitySubAdminScreen} />
       
       {/* SalaryByMonthAdmin */}
