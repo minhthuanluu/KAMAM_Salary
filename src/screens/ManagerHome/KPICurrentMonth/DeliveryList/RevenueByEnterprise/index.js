@@ -7,7 +7,7 @@ const RevenueByEnterprise = (props) => {
     return (
         <SafeAreaView>
             <StatusBar translucent={true} backgroundColor={colors.primary} />
-            <Header title="Thuê bao theo doanh nghiệp" />
+            <Header title="Doanh thu theo doanh nghiệp" />
 
         </SafeAreaView>
     );

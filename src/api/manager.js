@@ -589,3 +589,72 @@ export const getListDetailDE = async (month, code) => {
   return data;
 };
 
+export const getListSubsEnterprise = async (month) => {
+  let data = baseData
+  await axios({
+    method: "POST",
+    url: `${baseUrl}manager/kpi/getListSubsEnterprise?month=${month}`,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: await getToken(),
+    },
+  })
+    .then(async (res) => {
+      if (res.status == 200) {
+        if (Object.values(res.data).length > 0) {
+          data = {
+            data: res.data,
+            isLoading: false,
+            status: "success",
+            error: null
+          };
+        }
+      }
+    })
+    .catch(async (error) => {
+      console.log(error)
+      data = {
+        message: error.response.data.message,
+        isLoading: false,
+        status: "failed",
+        error: error
+      };
+    });
+  return data;
+};
+export const getListDetailSE = async (month, code) => {
+  let data = baseData
+  await axios({
+    method: "POST",
+    url: `${baseUrl}manager/kpi/getListDetailSE`,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: await getToken(),
+    },
+    data: { month: month, code: code }
+  })
+    .then(async (res) => {
+      if (res.status == 200) {
+        if (Object.values(res.data).length > 0) {
+          data = {
+            data: res.data,
+            isLoading: false,
+            status: "success",
+            error: null
+          };
+        }
+      }
+    })
+    .catch(async (error) => {
+      console.log(error)
+      data = {
+        message: error.response.data.message,
+        isLoading: false,
+        status: "failed",
+        error: error
+      };
+    });
+  return data;
+};
