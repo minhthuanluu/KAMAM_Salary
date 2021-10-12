@@ -203,14 +203,14 @@ export const getSalaryByMonth = async (month, branchCode, shopCode) => {
             length: 0,
             error: null,
           };
-        } else if (Object.values(res.data.data.data).length > 0) {
+        } else {
           data = {
             data: res.data.data,
             isLoading: false,
             status: "success",
             length: Object.values(res.data.data.data).length,
             error: null,
-          };
+          }
         }
       }
     })

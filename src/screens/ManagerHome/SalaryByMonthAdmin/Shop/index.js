@@ -31,7 +31,7 @@ const index = () => {
     setData([])
     await getSalaryByMonth(month, branchcode, shopCode).then((data) => {
       if (data.status == "success") {
-        
+
         setLoading(false);
         if (data.length == 0) {
           setData([]);
@@ -56,7 +56,7 @@ const index = () => {
 
   useEffect(() => {
     const { month, branchCode } = route.params?.item;
-    
+
     setMonth(month);
     getData(month, branchCode, "");
   }, [navigation]);
@@ -97,13 +97,14 @@ const index = () => {
             data={data}
             showsVerticalScrollIndicator={false}
             keyExtractor={(item, index) => index.toString()}
+            key={(item, index) => index.toString()}
             renderItem={({ item, index }) => (
-              <View>
+              <>
                 <GeneralListItem
                   style={{ marginTop: index == 0 ? -fontScale(20) : fontScale(30) }}
                   monthSalary
                   textColor={"#2E2E31"}
-                  key={index}
+                  key={item.shopCode*index}
                   title={item.shopName}
                   titleArray={[, "Lương CĐ", "CP Duy trì", "CP Data KK", "CP thay sim", "Tổng CP"]}
                   item={[, item.permanentSalary, item.maintainceSalary, item.incentiveSalary, item.simSalary, item.totalSalary]}
@@ -124,7 +125,7 @@ const index = () => {
                       view
                       style={{ marginBottom: fontScale(110), marginTop: fontScale(38) }}
                       monthSalary
-                      key={index}
+                      key={item.shopCode}
                       backgroundColor={"#EFFEFF"}
                       title={generalData.shopName}
                       titleArray={[, "Lương CĐ", "CP Duy trì", "CP Data KK", "CP thay sim", "Tổng CP"]}
@@ -132,7 +133,7 @@ const index = () => {
                       icon={images.branch} />
                     : null
                 }
-              </View>
+              </>
             )}
           />
         </View>

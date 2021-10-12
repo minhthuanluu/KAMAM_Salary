@@ -88,13 +88,13 @@ const GeneralListItem = (props) => {
           :
           <TouchableOpacity key={Math.random()} onPress={props.onPress} style={[styles.compContainer, props.style, { backgroundColor: props.backgroundColor || "#FFFFFF" }]}>
             <View style={{ flexDirection: "row" }}>
-              <View>
+              {/* <View> */}
                 <Text  key={props.key} style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: props.textColor || "#D19E01" }}>{props.title}</Text>
                 {/* <View style={{ flexDirection: "row" }}>
                   <Text style={{ textAlign: "center", marginTop: fontScale(10), fontSize: fontScale(15), fontWeight: "bold", color: colors.black, marginLeft: fontScale(5) }}>{props.titleArray[0]}: </Text>
                   <Text style={{ textAlign: "center", marginTop: fontScale(10), fontSize: fontScale(15), fontWeight: "bold", color: '#1AC4D1' }}>{props.item[0]}</Text>
                 </View> */}
-              </View>
+              {/* </View> */}
             </View>
             <Image source={props.icon} style={{ width: fontScale(47), height: fontScale(47), position: "absolute", right: fontScale(20), top: -fontScale(23) }} resizeMode="contain" />
             <View style={{ marginTop: fontScale(10) }} key={Math.random()}>
