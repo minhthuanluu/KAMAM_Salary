@@ -63,15 +63,12 @@ import SubsByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/SubsByE
 import SubsByEnterpriseDetail from "./ManagerHome/KPICurrentMonth/DeliveryList/SubsByEnterprise/SEDetail";
 
 import RevenueByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise";
+import ProductivitySubAdmin from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin";
+// import SalaryByMonthAdmin from "./ManagerHome/SalaryByMonthAdmin";
+// import AVGIncomeAdmin from "./ManagerHome/AVGIncomeAdmin";
 import RevenueByEnterpriseDetail from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise/REDetail";
 
-import RevenueByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise";
-import ProductivitySubAdmin from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin";
-import SalaryByMonthAdmin from "./ManagerHome/SalaryByMonthAdmin";
-import AVGIncomeAdmin from "./ManagerHome/AVGIncomeAdmin";
-import RevenueByEnterpriseDetail from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise/REDetail";
-
-import ProductivitySubAdmin from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin";
+// import ProductivitySubAdmin from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin";
 
 import BranchProductivitySub from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin/branch"
 import ShopProductivitySub from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin/shop"
@@ -128,7 +125,7 @@ export const SumReportUnitShopScreen = () => { return <SumReportUnitShop /> }
 export const SumReportUnitByUnitScreen = () => { return <SumReportUnitByUnit /> }
 export const SumReportUnitByEmpScreen = () => { return <SumReportUnitByEmp /> }
 
-export const AVGIncomeAdminScreen = () => { return <AVGIncomeAdmin /> }
+// export const AVGIncomeAdminScreen = () => { return <AVGIncomeAdmin /> }
 
 export const RecoveryScreen = () => { return <Recovery /> }
 export const SignInScreen = () => { return <SignIn /> }
