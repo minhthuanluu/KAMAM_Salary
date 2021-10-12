@@ -63,6 +63,9 @@ import SubsByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/SubsByE
 import SubsByEnterpriseDetail from "./ManagerHome/KPICurrentMonth/DeliveryList/SubsByEnterprise/SEDetail";
 
 import RevenueByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise";
+import RevenueByEnterpriseDetail from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise/REDetail";
+
+import RevenueByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise";
 import ProductivitySubAdmin from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin";
 import SalaryByMonthAdmin from "./ManagerHome/SalaryByMonthAdmin";
 import AVGIncomeAdmin from "./ManagerHome/AVGIncomeAdmin";
