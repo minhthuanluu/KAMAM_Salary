@@ -12,10 +12,12 @@ import {
   FixedwageScreen, ProductScreen, PlanOutScreen, SanctionsScreen, OthersScreen, AVGIncomeDashboardScreen,
   TotalFixedwageScreen, TotalProductwageScreen, PlanOutOutcomeScreen, OtherOutcomeScreen, SubscriberQualityScreen,
   WarningDashboardScreen, SubFluctScreen, IncomeFluctScreen, EnterpriseFluctScreen, KPIMonthReportScreen,
-  ProfileDashboardScreen, UpdatePasswordScreen, UpdateProfileScreen, SignOutScreen, AdminDashboardScreen,
+  ProfileDashboardScreen, UpdatePasswordScreen, UpdateProfileScreen, SignOutScreen, AdminMonthSalaryShopScreen, AdminMonthSalaryEmpScreen, AdminDashboardScreen,
   KPICurrentMonthDashboardScreen, TopAMScreen, GroupKPIScreen, DeliveryListDashboardScreen, DeliveEnterpriseScreen,
   SubsByEnterpriseScreen, RevenueByEnterpriseScreen, ProductivitySubAdminScreen, SalaryByMonthAdminScreen,
-  SubscriberQualityAdminDashboardScreen, SumReportStaffScreen, SumReportUnitScreen,AVGIncomeAdminScreen, SumReportUnitShopScreen, SumReportUnitByUnitScreen, SumReportUnitByEmpScreen
+  SubscriberQualityAdminDashboardScreen, SumReportStaffScreen, SumReportUnitScreen, AVGIncomeAdminScreen, SumReportUnitShopScreen, SumReportUnitByUnitScreen, SumReportUnitByEmpScreen
+  , AdminAVGIncomeShopScreen, AdminAVGIncomeEmpScreen, DeliveEnterpriseDetailScreen, SubsByEnterpriseDetailScreen, RevenueByEnterpriseDetailScreen, BranchProductivitySubScreen,
+  ShopProductivitySubScreen
 } from './src/screens';
 
 import { colors } from './src/utils/Colors';
@@ -141,6 +143,8 @@ const EMPStack = () => {
       <Stack.Screen name="EnterpriseFluct" component={EnterpriseFluctScreen} />
       <Stack.Screen name="KPIMonthReport" component={KPIMonthReportScreen} />
 
+
+
     </Stack.Navigator>
   )
 }
@@ -154,10 +158,32 @@ const AdminStack = () => {
       <Stack.Screen name="GroupKPI" component={GroupKPIScreen} />
       <Stack.Screen name="DeliveryListDashboard" component={DeliveryListDashboardScreen} />
       <Stack.Screen name="DeliveEnterprise" component={DeliveEnterpriseScreen} />
+      <Stack.Screen name="DeliveEnterpriseDetail" component={DeliveEnterpriseDetailScreen} />
+
       <Stack.Screen name="SubsByEnterprise" component={SubsByEnterpriseScreen} />
+      <Stack.Screen name="SubsByEnterpriseDetail" component={SubsByEnterpriseDetailScreen} />
+
       <Stack.Screen name="RevenueByEnterprise" component={RevenueByEnterpriseScreen} />
+      <Stack.Screen name="RevenueByEnterpriseDetail" component={RevenueByEnterpriseDetailScreen} />
+
       <Stack.Screen name="ProductivitySubAdmin" component={ProductivitySubAdminScreen} />
+
+      <Stack.Screen name="BranchProductivitySub" component={BranchProductivitySubScreen} />
+      <Stack.Screen name="ShopProductivitySub" component={ShopProductivitySubScreen} />
+
+      {/* SalaryByMonthAdmin */}
       <Stack.Screen name="SalaryByMonthAdmin" component={SalaryByMonthAdminScreen} />
+      <Stack.Screen name="AdminMonthSalaryShop" component={AdminMonthSalaryShopScreen} />
+      <Stack.Screen name="AdminMonthSalaryEmp" component={AdminMonthSalaryEmpScreen} />
+
+
+      {/* AVGIncomeAdmin */}
+      <Stack.Screen name="AVGIncomeAdmin" component={AVGIncomeAdminScreen} />
+      <Stack.Screen name="AdminAVGIncomeShop" component={AdminAVGIncomeShopScreen} />
+      <Stack.Screen name="AdminAVGIncomeEmp" component={AdminAVGIncomeEmpScreen} />
+
+
+
       <Stack.Screen name="SubscriberQualityAdminDashboard" component={SubscriberQualityAdminDashboardScreen} />
       <Stack.Screen name="SumReportStaff" component={SumReportStaffScreen} />
       <Stack.Screen name="SumReportUnit" component={SumReportUnitScreen} />
@@ -165,9 +191,12 @@ const AdminStack = () => {
       <Stack.Screen name="SumReportUnitShop" component={SumReportUnitShopScreen} />
       <Stack.Screen name="SumReportUnitByUnit" component={SumReportUnitByUnitScreen} />
       <Stack.Screen name="SumReportUnitByEmp" component={SumReportUnitByEmpScreen} />
-      
       <Stack.Screen name="TopAM" component={TopAMScreen} />
-      <Stack.Screen name="AVGIncomeAdmin" component={AVGIncomeAdminScreen} />
+
+
+
+
+
 
 
     </Stack.Navigator>
@@ -204,6 +233,7 @@ export default function App() {
     <NavigationContainer >
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="AuthStack" component={AuthStack} />
+        <Stack.Screen name="AdminStack" component={AdminStack} />
         <Stack.Screen name="EMPHome" component={EMPBottomTab} options={{ headerShown: false }} />
         <Stack.Screen name="AdminHome" component={AdminBottomTab} options={{ headerShown: false }} />
       </Stack.Navigator>

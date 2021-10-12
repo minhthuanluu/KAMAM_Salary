@@ -86,5 +86,10 @@ export const images = {
 
     topam: require('../assets/topam.png'),
     groupkpi: require('../assets/groupkpi.png'),
+
+    teamwork: require('../assets/teamwork.png'),
+
+    closeline: require("../../assets/closeline.png"),
+    sendline: require("../../assets/sendline.png"),
     search: require('../assets/ic_searchlist.png'),
 }

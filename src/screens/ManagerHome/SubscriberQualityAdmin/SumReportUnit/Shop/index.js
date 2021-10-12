@@ -110,11 +110,26 @@ const ReportByUnitShop = () => {
     )
 }
 
-const ReportByUnitItemFinal = (props) => {
+export const ReportByUnitItem = (props) => {
     const { item, index } = props;
-    return <View style={[reportByUnitItem.container, props.style]}>
-        <Image style={reportByUnitItem.icon} source={images.branch} />
-        <View style={{ ...reportByUnitItem.subContainer, backgroundColor: "#EFFEFF" }}>
+    return <View style={[reportByUnitItem.container, { marginTop: index > 0 ? fontScale(60) : fontScale(30) }]}>
+        <TouchableOpacity style={reportByUnitItem.subContainer} onPress={props.onPress}>
+            <Image style={reportByUnitItem.icon} source={item.icon == "BRANCH" ? images.branch : item.icon == "COMPANY" ? images.company : item.icon == "UNIT" ? images.store : null} />
+            <Text style={reportByUnitItem.shopCode}>{item.shopCode}</Text>
+            <View style={{ flexDirection: "row", marginTop: fontScale(20) }}>
+                <ReportByUnitSubItem flex={1.3} title='SL TBTS' value={item.postpaid} />
+                <ReportByUnitSubItem flex={1.3} title='SL cắt huỷ' value={item.revoke} />
+                <ReportByUnitSubItem flex={2.9} title='TB chuyển Fone card' value={item.foneCard} />
+                <ReportByUnitSubItem flex={1} title='Chặn 2c' value={item.deny2C} />
+            </View>
+        </TouchableOpacity>
+    </View>
+}
+export const ReportByUnitItemFinal = (props) => {
+    const { item, index } = props;
+    return <View style={[reportByUnitItem.container, props.style, { marginTop: index > 0 ? fontScale(60) : fontScale(30) }]}>
+        <View style={{ ...reportByUnitItem.subContainer, backgroundColor: "#EFFEFF" }} onPress={props.onPress}>
+            <Image style={reportByUnitItem.icon} source={item.icon == "BRANCH" ? images.branch : item.icon == "COMPANY" ? images.company : item.icon == "UNIT" ? images.store : null} />
             <Text style={{ ...reportByUnitItem.shopCode, color: "#D19E01" }}>{item.shopCode}</Text>
             <View style={{ flexDirection: "row", marginTop: fontScale(20) }}>
                 <ReportByUnitSubItem flex={1.3} title='SL TBTS' value={item.postpaid} />
@@ -126,21 +141,6 @@ const ReportByUnitItemFinal = (props) => {
     </View>
 }
 
-const ReportByUnitItem = (props) => {
-    const { item, index } = props;
-    return <View style={[reportByUnitItem.container, { marginTop: index > 0 ? fontScale(60) : fontScale(30) ,marginHorizontal: fontScale(10)}]}>
-        <Image style={reportByUnitItem.icon} source={item.icon == "BRANCH" ? images.branch : item.icon == "COMPANY" ? images.company : item.icon == "UNIT" ? images.store : null} />
-        <TouchableOpacity style={reportByUnitItem.subContainer} onPress={props.onPress}>
-            <Text style={reportByUnitItem.shopCode}>{item.shopCode}</Text>
-            <View style={{ flexDirection: "row", marginTop: fontScale(20) }}>
-                <ReportByUnitSubItem flex={1.3} title='SL TBTS' value={item.postpaid} />
-                <ReportByUnitSubItem flex={1.3} title='SL cắt huỷ' value={item.revoke} />
-                <ReportByUnitSubItem flex={2.9} title='TB chuyển Fone card' value={item.foneCard} />
-                <ReportByUnitSubItem flex={1} title='Chặn 2c' value={item.deny2C} />
-            </View>
-        </TouchableOpacity>
-    </View>
-}
 
 const ReportByUnitSubItem = ({ title, value, flex }) => {
     return <View style={{ flex: flex, justifyContent: "center", alignItems: "center" }}>
@@ -160,7 +160,6 @@ const reportByUnitItem = StyleSheet.create({
         position: "absolute",
         right: fontScale(20),
         top: -fontScale(25),
-        zIndex: 10
     },
     shopCode: {
         fontSize: fontScale(17),

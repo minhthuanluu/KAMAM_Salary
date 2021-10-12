@@ -6,6 +6,20 @@ import Toast from "react-native-toast-message";
 import { BackHandler } from "react-native";
 import NetInfo from "@react-native-community/netinfo";
 
+export const findByText = (text, data, field) => {
+  //text là nội dung cần tìm
+  //data là Mảng cần tìm
+  //field là trường cần tìm
+  //VD muốn tìm trường taxCode=123 có trong mảng data thì điền ("123", data, taxCode)
+  let arr = []
+  for (let i = 0; i < data.length; i++) {
+    if (data[i][field].search(text) != -1) {
+      arr.push(data[i])
+    }
+  }
+  return arr
+}
+
 export const getMonth = async () => {
   let month = await _retrieveData("month")
   return month

@@ -35,7 +35,7 @@ export const reportByUnitItem = StyleSheet.create({
         position: "absolute",
         right: fontScale(20),
         top: -fontScale(25),
-        zIndex: 10
+        zIndex: 100
     },
     shopCode: {
         fontSize: fontScale(17),

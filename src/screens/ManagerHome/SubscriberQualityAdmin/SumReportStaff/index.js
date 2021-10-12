@@ -64,8 +64,19 @@ const SumReportStaff = (props) => {
         setMessage("")
         tempData.concat(tempData)
         const newData = tempData.filter((item) => {
-            const itemData = item.empCode.toUpperCase();
-            return itemData.indexOf(text.toUpperCase()) > -1;
+            return (
+                item.empName.toString().toUpperCase()
+                .replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A")
+                .replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E")
+                .replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I")
+                .replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O")
+                .replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U")
+                .replace(/Đ/g, "D")
+                .replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y")
+                .replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ")
+                .indexOf(text.toUpperCase()) > -1) 
+                ||
+                item.shopCode.toString().toUpperCase().indexOf(text.toUpperCase()) > -1
         });
         setTempData(newData);
         if (text.length > 0) {
