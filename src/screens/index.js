@@ -66,6 +66,9 @@ import RevenueByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/Reve
 import RevenueByEnterpriseDetail from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise/REDetail";
 
 import ProductivitySubAdmin from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin";
+
+import BranchProductivitySub from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin/branch"
+import ShopProductivitySub from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin/shop"
 // import SalaryByMonthAdmin from "./ManagerHome/SalaryByMonthAdmin";
 // import AVGIncomeAdmin from "./ManagerHome/AVGIncomeAdmin";
 
@@ -107,6 +110,10 @@ export const RevenueByEnterpriseScreen = () => { return <RevenueByEnterprise /> 
 export const RevenueByEnterpriseDetailScreen = () => { return <RevenueByEnterpriseDetail /> }
 
 export const ProductivitySubAdminScreen = () => { return <ProductivitySubAdmin /> }
+export const BranchProductivitySubScreen = () => { return <BranchProductivitySub /> }
+export const ShopProductivitySubScreen = () => { return <ShopProductivitySub /> }
+
+
 
 export const SubscriberQualityAdminDashboardScreen = () => { return <SubscriberQualityAdminDashboard /> }
 export const SumReportStaffScreen = () => { return <SumReportStaff /> }

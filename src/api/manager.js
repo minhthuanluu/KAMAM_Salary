@@ -727,3 +727,43 @@ export const getListDetailsRE = async (month, code) => {
     });
   return data;
 };
+export const getProductivitySubAdmin = async (branchCode, month, shopCode) => {
+  let data = baseData
+  await axios({
+    method: "POST",
+    url: `${baseUrl}manager/kpi/getProductivitySub`,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: await getToken(),
+    },
+    data: {
+      branchCode: branchCode,
+      month: month,
+      shopCode: shopCode
+    }
+  })
+    .then(async (res) => {
+      // console.log(res.data)
+      if (res.status == 200) {
+        if (Object.values(res.data).length > 0) {
+          data = {
+            data: res.data.data,
+            isLoading: false,
+            status: "success",
+            error: null
+          };
+        }
+      }
+    })
+    .catch(async (error) => {
+      console.log(error)
+      data = {
+        message: error.response.data.message,
+        isLoading: false,
+        status: "failed",
+        error: error
+      };
+    });
+  return data;
+};

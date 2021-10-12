@@ -25,7 +25,7 @@ const Seacrh = (props) => {
                 props.searchText == true ?
                     <View style={[{ width: props.width }, { width: width - fontScale(100), height: fontScale(40), marginBottom: fontScale(20) }, styles.view]}>
                         <Image source={images.qualitysub} style={styles.qualitysub} resizeMode="contain" />
-                        <TextInput placeholder="Nhập STB" style={styles.textInput} value={text} onChangeText={(text) => { setText(text) }}></TextInput>
+                        <TextInput placeholder="Nhập MST" style={styles.textInput} value={text} onChangeText={(text) => { setText(text) }}></TextInput>
                         <TouchableOpacity style={{ flex: 1 / 10 }}
                             onPress={() => {
                                 props.search(text)
