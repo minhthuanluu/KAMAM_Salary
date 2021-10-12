@@ -64,26 +64,17 @@ import SubsByEnterpriseDetail from "./ManagerHome/KPICurrentMonth/DeliveryList/S
 
 import RevenueByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise";
 import ProductivitySubAdmin from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin";
-// import SalaryByMonthAdmin from "./ManagerHome/SalaryByMonthAdmin";
-// import AVGIncomeAdmin from "./ManagerHome/AVGIncomeAdmin";
 import RevenueByEnterpriseDetail from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise/REDetail";
-
-// import ProductivitySubAdmin from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin";
 
 import BranchProductivitySub from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin/branch"
 import ShopProductivitySub from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin/shop"
-// import SalaryByMonthAdmin from "./ManagerHome/SalaryByMonthAdmin";
-// import AVGIncomeAdmin from "./ManagerHome/AVGIncomeAdmin";
-
 
 import SubscriberQualityAdminDashboard from "./ManagerHome/SubscriberQualityAdmin/Dashboard";
 import SumReportStaff from "./ManagerHome/SubscriberQualityAdmin/SumReportStaff";
 import SumReportUnit from "./ManagerHome/SubscriberQualityAdmin/SumReportUnit";
 import SumReportUnitShop from "./ManagerHome/SubscriberQualityAdmin/SumReportUnit/Shop";
-import SumReportUnitByUnit from "./ManagerHome/SubscriberQualityAdmin/SumReportUnit/Shop/Unit"
-import SumReportUnitByEmp from "./ManagerHome/SubscriberQualityAdmin/SumReportUnit/Shop/Unit"
-
-
+import SumReportUnitByUnit from "./ManagerHome/SubscriberQualityAdmin/SumReportUnit/Shop/Unit";
+import SumReportUnitByEmp from "./ManagerHome/SubscriberQualityAdmin/SumReportUnit/Shop/Unit";
 
 //SalaryByMonthAdmin
 import SalaryByMonthAdmin from "./ManagerHome/SalaryByMonthAdmin/Branch";

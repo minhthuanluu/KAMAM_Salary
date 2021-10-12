@@ -114,13 +114,13 @@ const index = (props) => {
             showsVerticalScrollIndicator={false}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item, index }) => (
-              <View>
+              <View key={index.toString()}>
                 <GeneralListItem
                   style={{ marginTop: index == 0 ? -fontScale(16) : fontScale(50) }}
                   avgSalary
                   totalEmp={"( " + item.totalEmp + " NV" + " )"}
                   textColor={"#2E2E31"}
-                  key={index}
+                  key={index*0.14}
                   title={item.shopName}
                   titleArray={[, "Tổng CPCĐ", "BQ CPCĐ", "Tổng CPSP", "BQ CPSP", "Tổng CP", "BQCP"]}
                   item={[, item.totalPermanentSalary, item.avgPermanentSalary, item.totalProductSalary, item.avgProductSalary, item.totalSalary, item.avgSalary]}
@@ -141,7 +141,7 @@ const index = (props) => {
                     avgSalary
                     totalEmp={"( " + generalData.totalEmp + " NV" + " )"}
                     backgroundColor={"#EFFEFF"}
-                    key={index}
+                    key={index.toString()}
                     title={generalData.shopName}
                     titleArray={[, "Tổng CPCĐ", "BQ CPCĐ", "Tổng CPSP", "BQ CPSP", "Tổng CP", "BQCP"]}
                     item={generalData && [, generalData.totalPermanentSalary, generalData.avgPermanentSalary, generalData.totalProductSalary, generalData.avgProductSalary, generalData.totalSalary, generalData.avgSalary]}

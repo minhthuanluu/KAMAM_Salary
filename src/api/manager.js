@@ -160,7 +160,6 @@ export const getReportByEmp = async () => {
 
 
 export const getSalaryByMonth = async (month, branchCode, shopCode) => {
-  console.log(month + branchCode + shopCode)
   let token = "";
   await _retrieveData("userInfo").then((data) => {
     if (data != null) {
@@ -231,7 +230,6 @@ export const getSalaryByMonth = async (month, branchCode, shopCode) => {
 
 
 export const getAvgIncome = async (beginMonth, endMonth, branchCode, shopCode) => {
-  console.log(beginMonth + endMonth + branchCode + shopCode)
   let token = "";
   await _retrieveData("userInfo").then((data) => {
     if (data != null) {

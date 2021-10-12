@@ -1,10 +1,9 @@
 import { useIsFocused, useNavigation, useRoute } from '@react-navigation/core';
-import moment from 'moment';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import Toast from 'react-native-toast-message';
 import { getReportByUnit } from '../../../../../../api/manager';
-import { Header, DateView, Body, MenuItem } from '../../../../../../comps';
+import { Header, DateView, Body } from '../../../../../../comps';
 import { SumReportU } from '../../../../../../models/Admin';
 import { colors } from '../../../../../../utils/Colors';
 import { width } from '../../../../../../utils/Dimenssion';
@@ -14,7 +13,7 @@ import { ToastNotif } from '../../../../../../utils/Logistics';
 import { _retrieveData } from '../../../../../../utils/Storage';
 import { text } from '../../../../../../utils/Text';
 
-const ReportByUnitEmp = () => {
+const index = () => {
     const [beginMonth, setBeginMonth] = useState('')
     const [endMonth, setEndMonth] = useState('')
     const isFocus = useIsFocused();
@@ -176,4 +175,4 @@ const reportByUnitstyles = StyleSheet.create({
 })
 
 
-export default ReportByUnitEmp;
+export default index;

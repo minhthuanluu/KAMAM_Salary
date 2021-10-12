@@ -31,7 +31,7 @@ const index = () => {
     setData([])
     await getSalaryByMonth(month, branchcode, shopCode).then((data) => {
       if (data.status == "success") {
-        console.log(data)
+        
         setLoading(false);
         if (data.length == 0) {
           setData([]);
@@ -56,7 +56,7 @@ const index = () => {
 
   useEffect(() => {
     const { month, branchCode } = route.params?.item;
-    // console.log()
+    
     setMonth(month);
     getData(month, branchCode, "");
   }, [navigation]);

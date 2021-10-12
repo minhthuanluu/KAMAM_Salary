@@ -15,9 +15,9 @@ import {
   ProfileDashboardScreen, UpdatePasswordScreen, UpdateProfileScreen, SignOutScreen, AdminMonthSalaryShopScreen, AdminMonthSalaryEmpScreen, AdminDashboardScreen,
   KPICurrentMonthDashboardScreen, TopAMScreen, GroupKPIScreen, DeliveryListDashboardScreen, DeliveEnterpriseScreen,
   SubsByEnterpriseScreen, RevenueByEnterpriseScreen, ProductivitySubAdminScreen, SalaryByMonthAdminScreen,
-  SubscriberQualityAdminDashboardScreen, SumReportStaffScreen, SumReportUnitScreen, AVGIncomeAdminScreen, SumReportUnitShopScreen, SumReportUnitByUnitScreen, SumReportUnitByEmpScreen
+  SubscriberQualityAdminDashboardScreen, SumReportStaffScreen, SumReportUnitScreen, AVGIncomeAdminScreen, SumReportUnitShopScreen, SumReportUnitByUnitScreen
   , AdminAVGIncomeShopScreen, AdminAVGIncomeEmpScreen, DeliveEnterpriseDetailScreen, SubsByEnterpriseDetailScreen, RevenueByEnterpriseDetailScreen, BranchProductivitySubScreen,
-  ShopProductivitySubScreen
+  ShopProductivitySubScreen,SumReportUnitByEmpScreen
 } from './src/screens';
 
 import { colors } from './src/utils/Colors';

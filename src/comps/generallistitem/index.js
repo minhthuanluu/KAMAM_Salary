@@ -13,7 +13,7 @@ const GeneralListItem = (props) => {
         <View onPress={props.onPress} style={[styles.compContainer, props.style, { backgroundColor: props.backgroundColor || "#FFFFFF" }]}>
           <View style={{ flexDirection: "row" }}>
             <View style={{ flexDirection: "row" }}>
-              <Text style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: props.textColor || "#D19E01" }}>{props.title}</Text>
+              <Text key={props.key} style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: props.textColor || "#D19E01" }}>{props.title}</Text>
               <Text style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: "#C2B60E" }}>{props.totalEmp}</Text>
             </View>
           </View>
@@ -23,6 +23,11 @@ const GeneralListItem = (props) => {
               <Item title={props.titleArray[1]} content={props.item[1]} key={0} style={{ flex: 1 }} />
               <Item title={props.titleArray[2]} content={props.item[2]} key={1} style={{ flex: 1 }} />
               <Item title={props.titleArray[3]} content={props.item[3]} key={2} style={{ flex: 1 }} />
+              {/* {
+                props.titleArra.map((item,index)=>{
+                  return <Item title={props.titleArray[index]} content={props.item[index]} key={index} style={{ flex: 1 }} />
+                })
+              } */}
             </View>
             <View style={{ flexDirection: "row", justifyContent: "space-between", marginVertical: fontScale(10), marginHorizontal: fontScale(5) }} key={15}>
               <Item title={props.titleArray[4]} content={props.item[4]} key={3} style={{ flex: 1 }} />
@@ -35,7 +40,7 @@ const GeneralListItem = (props) => {
         <TouchableOpacity onPress={props.onPress} style={[styles.compContainer, props.style, { backgroundColor: props.backgroundColor || "#FFFFFF" }]}>
           <View style={{ flexDirection: "row" }}>
             <View style={{ flexDirection: "row" }}>
-              <Text style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: props.textColor || "#D19E01" }}>{props.title}</Text>
+              <Text key={props.key} style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: props.textColor || "#D19E01" }}>{props.title}</Text>
               <Text style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: "#C2B60E" }}>{props.totalEmp}</Text>
               {/* <View style={{ flexDirection: "row" }}>
                   <Text style={{ textAlign: "center", marginTop: fontScale(10), fontSize: fontScale(15), fontWeight: "bold", color: colors.black, marginLeft: fontScale(5) }}>{props.titleArray[0]}: </Text>
@@ -84,7 +89,7 @@ const GeneralListItem = (props) => {
           <TouchableOpacity key={Math.random()} onPress={props.onPress} style={[styles.compContainer, props.style, { backgroundColor: props.backgroundColor || "#FFFFFF" }]}>
             <View style={{ flexDirection: "row" }}>
               <View>
-                <Text style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: props.textColor || "#D19E01" }}>{props.title}</Text>
+                <Text  key={props.key} style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: props.textColor || "#D19E01" }}>{props.title}</Text>
                 {/* <View style={{ flexDirection: "row" }}>
                   <Text style={{ textAlign: "center", marginTop: fontScale(10), fontSize: fontScale(15), fontWeight: "bold", color: colors.black, marginLeft: fontScale(5) }}>{props.titleArray[0]}: </Text>
                   <Text style={{ textAlign: "center", marginTop: fontScale(10), fontSize: fontScale(15), fontWeight: "bold", color: '#1AC4D1' }}>{props.item[0]}</Text>
