@@ -26,8 +26,8 @@ const DeliveryListDashboard = (props) => {
             <Body style={{ marginTop: fontScale(26) }} showInfo={false} />
             <View style={styles.body}>
                 <MenuItem style={{ marginTop: fontScale(25) }} title="Doanh nghiệp giao" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.deliveenterpriseamount} width={width - fontScale(60)} onPress={() => navigation.navigate("DeliveEnterprise")} />
-                <MenuItem style={{ marginTop: fontScale(30) }} title="Thuê bao theo doanh nghiệp" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.qualitysub} width={width - fontScale(60)} onPress={() => navigation.navigate("RevenueByEnterprise")} />
-                <MenuItem style={{ marginTop: fontScale(30) }} title="Doanh thu theo doanh nghiệp" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.KAMPT} width={width - fontScale(60)} onPress={() => navigation.navigate("SubsByEnterprise")} />
+                <MenuItem style={{ marginTop: fontScale(30) }} title="Thuê bao theo doanh nghiệp" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.qualitysub} width={width - fontScale(60)} onPress={() => navigation.navigate("SubsByEnterprise")} />
+                <MenuItem style={{ marginTop: fontScale(30) }} title="Doanh thu theo doanh nghiệp" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.KAMPT} width={width - fontScale(60)} onPress={() => navigation.navigate("RevenueByEnterprise")} />
             </View>
         </SafeAreaView>
     );

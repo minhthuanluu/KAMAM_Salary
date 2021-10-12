@@ -563,7 +563,7 @@ export const getListDetailDE = async (month, code) => {
       "Content-Type": "application/json",
       Authorization: await getToken(),
     },
-    data: { month: month, code: code }
+    data: { month: month, shopCode: code }
   })
     .then(async (res) => {
       if (res.status == 200) {
@@ -589,3 +589,181 @@ export const getListDetailDE = async (month, code) => {
   return data;
 };
 
+export const getListSubsEnterprise = async (month) => {
+  let data = baseData
+  await axios({
+    method: "POST",
+    url: `${baseUrl}manager/kpi/getListSubsEnterprise?month=${month}`,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: await getToken(),
+    },
+  })
+    .then(async (res) => {
+      if (res.status == 200) {
+        if (Object.values(res.data).length > 0) {
+          data = {
+            data: res.data,
+            isLoading: false,
+            status: "success",
+            error: null
+          };
+        }
+      }
+    })
+    .catch(async (error) => {
+      console.log(error)
+      data = {
+        message: error.response.data.message,
+        isLoading: false,
+        status: "failed",
+        error: error
+      };
+    });
+  return data;
+};
+export const getListDetailSE = async (month, code) => {
+  let data = baseData
+  await axios({
+    method: "POST",
+    url: `${baseUrl}manager/kpi/getListDetailSE`,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: await getToken(),
+    },
+    data: { month: month, shopCode: code }
+  })
+    .then(async (res) => {
+      if (res.status == 200) {
+        if (Object.values(res.data).length > 0) {
+          data = {
+            data: res.data,
+            isLoading: false,
+            status: "success",
+            error: null
+          };
+        }
+      }
+    })
+    .catch(async (error) => {
+      console.log(error)
+      data = {
+        message: error.response.data.message,
+        isLoading: false,
+        status: "failed",
+        error: error
+      };
+    });
+  return data;
+};
+export const getListRevenueEnterprise = async (month) => {
+  let data = baseData
+  await axios({
+    method: "POST",
+    url: `${baseUrl}manager/kpi/getListRevenueEnterprise?month=${month}`,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: await getToken(),
+    },
+  })
+    .then(async (res) => {
+      if (res.status == 200) {
+        if (Object.values(res.data).length > 0) {
+          data = {
+            data: res.data,
+            isLoading: false,
+            status: "success",
+            error: null
+          };
+        }
+      }
+    })
+    .catch(async (error) => {
+      console.log(error)
+      data = {
+        message: error.response.data.message,
+        isLoading: false,
+        status: "failed",
+        error: error
+      };
+    });
+  return data;
+};
+export const getListDetailsRE = async (month, code) => {
+  let data = baseData
+  await axios({
+    method: "POST",
+    url: `${baseUrl}manager/kpi/getListDetailsRE`,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: await getToken(),
+    },
+    data: { month: month, shopCode: code }
+  })
+    .then(async (res) => {
+      if (res.status == 200) {
+        if (Object.values(res.data).length > 0) {
+          data = {
+            data: res.data,
+            isLoading: false,
+            status: "success",
+            error: null
+          };
+        }
+      }
+    })
+    .catch(async (error) => {
+      console.log(error)
+      data = {
+        message: error.response.data.message,
+        isLoading: false,
+        status: "failed",
+        error: error
+      };
+    });
+  return data;
+};
+export const getProductivitySubAdmin = async (branchCode, month, shopCode) => {
+  let data = baseData
+  await axios({
+    method: "POST",
+    url: `${baseUrl}manager/kpi/getProductivitySub`,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: await getToken(),
+    },
+    data: {
+      branchCode: branchCode,
+      month: month,
+      shopCode: shopCode
+    }
+  })
+    .then(async (res) => {
+      // console.log(res.data)
+      if (res.status == 200) {
+        if (Object.values(res.data).length > 0) {
+          data = {
+            data: res.data.data,
+            isLoading: false,
+            status: "success",
+            error: null
+          };
+        }
+      }
+    })
+    .catch(async (error) => {
+      console.log(error)
+      data = {
+        message: error.response.data.message,
+        isLoading: false,
+        status: "failed",
+        error: error
+      };
+    });
+  return data;
+};

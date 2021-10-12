@@ -1,27 +1,27 @@
-import { useNavigation } from '@react-navigation/core';
-import React, { useState, useEffect } from 'react';
-import { SafeAreaView, Text, StatusBar, View, Image, FlatList } from 'react-native';
-import { Body, DatePicker, Header, Loading } from '../../../../comps';
-import { colors } from '../../../../utils/Colors';
-import { showToast } from '../../../../utils/toast';
-import { check403 } from '../../../../api/emp';
+import { useNavigation, useRoute } from '@react-navigation/core';
+import React, { useEffect, useState } from 'react';
+import { SafeAreaView, Text, StatusBar, FlatList, View } from 'react-native';
+import { Body, DatePicker, Header, Loading } from '../../../../../comps';
+import { colors } from '../../../../../utils/Colors';
+import { width } from '../../../../../utils/Dimenssion';
+import { fontScale } from '../../../../../utils/Fonts';
+import GenaralItemAdmin from '../genarailItemAdmin';
 import Toast from 'react-native-toast-message';
 import moment from 'moment';
-import { width } from '../../../../utils/Dimenssion';
-import { fontScale } from '../../../../utils/Fonts';
 import { styles } from './stytes';
-import { images } from '../../../../utils/Images';
-import GenaralItemAdmin from './genarailItemAdmin';
-import { getProductivitySubAdmin } from '../../../../api/manager';
-import { _retrieveData, _storeData } from '../../../../utils/Storage';
+import { images } from '../../../../../utils/Images';
+import { _retrieveData } from '../../../../../utils/Storage';
+import { getProductivitySubAdmin } from '../../../../../api/manager';
+import { showToast } from '../../../../../utils/toast';
+import { check403 } from '../../../../../api/emp';
 
-const ProductivitySubAdmin = (props) => {
+const ShopProductivitySub = (props) => {
     const navigation = useNavigation();
+    const route = useRoute()
     const [general, setGeneral] = useState([]);
     const [data, setData] = useState([]);
     const [role, setRole] = useState('');
-    const [loginInfo, setLoginInfo] = useState([]);
-    const [month, setMonth] = useState(moment(new Date()).subtract(0, 'months').format("MM/YYYY"));
+    const [month, setMonth] = useState(route.params.month);
     const [loading, setLoading] = useState(false);
     const checkIcon = (icon) => {
         if (icon == "EMPLOYEE") {
@@ -36,6 +36,13 @@ const ProductivitySubAdmin = (props) => {
             return images.none
         }
     }
+    const onChangeDatePicker = (date) => {
+        setData([])
+        setGeneral([])
+        setMonth(date)
+        getData(route.params.branchCode, month, route.params.shopCode)
+    }
+
     const getData = async (branchCode, month, shopCode) => {
         setLoading(true)
         let res = await getProductivitySubAdmin(branchCode, month, shopCode)
@@ -61,47 +68,17 @@ const ProductivitySubAdmin = (props) => {
             check403(res.error, navigation)
         }
     }
-    const onChangeDatePicker = (date) => {
-        setData([])
-        setGeneral([])
-        setMonth(date)
-        getData("", date, "")
-        // _storeData('month', date)
-    }
-    // const getDatePicker = async () => {
-    //     setData([])
-    //     setGeneral([])
-    //     const date = await _retrieveData("month")
-    //     console.log(date)
-    //     if (date != undefined) {
-    //         setMonth(date)
-    //         await getData("", date, "")
-    //     } else {
-    //         await getData("", month, "")
-    //     }
-    // }
-    const useEffectExec = async () => {
-        setLoading(true)
+    const getRole = async () => {
         const role = await _retrieveData("role")
         setRole(role)
-        const loginInfo = await _retrieveData('loginInfo')
-        setLoginInfo(loginInfo)
-        if (role == 'ROLE_COMPANY') {
-            await getData("", month, "")
-        } else if (role == "ROLE_BRANCH") {
-            await getData(loginInfo.shopCode, month, "")
-        } else {
-            await getData(loginInfo.parentShop, month, loginInfo.shopCode)
-        }
-
     }
     useEffect(() => {
         // navigation.addListener('focus', async () => {
-        // await getDatePicker()
-        useEffectExec()
-
+        // const branchCode = route.params.branchCode
+        getData(route.params.branchCode, month, route.params.shopCode)
+        getRole()
         // })
-    }, [])
+    },[])
     return (
         <SafeAreaView style={styles.container}>
             <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
@@ -118,7 +95,7 @@ const ProductivitySubAdmin = (props) => {
                     renderItem={({ item, index }) => {
                         return (
                             <GenaralItemAdmin icon={checkIcon(item.icon)} shopName={item.shopName} disable={role == "ROLE_LEADER" ? true : false}
-                                khtb={item.khtb} tttb={item.tttb} khdt={item.khdt} ttdt={item.ttdt} role={role} item={item} month={month} screen="company" />
+                                khtb={item.khtb} tttb={item.tttb} khdt={item.khdt} ttdt={item.ttdt} role={role} item={item} month={month} disable={true}/>
                         )
                     }}
                 />
@@ -136,4 +113,4 @@ const ProductivitySubAdmin = (props) => {
     );
 }
 
-export default ProductivitySubAdmin;
+export default ShopProductivitySub;
