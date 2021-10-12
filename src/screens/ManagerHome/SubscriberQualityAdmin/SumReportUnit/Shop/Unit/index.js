@@ -63,6 +63,7 @@ const index = () => {
 
     useEffect(() => {
         initial();
+        return ()=>{isFocus}
     }, [isFocus])
 
     return (

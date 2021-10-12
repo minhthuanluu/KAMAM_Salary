@@ -11,7 +11,6 @@ import { ToastNotif } from '../../utils/Logistics';
 
 const YearMonthPicker = (props) => {
     const [beginMonth, setBeginMonth] = useState('Tháng ' + props.beginMonth);
-    const [defaultBeginMonth, setDefaultBeginMonth] = useState(props.beginMonth);
     const [endMonth, setEndMonth] = useState('Tháng ' + props.endMonth);
     const [showBeginMonth, setShowBeginMonth] = useState(false);
     const [showEndMonth, setShowEndMonth] = useState(false);
@@ -36,7 +35,7 @@ const YearMonthPicker = (props) => {
 
     const onChangeBeginMonth = (month) => {
         if (month.year > endMonth.substring(9, endMonth.length)) {
-            console.log("Năm bắt đầu phải nhỏ hơn năm kết thúc")
+            // console.log("Năm bắt đầu phải nhỏ hơn năm kết thúc")
         } else {
             if (month.item.key > endMonth.substring(6, 8)) {
                 props.onError && props.onError("Tháng bắt đầu phải nhỏ hơn tháng kết thúc")
@@ -52,8 +51,8 @@ const YearMonthPicker = (props) => {
     }
 
     const onChangeEndMonth = (month) => {
-        console.log(month)
-        console.log(beginMonth.substring(9, beginMonth.length))
+        // console.log(month)
+        // console.log(beginMonth.substring(9, beginMonth.length))
         if (month.year < beginMonth.substring(9, beginMonth.length)) {
             props.onError && props.onError("Tháng bắt đầu phải nhỏ hơn tháng kết thúc")
         } else {

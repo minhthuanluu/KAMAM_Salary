@@ -60,7 +60,6 @@ const index = (props) => {
             setData([]);
             setMessage(text.dataIsNull);
           } else {
-            
             setData(data.data.data);
             setNotification(data.data.notification);
             setGeneralData(data.data.general);

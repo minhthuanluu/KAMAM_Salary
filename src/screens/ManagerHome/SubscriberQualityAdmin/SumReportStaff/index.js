@@ -58,6 +58,7 @@ const SumReportStaff = (props) => {
 
     useEffect(() => {
         getData()
+        return ()=>{isFocus}
     }, [isFocus])
 
     const onSearch = (text = "") => {
