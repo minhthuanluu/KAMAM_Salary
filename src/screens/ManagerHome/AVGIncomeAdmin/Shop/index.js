@@ -25,6 +25,7 @@ import { ActivityIndicator } from "react-native";
 import {
   useBackButton,
   useFocusEffect,
+  useIsFocused,
   useNavigation,
   useRoute,
 } from "@react-navigation/native";
@@ -37,18 +38,17 @@ const index = (props) => {
   const [loading, setLoading] = useState(false);
   const [generalData, setGeneralData] = useState({});
   const route = useRoute();
-
   // const [month, setMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"));
 
   const [beginMonth, setBeginMonth] = useState(
     route.params?.item.beginMonth || moment(new Date()).subtract(3, "months").format("MM/YYYY")
   );
   const [endMonth, setEndMonth] = useState(
-    route.params?.item.endMonth ||  moment(new Date()).subtract(1, "months").format("MM/YYYY")
+    route.params?.item.endMonth || moment(new Date()).subtract(1, "months").format("MM/YYYY")
   );
   const navigation = useNavigation();
   const [notification, setNotification] = useState("");
- 
+
   const getData = async (beginMonth, endMonth, branchCode, shopCode) => {
     setLoading(true);
     setMessage("");
@@ -56,10 +56,9 @@ const index = (props) => {
       (data) => {
         if (data.status == "success") {
           setLoading(false);
-
           if (data.length == 0) {
             setData([]);
-            setMessage(data.message);
+            setMessage(text.dataIsNull);
           } else {
             // console.log(data);
             setData(data.data.data);
@@ -96,7 +95,7 @@ const index = (props) => {
   useEffect(() => {
     const { beginMonth, endMonth, branchCode } = route.params?.item;
     getData(beginMonth, endMonth, branchCode, "");
-  }, [beginMonth, endMonth]);
+  }, [navigation]);
 
   const errorNotif = (message) => {
     Toast.show({
@@ -143,24 +142,64 @@ const index = (props) => {
         <Text style={{ color: colors.primary, textAlign: "center" }}>
           {message && message}
         </Text>
-        <View>
-          <FlatList
-            style={{ marginTop: -fontScale(20) }}
-            data={data}
-            showsVerticalScrollIndicator={false}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({ item, index }) => (
-              <View>
+        <FlatList
+          style={{ marginTop: -fontScale(20) }}
+          data={data}
+          showsVerticalScrollIndicator={false}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item, index }) => (
+            <View>
+              <GeneralListItem
+                style={{
+                  marginTop: index == 0 ? -fontScale(16) : fontScale(50),
+                }}
+                avgSalary
+                totalEmp={"( " + item.totalEmp + " NV" + " )"}
+                textColor={"#2E2E31"}
+                key={index}
+                title={item.shopName}
+                titleArray={[
+                  ,
+                  "Tổng CPCĐ",
+                  "BQ CPCĐ",
+                  "Tổng CPSP",
+                  "BQ CPSP",
+                  "Tổng CP",
+                  "BQCP",
+                ]}
+                item={[
+                  ,
+                  item.totalPermanentSalary,
+                  item.avgPermanentSalary,
+                  item.totalProductSalary,
+                  item.avgProductSalary,
+                  item.totalSalary,
+                  item.avgSalary,
+                ]}
+                icon={images.store}
+                onPress={() =>
+                  navigation.navigate("AdminAVGIncomeEmp", {
+                    item: {
+                      branchCode: route.params?.item.branchCode,
+                      shopCode: item.shopCode,
+                      beginMonth: beginMonth,
+                      endMonth: endMonth,
+                    },
+                  })
+                }
+              />
+              {index == data.length - 1 ? (
                 <GeneralListItem
                   style={{
-                    marginTop: index == 0 ? -fontScale(36) : fontScale(50),
+                    marginBottom: fontScale(110),
+                    marginTop: fontScale(38),
                   }}
+                  view
                   avgSalary
-                  totalEmp={"( " + item.totalEmp + " NV" + " )"}
-                  // backgroundColor={"#EFFEFF"}
-                  textColor={"#2E2E31"}
+                  totalEmp={"( " + generalData.totalEmp + " NV" + " )"}
+                  backgroundColor={"#EFFEFF"}
                   key={index}
-                  title={item.shopName}
+                  title={generalData.shopName}
                   titleArray={[
                     ,
                     "Tổng CPCĐ",
@@ -170,71 +209,23 @@ const index = (props) => {
                     "Tổng CP",
                     "BQCP",
                   ]}
-                  item={[
-                    ,
-                    item.totalPermanentSalary,
-                    item.avgPermanentSalary,
-                    item.totalProductSalary,
-                    item.avgProductSalary,
-                    item.totalSalary,
-                    item.avgSalary,
-                  ]}
-                  icon={images.store}
-                  //     navigation.navigate("AdminMonthSalaryShop", {
-                  // item: {
-                  //   "branchCode": item.shopCode,
-                  //   "month": month
-                  // }
-                  //   })
-                  onPress={() =>
-                    navigation.navigate("AdminAVGIncomeEmp", {
-                      item: {
-                        branchCode: route.params?.item.branchCode,
-                        shopCode: item.shopCode,
-                        beginMonth: beginMonth,
-                        endMonth: endMonth,
-                      },
-                    })
-                  }
-                />
-                {index == data.length - 1 ? (
-                  <GeneralListItem
-                    style={{
-                      marginBottom: fontScale(110),
-                      marginTop: fontScale(38),
-                    }}
-                    avgSalary
-                    totalEmp={"( " + generalData.totalEmp + " NV" + " )"}
-                    backgroundColor={"#EFFEFF"}
-                    key={index}
-                    title={generalData.shopName}
-                    titleArray={[
+                  item={
+                    generalData && [
                       ,
-                      "Tổng CPCĐ",
-                      "BQ CPCĐ",
-                      "Tổng CPSP",
-                      "BQ CPSP",
-                      "Tổng CP",
-                      "BQCP",
-                    ]}
-                    item={
-                      generalData && [
-                        ,
-                        generalData.totalPermanentSalary,
-                        generalData.avgPermanentSalary,
-                        generalData.totalProductSalary,
-                        generalData.avgProductSalary,
-                        generalData.totalSalary,
-                        generalData.avgSalary,
-                      ]
-                    }
-                    icon={images.branch}
-                  />
-                ) : null}
-              </View>
-            )}
-          />
-        </View>
+                      generalData.totalPermanentSalary,
+                      generalData.avgPermanentSalary,
+                      generalData.totalProductSalary,
+                      generalData.avgProductSalary,
+                      generalData.totalSalary,
+                      generalData.avgSalary,
+                    ]
+                  }
+                  icon={images.branch}
+                />
+              ) : null}
+            </View>
+          )}
+        />
       </View>
       <Toast ref={(ref) => Toast.setRef(ref)} />
     </SafeAreaView>

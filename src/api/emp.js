@@ -3,6 +3,7 @@ import { baseData, baseUrl } from "./utils";
 import axios from "axios";
 import { useNavigation } from '@react-navigation/core';
 
+
 export const getToken = async () => {
     let token = await _retrieveData("accessToken")
     return token
@@ -677,7 +678,6 @@ export const changePassword = async (oldPass, newPass) => {
 
         })
         .catch(async (error) => {
-            // console.log(error.response.data.message)
             data = {
                 message: error.response?.data.message,
                 isLoading: false,

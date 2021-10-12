@@ -33,14 +33,11 @@ const Splash = () => {
         <SafeAreaView style={styles.container}>
             <StatusBar backgroundColor={colors.primary} />
             <Image source={images.logo} style={styles.logo} />
-            <View style={{ flex: 3.5, justifyContent: "center", top: fontScale(20) }}>
-                <Image source={images.splashshape} style={styles.shape} />
+            <View style={{ flex: 3, justifyContent: "center", top: fontScale(20) }}>
+                <Image source={images.splashshape} resizeMode="cover" style={styles.shape} />
             </View>
-            <View style={{ flex: 2, top: fontScale(70) }}>
-                <Text style={styles.appName}>
-                    {/* {text.appName} */}
-                    KAM/AM Salary
-                </Text>
+            <View style={{ flex: 2, top: fontScale(50) }}>
+                <Text style={styles.appName}>KAM/AM Salary</Text>
                 <ActivityIndicator size="small" color={colors.white} style={styles.loadingIcon} />
             </View>
         </SafeAreaView>

@@ -34,7 +34,7 @@ const SignIn = (props) => {
             await login(userName, password, navigation).then(async (res) => {
                 if (res.status == "success") {
                     _storeData("isLogin", true)
-                    _storeData("loginInfo",res.data);
+                    _storeData("loginInfo", res.data)
                     _storeData("role", res.data?.roleType)
                     showToast("success", "Thành công", "Đăng nhập thành công")
 

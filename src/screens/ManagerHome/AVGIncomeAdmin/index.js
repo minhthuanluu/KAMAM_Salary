@@ -8,7 +8,7 @@ const AVGIncomeAdmin = (props) => {
         <SafeAreaView>
             <StatusBar translucent={true} backgroundColor={colors.primary} />
             <Header title="AVGIncomeAdmin" />
-
+            
         </SafeAreaView>
     );
 }

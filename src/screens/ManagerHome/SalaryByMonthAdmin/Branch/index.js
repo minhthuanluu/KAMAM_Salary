@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, Text,View } from "react-native";
+import { SafeAreaView, Text, View } from "react-native";
 import { Body, DatePicker, GeneralListItem, Header } from "../../../../comps";
 import { styles } from "./style";
 import { images } from "../../../../utils/Images";
@@ -28,16 +28,15 @@ const index = (props) => {
 
   const getData = async (month, branchCode, shopCode) => {
     setLoading(true);
-    setMessage("");
-    await getSalaryByMonth(month, branchCode,shopCode).then((data) => {
+    setMessage("")
+    setData([])
+    await getSalaryByMonth(month, branchCode, shopCode).then((data) => {
       if (data.status == "success") {
         setLoading(false);
-        // console.log(data.data.data)
         if (data.length == 0) {
           setData([])
-          setMessage(data.message);
+          setMessage(text.dataIsNull);
         } else {
-          // console.log(data)
           setData(data.data.data);
           setGeneralData(data.data.general);
         }
@@ -69,7 +68,7 @@ const index = (props) => {
 
   useEffect(() => {
     getData(month, "", "");
-  }, [month])
+  }, [navigation])
 
   const _onChangeMonth = (value) => {
     setMonth(value);
@@ -94,29 +93,22 @@ const index = (props) => {
         <Text style={{ color: colors.primary, textAlign: "center" }}>{message && message}</Text>
         <View>
           <FlatList
-            style={{marginTop:-fontScale(20)}}
+            style={{ marginTop: -fontScale(20) }}
             data={data}
             showsVerticalScrollIndicator={false}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item, index }) => (
               <View>
                 <GeneralListItem
-                  style={{ marginTop: index==0 ? -fontScale(20):fontScale(30) }}
+                  style={{ marginTop: index == 0 ? -fontScale(20) : fontScale(30) }}
                   monthSalary
-                    // backgroundColor={"#EFFEFF"}
-                    textColor={"#2E2E31"}
-                    key={index}
-                    title={item.shopName}
-                    titleArray={[, "Lương CĐ", "CP Duy trì","CP Data KK", "CP thay sim", "Tổng CP"]}
-                    item={[,item.permanentSalary, item.maintainceSalary, item.incentiveSalary, item.simSalary, item.totalSalary]}
-                    icon={images.branch}
-                //     navigation.navigate("AdminMonthSalaryShop", {
-                    // item: {
-                    //   "branchCode": item.shopCode,
-                    //   "month": month
-                    // }
-                //   })
-                  onPress={() =>navigation.navigate('AdminMonthSalaryShop',{
+                  textColor={"#2E2E31"}
+                  key={index}
+                  title={item.shopName}
+                  titleArray={[, "Lương CĐ", "CP Duy trì", "CP Data KK", "CP thay sim", "Tổng CP"]}
+                  item={[, item.permanentSalary, item.maintainceSalary, item.incentiveSalary, item.simSalary, item.totalSalary]}
+                  icon={images.branch}
+                  onPress={() => navigation.navigate('AdminMonthSalaryShop', {
                     item: {
                       "branchCode": item.shopCode,
                       "month": month
@@ -124,13 +116,14 @@ const index = (props) => {
                   })} />
                 { index == data.length - 1 ?
                   <GeneralListItem
+                    view
                     style={{ marginBottom: fontScale(110), marginTop: fontScale(38) }}
                     monthSalary
                     backgroundColor={"#EFFEFF"}
                     key={index}
                     title={generalData.shopName}
-                    titleArray={[, "Lương CĐ", "CP Duy trì","CP Data KK", "CP thay sim", "Tổng CP"]}
-                    item={generalData&&[,generalData.permanentSalary, generalData.maintainceSalary, generalData.incentiveSalary,generalData.simSalary, generalData.totalSalary]}
+                    titleArray={[, "Lương CĐ", "CP Duy trì", "CP Data KK", "CP thay sim", "Tổng CP"]}
+                    item={generalData && [, generalData.permanentSalary, generalData.maintainceSalary, generalData.incentiveSalary, generalData.simSalary, generalData.totalSalary]}
                     icon={images.company} /> : null
                 }
               </View>

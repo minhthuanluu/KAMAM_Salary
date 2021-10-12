@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 import { Body, DatePicker, GeneralListItem, Header } from "../../../../comps";
 import { styles } from "./style";
 import { images } from "../../../../utils/Images";
@@ -22,15 +22,24 @@ const index = () => {
   const [generalData, setGeneralData] = useState({});
   const [month, setMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"));
   const navigation = useNavigation();
+  const [message, setMessage] = useState('')
   const route = useRoute();
 
   const getData = async (month, branchcode, shopCode) => {
     setLoading(true);
+    setMessage("")
+    setData([])
     await getSalaryByMonth(month, branchcode, shopCode).then((data) => {
       if (data.status == "success") {
-        setData(data.data.data);
-        setGeneralData(data.data.general);
+        console.log(data)
         setLoading(false);
+        if (data.length == 0) {
+          setData([]);
+          setMessage(text.dataIsNull);
+        } else {
+          setData(data.data.data);
+          setGeneralData(data.data.general);
+        }
       }
       if (data.status == "v_error") {
         Toast.show({
@@ -60,7 +69,7 @@ const index = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar translucent backgroundColor={colors.primary} />
-      <Header title={text.salaryMonth}/>
+      <Header title={text.salaryMonth} />
       <DatePicker
         month={month}
         width={width - fontScale(120)}
@@ -79,7 +88,9 @@ const index = () => {
             style={{ marginTop: fontScale(20) }}
           />
         ) : null}
-
+        <Text style={{ color: colors.primary, textAlign: "center" }}>
+          {message && message}
+        </Text>
         <View style={{ flex: 1 }}>
           <FlatList
             style={{ marginTop: fontScale(10) }}
@@ -89,15 +100,14 @@ const index = () => {
             renderItem={({ item, index }) => (
               <View>
                 <GeneralListItem
-                  style={{ marginTop: index==0 ? -fontScale(29):fontScale(30) }}
+                  style={{ marginTop: index == 0 ? -fontScale(20) : fontScale(30) }}
                   monthSalary
-                    // backgroundColor={"#EFFEFF"}
-                    textColor={"#2E2E31"}
-                    key={index}
-                    title={item.shopName}
-                    titleArray={[, "Lương CĐ", "CP Duy trì","CP Data KK", "CP thay sim", "Tổng CP"]}
-                    item={[,item.permanentSalary, item.maintainceSalary, item.incentiveSalary, item.simSalary, item.totalSalary]}
-                    icon={images.store}
+                  textColor={"#2E2E31"}
+                  key={index}
+                  title={item.shopName}
+                  titleArray={[, "Lương CĐ", "CP Duy trì", "CP Data KK", "CP thay sim", "Tổng CP"]}
+                  item={[, item.permanentSalary, item.maintainceSalary, item.incentiveSalary, item.simSalary, item.totalSalary]}
+                  icon={images.store}
                   onPress={() =>
                     navigation.navigate("AdminMonthSalaryEmp", {
                       item: {
@@ -111,13 +121,14 @@ const index = () => {
                 {
                   index == data.length - 1 ?
                     <GeneralListItem
+                      view
                       style={{ marginBottom: fontScale(110), marginTop: fontScale(38) }}
                       monthSalary
                       key={index}
                       backgroundColor={"#EFFEFF"}
                       title={generalData.shopName}
-                      titleArray={[, "Lương CĐ", "CP Duy trì","CP Data KK", "CP thay sim", "Tổng CP"]}
-                      item={generalData&&[,generalData.permanentSalary, generalData.maintainceSalary, generalData.incentiveSalary,generalData.simSalary, generalData.totalSalary]}
+                      titleArray={[, "Lương CĐ", "CP Duy trì", "CP Data KK", "CP thay sim", "Tổng CP"]}
+                      item={generalData && [, generalData.permanentSalary, generalData.maintainceSalary, generalData.incentiveSalary, generalData.simSalary, generalData.totalSalary]}
                       icon={images.branch} />
                     : null
                 }

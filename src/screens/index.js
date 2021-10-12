@@ -57,15 +57,32 @@ import GroupKPI from "./ManagerHome/KPICurrentMonth/GroupKPI";
 
 import DeliveryListDashboard from "./ManagerHome/KPICurrentMonth/DeliveryList/Dashboard";
 import DeliveEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/DeliveEnterprise";
-import SubsByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/SubsByEnterprise";
-import RevenueByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise";
+import DeliveEnterpriseDetail from "./ManagerHome/KPICurrentMonth/DeliveryList/DeliveEnterprise/DEDetail";
 
+import SubsByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/SubsByEnterprise";
+import SubsByEnterpriseDetail from "./ManagerHome/KPICurrentMonth/DeliveryList/SubsByEnterprise/SEDetail";
+
+import RevenueByEnterprise from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise";
 import ProductivitySubAdmin from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin";
+// import SalaryByMonthAdmin from "./ManagerHome/SalaryByMonthAdmin";
+// import AVGIncomeAdmin from "./ManagerHome/AVGIncomeAdmin";
+import RevenueByEnterpriseDetail from "./ManagerHome/KPICurrentMonth/DeliveryList/RevenueByEnterprise/REDetail";
+
+// import ProductivitySubAdmin from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin";
+
+import BranchProductivitySub from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin/branch"
+import ShopProductivitySub from "./ManagerHome/KPICurrentMonth/ProductivitySubAdmin/shop"
+// import SalaryByMonthAdmin from "./ManagerHome/SalaryByMonthAdmin";
+// import AVGIncomeAdmin from "./ManagerHome/AVGIncomeAdmin";
 
 
 import SubscriberQualityAdminDashboard from "./ManagerHome/SubscriberQualityAdmin/Dashboard";
 import SumReportStaff from "./ManagerHome/SubscriberQualityAdmin/SumReportStaff";
 import SumReportUnit from "./ManagerHome/SubscriberQualityAdmin/SumReportUnit";
+import SumReportUnitShop from "./ManagerHome/SubscriberQualityAdmin/SumReportUnit/Shop";
+import SumReportUnitByUnit from "./ManagerHome/SubscriberQualityAdmin/SumReportUnit/Shop/Unit"
+import SumReportUnitByEmp from "./ManagerHome/SubscriberQualityAdmin/SumReportUnit/Shop/Unit"
+
 
 
 //SalaryByMonthAdmin
@@ -87,18 +104,28 @@ export const TopAMScreen = () => { return <TopAM /> }
 export const GroupKPIScreen = () => { return <GroupKPI /> }
 export const DeliveryListDashboardScreen = () => { return <DeliveryListDashboard /> }
 export const DeliveEnterpriseScreen = () => { return <DeliveEnterprise /> }
+export const DeliveEnterpriseDetailScreen = () => { return <DeliveEnterpriseDetail /> }
+
 export const SubsByEnterpriseScreen = () => { return <SubsByEnterprise /> }
+export const SubsByEnterpriseDetailScreen = () => { return <SubsByEnterpriseDetail /> }
+
 export const RevenueByEnterpriseScreen = () => { return <RevenueByEnterprise /> }
+export const RevenueByEnterpriseDetailScreen = () => { return <RevenueByEnterpriseDetail /> }
+
 export const ProductivitySubAdminScreen = () => { return <ProductivitySubAdmin /> }
+export const BranchProductivitySubScreen = () => { return <BranchProductivitySub /> }
+export const ShopProductivitySubScreen = () => { return <ShopProductivitySub /> }
+
+
 
 export const SubscriberQualityAdminDashboardScreen = () => { return <SubscriberQualityAdminDashboard /> }
 export const SumReportStaffScreen = () => { return <SumReportStaff /> }
 export const SumReportUnitScreen = () => { return <SumReportUnit /> }
+export const SumReportUnitShopScreen = () => { return <SumReportUnitShop /> }
+export const SumReportUnitByUnitScreen = () => { return <SumReportUnitByUnit /> }
+export const SumReportUnitByEmpScreen = () => { return <SumReportUnitByEmp /> }
 
-
-
-
-
+// export const AVGIncomeAdminScreen = () => { return <AVGIncomeAdmin /> }
 
 export const RecoveryScreen = () => { return <Recovery /> }
 export const SignInScreen = () => { return <SignIn /> }
@@ -148,14 +175,14 @@ export const UpdateProfileScreen = () => { return <UpdateProfile /> }
 
 //SalaryByMonthAdmin
 export const AVGIncomeAdminScreen = () => { return <AVGIncomeAdmin /> }
-export const AdminAVGIncomeShopScreen = () => { return <AdminAVGIncomeShop/>}
-export const AdminAVGIncomeEmpScreen = () => { return <AdminAVGIncomeEmp/>}
+export const AdminAVGIncomeShopScreen = () => { return <AdminAVGIncomeShop /> }
+export const AdminAVGIncomeEmpScreen = () => { return <AdminAVGIncomeEmp /> }
 
 
 //AVGIncomeAdmin
 export const SalaryByMonthAdminScreen = () => { return <SalaryByMonthAdmin /> }
-export const AdminMonthSalaryShopScreen = () => { return <AdminMonthSalaryShop/>}
-export const AdminMonthSalaryEmpScreen = () => { return <AdminMonthSalaryEmp/>}
+export const AdminMonthSalaryShopScreen = () => { return <AdminMonthSalaryShop /> }
+export const AdminMonthSalaryEmpScreen = () => { return <AdminMonthSalaryEmp /> }
 
 
 

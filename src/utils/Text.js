@@ -214,5 +214,9 @@ productivitySub: "Năng suất bình quân",
   totalOutcome:"Tổng chi phí",
   search:"Tìm kiếm",
   violateWarning:"Cảnh báo vi phạm", 
-  statistical: "Thống kê"
+  statistical: "Thống kê",
+
+  reportByUnit:"Báo cáo tổng hợp theo đơn vị",
+  reportByEmp:"Báo cáo tổng hợp theo nhân viên",
+  findEmpCode:"Nhập tên nhân viên hoặc mã đơn vị"
 };

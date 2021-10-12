@@ -41,11 +41,11 @@ const index = (props) => {
 
   const [beginMonth, setBeginMonth] = useState(
     route.params?.item.beginMonth ||
-      moment(new Date()).subtract(3, "months").format("MM/YYYY")
+    moment(new Date()).subtract(3, "months").format("MM/YYYY")
   );
   const [endMonth, setEndMonth] = useState(
     route.params?.item.endMonth ||
-      moment(new Date()).subtract(1, "months").format("MM/YYYY")
+    moment(new Date()).subtract(1, "months").format("MM/YYYY")
   );
   const navigation = useNavigation();
   const [notification, setNotification] = useState("");
@@ -53,14 +53,12 @@ const index = (props) => {
   const getData = async (beginMonth, endMonth, branchCode, shopCode) => {
     setLoading(true);
     setMessage("");
-    await getAvgIncome(beginMonth, endMonth, branchCode, shopCode).then(
-      (data) => {
+    await getAvgIncome(beginMonth, endMonth, branchCode, shopCode).then((data) => {
         if (data.status == "success") {
           setLoading(false);
-
           if (data.length == 0) {
             setData([]);
-            setMessage(data.message);
+            setMessage(text.dataIsNull);
           } else {
             // console.log(data);
             setData(data.data.data);
@@ -150,6 +148,7 @@ const index = (props) => {
             renderItem={({ item, index }) => (
               <View>
                 <GeneralListItem
+                  view
                   style={{
                     marginTop: index == 0 ? -fontScale(39) : fontScale(50),
                   }}
@@ -197,6 +196,7 @@ const index = (props) => {
                 />
                 {index == data.length - 1 ? (
                   <GeneralListItem
+                  view
                     style={{
                       marginBottom: fontScale(110),
                       marginTop: fontScale(38),
