@@ -47,7 +47,7 @@ const index = () => {
 
   useEffect(() => {
     const { month, branchCode } = route.params?.item;
-    console.log()
+    // console.log()
     setMonth(month);
     getData(month, branchCode, "");
   }, [navigation]);

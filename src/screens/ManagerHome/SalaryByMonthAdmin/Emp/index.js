@@ -100,7 +100,7 @@ const index = (props) => {
 
   useEffect(() => {
     const { month, branchCode, shopCode } = route.params?.item;
-    console.log()
+    // console.log()
     setMonth(month);
     getData(month, branchCode, shopCode);
   }, [navigation]);

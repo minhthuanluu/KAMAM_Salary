@@ -61,7 +61,7 @@ const index = (props) => {
             setData([]);
             setMessage(data.message);
           } else {
-            console.log(data);
+            // console.log(data);
             setData(data.data.data);
             setNotification(data.data.notification);
             setGeneralData(data.data.general);
@@ -109,7 +109,7 @@ const index = (props) => {
   };
 
   const _onChangeMonth = async (value) => {
-    console.log(value)
+    // console.log(value)
     setBeginMonth(value.beginMonth);
     setEndMonth(value.endMonth);
     const { branchCode } = route.params?.item;

@@ -62,7 +62,7 @@ const index = (props) => {
             setData([]);
             setMessage(data.message);
           } else {
-            console.log(data);
+            // console.log(data);
             setData(data.data.data);
             setNotification(data.data.notification);
             setGeneralData(data.data.general);

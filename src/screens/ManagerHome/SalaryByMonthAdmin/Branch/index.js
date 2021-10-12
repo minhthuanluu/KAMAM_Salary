@@ -32,12 +32,12 @@ const index = (props) => {
     await getSalaryByMonth(month, branchCode,shopCode).then((data) => {
       if (data.status == "success") {
         setLoading(false);
-        console.log(data.data.data)
+        // console.log(data.data.data)
         if (data.length == 0) {
           setData([])
           setMessage(data.message);
         } else {
-          console.log(data)
+          // console.log(data)
           setData(data.data.data);
           setGeneralData(data.data.general);
         }
