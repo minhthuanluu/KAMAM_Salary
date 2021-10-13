@@ -39,7 +39,6 @@ const AdminDashboard = (props) => {
       if (item == "ROLE_COMPANY") {
         navigation.navigate("SalaryByMonthAdmin");
       } else if (item == "ROLE_BRANCH") {
-        console.log(data)
         navigation.navigate("AdminMonthSalaryShop", {
           item: {
             branchCode: data.shopCode,
@@ -89,7 +88,6 @@ const AdminDashboard = (props) => {
       if (item == "ROLE_COMPANY") {
         navigation.navigate("AVGIncomeAdmin");
       } else if (item == "ROLE_BRANCH") {
-        console.log(data)
         navigation.navigate("AdminAVGIncomeShop", {
           item: {
             branchCode: data.shopCode,

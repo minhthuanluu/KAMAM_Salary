@@ -80,7 +80,6 @@ const index = (props) => {
   }
 
   const _onChangeMonth = async (value) => {
-    console.log(value)
     setBeginMonth(value.beginMonth);
     setEndMonth(value.endMonth);
     await getData(value.beginMonth, value.endMonth, "", "");

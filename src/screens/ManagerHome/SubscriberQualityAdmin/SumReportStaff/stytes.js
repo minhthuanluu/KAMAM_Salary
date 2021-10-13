@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     },
     dateViewFirst:{ flex: 1, marginLeft: -width / 5 },
     dateViewSecond:{ flex: 1, marginLeft: -width / 4 },
-    message:{textAlign:"center",color:colors.primary,marginTop:fontScale(5)},
+    message:{textAlign:"center",color:colors.primary,marginTop:fontScale(5),fontSize:fontScale(13)},
     fieldItem:{ fontSize: fontScale(13), color: "#00BECC", textAlignVertical: "center", textAlign: "center", fontWeight: "bold", marginVertical: fontScale(10) }
 });
 
@@ -44,6 +44,6 @@ export const itemStyles = StyleSheet.create({
         fontWeight: "bold",
         marginHorizontal: fontScale(5)
     },
-    item:{ textAlignVertical: "center", textAlign: "center" },
+    item:{ textAlignVertical: "center", textAlign: "center",fontSize:fontScale(13) },
     message:{ fontSize: fontScale(13), color: colors.primary, textAlign: "center", marginTop: fontScale(5) }
 })

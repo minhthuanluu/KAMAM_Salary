@@ -32,11 +32,17 @@ const SumReportStaff = (props) => {
         setTempData([])
         await getReportByEmp().then((res) => {
             if (res.status == "success") {
-                setData(res.data.data.data)
-                setTempData(res.data.data.data)
+                if (res.length > 0) {
+                    setData(res.data.data.data)
+                    setTempData(res.data.data.data)
+
+                } else {
+                    setMessage(text.dataIsNull)
+                }
                 setBeginMonth(res.data.data.beginMonth)
                 setEndMonth(res.data.data.endMonth)
                 setLoading(res.loading);
+
             }
             if (res.status == "failed") {
                 setLoading(res.loading);
@@ -58,7 +64,7 @@ const SumReportStaff = (props) => {
 
     useEffect(() => {
         getData()
-        return ()=>{isFocus}
+        return () => { isFocus }
     }, [isFocus])
 
     const onSearch = (text = "") => {
@@ -67,15 +73,15 @@ const SumReportStaff = (props) => {
         const newData = tempData.filter((item) => {
             return (
                 item.empName.toString().toUpperCase()
-                .replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A")
-                .replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E")
-                .replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I")
-                .replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O")
-                .replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U")
-                .replace(/Đ/g, "D")
-                .replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y")
-                .replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ")
-                .indexOf(text.toUpperCase()) > -1) 
+                    .replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A")
+                    .replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E")
+                    .replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I")
+                    .replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O")
+                    .replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U")
+                    .replace(/Đ/g, "D")
+                    .replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y")
+                    .replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g, " ")
+                    .indexOf(text.toUpperCase()) > -1)
                 ||
                 item.shopCode.toString().toUpperCase().indexOf(text.toUpperCase()) > -1
         });
@@ -114,26 +120,27 @@ const SumReportStaff = (props) => {
             <View style={{ flex: 1, backgroundColor: colors.white }}>
                 {loading == true ? <ActivityIndicator size="small" color={colors.primary} style={{ marginVertical: fontScale(20) }} /> : null}
                 <View style={styles.header}>
-                    <FieldItem item={header[0]} width={width / 3.5} />
-                    <FieldItem item={header[1]} width={width / 8} />
-                    <FieldItem item={header[2]} width={width / 5.1} />
-                    <FieldItem item={header[3]} width={width / 5.5} />
-                    <FieldItem item={header[4]} width={width / 5} />
+                    <FieldItem item={header[0]} width={0.35*width} />
+                    <FieldItem item={header[1]} width={0.1175*width} />
+                    <FieldItem item={header[2]} width={0.1775*width} />
+                    <FieldItem item={header[3]} width={0.07*width} />
+                    <FieldItem item={header[4]} width={0.15*width} />
                 </View>
                 {message ? <Text style={styles.message}>{message}</Text> : null}
                 <FlatList
                     data={tempData}
+                    initialNumToRender={10}
                     showsVerticalScrollIndicator={false}
                     keyExtractor={(item, index) => item.empCode}
-                    renderItem={({ item, index }) => { return <ReportEmpItem item={item} index={index} width={[width / 3.5, width / 8, width / 5.1, width / 4.8, width / 5]} /> }} />
+                    renderItem={({ item, index }) => { return <ReportEmpItem item={item} index={index} width={[0.3*width, 0.08*width, 0.1175*width, 0.07*width, 0.15*width]} /> }} />
             </View>
             <Toast ref={(ref) => Toast.setRef(ref)} />
         </SafeAreaView>
     );
 }
 
-const FieldItem = ({ item, width }) => {
-    return <View style={{ minWidth: width }}>
+const FieldItem = ({ item, width,style }) => {
+    return <View style={{...style, minWidth: width }}>
         <Text style={styles.fieldItem}>{item}</Text>
     </View>
 }
@@ -146,16 +153,16 @@ const ReportEmpItem = (props) => {
                 <Text style={itemStyles.item}>{item.empName}</Text>
                 <Text style={{ ...itemStyles.item, marginTop: fontScale(5) }}>({item.shopCode})</Text>
             </View>
-            <View style={{ width: props.width[1], justifyContent: "center" }}>
+            <View style={{ width: props.width[1], justifyContent: "center",alignItems:"center" }}>
                 <Text style={itemStyles.item}>{item.postpaid}</Text>
             </View>
-            <View style={{ width: props.width[2], justifyContent: "center" }}>
+            <View style={{ width: props.width[2], justifyContent: "center",alignItems:"center"  }}>
                 <Text style={itemStyles.item}>{item.revoke}</Text>
             </View>
-            <View style={{ width: props.width[3], justifyContent: "center" }}>
+            <View style={{ width: props.width[3], justifyContent: "center" ,alignItems:"center" }}>
                 <Text style={itemStyles.item}>{item.foneCard}</Text>
             </View>
-            <View style={{ width: props.width[4], justifyContent: "center" }}>
+            <View style={{ width: props.width[4], justifyContent: "center",alignItems:"center"  }}>
                 <Text style={itemStyles.item}>{item.deny2C}</Text>
             </View>
         </View>

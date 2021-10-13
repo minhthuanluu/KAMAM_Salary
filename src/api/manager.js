@@ -58,6 +58,7 @@ export const getReportByEmp = async () => {
     status: "",
     data: null,
     loading: null,
+    length: 0,
     error: null
   };
 
@@ -76,7 +77,7 @@ export const getReportByEmp = async () => {
           data: res.data,
           isLoading: false,
           status: "success",
-          length: res.data.data.length,
+          length: res.data.data.data.length,
           error: null
         };
       }
