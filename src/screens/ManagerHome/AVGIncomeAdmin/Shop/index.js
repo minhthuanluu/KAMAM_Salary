@@ -1,36 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView, Text, View } from "react-native";
-import {
-  Body,
-  DatePicker,
-  GeneralListItem,
-  Header,
-  DoubleMonthPicker,
-} from "../../../../comps";
+import {Body,GeneralListItem,Header,DoubleMonthPicker} from "../../../../comps";
 import { styles } from "./style";
 import { images } from "../../../../utils/Images";
 import moment from "moment";
-import {
-  getAvgIncome,
-  getKPIByMonth,
-  getMonthSalary,
-} from "../../../../api/manager";
-import { width } from "../../../../utils/Dimenssion";
+import {getAvgIncome} from "../../../../api/manager";
 import { fontScale } from "../../../../utils/Fonts";
 import { StatusBar } from "react-native";
 import { text } from "../../../../utils/Text";
 import { colors } from "../../../../utils/Colors";
 import { FlatList } from "react-native";
 import { ActivityIndicator } from "react-native";
-import {
-  useBackButton,
-  useFocusEffect,
-  useIsFocused,
-  useNavigation,
-  useRoute,
-} from "@react-navigation/native";
+import {useNavigation,useRoute,} from "@react-navigation/native";
 import Toast from "react-native-toast-message";
-import { useCallback } from "react";
 
 const index = (props) => {
   const [data, setData] = useState([]);
@@ -38,8 +20,6 @@ const index = (props) => {
   const [loading, setLoading] = useState(false);
   const [generalData, setGeneralData] = useState({});
   const route = useRoute();
-  // const [month, setMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"));
-
   const [beginMonth, setBeginMonth] = useState(
     route.params?.item.beginMonth || moment(new Date()).subtract(3, "months").format("MM/YYYY")
   );
@@ -52,8 +32,7 @@ const index = (props) => {
   const getData = async (beginMonth, endMonth, branchCode, shopCode) => {
     setLoading(true);
     setMessage("");
-    await getAvgIncome(beginMonth, endMonth, branchCode, shopCode).then(
-      (data) => {
+    await getAvgIncome(beginMonth, endMonth, branchCode, shopCode).then((data) => {
         if (data.status == "success") {
           setLoading(false);
           if (data.length == 0) {
@@ -75,7 +54,7 @@ const index = (props) => {
             type: "error",
             visibilityTime: 1000,
             autoHide: true,
-            onHide: () => navigation.goBack(),
+            onHide: () => {},
           });
         }
         if (data.status == "v_error") {
@@ -108,7 +87,7 @@ const index = (props) => {
   };
 
   const _onChangeMonth = async (value) => {
-    
+   
     setBeginMonth(value.beginMonth);
     setEndMonth(value.endMonth);
     const { branchCode } = route.params?.item;
@@ -156,7 +135,7 @@ const index = (props) => {
                 avgSalary
                 totalEmp={"( " + item.totalEmp + " NV" + " )"}
                 textColor={"#2E2E31"}
-                key={index}
+                id={item.shopCode}
                 title={item.shopName}
                 titleArray={[
                   ,
@@ -198,7 +177,7 @@ const index = (props) => {
                   avgSalary
                   totalEmp={"( " + generalData.totalEmp + " NV" + " )"}
                   backgroundColor={"#EFFEFF"}
-                  key={index}
+                  id={-1}
                   title={generalData.shopName}
                   titleArray={[
                     ,

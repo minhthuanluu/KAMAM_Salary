@@ -4,7 +4,7 @@ import { Body, DatePicker, GeneralListItem, Header } from "../../../../comps";
 import { styles } from "./style";
 import { images } from "../../../../utils/Images";
 import moment from "moment";
-import { getKPIByMonth, getMonthSalary, getSalaryByMonth } from "../../../../api/manager";
+import { getSalaryByMonth } from "../../../../api/manager";
 import { width } from "../../../../utils/Dimenssion";
 import { fontScale } from "../../../../utils/Fonts";
 import { StatusBar } from "react-native";
@@ -104,7 +104,7 @@ const index = () => {
                   style={{ marginTop: index == 0 ? -fontScale(20) : fontScale(30) }}
                   monthSalary
                   textColor={"#2E2E31"}
-                  key={item.shopCode*index}
+                  index={item.shopCode}
                   title={item.shopName}
                   titleArray={[, "Lương CĐ", "CP Duy trì", "CP Data KK", "CP thay sim", "Tổng CP"]}
                   item={[, item.permanentSalary, item.maintainceSalary, item.incentiveSalary, item.simSalary, item.totalSalary]}
@@ -125,7 +125,7 @@ const index = () => {
                       view
                       style={{ marginBottom: fontScale(110), marginTop: fontScale(38) }}
                       monthSalary
-                      key={item.shopCode}
+                      index={-1}
                       backgroundColor={"#EFFEFF"}
                       title={generalData.shopName}
                       titleArray={[, "Lương CĐ", "CP Duy trì", "CP Data KK", "CP thay sim", "Tổng CP"]}

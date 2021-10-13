@@ -641,7 +641,6 @@ export const updateImage = async (formData) => {
             }
         })
         .catch(async (error) => {
-            // console.log(error)
             data = {
                 message: error.response?.data.message,
                 isLoading: false,

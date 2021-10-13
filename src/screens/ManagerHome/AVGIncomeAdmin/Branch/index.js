@@ -1,34 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView, Text, View } from "react-native";
-import { Body, DatePicker, GeneralListItem, Header, DoubleMonthPicker } from "../../../../comps";
+import { Body, GeneralListItem, Header, DoubleMonthPicker } from "../../../../comps";
 import { styles } from "./style";
 import { images } from "../../../../utils/Images";
 import moment from "moment";
-import { getAvgIncome, getKPIByMonth, getMonthSalary } from "../../../../api/manager";
-import { width } from "../../../../utils/Dimenssion";
+import { getAvgIncome } from "../../../../api/manager";
 import { fontScale } from "../../../../utils/Fonts";
 import { StatusBar } from "react-native";
 import { text } from "../../../../utils/Text";
 import { colors } from "../../../../utils/Colors";
 import { FlatList } from "react-native";
 import { ActivityIndicator } from "react-native";
-import { useBackButton, useFocusEffect, useIsFocused, useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import Toast from "react-native-toast-message";
-import { useCallback } from "react";
-
 
 const index = (props) => {
   const [data, setData] = useState([]);
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [generalData, setGeneralData] = useState({});
-
-  // const [month, setMonth] = useState(moment(new Date()).subtract(1, "months").format("MM/YYYY"));
-
   const [beginMonth, setBeginMonth] = useState(moment(new Date()).subtract(3, 'months').format("MM/YYYY"));
   const [endMonth, setEndMonth] = useState(moment(new Date()).subtract(1, 'months').format("MM/YYYY")); const navigation = useNavigation();
   const [notification, setNotification] = useState("");
-  const route = useRoute();
 
   const getData = async (beginMonth, endMonth, branchCode, shopCode) => {
     setLoading(true);
@@ -87,6 +80,7 @@ const index = (props) => {
   }
 
   const _onChangeMonth = async (value) => {
+    console.log(value)
     setBeginMonth(value.beginMonth);
     setEndMonth(value.endMonth);
     await getData(value.beginMonth, value.endMonth, "", "");
@@ -120,7 +114,7 @@ const index = (props) => {
                   avgSalary
                   totalEmp={"( " + item.totalEmp + " NV" + " )"}
                   textColor={"#2E2E31"}
-                  key={index*0.14}
+                  index={item.shopCode}
                   title={item.shopName}
                   titleArray={[, "Tổng CPCĐ", "BQ CPCĐ", "Tổng CPSP", "BQ CPSP", "Tổng CP", "BQCP"]}
                   item={[, item.totalPermanentSalary, item.avgPermanentSalary, item.totalProductSalary, item.avgProductSalary, item.totalSalary, item.avgSalary]}
@@ -141,15 +135,14 @@ const index = (props) => {
                     avgSalary
                     totalEmp={"( " + generalData.totalEmp + " NV" + " )"}
                     backgroundColor={"#EFFEFF"}
-                    key={index.toString()}
+                    index={-1}
                     title={generalData.shopName}
                     titleArray={[, "Tổng CPCĐ", "BQ CPCĐ", "Tổng CPSP", "BQ CPSP", "Tổng CP", "BQCP"]}
                     item={generalData && [, generalData.totalPermanentSalary, generalData.avgPermanentSalary, generalData.totalProductSalary, generalData.avgProductSalary, generalData.totalSalary, generalData.avgSalary]}
                     icon={images.company} /> : null
                 }
               </View>
-            )}
-          />
+            )}/>
         </View>
       </View>
       <Toast ref={(ref) => Toast.setRef(ref)} />

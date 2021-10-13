@@ -13,16 +13,16 @@ const GeneralListItem = (props) => {
         <View onPress={props.onPress} style={[styles.compContainer, props.style, { backgroundColor: props.backgroundColor || "#FFFFFF" }]}>
           <View style={{ flexDirection: "row" }}>
             <View style={{ flexDirection: "row" }}>
-              <Text key={props.key} style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: props.textColor || "#D19E01" }}>{props.title}</Text>
+              <Text key={props.index} style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: props.textColor || "#D19E01" }}>{props.title}</Text>
               <Text style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: "#C2B60E" }}>{props.totalEmp}</Text>
             </View>
           </View>
           <Image source={props.icon} style={{ width: fontScale(41), height: fontScale(41), position: "absolute", right: fontScale(20), top: -fontScale(23) }} resizeMode="contain" />
           <View style={{ marginTop: fontScale(10) }} key={Math.random()}>
             <View style={{ flexDirection: "row", justifyContent: "space-between", marginVertical: fontScale(10), marginHorizontal: fontScale(5) }} key={12}>
-              <Item title={props.titleArray[1]} content={props.item[1]} key={0} style={{ flex: 1 }} />
-              <Item title={props.titleArray[2]} content={props.item[2]} key={1} style={{ flex: 1 }} />
-              <Item title={props.titleArray[3]} content={props.item[3]} key={2} style={{ flex: 1 }} />
+              <Item title={props.titleArray[1]} content={props.item[1]} index={0} style={{ flex: 1 }} />
+              <Item title={props.titleArray[2]} content={props.item[2]} index={1} style={{ flex: 1 }} />
+              <Item title={props.titleArray[3]} content={props.item[3]} index={2} style={{ flex: 1 }} />
               {/* {
                 props.titleArra.map((item,index)=>{
                   return <Item title={props.titleArray[index]} content={props.item[index]} key={index} style={{ flex: 1 }} />
@@ -30,9 +30,9 @@ const GeneralListItem = (props) => {
               } */}
             </View>
             <View style={{ flexDirection: "row", justifyContent: "space-between", marginVertical: fontScale(10), marginHorizontal: fontScale(5) }} key={15}>
-              <Item title={props.titleArray[4]} content={props.item[4]} key={3} style={{ flex: 1 }} />
-              <Item title={props.titleArray[5]} content={props.item[5]} key={4} style={{ flex: 1 }} />
-              <Item title={props.titleArray[6]} content={props.item[6]} key={5} style={{ flex: 1 }} />
+              <Item title={props.titleArray[4]} content={props.item[4]} index={3} style={{ flex: 1 }} />
+              <Item title={props.titleArray[5]} content={props.item[5]} index={4} style={{ flex: 1 }} />
+              <Item title={props.titleArray[6]} content={props.item[6]} index={5} style={{ flex: 1 }} />
             </View>
           </View>
         </View>
@@ -40,7 +40,7 @@ const GeneralListItem = (props) => {
         <TouchableOpacity onPress={props.onPress} style={[styles.compContainer, props.style, { backgroundColor: props.backgroundColor || "#FFFFFF" }]}>
           <View style={{ flexDirection: "row" }}>
             <View style={{ flexDirection: "row" }}>
-              <Text key={props.key} style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: props.textColor || "#D19E01" }}>{props.title}</Text>
+              <Text key={props.index} style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: props.textColor || "#D19E01" }}>{props.title}</Text>
               <Text style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: "#C2B60E" }}>{props.totalEmp}</Text>
               {/* <View style={{ flexDirection: "row" }}>
                   <Text style={{ textAlign: "center", marginTop: fontScale(10), fontSize: fontScale(15), fontWeight: "bold", color: colors.black, marginLeft: fontScale(5) }}>{props.titleArray[0]}: </Text>
@@ -51,21 +51,21 @@ const GeneralListItem = (props) => {
           <Image source={props.icon} style={{ width: fontScale(41), height: fontScale(41), position: "absolute", right: fontScale(20), top: -fontScale(23) }} resizeMode="contain" />
           <View style={{ marginTop: fontScale(10) }} key={Math.random()}>
             <View style={{ flexDirection: "row", justifyContent: "space-between", marginVertical: fontScale(10), marginHorizontal: fontScale(5) }} key={12}>
-              <Item title={props.titleArray[1]} content={props.item[1]} key={0} style={{ flex: 1 }} />
-              <Item title={props.titleArray[2]} content={props.item[2]} key={1} style={{ flex: 1 }} />
-              <Item title={props.titleArray[3]} content={props.item[3]} key={2} style={{ flex: 1 }} />
+              <Item title={props.titleArray[1]} content={props.item[1]} index={0} style={{ flex: 1 }} />
+              <Item title={props.titleArray[2]} content={props.item[2]} index={1} style={{ flex: 1 }} />
+              <Item title={props.titleArray[3]} content={props.item[3]} index={2} style={{ flex: 1 }} />
             </View>
             <View style={{ flexDirection: "row", justifyContent: "space-between", marginVertical: fontScale(10), marginHorizontal: fontScale(5) }} key={15}>
-              <Item title={props.titleArray[4]} content={props.item[4]} key={3} style={{ flex: 1 }} />
-              <Item title={props.titleArray[5]} content={props.item[5]} key={4} style={{ flex: 1 }} />
-              <Item title={props.titleArray[6]} content={props.item[6]} key={5} style={{ flex: 1 }} />
+              <Item title={props.titleArray[4]} content={props.item[4]} index={3} style={{ flex: 1 }} />
+              <Item title={props.titleArray[5]} content={props.item[5]} index={4} style={{ flex: 1 }} />
+              <Item title={props.titleArray[6]} content={props.item[6]} index={5} style={{ flex: 1 }} />
             </View>
           </View>
         </TouchableOpacity>
       :
       props.monthSalary ?
         props.view ?
-          <View key={props.key} style={[styles.compContainer, props.style, { backgroundColor: props.backgroundColor || "#FFFFFF" }]}>
+          <View key={props.index} style={[styles.compContainer, props.style, { backgroundColor: props.backgroundColor || "#FFFFFF" }]}>
             <View style={{ flexDirection: "row" }}>
               <View>
                 <Text style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: props.textColor || "#D19E01" }}>{props.title}</Text>
@@ -74,19 +74,19 @@ const GeneralListItem = (props) => {
             <Image source={props.icon} style={{ width: fontScale(47), height: fontScale(47), position: "absolute", right: fontScale(20), top: -fontScale(23) }} resizeMode="contain" />
             <View style={{ marginTop: fontScale(10) }} key={Math.random()}>
               <View style={{ flexDirection: "row", justifyContent: "space-between", marginVertical: fontScale(10), marginHorizontal: fontScale(5) }} key={12}>
-                <Item title={props.titleArray[1]} content={props.item[1]} key={0} style={{ flex: 1 }} />
-                <Item title={props.titleArray[2]} content={props.item[2]} key={1} style={{ flex: 1 }} />
-                <Item title={props.titleArray[3]} content={props.item[3]} key={2} style={{ flex: 1 }} />
+                <Item title={props.titleArray[1]} content={props.item[1]} index={0} style={{ flex: 1 }} />
+                <Item title={props.titleArray[2]} content={props.item[2]} index={1} style={{ flex: 1 }} />
+                <Item title={props.titleArray[3]} content={props.item[3]} index={2} style={{ flex: 1 }} />
               </View>
               <View style={{ flexDirection: "row", justifyContent: "space-between", marginVertical: fontScale(10), marginHorizontal: fontScale(5) }} key={15}>
-                <Item title={props.titleArray[4]} content={props.item[4]} key={3} style={{ flex: 1 }} />
-                <Item title={props.titleArray[5]} content={props.item[5]} key={4} style={{ flex: 1 }} />
+                <Item title={props.titleArray[4]} content={props.item[4]} index={3} style={{ flex: 1 }} />
+                <Item title={props.titleArray[5]} content={props.item[5]} index={4} style={{ flex: 1 }} />
                 {/* <Item title={props.titleArray[6]} content={props.item[6]} key={5} style={{ flex: 1 }} /> */}
               </View>
             </View>
           </View>
           :
-          <TouchableOpacity key={Math.random()} onPress={props.onPress} style={[styles.compContainer, props.style, { backgroundColor: props.backgroundColor || "#FFFFFF" }]}>
+          <TouchableOpacity key={props.index} onPress={props.onPress} style={[styles.compContainer, props.style, { backgroundColor: props.backgroundColor || "#FFFFFF" }]}>
             <View style={{ flexDirection: "row" }}>
               {/* <View> */}
                 <Text  key={props.key} style={{ fontSize: fontScale(12), marginLeft: fontScale(5), fontWeight: "bold", color: props.textColor || "#D19E01" }}>{props.title}</Text>
@@ -99,13 +99,13 @@ const GeneralListItem = (props) => {
             <Image source={props.icon} style={{ width: fontScale(47), height: fontScale(47), position: "absolute", right: fontScale(20), top: -fontScale(23) }} resizeMode="contain" />
             <View style={{ marginTop: fontScale(10) }} key={Math.random()}>
               <View style={{ flexDirection: "row", justifyContent: "space-between", marginVertical: fontScale(10), marginHorizontal: fontScale(5) }} key={12}>
-                <Item title={props.titleArray[1]} content={props.item[1]} key={0} style={{ flex: 1 }} />
-                <Item title={props.titleArray[2]} content={props.item[2]} key={1} style={{ flex: 1 }} />
-                <Item title={props.titleArray[3]} content={props.item[3]} key={2} style={{ flex: 1 }} />
+                <Item title={props.titleArray[1]} content={props.item[1]} index={0} style={{ flex: 1 }} />
+                <Item title={props.titleArray[2]} content={props.item[2]} index={1} style={{ flex: 1 }} />
+                <Item title={props.titleArray[3]} content={props.item[3]} index={2} style={{ flex: 1 }} />
               </View>
               <View style={{ flexDirection: "row", justifyContent: "space-between", marginVertical: fontScale(10), marginHorizontal: fontScale(5) }} key={15}>
-                <Item title={props.titleArray[4]} content={props.item[4]} key={3} style={{ flex: 1 }} />
-                <Item title={props.titleArray[5]} content={props.item[5]} key={4} style={{ flex: 1 }} />
+                <Item title={props.titleArray[4]} content={props.item[4]} index={3} style={{ flex: 1 }} />
+                <Item title={props.titleArray[5]} content={props.item[5]} index={4} style={{ flex: 1 }} />
                 {/* <Item title={props.titleArray[6]} content={props.item[6]} key={5} style={{ flex: 1 }} /> */}
               </View>
             </View>
@@ -220,14 +220,14 @@ const GeneralListItem = (props) => {
               <Image source={props.icon} style={{ width: fontScale(47), height: fontScale(47), position: "absolute", right: fontScale(20), top: -fontScale(23) }} resizeMode="contain" />
               <View style={{ marginTop: fontScale(10) }} key={Math.random()}>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", marginVertical: fontScale(10), marginHorizontal: fontScale(5) }} key={12}>
-                  <Item title={props.titleArray[2]} content={props.item[2]} key={0} style={{ flex: 1 }} />
-                  <Item title={props.titleArray[3]} content={props.item[3]} key={1} style={{ flex: 1 }} />
-                  <Item title={props.titleArray[4]} content={props.item[4]} key={2} style={{ flex: 1 }} />
+                  <Item title={props.titleArray[2]} content={props.item[2]} index={0} style={{ flex: 1 }} />
+                  <Item title={props.titleArray[3]} content={props.item[3]} index={1} style={{ flex: 1 }} />
+                  <Item title={props.titleArray[4]} content={props.item[4]} index={2} style={{ flex: 1 }} />
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", marginVertical: fontScale(10), marginHorizontal: fontScale(5) }} key={15}>
-                  <Item title={props.titleArray[5]} content={props.item[5]} key={3} style={{ flex: 1 }} />
-                  <Item title={props.titleArray[6]} content={props.item[6]} key={4} style={{ flex: 1 }} />
-                  <Item title={props.titleArray[7]} content={props.item[7]} key={5} style={{ flex: 1 }} />
+                  <Item title={props.titleArray[5]} content={props.item[5]} index={3} style={{ flex: 1 }} />
+                  <Item title={props.titleArray[6]} content={props.item[6]} index={4} style={{ flex: 1 }} />
+                  <Item title={props.titleArray[7]} content={props.item[7]} index={5} style={{ flex: 1 }} />
                 </View>
               </View>
             </View>
@@ -246,14 +246,14 @@ const GeneralListItem = (props) => {
                 <Image source={props.icon} style={{ width: fontScale(47), height: fontScale(47), position: "absolute", right: fontScale(20), top: -fontScale(23) }} resizeMode="contain" />
                 <View style={{ marginTop: fontScale(10) }} key={Math.random()}>
                   <View style={{ flexDirection: "row", justifyContent: "space-between", marginVertical: fontScale(10), marginHorizontal: fontScale(5) }} key={12}>
-                    <Item title={props.titleArray[1]} content={props.item[1]} key={0} style={{ flex: 1 }} />
-                    <Item title={props.titleArray[2]} content={props.item[2]} key={1} style={{ flex: 1 }} />
-                    <Item title={props.titleArray[3]} content={props.item[3]} key={2} style={{ flex: 1 }} />
+                    <Item title={props.titleArray[1]} content={props.item[1]} index={0} style={{ flex: 1 }} />
+                    <Item title={props.titleArray[2]} content={props.item[2]} index={1} style={{ flex: 1 }} />
+                    <Item title={props.titleArray[3]} content={props.item[3]} index={2} style={{ flex: 1 }} />
                   </View>
                   <View style={{ flexDirection: "row", justifyContent: "space-between", marginVertical: fontScale(10), marginHorizontal: fontScale(5) }} key={15}>
-                    <Item title={props.titleArray[4]} content={props.item[4]} key={3} style={{ flex: 1 }} />
-                    <Item title={props.titleArray[5]} content={props.item[5]} key={4} style={{ flex: 1 }} />
-                    <Item title={props.titleArray[6]} content={props.item[6]} key={5} style={{ flex: 1 }} />
+                    <Item title={props.titleArray[4]} content={props.item[4]} index={3} style={{ flex: 1 }} />
+                    <Item title={props.titleArray[5]} content={props.item[5]} index={4} style={{ flex: 1 }} />
+                    <Item title={props.titleArray[6]} content={props.item[6]} index={5} style={{ flex: 1 }} />
                   </View>
                 </View>
               </View>
@@ -599,14 +599,14 @@ const Item = (props) => {
   return (
     <View style={props.style}>
       <Text style={{ textAlign: "center", fontSize: fontScale(11), fontWeight: "bold", color: colors.grey }}>{props.title}</Text>
-      <Text key={props.key} style={{ textAlign: "center", fontSize: fontScale(11), fontWeight: "bold", color: '#1AC4D1', marginTop: fontScale(10) }}>{props.content}</Text>
+      <Text key={props.index} style={{ textAlign: "center", fontSize: fontScale(11), fontWeight: "bold", color: '#1AC4D1', marginTop: fontScale(10) }}>{props.content}</Text>
     </View>
   )
 }
 
 const HItem = (props) => {
   return (
-    <View key={props.key} style={[{ width: width / 2, flexDirection: "row", marginLeft: fontScale(20) }, props.style]}>
+    <View key={props.index} style={[{ width: width / 2, flexDirection: "row", marginLeft: fontScale(20) }, props.style]}>
       <Text style={[{ fontSize: fontScale(12), fontWeight: "bold", color: colors.grey }, props.titleStyle]}>{props.title} </Text>
       <Text style={[{ flex: 1, fontSize: fontScale(12), fontWeight: "bold", color: '#1AC4D1' }, props.contentStyle]}>{props.content}</Text>
     </View>

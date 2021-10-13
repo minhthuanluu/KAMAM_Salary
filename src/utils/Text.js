@@ -218,5 +218,7 @@ productivitySub: "Năng suất bình quân",
 
   reportByUnit:"Báo cáo tổng hợp theo đơn vị",
   reportByEmp:"Báo cáo tổng hợp theo nhân viên",
-  findEmpCode:"Nhập tên nhân viên hoặc mã đơn vị"
+  findEmpCode:"Nhập tên nhân viên hoặc mã đơn vị",
+  doubleMonthNotif:"Tháng bắt đầu phải nhỏ hơn hoặc bằng tháng kết thúc",
+  
 };

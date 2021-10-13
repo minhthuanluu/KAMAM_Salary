@@ -5,8 +5,6 @@ import { styles } from "./style";
 import { images } from "../../../../utils/Images";
 import moment from "moment";
 import {
-  getKPIByMonth,
-  getMonthSalary,
   getSalaryByMonth,
 } from "../../../../api/manager";
 import { width } from "../../../../utils/Dimenssion";
@@ -115,7 +113,7 @@ const index = (props) => {
                   }}
                   monthSalary
                   textColor={"#2E2E31"}
-                  key={index}
+                  index={item.shopCode}
                   title={item.shopName}
                   titleArray={[
                     ,
@@ -150,7 +148,7 @@ const index = (props) => {
                       marginTop: fontScale(38),
                     }}
                     monthSalary
-                    key={index}
+                    index={-1}
                     backgroundColor={"#EFFEFF"}
                     title={generalData.shopName}
                     titleArray={[, "Lương CĐ", "CP Duy trì","CP Data KK", "CP thay sim", "Tổng CP"]}

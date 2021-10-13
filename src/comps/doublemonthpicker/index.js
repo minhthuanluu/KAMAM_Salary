@@ -8,6 +8,7 @@ import { styles } from './styles';
 import { width } from '../../utils/Dimenssion';
 import Toast from 'react-native-toast-message';
 import { ToastNotif } from '../../utils/Logistics';
+import { text } from '../../utils/Text';
 
 const YearMonthPicker = (props) => {
     const [beginMonth, setBeginMonth] = useState('Tháng ' + props.beginMonth);
@@ -34,11 +35,21 @@ const YearMonthPicker = (props) => {
     ];
 
     const onChangeBeginMonth = (month) => {
-        if (month.year > endMonth.substring(9, endMonth.length)) {
-            // console.log("Năm bắt đầu phải nhỏ hơn năm kết thúc")
-        } else {
-            if (month.item.key > endMonth.substring(6, 8)) {
-                props.onError && props.onError("Tháng bắt đầu phải nhỏ hơn tháng kết thúc")
+        let _beginMonth = month.item.key;
+        let _endMonth = Number.parseInt(endMonth.substring(6, 8));
+        let _beginYear = month.year;
+        let _endYear = Number.parseInt(endMonth.substring(9, endMonth.length));
+
+        if (_beginYear < _endYear) {
+            setBeginMonth(month.item.name + '/' + month.year);
+            setBeginIndex(month.item.key);
+            props.onChangeMonth({
+                'beginMonth': month.item.key < 10 ? '0' + month.item.key + '/' + month.year : month.item.key + '/' + month.year,
+                'endMonth': endMonth.substring(6, endMonth.length)
+            })
+        } else if (_beginYear == _endYear) {
+            if (_beginMonth > _endMonth) {
+                props.onError && props.onError(text.doubleMonthNotif)
             } else {
                 setBeginMonth(month.item.name + '/' + month.year);
                 setBeginIndex(month.item.key);
@@ -47,31 +58,48 @@ const YearMonthPicker = (props) => {
                     'endMonth': endMonth.substring(6, endMonth.length)
                 })
             }
+        } else {
+            props.onError && props.onError(text.doubleMonthNotif)
         }
     }
 
     const onChangeEndMonth = (month) => {
-        // console.log(month)
-        // console.log(beginMonth.substring(9, beginMonth.length))
-        if (month.year < beginMonth.substring(9, beginMonth.length)) {
-            props.onError && props.onError("Tháng bắt đầu phải nhỏ hơn tháng kết thúc")
-        } else {
-            if (month.item.key < beginMonth.substring(6, 8)) {
+        let _beginMonth = Number.parseInt(beginMonth.substring(6, 8));
+        let _endMonth = month.item.key;
+        let _beginYear = Number.parseInt(beginMonth.substring(9, beginMonth.length));
+        let _endYear = month.year;
+        
+        if (_beginYear > _endYear) {
+            setEndMonth(month.item.name + '/' + month.year);
+            setEndIndex(month.item.key);
+            props.onChangeMonth({
+                'beginMonth': beginMonth.substring(6, beginMonth.length),
+                'endMonth': month.item.key < 10 ? '0' + month.item.key + '/' + month.year : month.item.key + '/' + month.year
+            })
+        } else if(_endYear == _beginYear){
+            if (_endMonth < _beginMonth) {
                 props.onError && props.onError("Tháng bắt đầu phải nhỏ hơn tháng kết thúc")
             } else {
                 setEndMonth(month.item.name + '/' + month.year);
                 setEndIndex(month.item.key);
                 props.onChangeMonth({
-                    'beginMonth': beginMonth.substring(6, month.length),
+                    'beginMonth': beginMonth.substring(6, beginMonth.length),
                     'endMonth': month.item.key < 10 ? '0' + month.item.key + '/' + month.year : month.item.key + '/' + month.year
                 })
             }
+        }else{
+            setEndMonth(month.item.name + '/' + month.year);
+            setEndIndex(month.item.key);
+            props.onChangeMonth({
+                'beginMonth': beginMonth.substring(6, beginMonth.length),
+                'endMonth': month.item.key < 10 ? '0' + month.item.key + '/' + month.year : month.item.key + '/' + month.year
+            })
         }
 
     }
 
     useEffect(() => {
-     
+
     })
 
     return (

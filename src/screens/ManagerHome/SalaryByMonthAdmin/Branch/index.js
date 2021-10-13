@@ -4,7 +4,7 @@ import { Body, DatePicker, GeneralListItem, Header } from "../../../../comps";
 import { styles } from "./style";
 import { images } from "../../../../utils/Images";
 import moment from "moment";
-import { getKPIByMonth, getMonthSalary, getSalaryByMonth } from "../../../../api/manager";
+import { getSalaryByMonth } from "../../../../api/manager";
 import { width } from "../../../../utils/Dimenssion";
 import { fontScale } from "../../../../utils/Fonts";
 import { StatusBar } from "react-native";
@@ -12,9 +12,8 @@ import { text } from "../../../../utils/Text";
 import { colors } from "../../../../utils/Colors";
 import { FlatList } from "react-native";
 import { ActivityIndicator } from "react-native";
-import { useBackButton, useFocusEffect, useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import Toast from "react-native-toast-message";
-import { useCallback } from "react";
 
 
 const index = (props) => {
@@ -96,14 +95,14 @@ const index = (props) => {
             style={{ marginTop: -fontScale(20) }}
             data={data}
             showsVerticalScrollIndicator={false}
-            keyExtractor={(item, index) => index.toString()}
+            keyExtractor={(item, index) => item.shopCode}
             renderItem={({ item, index }) => (
               <View key={index.toString()}>
                 <GeneralListItem
                   style={{ marginTop: index == 0 ? -fontScale(20) : fontScale(30) }}
                   monthSalary
                   textColor={"#2E2E31"}
-                  key={index.toString()}
+                  index={item.shopCode}
                   title={item.shopName}
                   titleArray={[, "Lương CĐ", "CP Duy trì", "CP Data KK", "CP thay sim", "Tổng CP"]}
                   item={[, item.permanentSalary, item.maintainceSalary, item.incentiveSalary, item.simSalary, item.totalSalary]}
@@ -120,7 +119,7 @@ const index = (props) => {
                     style={{ marginBottom: fontScale(110), marginTop: fontScale(38) }}
                     monthSalary
                     backgroundColor={"#EFFEFF"}
-                    key={Math.random()}
+                    index={0}
                     title={generalData.shopName}
                     titleArray={[, "Lương CĐ", "CP Duy trì", "CP Data KK", "CP thay sim", "Tổng CP"]}
                     item={generalData && [, generalData.permanentSalary, generalData.maintainceSalary, generalData.incentiveSalary, generalData.simSalary, generalData.totalSalary]}
@@ -129,10 +128,7 @@ const index = (props) => {
               </View>
             )}
           />
-
-
         </View>
-
       </View>
       <Toast ref={(ref) => Toast.setRef(ref)} />
     </SafeAreaView>
