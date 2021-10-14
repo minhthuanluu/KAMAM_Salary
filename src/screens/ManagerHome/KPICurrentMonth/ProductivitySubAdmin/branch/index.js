@@ -78,7 +78,7 @@ const BranchProductivitySub = (props) => {
         getData(route.params.branchCode, month, "")
         getRole()
         // })
-    },[])
+    }, [])
     return (
         <SafeAreaView style={styles.container}>
             <Toast style={{ position: "absolute", zIndex: 100 }} ref={(ref) => Toast.setRef(ref)} />
@@ -89,17 +89,23 @@ const BranchProductivitySub = (props) => {
             </View>
             <Body />
             <View style={styles.body}>
-                <FlatList
-                    data={data}
-                    keyExtractor={(item, key) => key.toString()}
-                    renderItem={({ item, index }) => {
-                        return (
-                            <GenaralItemAdmin icon={checkIcon(item.icon)} shopName={item.shopName} disable={role == "ROLE_LEADER" ? true : false}
-                                khtb={item.khtb} tttb={item.tttb} khdt={item.khdt} ttdt={item.ttdt} role={role} item={item} month={month} 
-                                branchCode={route.params.branchCode}/>
-                        )
-                    }}
-                />
+                {
+                    data.length == 0 && loading == false ?
+                        <Text style={{ textAlign: "center" }}>Không có dữ liệu</Text>
+                        :
+                        <FlatList
+                            data={data}
+                            keyExtractor={(item, key) => key.toString()}
+                            renderItem={({ item, index }) => {
+                                return (
+                                    <GenaralItemAdmin icon={checkIcon(item.icon)} shopName={item.shopName} disable={role == "ROLE_LEADER" ? true : false}
+                                        khtb={item.khtb} tttb={item.tttb} khdt={item.khdt} ttdt={item.ttdt} role={role} item={item} month={month}
+                                        branchCode={route.params.branchCode} />
+                                )
+                            }}
+                        />
+                }
+
                 {
                     general.length == 0 ?
                         null :
