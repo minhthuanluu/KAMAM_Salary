@@ -73,29 +73,38 @@ const TopAM = (props) => {
             </View>
             <Body style={{ marginTop: fontScale(20) }} showInfo={false} />
             <View style={styles.body}>
-                <View >
-                    <View style={{ flexDirection: "row" }}>
-                        <Text style={{ flex: 1 / 10, textAlign: "center", color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17) }}>STT</Text>
-                        <Text style={{ flex: 3 / 10, textAlign: "center", color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17) }}>Khối</Text>
-                        <Text style={{ flex: 2 / 10, textAlign: "center", color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17) }}>Mã NV</Text>
-                        <Text style={{ flex: 3 / 10, textAlign: "center", color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17) }}>Tên</Text>
-                        <Text style={{ flex: 1 / 10, textAlign: "center", color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17) }}>KPI</Text>
-                    </View>
+                {
+                    data.length == 0 && loading == false ?
+                        <Text style={{ textAlign: "center" }}>Không có dữ liệu</Text>
+                        :
+                        <View >
+                            {
+                                loading == true ? null :
+                                    <View style={{ flexDirection: "row" }}>
+                                        <Text style={{ flex: 1 / 10, textAlign: "center", color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17) }}>STT</Text>
+                                        <Text style={{ flex: 3 / 10, textAlign: "center", color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17) }}>Khối</Text>
+                                        <Text style={{ flex: 2 / 10, textAlign: "center", color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17) }}>Mã NV</Text>
+                                        <Text style={{ flex: 3 / 10, textAlign: "center", color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17) }}>Tên</Text>
+                                        <Text style={{ flex: 1 / 10, textAlign: "center", color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17) }}>KPI</Text>
+                                    </View>
+                            }
 
-                    <FlatList
-                        data={data}
-                        style={{ marginTop: fontScale(10), marginBottom: fontScale(30) }}
-                        keyExtractor={(item, key) => key.toString()}
-                        showsVerticalScrollIndicator={false}
-                        renderItem={({ item, index }) => {
-                            return (
-                                <TopAmItem stt={index} leader={item.leader} empCode={item.empCode} empName={item.empName} kpi={item.kpi} color={item.color} search={modalCallBack} />
-                            )
+                            <FlatList
+                                data={data}
+                                style={{ marginTop: fontScale(10), marginBottom: fontScale(30) }}
+                                keyExtractor={(item, key) => key.toString()}
+                                showsVerticalScrollIndicator={false}
+                                renderItem={({ item, index }) => {
+                                    return (
+                                        <TopAmItem stt={index} leader={item.leader} empCode={item.empCode} empName={item.empName} kpi={item.kpi} color={item.color} search={modalCallBack} />
+                                    )
 
-                        }}
-                    />
+                                }}
+                            />
 
-                </View>
+                        </View>
+                }
+
             </View>
             <Loading loading={loading} />
         </SafeAreaView>

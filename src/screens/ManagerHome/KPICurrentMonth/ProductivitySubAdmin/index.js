@@ -112,16 +112,21 @@ const ProductivitySubAdmin = (props) => {
             </View>
             <Body />
             <View style={styles.body}>
-                <FlatList
-                    data={data}
-                    keyExtractor={(item, key) => key.toString()}
-                    renderItem={({ item, index }) => {
-                        return (
-                            <GenaralItemAdmin icon={checkIcon(item.icon)} shopName={item.shopName} disable={role == "ROLE_LEADER" ? true : false}
-                                khtb={item.khtb} tttb={item.tttb} khdt={item.khdt} ttdt={item.ttdt} role={role} item={item} month={month} screen="company" />
-                        )
-                    }}
-                />
+                {
+                    data.length == 0 && loading == false ?
+                        <Text style={{ textAlign: "center" }}>Không có dữ liệu</Text>
+                        :
+                        <FlatList
+                            data={data}
+                            keyExtractor={(item, key) => key.toString()}
+                            renderItem={({ item, index }) => {
+                                return (
+                                    <GenaralItemAdmin icon={checkIcon(item.icon)} shopName={item.shopName} disable={role == "ROLE_LEADER" ? true : false}
+                                        khtb={item.khtb} tttb={item.tttb} khdt={item.khdt} ttdt={item.ttdt} role={role} item={item} month={month} screen="company" />
+                                )
+                            }}
+                        />
+                }
                 {
                     general.length == 0 ?
                         null :

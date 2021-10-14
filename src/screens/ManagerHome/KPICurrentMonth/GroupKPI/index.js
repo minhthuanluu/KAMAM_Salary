@@ -62,26 +62,38 @@ const GroupKPI = (props) => {
             </View>
             <Body />
             <View style={styles.body}>
-                <View style={{ flexDirection: "row" }}>
-                    <Text style={{ flex: 2 / 7 }}></Text>
-                    <Text style={{ flex: 1 / 7, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>{">= 100%"}</Text>
-                    <Text style={{ flex: 1 / 7, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>{">= 90%"}</Text>
-                    <Text style={{ flex: 1 / 7, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>{">= 70%"}</Text>
-                    <Text style={{ flex: 1 / 7, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>{"< 70%"}</Text>
-                    <Text style={{ flex: 1 / 7, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>{"Tổng"}</Text>
-                </View>
-                <FlatList
-                    data={data}
-                    style={{ marginTop: fontScale(10)}}
-                    keyExtractor={(item, key) => key.toString()}
-                    showsVerticalScrollIndicator={false}
-                    renderItem={({ item, index }) => {
-                        return (
-                            <GroupKPIItem name={item.name} kpi100={item.kpi100} kpi90={item.kpi90} kpi70={item.kpi70} kpilow={item.kpilow} total={item.total} type={item.type} />
-                        )
 
-                    }}
-                />
+                {
+                    data.length == 0 && loading == false ?
+                        <Text style={{ textAlign: "center" }}>Không có dữ liệu</Text>
+                        :
+                        <>
+                            {
+                                loading == true ? null :
+                                    <View style={{ flexDirection: "row" }}>
+                                        <Text style={{ flex: 2 / 7 }}></Text>
+                                        <Text style={{ flex: 1 / 7, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>{"≥ 100%"}</Text>
+                                        <Text style={{ flex: 1 / 7, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>{"≥ 90%"}</Text>
+                                        <Text style={{ flex: 1 / 7, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>{"≥ 70%"}</Text>
+                                        <Text style={{ flex: 1 / 7, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>{"< 70%"}</Text>
+                                        <Text style={{ flex: 1 / 7, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>{"Tổng"}</Text>
+                                    </View>
+                            }
+                            <FlatList
+                                data={data}
+                                style={{ marginTop: fontScale(10) }}
+                                keyExtractor={(item, key) => key.toString()}
+                                showsVerticalScrollIndicator={false}
+                                renderItem={({ item, index }) => {
+                                    return (
+                                        <GroupKPIItem name={item.name} kpi100={item.kpi100} kpi90={item.kpi90} kpi70={item.kpi70} kpilow={item.kpilow} total={item.total} type={item.type} />
+                                    )
+
+                                }}
+                            />
+                        </>
+                }
+
             </View>
             <Loading loading={loading} />
         </SafeAreaView>
