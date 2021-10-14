@@ -64,8 +64,10 @@ const SearchTopAm = (props) => {
                                             <RadioButtonInput
                                                 obj={obj}
                                                 index={i}
-                                                isSelected={sort === i}
-                                                onPress={() => { setSort(i) }}
+                                                isSelected={sort === obj.value}
+                                                onPress={() => { setSort(obj.value)
+                                                // console.log(obj)
+                                                }}
                                                 buttonWrapStyle={{ marginLeft: fontScale(50) }}
                                                 buttonSize={fontScale(19)}
                                             />
@@ -73,7 +75,7 @@ const SearchTopAm = (props) => {
                                                 obj={obj}
                                                 index={i}
                                                 labelHorizontal={true}
-                                                onPress={() => { setSort(i) }}
+                                                onPress={() => { setSort(obj.value) }}
                                                 labelStyle={{ fontSize: fontScale(17), color: '#707070', marginRight: fontScale(50) }}
                                                 labelWrapStyle={{}}
                                             />
