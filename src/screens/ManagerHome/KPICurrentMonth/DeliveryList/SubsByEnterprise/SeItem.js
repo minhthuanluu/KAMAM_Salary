@@ -6,7 +6,7 @@ import { images } from '../../../../../utils/Images';
 const SeItem = (props) => {
     const navigation = useNavigation();
     return (
-        <View style={{ flexDirection: "row", backgroundColor: props.type.toUpperCase() == "COMPANY" ? "#FBFDC3" : props.type.toUpperCase() == "BRANCH" ? "#EBFDFD" : "white", borderBottomWidth: 0.2, marginBottom: 0.3, justifyContent: "center", alignItems: "center",minHeight: fontScale(40) }}>
+        <View style={{ flexDirection: "row", backgroundColor: props.type.toUpperCase() == "COMPANY" ? "#FBFDC3" : props.type.toUpperCase() == "BRANCH" ? "#EBFDFD" : "white", borderBottomWidth: 0.2, marginBottom: 0.3, justifyContent: "center", alignItems: "center", minHeight: fontScale(40) }}>
             <Text style={{ flex: 3 / 10, fontSize: fontScale(16), textAlign: "center", fontWeight: props.type.toUpperCase() == "COMPANY" ? "bold" : props.type.toUpperCase() == "BRANCH" ? "600" : "normal" }}>{props.name}</Text>
             <Text style={{ flex: 2 / 10, fontSize: fontScale(16), textAlign: "center", color: props.type.toUpperCase() == "COMPANY" ? "#000101" : props.type.toUpperCase() == "BRANCH" ? "#000101" : "#D19E01" }}>{props.preMonth}</Text>
             <Text style={{ flex: 2 / 10, fontSize: fontScale(16), textAlign: "center", color: props.type.toUpperCase() == "COMPANY" ? "#000101" : props.type.toUpperCase() == "BRANCH" ? "#000101" : "#D19E01" }}>{props.curMonth}</Text>
@@ -16,7 +16,10 @@ const SeItem = (props) => {
 
                 {
                     props.type.toUpperCase() == "LEADER" ?
-                        <Image source={images.eye} style={{ width: fontScale(25), height: fontScale(25), tintColor: '#cccccc' }} />
+                        <View>
+                            <Image source={images.eye} style={{ width: fontScale(25), height: fontScale(25), tintColor: '#cccccc' }} />
+                        </View>
+
                         : null
                 }
 

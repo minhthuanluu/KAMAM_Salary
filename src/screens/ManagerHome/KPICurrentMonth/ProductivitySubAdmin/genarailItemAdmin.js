@@ -31,40 +31,40 @@ const GenaralItemAdmin = (props) => {
                 props.disable == true ?
                     <View style={styles.bg}>
                         <View style={{ flexDirection: "row" }}>
-                            <Text style={{ flex: 4 / 5, fontSize: fontScale(18), fontWeight: "bold", marginBottom: fontScale(10), marginTop: fontScale(15), marginLeft: fontScale(15) }}>{props.shopName}</Text>
-                            <Image source={props.icon} style={{ flex: 1 / 5, width: fontScale(60), height: fontScale(60), top: fontScale(-20) }} resizeMode="contain" />
+                            <Text style={{ flex: 4 / 5, fontSize: fontScale(17), fontWeight: "bold", marginBottom: fontScale(10), marginTop: fontScale(15), marginLeft: fontScale(15) }}>{props.shopName}</Text>
+                            <Image source={props.icon} style={{ flex: 1 / 5, width: fontScale(50), height: fontScale(50), top: fontScale(-20) }} resizeMode="contain" />
                         </View>
                         <View style={{ flexDirection: "row", marginBottom: fontScale(10) }}>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898" }}>KHTB</Text>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898" }}>TTTB</Text>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898" }}>KHDT</Text>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898" }}>TTDT</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898", fontSize: fontScale(16) }}>KHTB</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898", fontSize: fontScale(16) }}>TTTB</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898", fontSize: fontScale(16) }}>KHDT</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898", fontSize: fontScale(16) }}>TTDT</Text>
                         </View>
                         <View style={{ flexDirection: "row", marginBottom: fontScale(10) }}>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold" }}>{props.khtb}</Text>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold" }}>{props.tttb}</Text>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold" }}>{props.khdt}</Text>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold" }}>{props.ttdt}</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold", fontSize: fontScale(16) }}>{props.khtb}</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold", fontSize: fontScale(16) }}>{props.tttb}</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold", fontSize: fontScale(16) }}>{props.khdt}</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold", fontSize: fontScale(16) }}>{props.ttdt}</Text>
                         </View>
                     </View> :
                     <TouchableOpacity style={styles.bg}
                         onPress={() => { PressItem() }}
                     >
                         <View style={{ flexDirection: "row" }}>
-                            <Text style={{ flex: 4 / 5, fontSize: fontScale(18), fontWeight: "bold", marginBottom: fontScale(10), marginTop: fontScale(15), marginLeft: fontScale(15) }}>{props.shopName}</Text>
-                            <Image source={props.icon} style={{ flex: 1 / 5, width: fontScale(60), height: fontScale(60), top: fontScale(-20) }} resizeMode="contain" />
+                            <Text style={{ flex: 4 / 5, fontSize: fontScale(17), fontWeight: "bold", marginBottom: fontScale(10), marginTop: fontScale(15), marginLeft: fontScale(15) }}>{props.shopName}</Text>
+                            <Image source={props.icon} style={{ flex: 1 / 5, width: fontScale(50), height: fontScale(50), top: fontScale(-20) }} resizeMode="contain" />
                         </View>
                         <View style={{ flexDirection: "row", marginBottom: fontScale(10) }}>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898" }}>KHTB</Text>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898" }}>TTTB</Text>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898" }}>KHDT</Text>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898" }}>TTDT</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898", fontSize: fontScale(16) }}>KHTB</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898", fontSize: fontScale(16) }}>TTTB</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898", fontSize: fontScale(16) }}>KHDT</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#9E9898", fontSize: fontScale(16) }}>TTDT</Text>
                         </View>
                         <View style={{ flexDirection: "row", marginBottom: fontScale(10) }}>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold" }}>{props.khtb}</Text>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold" }}>{props.tttb}</Text>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold" }}>{props.khdt}</Text>
-                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold" }}>{props.ttdt}</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold", fontSize: fontScale(16) }}>{props.khtb}</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold", fontSize: fontScale(16) }}>{props.tttb}</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold", fontSize: fontScale(16) }}>{props.khdt}</Text>
+                            <Text style={{ flex: 1 / 4, textAlign: "center", color: "#1AC4D1", fontWeight: "bold", fontSize: fontScale(16) }}>{props.ttdt}</Text>
                         </View>
                     </TouchableOpacity>
             }

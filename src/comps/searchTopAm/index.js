@@ -31,7 +31,10 @@ const SearchTopAm = (props) => {
     }
     useEffect(() => {
         getBranchList()
-
+        {
+            props.loginInfo.shopCode != '' ?
+                getLeaderList(props.loginInfo.shopCode) : null
+        }
     }, [])
     return (
         <>
@@ -65,8 +68,9 @@ const SearchTopAm = (props) => {
                                                 obj={obj}
                                                 index={i}
                                                 isSelected={sort === obj.value}
-                                                onPress={() => { setSort(obj.value)
-                                                // console.log(obj)
+                                                onPress={() => {
+                                                    setSort(obj.value)
+                                                    // console.log(obj)
                                                 }}
                                                 buttonWrapStyle={{ marginLeft: fontScale(50) }}
                                                 buttonSize={fontScale(19)}
@@ -85,19 +89,34 @@ const SearchTopAm = (props) => {
                                 }
                             </RadioForm>
                         </View>
+
                         <TouchableOpacity
                             style={[styles.bg]}
+                            disabled={props.loginInfo.roleType == "ROLE_COMPANY" ? false : true}
                             onPress={() => { setShowMdItem(!showMdItem) }}
                         >
                             <Text style={{ flex: 1 / 2, textAlign: "center", fontWeight: "bold", fontSize: fontScale(18) }}>Chọn chi nhánh</Text>
-                            <Text style={{ flex: 1 / 2, textAlign: "center", fontSize: fontScale(16) }}>{branch.shop_name == undefined ? "Tất cả" : branch.shop_name}</Text>
+                            <Text style={{ flex: 1 / 2, textAlign: "center", fontSize: fontScale(16) }}>
+                                {
+                                    (props.loginInfo.roleType == "ROLE_COMPANY" ? (branch.shop_name == undefined ? "Tất cả" : branch.shop_name) :
+
+                                        branchList[0]?.shop_name)
+                                }
+                            </Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={[styles.bg]}
+                            disabled={props.loginInfo.roleType == "ROLE_LEADER" ? true : false}
                             onPress={() => { setShowMdItem2(!showMdItem2) }}
                         >
                             <Text style={{ flex: 1 / 2, textAlign: "center", fontWeight: "bold", fontSize: fontScale(18) }}>Chọn Khối</Text>
-                            <Text style={{ flex: 1 / 2, textAlign: "center", fontSize: fontScale(16) }}>{leader.shop_name == undefined ? "Tất cả" : leader.shop_name}</Text>
+                            <Text style={{ flex: 1 / 2, textAlign: "center", fontSize: fontScale(16) }}>
+                                {
+                                    (props.loginInfo.roleType == "ROLE_LEADER" ? leaderList[0]?.shop_name :
+                                        (branch.shop_name == undefined ? "Tất cả" : branch.shop_name))
+                                }
+
+                            </Text>
                         </TouchableOpacity>
                         <View style={{ flexDirection: "row", marginTop: fontScale(20), marginBottom: fontScale(20), justifyContent: "center" }}>
                             <Button wIcon style={{}} label="Hủy" color="red" icon={images.closeline} onPress={() => setSearchMd(!searchMd)} />
@@ -135,7 +154,7 @@ const SearchTopAm = (props) => {
                                             setShowMdItem(!showMdItem)
                                         }}
                                     >
-                                        <Text style={{ textAlign: "center", backgroundColor: index % 2 != 0 ? "white" : "#F5F5F5", width: width, alignSelf: "center", fontSize: fontScale(25), marginTop: fontScale(10) }}
+                                        <Text style={{ textAlign: "center", backgroundColor: index % 2 != 0 ? "white" : "#F5F5F5", width: width, alignSelf: "center", fontSize: fontScale(20), marginTop: fontScale(10) }}
 
                                         >{item.shop_name}</Text>
                                     </TouchableOpacity>
@@ -154,7 +173,7 @@ const SearchTopAm = (props) => {
                 <View style={{ flex: 1 / 2 }}>
                     <Body />
                     <View style={{ flex: 1, backgroundColor: "#fff" }}>
-                        <Text style={{ textAlign: "center", marginBottom: fontScale(20) }}>Vui lòng chọn</Text>
+                        <Text style={{ textAlign: "center", marginBottom: fontScale(20) }}>Vui lòng chọn chi nhánh</Text>
                         <FlatList
                             data={leaderList}
                             style={{ marginTop: fontScale(10), marginBottom: fontScale(30) }}
@@ -168,7 +187,7 @@ const SearchTopAm = (props) => {
                                             setShowMdItem2(!showMdItem2)
                                         }}
                                     >
-                                        <Text style={{ textAlign: "center", backgroundColor: index % 2 != 0 ? "white" : "#F5F5F5", width: width, alignSelf: "center", fontSize: fontScale(25), marginTop: fontScale(10) }}
+                                        <Text style={{ textAlign: "center", backgroundColor: index % 2 != 0 ? "white" : "#F5F5F5", width: width, alignSelf: "center", fontSize: fontScale(20), marginTop: fontScale(10) }}
 
                                         >{item.shop_name}</Text>
                                     </TouchableOpacity>
