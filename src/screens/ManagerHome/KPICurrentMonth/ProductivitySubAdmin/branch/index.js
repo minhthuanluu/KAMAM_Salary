@@ -50,8 +50,9 @@ const BranchProductivitySub = (props) => {
             // showToast("success", "Thành công", "Lấy dữ liệu thành công")
             if (res.data != undefined && res.data != null) {
                 if (res.data.data != null && res.data.data != undefined) {
+                    res.data.data.push(res.data.general)
                     setData(res.data.data)
-                    setGeneral(res.data.general)
+                    // setGeneral(res.data.general)
                     // console.log(res.data.data)
                     setLoading(false)
                 } else {
@@ -98,7 +99,7 @@ const BranchProductivitySub = (props) => {
                             keyExtractor={(item, key) => key.toString()}
                             renderItem={({ item, index }) => {
                                 return (
-                                    <GenaralItemAdmin icon={checkIcon(item.icon)} shopName={item.shopName} disable={role == "ROLE_LEADER" ? true : false}
+                                    <GenaralItemAdmin icon={checkIcon(item.icon)} shopName={item.shopName} disable={index == data.length-1 ? true :false}
                                         khtb={item.khtb} tttb={item.tttb} khdt={item.khdt} ttdt={item.ttdt} role={role} item={item} month={month}
                                         branchCode={route.params.branchCode} />
                                 )
@@ -106,12 +107,12 @@ const BranchProductivitySub = (props) => {
                         />
                 }
 
-                {
+                {/* {
                     general.length == 0 ?
                         null :
                         <GenaralItemAdmin icon={checkIcon(general.icon)} shopName={general.shopName} disable={true}
                             khtb={general.khtb} tttb={general.tttb} khdt={general.khdt} ttdt={general.ttdt} role={role} />
-                }
+                } */}
 
             </View>
 

@@ -76,36 +76,40 @@ const RevenueByEnterprise = (props) => {
             </View>
             <Body />
             <View style={styles.body}>
+
                 {
                     data.length == 0 && loading == false ?
                         <Text style={{ textAlign: "center" }}>Không có dữ liệu</Text>
                         :
-                        <View >
-                            {
-                                loading == true ? null :
-                                    <View style={{ flexDirection: "row" }}>
-                                        <Text style={{ flex: 3 / 10 }}></Text>
-                                        <Text style={{ flex: 2 / 10, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>Tháng {lastMonth}</Text>
-                                        <Text style={{ flex: 2 / 10, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>Tháng {currentMonth}</Text>
-                                        <Text style={{ flex: 2 / 10, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>Biến động</Text>
-                                        <Text style={{ flex: 1 / 10, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}></Text>
-                                    </View>
-                            }
+                        <>
+                            <Text style={{ textAlign: "center",marginBottom:fontScale(20), fontSize: fontScale(17) }}>{"Đơn vị tính (triệu đồng)"}</Text>
+                            <View >
+                                {
+                                    loading == true ? null :
+                                        <View style={{ flexDirection: "row" }}>
+                                            <Text style={{ flex: 3 / 10 }}></Text>
+                                            <Text style={{ flex: 2 / 10, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>Tháng {lastMonth}</Text>
+                                            <Text style={{ flex: 2 / 10, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>Tháng {currentMonth}</Text>
+                                            <Text style={{ flex: 2 / 10, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>Biến động</Text>
+                                            <Text style={{ flex: 1 / 10, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}></Text>
+                                        </View>
+                                }
 
-                            <FlatList
-                                data={data}
-                                style={{ marginTop: fontScale(10), marginBottom: fontScale(30) }}
-                                keyExtractor={(item, key) => key.toString()}
-                                showsVerticalScrollIndicator={false}
-                                renderItem={({ item, index }) => {
-                                    return (
-                                        <ReItem name={item.name} preMonth={item.preMonth} curMonth={item.curMonth} difference={item.difference} type={item.type} onPress={onPressItem} code={item.code} />
-                                    )
+                                <FlatList
+                                    data={data}
+                                    style={{ marginTop: fontScale(10), marginBottom: fontScale(30) }}
+                                    keyExtractor={(item, key) => key.toString()}
+                                    showsVerticalScrollIndicator={false}
+                                    renderItem={({ item, index }) => {
+                                        return (
+                                            <ReItem name={item.name} preMonth={item.preMonth} curMonth={item.curMonth} difference={item.difference} type={item.type} onPress={onPressItem} code={item.code} />
+                                        )
 
-                                }}
-                            />
+                                    }}
+                                />
 
-                        </View>
+                            </View>
+                        </>
                 }
             </View>
             <Loading loading={loading} />

@@ -12,12 +12,14 @@ import { showToast } from '../../../../utils/toast';
 import { check403 } from '../../../../api/emp';
 import { getTopAm } from '../../../../api/manager';
 import SearchTopAm from '../../../../comps/searchTopAm';
+import { _retrieveData } from '../../../../utils/Storage';
 
 const TopAM = (props) => {
     const navigation = useNavigation();
     const [month, setMonth] = useState(moment(new Date()).subtract(0, 'months').format("MM/YYYY"));
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [loginInfo, setLoginInfo] = useState([]);
     // const [branchCode, setBranchCode] = useState('');
     // const [shopCode, setShopCode] = useState('');
     // const [sort, setSort] = useState(0);
@@ -58,6 +60,7 @@ const TopAM = (props) => {
     useEffect(() => {
         navigation.addListener('focus', async () => {
             await getData('', month, '', "desc")
+            setLoginInfo(await _retrieveData("loginInfo"))
         })
     })
     return (
@@ -69,7 +72,7 @@ const TopAM = (props) => {
                 <DatePicker month={month} width={width - fontScale(140)} onChangeDate={(date) => onChangeDatePicker(date)} />
             </View>
             <View style={{ alignSelf: "center", marginTop: 20 }}>
-                <SearchTopAm search={modalCallBack} />
+                <SearchTopAm search={modalCallBack} loginInfo={loginInfo}/>
             </View>
             <Body style={{ marginTop: fontScale(20) }} showInfo={false} />
             <View style={styles.body}>

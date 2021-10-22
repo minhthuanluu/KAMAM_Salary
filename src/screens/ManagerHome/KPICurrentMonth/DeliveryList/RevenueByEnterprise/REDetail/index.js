@@ -73,10 +73,10 @@ const RevenueByEnterpriseDetail = (props) => {
                     <Text style={{ fontSize: fontScale(18), color: "#AB8100" }}>{month}</Text>
                 </View>
                 <View style={{ flexDirection: "row" }}>
-                    <Text style={{ flex: 1 / 4, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>Mã NV </Text>
-                    <Text style={{ flex: 1 / 4, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>Tên NV </Text>
-                    <Text style={{ flex: 1 / 4, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>MST</Text>
-                    <Text style={{ flex: 1 / 4, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>Biến Động</Text>
+                    <Text style={{ flex: 3 / 10, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>Mã NV </Text>
+                    <Text style={{ flex: 3 / 10, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>Tên NV </Text>
+                    <Text style={{ flex: 2 / 10, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>MST</Text>
+                    <Text style={{ flex: 2 / 10, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>Biến Động</Text>
                 </View>
                 <FlatList
                     data={data}

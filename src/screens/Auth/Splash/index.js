@@ -8,11 +8,11 @@ import { styles } from './style';
 import { text } from '../../../utils/Text';
 import { checkLogin, checkUserRole } from '../../../utils/Logistics';
 import { fontScale } from '../../../utils/Fonts';
+import { getUserInfo } from '../../../api/emp';
 
 const Splash = () => {
     const navigation = useNavigation();
     const isFocus = useIsFocused();
-
     useEffect(() => {
         setTimeout(async () => {
             let isLogin = await _retrieveData("isLogin")
