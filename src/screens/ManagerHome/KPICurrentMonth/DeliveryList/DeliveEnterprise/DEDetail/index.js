@@ -93,10 +93,10 @@ const DeliveEnterpriseDetail = (props) => {
                     <Text style={{ fontSize: fontScale(18), color: "#AB8100" }}>{month}</Text>
                 </View>
                 <View style={{ flexDirection: "row" }}>
-                    <Text style={{ flex: 1 / 5, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>Mã NV </Text>
-                    <Text style={{ flex: 2 / 5, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>Tên NV </Text>
-                    <Text style={{ flex: 1 / 5, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>MST</Text>
-                    <Text style={{ flex: 1 / 5, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(17), textAlign: "center" }}>Trạng thái</Text>
+                    <Text style={{ flex: 2 / 9, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(16), textAlign: "center" }}>Mã NV </Text>
+                    <Text style={{ flex: 3 / 9, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(16), textAlign: "center" }}>Tên NV </Text>
+                    <Text style={{ flex: 2 / 9, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(16), textAlign: "center" }}>MST</Text>
+                    <Text style={{ flex: 2 / 9, color: "#00BECC", fontWeight: "bold", fontSize: fontScale(16), textAlign: "center" }}>Trạng thái</Text>
                 </View>
                 <FlatList
                     data={data}

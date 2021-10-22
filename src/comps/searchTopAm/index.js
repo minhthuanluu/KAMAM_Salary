@@ -113,7 +113,7 @@ const SearchTopAm = (props) => {
                             <Text style={{ flex: 1 / 2, textAlign: "center", fontSize: fontScale(16) }}>
                                 {
                                     (props.loginInfo.roleType == "ROLE_LEADER" ? leaderList[0]?.shop_name :
-                                        (branch.shop_name == undefined ? "Tất cả" : branch.shop_name))
+                                        (leader.shop_name == undefined ? "Tất cả" : leader.shop_name))
                                 }
 
                             </Text>

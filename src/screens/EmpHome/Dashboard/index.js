@@ -91,9 +91,6 @@ const EmpDashboard = (route) => {
             <Body style={{ marginTop: fontScale(26) }} showInfo={false} />
             <ScrollView style={styles.body}>
                 <MenuItem style={{ marginTop: fontScale(25) }} title="Theo dõi thực hiện KH" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.planfollow} width={width - fontScale(60)} onPress={() => navigation.navigate("PlanFollowDashboard")} />
-                
-
-                <MenuItem style={{ marginTop: fontScale(30) }} title="Lương theo tháng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.salarybymonth} width={width - fontScale(60)} onPress={() => navigation.navigate("AdminMonthSalaryBranch")} />
                 <MenuItem style={{ marginTop: fontScale(30) }} title="Lương theo tháng" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.salarybymonth} width={width - fontScale(60)} onPress={() => navigation.navigate("SalaryByMonthDashboard")} />
                 <MenuItem style={{ marginTop: fontScale(30) }} title="Bình quân thu nhập" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.AVGIncome} width={width - fontScale(60)} onPress={() => navigation.navigate("AVGIncomeDashboard")} />
                 <MenuItem style={{ marginTop: fontScale(30) }} title="Chất lượng tập TB phát triển" titleMenuStyle={{ paddingTop: fontScale(17) }} icon={images.subscriberquality} width={width - fontScale(60)} onPress={() => navigation.navigate("SubscriberQuality")} />
