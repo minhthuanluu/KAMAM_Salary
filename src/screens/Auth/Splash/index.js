@@ -8,26 +8,37 @@ import { styles } from './style';
 import { text } from '../../../utils/Text';
 import { checkLogin, checkUserRole } from '../../../utils/Logistics';
 import { fontScale } from '../../../utils/Fonts';
-import { getUserInfo } from '../../../api/emp';
+import { check403, checkToken, getUserInfo } from '../../../api/emp';
 
 const Splash = () => {
     const navigation = useNavigation();
     const isFocus = useIsFocused();
-    useEffect(() => {
-        setTimeout(async () => {
-            let isLogin = await _retrieveData("isLogin")
-            let role = await _retrieveData("role")
-            if (isLogin == true) {
-                if (role == "ROLE_EMPLOYEE") {
-                    navigation.navigate("EMPHome")
+    const checkTokenEx = async () => {
+        let res = await checkToken()
+        if (res.status == "success") {
+            setTimeout(async () => {
+                let isLogin = await _retrieveData("isLogin")
+                let role = await _retrieveData("role")
+                if (isLogin == true) {
+                    if (role == "ROLE_EMPLOYEE") {
+                        navigation.navigate("EMPHome")
+                    } else {
+                        navigation.navigate("AdminHome")
+                    }
                 } else {
-                    navigation.navigate("AdminHome")
+                    navigation.navigate("SignIn")
                 }
-            } else {
-                navigation.navigate("SignIn")
-            }
 
-        }, 3000);
+            }, 3000);
+        } else {
+            // setLoading(false)
+            // showToast("error", "Lỗi hệ thống", res.message)
+            check403(res.error, navigation)
+        }
+    }
+    useEffect(() => {
+        checkTokenEx()
+
     }, [])
     return (
         <SafeAreaView style={styles.container}>

@@ -4,6 +4,40 @@ import axios from "axios";
 import { useNavigation } from '@react-navigation/core';
 
 
+export const checkToken = async () => {
+    let data = baseData
+    await axios({
+        method: "POST",
+        url: `${baseUrl}check-token?token=${await getToken()}`,
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: await getToken(),
+        },
+    })
+        .then(async (res) => {
+            if (res.status == 200) {
+                if (Object.values(res.data).length > 0) {
+                    data = {
+                        data: res.data,
+                        isLoading: false,
+                        status: "success",
+                        error: null
+                    };
+                    await _storeData("accessToken", res.data.accessToken);
+                }
+            }
+        })
+        .catch(async (error) => {
+            data = {
+                message: error.response.data.message,
+                isLoading: false,
+                status: "failed",
+                error: error
+            };
+        });
+    return data;
+}
 export const getToken = async () => {
     let token = await _retrieveData("accessToken")
     return token
