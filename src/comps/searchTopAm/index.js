@@ -93,7 +93,7 @@ const SearchTopAm = (props) => {
                         <TouchableOpacity
                             style={[styles.bg]}
                             disabled={props.loginInfo.roleType == "ROLE_COMPANY" ? false : true}
-                            onPress={() => { setShowMdItem(!showMdItem) }}
+                            onPress={() => { setShowMdItem(!showMdItem); setSearchMd(!searchMd) }}
                         >
                             <Text style={{ flex: 1 / 2, textAlign: "center", fontWeight: "bold", fontSize: fontScale(18) }}>Chọn chi nhánh</Text>
                             <Text style={{ flex: 1 / 2, textAlign: "center", fontSize: fontScale(16) }}>
@@ -107,7 +107,7 @@ const SearchTopAm = (props) => {
                         <TouchableOpacity
                             style={[styles.bg]}
                             disabled={props.loginInfo.roleType == "ROLE_LEADER" ? true : false}
-                            onPress={() => { setShowMdItem2(!showMdItem2) }}
+                            onPress={() => { setShowMdItem2(!showMdItem2); setSearchMd(!searchMd) }}
                         >
                             <Text style={{ flex: 1 / 2, textAlign: "center", fontWeight: "bold", fontSize: fontScale(18) }}>Chọn Khối</Text>
                             <Text style={{ flex: 1 / 2, textAlign: "center", fontSize: fontScale(16) }}>
@@ -134,7 +134,7 @@ const SearchTopAm = (props) => {
                 animationType="slide"
                 transparent={true}
             >
-                <TouchableOpacity style={{ flex: 1 / 2 }} onPress={() => { setShowMdItem(!showMdItem) }}></TouchableOpacity>
+                <TouchableOpacity style={{ flex: 1 / 2 }} onPress={() => { setShowMdItem(!showMdItem); setSearchMd(!searchMd) }}></TouchableOpacity>
                 <View style={{ flex: 1 / 2 }}>
                     <Body />
                     <View style={{ flex: 1, backgroundColor: "#fff" }}>
@@ -169,7 +169,7 @@ const SearchTopAm = (props) => {
                 animationType="slide"
                 transparent={true}
             >
-                <TouchableOpacity style={{ flex: 1 / 2 }} onPress={() => { setShowMdItem2(!showMdItem2) }}></TouchableOpacity>
+                <TouchableOpacity style={{ flex: 1 / 2 }} onPress={() => { setShowMdItem2(!showMdItem2); setSearchMd(!searchMd) }}></TouchableOpacity>
                 <View style={{ flex: 1 / 2 }}>
                     <Body />
                     <View style={{ flex: 1, backgroundColor: "#fff" }}>
